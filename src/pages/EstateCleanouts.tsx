@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { CheckCircle2, MapPin, MessageSquare, Phone } from 'lucide-react';
 
 export default function EstateCleanouts() {
+  useEffect(() => {
+    document.title = 'Estate Cleanouts | Goodlettsville, Hendersonville & North Nashville';
+
+    const metaDescription = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
+    const content =
+      'Compassionate estate cleanout services in Goodlettsville, Hendersonville and North Nashville. Fast full-property cleanouts for families, realtors and property managers.';
+
+    if (metaDescription) {
+      metaDescription.content = content;
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = content;
+      document.head.appendChild(meta);
+    }
+  }, []);
   const removals = [
     "Furniture",
     "Appliances",

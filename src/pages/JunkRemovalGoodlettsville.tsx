@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { CheckCircle2, MapPin, MessageSquare, Phone } from 'lucide-react';
 
 export default function JunkRemovalGoodlettsville() {
+  useEffect(() => {
+    document.title = 'Junk Removal in Goodlettsville TN | Reinhart Hauling';
+
+    const metaDescription = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
+    const content =
+      'Fast local junk removal in Goodlettsville TN. Furniture, appliances, garage junk, yard debris and household clutter hauled away.';
+
+    if (metaDescription) {
+      metaDescription.content = content;
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = content;
+      document.head.appendChild(meta);
+    }
+  }, []);
   const removals = [
     'Furniture',
     'Appliances',

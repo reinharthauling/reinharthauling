@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { CheckCircle2, MapPin, MessageSquare, Phone } from 'lucide-react';
 
 export default function EvictionCleanouts() {
+  useEffect(() => {
+    document.title = 'Eviction Cleanouts | Goodlettsville & North Nashville';
+
+    const metaDescription = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
+    const content =
+      'Fast eviction cleanout services for landlords and property managers in Goodlettsville, Hendersonville and North Nashville.';
+
+    if (metaDescription) {
+      metaDescription.content = content;
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = content;
+      document.head.appendChild(meta);
+    }
+  }, []);
   const removals = [
     "Furniture",
     "Mattresses",
