@@ -215,6 +215,14 @@ const HeroSteps = () => {
   return (
     <section className="py-8">
       <div className="max-w-3xl mx-auto px-6">
+        <div className="text-center mb-6 text-sm text-slate-500">
+          <p className="font-medium text-brand-navy">
+            Locally owned • Upfront pricing • Fast response
+          </p>
+          <p className="text-slate-500 mt-1">
+            Text photos for a quote in minutes.
+          </p>
+        </div>
         <div className="text-center mb-6 mt-10">
           <span className="inline-block px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[11px] font-bold uppercase tracking-[0.18em] mb-3">
             HOW IT WORKS
