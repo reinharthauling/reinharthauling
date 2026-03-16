@@ -145,6 +145,10 @@ const Hero = () => {
                 Call 615-200-0064
               </motion.a>
             </div>
+            <div className="mt-3 text-sm text-slate-500 text-center">
+              <p>⚡ Send photos — most quotes in 5 minutes</p>
+              <p className="text-slate-400">Call or Text: 615-200-0064</p>
+            </div>
           </motion.div>
         </div>
       </div>
@@ -199,6 +203,26 @@ const Hero = () => {
           {/* Large Abstract Shape */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-navy/5 rounded-full blur-3xl" />
         </motion.div>
+      </div>
+    </section>
+  );
+};
+
+const HeroSteps = () => {
+  return (
+    <section className="py-8">
+      <div className="max-w-3xl mx-auto px-6">
+        <div className="grid gap-4 sm:grid-cols-3 text-sm text-slate-600">
+          <div className="text-center">
+            <div className="font-semibold text-brand-navy mb-1">1. Text photos of the junk</div>
+          </div>
+          <div className="text-center">
+            <div className="font-semibold text-brand-navy mb-1">2. Get a fast quote</div>
+          </div>
+          <div className="text-center">
+            <div className="font-semibold text-brand-navy mb-1">3. We haul it away</div>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -1082,6 +1106,7 @@ const HomePage = () => {
   return (
     <SiteLayout>
       <Hero />
+      <HeroSteps />
       
       <motion.div
         initial={{ opacity: 0 }}
