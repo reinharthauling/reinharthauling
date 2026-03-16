@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
 import { 
   Truck, 
@@ -296,17 +296,17 @@ const Services = () => {
 
             if (s.title === "General Junk Removal") {
               return (
-                <a key={i} href="/junk-removal-goodlettsville" className="block">
+                <Link key={i} to="/junk-removal-goodlettsville" className="block">
                   {card}
-                </a>
+                </Link>
               );
             }
 
             if (s.title === "Estate Cleanouts") {
               return (
-                <a key={i} href="/estate-cleanouts" className="block">
+                <Link key={i} to="/estate-cleanouts" className="block">
                   {card}
-                </a>
+                </Link>
               );
             }
 
@@ -341,9 +341,9 @@ const Services = () => {
 
             if (s.title === "Eviction Cleanouts") {
               return (
-                <a key={i} href="/eviction-cleanouts" className="block">
+                <Link key={i} to="/eviction-cleanouts" className="block">
                   {card}
-                </a>
+                </Link>
               );
             }
 
