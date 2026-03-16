@@ -4,6 +4,7 @@
  */
 
 import React, { useState, useEffect, useRef } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
 import { 
   Truck, 
@@ -23,6 +24,7 @@ import {
   Zap,
   User
 } from 'lucide-react';
+import EstateCleanouts from './pages/EstateCleanouts.tsx';
 import EvictionCleanouts from './pages/EvictionCleanouts.tsx';
 
 // --- Components ---
@@ -1038,11 +1040,7 @@ const StickyActionFooter = () => {
 
 // --- Main App ---
 
-export default function App() {
-  if (typeof window !== 'undefined' && window.location.pathname === '/eviction-cleanouts') {
-    return <EvictionCleanouts />;
-  }
-
+const HomePage = () => {
   return (
     <div className="min-h-screen selection:bg-brand-orange selection:text-white">
       <AnimatedBackground />
@@ -1075,5 +1073,15 @@ export default function App() {
       <Footer />
       <StickyActionFooter />
     </div>
+  );
+};
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/estate-cleanouts" element={<EstateCleanouts />} />
+      <Route path="/eviction-cleanouts" element={<EvictionCleanouts />} />
+    </Routes>
   );
 }
