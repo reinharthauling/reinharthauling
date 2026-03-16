@@ -294,6 +294,14 @@ const Services = () => {
               </motion.div>
             );
 
+            if (s.title === "General Junk Removal") {
+              return (
+                <a key={i} href="/junk-removal-goodlettsville" className="block">
+                  {card}
+                </a>
+              );
+            }
+
             if (s.title === "Estate Cleanouts") {
               return (
                 <a key={i} href="/estate-cleanouts" className="block">
@@ -314,21 +322,33 @@ const Services = () => {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {specializedServices.map((s, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ y: -10 }}
-              className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
-            >
-              <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
-                {s.icon}
-              </div>
-              <div>
-                <h4 className="font-display text-xl font-bold text-brand-navy mb-2">{s.title}</h4>
-                <p className="text-slate-500 text-sm leading-relaxed">{s.desc}</p>
-              </div>
-            </motion.div>
-          ))}
+          {specializedServices.map((s, i) => {
+            const card = (
+              <motion.div
+                key={i}
+                whileHover={{ y: -10 }}
+                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+              >
+                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                  {s.icon}
+                </div>
+                <div>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">{s.title}</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">{s.desc}</p>
+                </div>
+              </motion.div>
+            );
+
+            if (s.title === "Eviction Cleanouts") {
+              return (
+                <a key={i} href="/eviction-cleanouts" className="block">
+                  {card}
+                </a>
+              );
+            }
+
+            return card;
+          })}
         </div>
       </div>
     </section>
