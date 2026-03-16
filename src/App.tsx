@@ -1061,34 +1061,14 @@ const StickyActionFooter = () => {
 
 // --- Main App ---
 
-const HomePage = () => {
+const SiteLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="min-h-screen selection:bg-brand-orange selection:text-white">
       <AnimatedBackground />
       <Navbar />
       
       <main>
-        <Hero />
-        
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          <ValueProps />
-        </motion.div>
-
-        <Services />
-        
-        <BeforeAfterSlider />
-        
-        <Testimonials />
-        
-        <ServiceAreas />
-        
-        <MeetTheOwner />
-        
-        <CTA />
+        {children}
       </main>
       
       <Footer />
@@ -1097,13 +1077,62 @@ const HomePage = () => {
   );
 };
 
+const HomePage = () => {
+  return (
+    <SiteLayout>
+      <Hero />
+      
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        <ValueProps />
+      </motion.div>
+
+      <Services />
+      
+      <BeforeAfterSlider />
+      
+      <Testimonials />
+      
+      <ServiceAreas />
+      
+      <MeetTheOwner />
+      
+      <CTA />
+    </SiteLayout>
+  );
+};
+
 export default function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/estate-cleanouts" element={<EstateCleanouts />} />
-      <Route path="/eviction-cleanouts" element={<EvictionCleanouts />} />
-      <Route path="/junk-removal-goodlettsville" element={<JunkRemovalGoodlettsville />} />
+      <Route
+        path="/estate-cleanouts"
+        element={
+          <SiteLayout>
+            <EstateCleanouts />
+          </SiteLayout>
+        }
+      />
+      <Route
+        path="/eviction-cleanouts"
+        element={
+          <SiteLayout>
+            <EvictionCleanouts />
+          </SiteLayout>
+        }
+      />
+      <Route
+        path="/junk-removal-goodlettsville"
+        element={
+          <SiteLayout>
+            <JunkRemovalGoodlettsville />
+          </SiteLayout>
+        }
+      />
     </Routes>
   );
 }
