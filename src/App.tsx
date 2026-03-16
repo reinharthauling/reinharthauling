@@ -117,10 +117,13 @@ const Hero = () => {
             <span className="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-bold uppercase tracking-widest mb-6">
               Middle Tennessee's #1 Junk Removal
             </span>
-            <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-8">
+            <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-4">
               Fast Junk Removal in <br />
               <span className="text-brand-orange">Nashville</span>
             </h1>
+            <p className="text-base lg:text-lg text-brand-orange font-semibold mb-4">
+              Same-Day Junk Removal Available
+            </p>
             <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl">
               Furniture, appliances, garage cleanouts, and full estate cleanouts. Text photos for a fast quote in minutes.
             </p>
