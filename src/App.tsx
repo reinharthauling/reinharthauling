@@ -126,22 +126,23 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <motion.button
+              <motion.a
+                href="sms:6152000064?body=Hi%20I%20need%20a%20junk%20removal%20quote"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="bg-brand-navy text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-brand-navy/30 flex items-center justify-center gap-3 group"
               >
-                Get a Free Quote
-                <ArrowRight className="group-hover:translate-x-1 transition-transform" />
-              </motion.button>
+                <MessageSquare className="text-brand-orange" />
+                Text Photos for Fast Quote
+              </motion.a>
               <motion.a
-                href="sms:6152000064"
+                href="tel:6152000064"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="bg-white border-2 border-slate-200 text-brand-navy px-8 py-4 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 hover:border-brand-orange transition-colors"
               >
-                <MessageSquare className="text-brand-orange" />
-                Text Photos for Quote
+                <Phone />
+                Call 615-200-0064
               </motion.a>
             </div>
           </motion.div>
