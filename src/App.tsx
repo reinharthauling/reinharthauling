@@ -26,6 +26,7 @@ import {
 } from 'lucide-react';
 import EstateCleanouts from './pages/EstateCleanouts.tsx';
 import EvictionCleanouts from './pages/EvictionCleanouts.tsx';
+import JunkRemovalGoodlettsville from './pages/JunkRemovalGoodlettsville.tsx';
 
 // --- Components ---
 
@@ -1102,6 +1103,7 @@ export default function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/estate-cleanouts" element={<EstateCleanouts />} />
       <Route path="/eviction-cleanouts" element={<EvictionCleanouts />} />
+      <Route path="/junk-removal-goodlettsville" element={<JunkRemovalGoodlettsville />} />
     </Routes>
   );
 }
