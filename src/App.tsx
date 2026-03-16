@@ -254,6 +254,15 @@ const Services = () => {
     { icon: <Trash2 />, title: "Yard Debris", desc: "Branches, brush, and organic waste removal to keep your yard pristine." }
   ];
 
+  const specializedServices = [
+    { icon: <Trash2 />, title: "Eviction Cleanouts", desc: "Fast property turnover cleanup for landlords and property managers." },
+    { icon: <Home />, title: "Foreclosure Cleanouts", desc: "Full-property junk removal and debris cleanup for distressed homes." },
+    { icon: <Warehouse />, title: "Rental Turnover Cleanouts", desc: "Quick cleanout service to get rental units ready for the next tenant." },
+    { icon: <Truck />, title: "Storage Unit Cleanouts", desc: "We empty storage units quickly and haul away unwanted contents." },
+    { icon: <Zap />, title: "Shed Demolition & Removal", desc: "Safe shed tear-down and removal, including leftover debris cleanup." },
+    { icon: <Trash2 />, title: "Full Property Cleanouts", desc: "Complete house, garage, attic, and outbuilding cleanouts for larger jobs." }
+  ];
+
   return (
     <section id="services" className="py-24 relative">
       <div className="max-w-7xl mx-auto px-6">
@@ -266,6 +275,31 @@ const Services = () => {
         
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((s, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ y: -10 }}
+              className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+            >
+              <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                {s.icon}
+              </div>
+              <div>
+                <h4 className="font-display text-xl font-bold text-brand-navy mb-2">{s.title}</h4>
+                <p className="text-slate-500 text-sm leading-relaxed">{s.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="text-center mb-20 mt-24">
+          <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">Specialized Cleanout Services</h2>
+          <p className="text-slate-600 max-w-2xl mx-auto text-lg">
+            We also handle larger and more involved cleanout jobs for families, landlords, and property owners.
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {specializedServices.map((s, i) => (
             <motion.div
               key={i}
               whileHover={{ y: -10 }}
