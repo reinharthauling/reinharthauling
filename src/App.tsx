@@ -220,6 +220,9 @@ const HeroSteps = () => {
             Locally owned • Upfront pricing • Fast response
           </p>
           <p className="text-slate-500 mt-1">
+            Serving Nashville, Hendersonville, Madison &amp; Goodlettsville
+          </p>
+          <p className="text-slate-500 mt-1">
             Text photos for a quote in minutes.
           </p>
         </div>
