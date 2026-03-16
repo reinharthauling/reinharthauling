@@ -213,6 +213,9 @@ const HeroSteps = () => {
     <section className="py-8">
       <div className="max-w-3xl mx-auto px-6">
         <div className="text-center mb-6 mt-10">
+          <span className="inline-block px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[11px] font-bold uppercase tracking-[0.18em] mb-3">
+            HOW IT WORKS
+          </span>
           <h2 className="font-display text-2xl lg:text-3xl font-bold text-brand-navy">
             Simple 3-Step Junk Removal
           </h2>
