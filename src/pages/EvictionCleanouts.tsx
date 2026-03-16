@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { CheckCircle2, MapPin, MessageSquare, Phone } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function EvictionCleanouts() {
   useEffect(() => {
@@ -170,6 +171,32 @@ export default function EvictionCleanouts() {
                   </a>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-10">
+              <h2 className="font-display text-3xl font-bold text-brand-navy mb-4">Related Services</h2>
+              <p className="text-slate-500">
+                Explore more estate and junk removal services in the area.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Link
+                to="/estate-cleanouts"
+                className="px-6 py-3 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
+              >
+                Estate Cleanouts
+              </Link>
+              <Link
+                to="/junk-removal-goodlettsville"
+                className="px-6 py-3 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
+              >
+                Junk Removal in Goodlettsville
+              </Link>
             </div>
           </div>
         </section>
