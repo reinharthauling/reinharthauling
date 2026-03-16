@@ -118,11 +118,11 @@ const Hero = () => {
               Middle Tennessee's #1 Junk Removal
             </span>
             <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-8">
-              Junk Gone, <br />
-              <span className="text-brand-orange">Stress Gone.</span>
+              Fast Junk Removal in <br />
+              <span className="text-brand-orange">Nashville</span>
             </h1>
             <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl">
-              Professional, reliable, and local. From single items to full estate cleanouts, we handle the heavy lifting so you don't have to.
+              Furniture, appliances, garage cleanouts, and full estate cleanouts. Text photos for a fast quote in minutes.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
