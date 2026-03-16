@@ -23,6 +23,7 @@ import {
   Zap,
   User
 } from 'lucide-react';
+import EvictionCleanouts from './pages/EvictionCleanouts.tsx';
 
 // --- Components ---
 
@@ -1038,6 +1039,10 @@ const StickyActionFooter = () => {
 // --- Main App ---
 
 export default function App() {
+  if (typeof window !== 'undefined' && window.location.pathname === '/eviction-cleanouts') {
+    return <EvictionCleanouts />;
+  }
+
   return (
     <div className="min-h-screen selection:bg-brand-orange selection:text-white">
       <AnimatedBackground />
