@@ -75,7 +75,7 @@ export default function EvictionCleanouts() {
                   >
                     <Phone />
                     Call 615-200-0064
-                  </motion_a>
+                  </motion.a>
                 </div>
                 <div className="mt-3 text-sm text-slate-500 text-center">
                   <p>⚡ Send photos — most quotes in 5 minutes</p>
