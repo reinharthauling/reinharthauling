@@ -212,6 +212,11 @@ const HeroSteps = () => {
   return (
     <section className="py-8">
       <div className="max-w-3xl mx-auto px-6">
+        <div className="text-center mb-6 mt-10">
+          <h2 className="font-display text-2xl lg:text-3xl font-bold text-brand-navy">
+            Simple 3-Step Junk Removal
+          </h2>
+        </div>
         <div className="grid gap-4 sm:grid-cols-3 text-sm text-slate-600">
           <div className="text-center">
             <div className="font-semibold text-brand-navy mb-1">1. Text photos of the junk</div>
