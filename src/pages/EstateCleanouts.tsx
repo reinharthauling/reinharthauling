@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 
 export default function EstateCleanouts() {
   useEffect(() => {
-    document.title = 'Estate Cleanouts | Goodlettsville, Hendersonville & North Nashville';
+    document.title = 'Estate Cleanouts in Nashville | Full Property Cleanouts';
 
     const metaDescription = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
     const content =
-      'Compassionate estate cleanout services in Goodlettsville, Hendersonville and North Nashville. Fast full-property cleanouts for families, realtors and property managers.';
+      'Full estate cleanout services for homes and inherited properties. Serving Nashville and surrounding areas.';
 
     if (metaDescription) {
       metaDescription.content = content;

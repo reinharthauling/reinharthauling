@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 
 export default function EvictionCleanouts() {
   useEffect(() => {
-    document.title = 'Eviction Cleanouts | Goodlettsville & North Nashville';
+    document.title = 'Eviction Cleanouts in Nashville | Fast Turnover Service';
 
     const metaDescription = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
     const content =
-      'Fast eviction cleanout services for landlords and property managers in Goodlettsville, Hendersonville and North Nashville.';
+      'Eviction cleanouts for landlords and property managers. Fast junk removal and property turnover service in Nashville.';
 
     if (metaDescription) {
       metaDescription.content = content;

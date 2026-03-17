@@ -1216,6 +1216,23 @@ const SiteLayout = ({ children }: { children: React.ReactNode }) => {
 };
 
 const HomePage = () => {
+  useEffect(() => {
+    document.title = 'Junk Removal in Nashville | Reinhart Hauling';
+
+    const metaDescription = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
+    const content =
+      'Fast junk removal in Nashville. Furniture, cleanouts, and same-day service. Text photos for a fast quote.';
+
+    if (metaDescription) {
+      metaDescription.content = content;
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = content;
+      document.head.appendChild(meta);
+    }
+  }, []);
+
   return (
     <SiteLayout>
       <Hero />

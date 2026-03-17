@@ -9,7 +9,7 @@ export default function JunkRemovalGoodlettsville() {
 
     const metaDescription = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
     const content =
-      'Fast local junk removal in Goodlettsville TN. Furniture, appliances, garage junk, yard debris and household clutter hauled away.';
+      'Local junk removal in Goodlettsville. Furniture, appliances, garage cleanouts, and more. Text photos for a fast quote.';
 
     if (metaDescription) {
       metaDescription.content = content;

@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 
 export default function GarageCleanouts() {
   useEffect(() => {
-    document.title = 'Garage Cleanouts | Goodlettsville & North Nashville';
+    document.title = 'Garage Cleanouts in Nashville | Reinhart Hauling';
 
     const metaDescription = document.querySelector('meta[name=\"description\"]') as HTMLMetaElement | null;
     const content =
-      'Garage cleanout services in Goodlettsville and North Nashville. Fast, local help clearing cluttered garages and storage spaces.';
+      'Garage cleanout services in Nashville. Remove clutter, furniture, tools, and junk. Fast quotes by text.';
 
     if (metaDescription) {
       metaDescription.content = content;
