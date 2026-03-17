@@ -376,6 +376,100 @@ const Services = () => {
             return card;
           })}
         </div>
+
+        <section className="py-24 pt-16">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="font-display text-3xl lg:text-4xl font-bold text-brand-navy mb-4">
+                More Junk Removal Services
+              </h2>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* General Junk Removal - linked */}
+              <Link to="/junk-removal-goodlettsville" className="block">
+                <motion.div
+                  whileHover={{ y: -10 }}
+                  className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+                >
+                  <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                    <Trash2 />
+                  </div>
+                  <div>
+                    <h4 className="font-display text-xl font-bold text-brand-navy mb-2">General Junk Removal</h4>
+                    <p className="text-slate-500 text-sm leading-relaxed">
+                      Household clutter, attic cleanouts, and general junk removal.
+                    </p>
+                  </div>
+                </motion.div>
+              </Link>
+
+              {/* Garage & Shed Cleanouts */}
+              <motion.div
+                whileHover={{ y: -10 }}
+                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+              >
+                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                  <Warehouse />
+                </div>
+                <div>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Garage &amp; Shed Cleanouts</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    Clean out garages, sheds, and storage spaces quickly and efficiently.
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Appliance & Furniture Removal */}
+              <motion.div
+                whileHover={{ y: -10 }}
+                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+              >
+                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                  <Truck />
+                </div>
+                <div>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Appliance &amp; Furniture Removal</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    Removal of couches, mattresses, appliances, and heavy household items.
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Hot Tub Removal */}
+              <motion.div
+                whileHover={{ y: -10 }}
+                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+              >
+                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                  <Zap />
+                </div>
+                <div>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Hot Tub Removal</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    Safe removal and disposal of old hot tubs and spa equipment.
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Yard Debris Removal */}
+              <motion.div
+                whileHover={{ y: -10 }}
+                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+              >
+                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                  <Trash2 />
+                </div>
+                <div>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Yard Debris Removal</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    Brush, branches, and outdoor debris cleared from your property.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
       </div>
     </section>
   );
