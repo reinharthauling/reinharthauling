@@ -1262,6 +1262,14 @@ export default function App() {
           </SiteLayout>
         }
       />
+      <Route
+        path="/landlordrentalcleanouts"
+        element={
+          <SiteLayout>
+            <LandlordRentalCleanouts />
+          </SiteLayout>
+        }
+      />
     </Routes>
   );
 }
