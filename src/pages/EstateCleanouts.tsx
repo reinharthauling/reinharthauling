@@ -197,10 +197,10 @@ export default function EstateCleanouts() {
 
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
-                to="/eviction-cleanouts"
+                to="/landlord-rental-cleanouts"
                 className="px-6 py-3 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
               >
-                Eviction Cleanouts
+                Landlord &amp; Rental Cleanouts
               </Link>
               <Link
                 to="/junk-removal-goodlettsville"
