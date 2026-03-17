@@ -78,14 +78,14 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md border-b border-slate-200 py-3' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-brand-navy rounded-lg flex items-center justify-center shadow-lg">
-            <Truck className="text-brand-orange w-6 h-6" />
-          </div>
-          <span className="font-display font-bold text-xl tracking-tight text-brand-navy">
-            REINHART <span className="text-brand-orange">HAULING</span>
-          </span>
-        </div>
+      <a href="/" className="flex items-center gap-2 cursor-pointer">
+  <div className="w-10 h-10 bg-brand-navy rounded-lg flex items-center justify-center shadow-lg">
+    <Truck className="text-brand-orange w-6 h-6" />
+  </div>
+  <span className="font-display font-bold text-xl tracking-tight text-brand-navy">
+    REINHART <span className="text-brand-orange">HAULING</span>
+  </span>
+</a>
         
         <div className="hidden md:flex items-center gap-8">
           <a href="#services" className="text-sm font-medium hover:text-brand-orange transition-colors">Services</a>
