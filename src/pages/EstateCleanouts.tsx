@@ -197,14 +197,20 @@ export default function EstateCleanouts() {
 
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
+                to="/eviction-cleanouts"
+                className="px-6 py-3 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
+              >
+                Eviction Cleanout Services in Nashville
+              </Link>
+              <Link
                 to="/landlord-rental-cleanouts"
                 className="px-6 py-3 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
               >
-                Landlord &amp; Rental Cleanouts
+                Landlord &amp; Rental Property Cleanouts
               </Link>
               <Link
                 to="/junk-removal-goodlettsville"
-                className="px-6 py-3 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
+                className="px-6 py-3 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover;border-brand-orange transition-colors text-center"
               >
                 Junk Removal in Goodlettsville
               </Link>
