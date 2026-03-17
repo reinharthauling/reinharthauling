@@ -115,7 +115,7 @@ const Hero = () => {
             transition={{ duration: 0.6 }}
           >
             <span className="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-bold uppercase tracking-widest mb-6">
-              Middle Tennessee's #1 Junk Removal
+              LOCAL • FAST • SAME-DAY SERVICE
             </span>
             <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-4">
               Fast Junk Removal in <br />
@@ -149,7 +149,7 @@ const Hero = () => {
               </motion.a>
             </div>
             <div className="mt-3 text-sm text-slate-500 text-center">
-              <p>⚡ Send photos — most quotes in 5 minutes</p>
+              <p>⚡ Text photos — most quotes in 5 minutes</p>
               <p className="text-slate-400">Call or Text: 615-200-0064</p>
             </div>
           </motion.div>
