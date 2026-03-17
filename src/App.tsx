@@ -122,10 +122,10 @@ const Hero = () => {
               <span className="text-brand-orange">Nashville</span>
             </h1>
             <p className="text-base lg:text-lg text-brand-orange font-semibold mb-4">
-              Same-Day Junk Removal Available
+              Tect Photos for a Fast Quote
             </p>
             <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl">
-              Furniture, appliances, garage cleanouts, and full estate cleanouts. Text photos for a fast quote in minutes.
+              Furniture, appliances, garage cleanouts, eviction cleanouts,and full estate cleanouts. Text photos and get a fast quote in minutes.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
@@ -136,7 +136,7 @@ const Hero = () => {
                 className="bg-brand-navy text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-brand-navy/30 flex items-center justify-center gap-3 group"
               >
                 <MessageSquare className="text-brand-orange" />
-                Text Photos for Fast Quote
+                Text Photos for a Fast Quote
               </motion.a>
               <motion.a
                 href="tel:6152000064"
