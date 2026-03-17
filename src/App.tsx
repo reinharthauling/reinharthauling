@@ -122,7 +122,7 @@ const Hero = () => {
               <span className="text-brand-orange">Nashville</span>
             </h1>
             <p className="text-base lg:text-lg text-brand-orange font-semibold mb-4">
-              Tect Photos for a Fast Quote
+              Text Photos for a Fast Quote
             </p>
             <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl">
               Furniture, appliances, garage cleanouts, eviction cleanouts, and full estate cleanouts. Text photos and get a fast quote in minutes.

@@ -81,7 +81,7 @@ export default function EstateCleanouts() {
                   </motion.a>
                 </div>
                 <div className="mt-3 text-sm text-slate-500 text-center">
-                  <p>⚡ Send photos — most quotes in 5 minutes</p>
+                  <p>⚡ Text photos — most quotes in 5 minutes</p>
                   <p className="text-slate-400">Call or Text: 615-200-0064</p>
                 </div>
               </motion.div>
