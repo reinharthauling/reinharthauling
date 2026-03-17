@@ -20,18 +20,8 @@ export default function EstateCleanouts() {
       document.head.appendChild(meta);
     }
   }, []);
-  const removals = [
-    "Furniture",
-    "Appliances",
-    "Mattresses",
-    "Household clutter",
-    "Garage items",
-    "Storage boxes",
-    "Yard debris",
-  ];
-
   const steps = [
-    "Call or text photos for a fast quote",
+    "Text photos for a fast quote",
     "Schedule a pickup time",
     "We remove everything quickly and responsibly",
   ];
@@ -47,17 +37,15 @@ export default function EstateCleanouts() {
                 transition={{ duration: 0.6 }}
               >
                 <span className="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-bold uppercase tracking-widest mb-6">
-                  Estate Cleanout Specialists
+                  FULL PROPERTY CLEANOUTS
                 </span>
                 <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-8">
                   Estate Cleanouts in <br />
-                  <span className="text-brand-orange">Goodlettsville, Hendersonville &amp; North Nashville</span>
+                  <span className="text-brand-orange">Goodlettsville &amp; North Nashville</span>
                 </h1>
                 <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl">
-                  Reinhart Hauling provides compassionate and efficient estate cleanout services for families,
-                  realtors, attorneys, and property managers. We help clear entire homes, garages, attics, and
-                  storage areas when a property needs to be prepared for sale or cleaned out after a loved one
-                  passes.
+                  Reinhart Hauling provides full and partial estate cleanout services for homes and inherited
+                  properties. We handle furniture, belongings, and unwanted items so you can focus on what matters.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -92,27 +80,101 @@ export default function EstateCleanouts() {
         <section className="py-24 relative">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-20">
-              <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">What We Remove</h2>
+              <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">
+                Common Estate Cleanout Situations
+              </h2>
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {removals.map((item) => (
-                <motion.div
-                  key={item}
-                  whileHover={{ y: -10 }}
-                  className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
-                >
-                  <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
-                    <CheckCircle2 />
-                  </div>
-                  <div>
-                    <h4 className="font-display text-xl font-bold text-brand-navy mb-2">{item}</h4>
-                    <p className="text-slate-500 text-sm leading-relaxed">
-                      Removal, hauling, and responsible disposal or donation when possible.
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
+              <motion.div
+                whileHover={{ y: -10 }}
+                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+              >
+                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                  <CheckCircle2 />
+                </div>
+                <div>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Full Home Cleanouts</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    Complete cleanouts for entire homes, including all rooms, garages, and storage areas.
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ y: -10 }}
+                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+              >
+                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                  <CheckCircle2 />
+                </div>
+                <div>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Inherited Property Cleanouts</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    We help clear out homes after inheritance or family transitions.
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ y: -10 }}
+                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+              >
+                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                  <CheckCircle2 />
+                </div>
+                <div>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Downsizing &amp; Moving</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    Removal of furniture and belongings during downsizing or relocation.
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ y: -10 }}
+                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+              >
+                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                  <CheckCircle2 />
+                </div>
+                <div>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Garage &amp; Storage Areas</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    Cleanout of garages, sheds, basements, and storage spaces.
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ y: -10 }}
+                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+              >
+                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                  <CheckCircle2 />
+                </div>
+                <div>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Furniture &amp; Household Items</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    Removal of couches, beds, tables, and general household items.
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ y: -10 }}
+                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+              >
+                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                  <CheckCircle2 />
+                </div>
+                <div>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Unwanted Items &amp; Debris</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    We remove leftover junk, clutter, and items that are no longer needed.
+                  </p>
+                </div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -152,9 +214,8 @@ export default function EstateCleanouts() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">Areas We Serve</h2>
-              <p className="text-slate-500 max-w-3xl mx-auto">
-                Goodlettsville, Hendersonville, Madison, East Nashville, Gallatin, Springfield and surrounding
-                Middle Tennessee communities.
+              <p className="text-slate-500 max-w-3xl mx_auto">
+                Serving Goodlettsville, Nashville, Hendersonville, Madison, and surrounding areas.
               </p>
             </div>
 
@@ -197,22 +258,22 @@ export default function EstateCleanouts() {
 
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
-                to="/eviction-cleanouts"
+                to="/junk-removal-goodlettsville"
                 className="px-6 py-3 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
               >
-                Eviction Cleanout Services in Nashville
+                Junk Removal in Goodlettsville
+              </Link>
+              <Link
+                to="/estate-cleanouts"
+                className="px-6 py-3 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
+              >
+                Garage Cleanouts
               </Link>
               <Link
                 to="/landlord-rental-cleanouts"
-                className="px-6 py-3 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
-              >
-                Landlord &amp; Rental Property Cleanouts
-              </Link>
-              <Link
-                to="/junk-removal-goodlettsville"
                 className="px-6 py-3 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover;border-brand-orange transition-colors text-center"
               >
-                Junk Removal in Goodlettsville
+                Landlord &amp; Rental Cleanouts
               </Link>
             </div>
           </div>
