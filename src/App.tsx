@@ -28,6 +28,7 @@ import EstateCleanouts from './pages/EstateCleanouts.tsx';
 import EvictionCleanouts from './pages/EvictionCleanouts.tsx';
 import JunkRemovalGoodlettsville from './pages/JunkRemovalGoodlettsville.tsx';
 import LandlordRentalCleanouts from './pages/LandlordRentalCleanouts.tsx';
+import ScrollToTop from './ScrollToTop.tsx';
 
 // --- Components ---
 
@@ -1236,48 +1237,51 @@ const HomePage = () => {
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route
-        path="/estate-cleanouts"
-        element={
-          <SiteLayout>
-            <EstateCleanouts />
-          </SiteLayout>
-        }
-      />
-      <Route
-        path="/eviction-cleanouts"
-        element={
-          <SiteLayout>
-            <EvictionCleanouts />
-          </SiteLayout>
-        }
-      />
-      <Route
-        path="/junk-removal-goodlettsville"
-        element={
-          <SiteLayout>
-            <JunkRemovalGoodlettsville />
-          </SiteLayout>
-        }
-      />
-      <Route
-        path="/landlord-rental-cleanouts"
-        element={
-          <SiteLayout>
-            <LandlordRentalCleanouts />
-          </SiteLayout>
-        }
-      />
-      <Route
-        path="/landlordrentalcleanouts"
-        element={
-          <SiteLayout>
-            <LandlordRentalCleanouts />
-          </SiteLayout>
-        }
-      />
-    </Routes>
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/estate-cleanouts"
+          element={
+            <SiteLayout>
+              <EstateCleanouts />
+            </SiteLayout>
+          }
+        />
+        <Route
+          path="/eviction-cleanouts"
+          element={
+            <SiteLayout>
+              <EvictionCleanouts />
+            </SiteLayout>
+          }
+        />
+        <Route
+          path="/junk-removal-goodlettsville"
+          element={
+            <SiteLayout>
+              <JunkRemovalGoodlettsville />
+            </SiteLayout>
+          }
+        />
+        <Route
+          path="/landlord-rental-cleanouts"
+          element={
+            <SiteLayout>
+              <LandlordRentalCleanouts />
+            </SiteLayout>
+          }
+        />
+        <Route
+          path="/landlordrentalcleanouts"
+          element={
+            <SiteLayout>
+              <LandlordRentalCleanouts />
+            </SiteLayout>
+          }
+        />
+      </Routes>
+    </>
   );
 }
