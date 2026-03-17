@@ -264,7 +264,7 @@ export default function EstateCleanouts() {
                 Junk Removal in Goodlettsville
               </Link>
               <Link
-                to="/estate-cleanouts"
+                to="/garage-cleanouts"
                 className="px-6 py-3 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
               >
                 Garage Cleanouts

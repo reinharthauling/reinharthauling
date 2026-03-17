@@ -384,6 +384,14 @@ const Services = () => {
               );
             }
 
+            if (s.title === "Garage Cleanouts") {
+              return (
+                <Link key={i} to="/garage-cleanouts" className="block">
+                  {card}
+                </Link>
+              );
+            }
+
             return card;
           })}
         </div>
