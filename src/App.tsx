@@ -27,6 +27,7 @@ import {
 import EstateCleanouts from './pages/EstateCleanouts.tsx';
 import EvictionCleanouts from './pages/EvictionCleanouts.tsx';
 import JunkRemovalGoodlettsville from './pages/JunkRemovalGoodlettsville.tsx';
+import LandlordRentalCleanouts from './pages/LandlordRentalCleanouts.tsx';
 
 // --- Components ---
 
@@ -1250,6 +1251,14 @@ export default function App() {
         element={
           <SiteLayout>
             <JunkRemovalGoodlettsville />
+          </SiteLayout>
+        }
+      />
+      <Route
+        path="/landlord-rental-cleanouts"
+        element={
+          <SiteLayout>
+            <LandlordRentalCleanouts />
           </SiteLayout>
         }
       />
