@@ -310,8 +310,8 @@ const Services = () => {
     },
     { 
       icon: <Warehouse />, 
-      title: "Rental Property Cleanouts", 
-      desc: "Junk removal for move-outs, abandoned items, and property prep." 
+      title: "Landlord & Rental Cleanouts", 
+      desc: "Cleanouts for move-outs, evictions, and getting rentals ready for the next tenant." 
     },
     { 
       icon: <Warehouse />, 
@@ -369,6 +369,14 @@ const Services = () => {
             if (s.title === "Eviction Cleanouts") {
               return (
                 <Link key={i} to="/eviction-cleanouts" className="block">
+                  {card}
+                </Link>
+              );
+            }
+
+            if (s.title === "Landlord & Rental Cleanouts") {
+              return (
+                <Link key={i} to="/landlord-rental-cleanouts" className="block">
                   {card}
                 </Link>
               );
