@@ -20,16 +20,6 @@ export default function JunkRemovalGoodlettsville() {
       document.head.appendChild(meta);
     }
   }, []);
-  const removals = [
-    'Furniture',
-    'Appliances',
-    'Mattresses',
-    'Garage junk',
-    'Yard debris',
-    'Construction debris',
-    'General household clutter',
-  ];
-
   const reasons = [
     'Local small business',
     'Fast scheduling',
@@ -48,16 +38,13 @@ export default function JunkRemovalGoodlettsville() {
                 transition={{ duration: 0.6 }}
               >
                 <span className="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-bold uppercase tracking-widest mb-6">
-                  Junk Removal Specialists
+                  LOCAL JUNK REMOVAL
                 </span>
                 <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-8">
-                  Junk Removal in <br />
-                  <span className="text-brand-orange">Goodlettsville TN</span>
+                  Junk Removal in Goodlettsville
                 </h1>
                 <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl">
-                  Reinhart Hauling provides fast and affordable junk removal services in Goodlettsville and surrounding
-                  areas. We remove furniture, appliances, mattresses, garage clutter, yard debris, and general
-                  household junk.
+                  Reinhart Hauling provides fast junk removal in Goodlettsville for furniture, appliances, garage cleanouts, yard debris, and general household clutter. Text photos for a fast quote and quick scheduling.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -93,35 +80,100 @@ export default function JunkRemovalGoodlettsville() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-20">
               <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">
-                Common Cleanout Situations
+                Common Junk Removal Jobs
               </h2>
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                'Tenant Left Junk Behind',
-                'Eviction Cleanouts',
-                'Rental Turnovers',
-                'Full Property Cleanouts',
-                'Abandoned Items',
-                'Heavy Furniture & Appliances',
-              ].map((item) => (
-                <motion.div
-                  key={item}
-                  whileHover={{ y: -10 }}
-                  className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
-                >
-                  <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
-                    <CheckCircle2 />
-                  </div>
-                  <div>
-                    <h4 className="font-display text-xl font-bold text-brand-navy mb-2">{item}</h4>
-                    <p className="text-slate-500 text-sm leading-relaxed">
-                      Practical cleanout help so you can get the space back to normal quickly.
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
+              <motion.div
+                whileHover={{ y: -10 }}
+                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+              >
+                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                  <CheckCircle2 />
+                </div>
+                <div>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Furniture Removal</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    Couches, chairs, tables, dressers, and other bulky household items.
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ y: -10 }}
+                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+              >
+                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                  <CheckCircle2 />
+                </div>
+                <div>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Appliance Removal</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    Washers, dryers, refrigerators, stoves, and unwanted appliances.
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ y: -10 }}
+                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+              >
+                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                  <CheckCircle2 />
+                </div>
+                <div>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Garage Cleanouts</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    Old tools, storage clutter, boxes, shelving, and unwanted junk.
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ y: -10 }}
+                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+              >
+                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                  <CheckCircle2 />
+                </div>
+                <div>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Yard Debris</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    Brush, branches, bagged yard waste, and outdoor cleanup debris.
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ y: -10 }}
+                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+              >
+                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                  <CheckCircle2 />
+                </div>
+                <div>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Mattress Removal</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    Old mattresses, box springs, bed frames, and bedroom furniture.
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ y: -10 }}
+                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+              >
+                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                  <CheckCircle2 />
+                </div>
+                <div>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">General Household Junk</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    Boxes, bags, misc items, attic clutter, and everyday junk removal.
+                  </p>
+                </div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -159,8 +211,7 @@ export default function JunkRemovalGoodlettsville() {
             <div className="text-center mb-16">
               <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">Areas We Serve</h2>
               <p className="text-slate-500 max-w-3xl mx-auto">
-                Goodlettsville, Hendersonville, Madison, East Nashville, Gallatin, Springfield, White House, and
-                surrounding Middle Tennessee communities.
+                Serving Goodlettsville, Hendersonville, Madison, Nashville, and nearby areas.
               </p>
             </div>
 
