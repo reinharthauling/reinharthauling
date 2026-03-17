@@ -297,21 +297,36 @@ const ValueProps = () => {
 
 const Services = () => {
   const services = [
-    { icon: <Trash2 />, title: "General Junk Removal", desc: "Household clutter, attic cleanouts, and miscellaneous debris." },
-    { icon: <Warehouse />, title: "Garage & Shed Cleanouts", desc: "Reclaim your space. We empty garages and offer minor demo for old sheds." },
-    { icon: <Home />, title: "Estate Cleanouts", desc: "Compassionate and efficient removal for entire properties and estate transitions." },
-    { icon: <Truck />, title: "Appliance & Furniture", desc: "Refrigerators, washers, couches, mattresses, and heavy furniture." },
-    { icon: <Zap />, title: "Hot Tub Removal", desc: "Specialized removal and disposal of old hot tubs and spa equipment." },
-    { icon: <Trash2 />, title: "Yard Debris", desc: "Branches, brush, and organic waste removal to keep your yard pristine." }
-  ];
-
-  const specializedServices = [
-    { icon: <Trash2 />, title: "Eviction Cleanouts", desc: "Fast property turnover cleanup for landlords and property managers." },
-    { icon: <Home />, title: "Foreclosure Cleanouts", desc: "Full-property junk removal and debris cleanup for distressed homes." },
-    { icon: <Warehouse />, title: "Rental Turnover Cleanouts", desc: "Quick cleanout service to get rental units ready for the next tenant." },
-    { icon: <Truck />, title: "Storage Unit Cleanouts", desc: "We empty storage units quickly and haul away unwanted contents." },
-    { icon: <Zap />, title: "Shed Demolition & Removal", desc: "Safe shed tear-down and removal, including leftover debris cleanup." },
-    { icon: <Trash2 />, title: "Full Property Cleanouts", desc: "Complete house, garage, attic, and outbuilding cleanouts for larger jobs." }
+    { 
+      icon: <Home />, 
+      title: "Estate Cleanouts", 
+      desc: "Full and partial cleanouts for homes, estates, and inherited properties." 
+    },
+    { 
+      icon: <Trash2 />, 
+      title: "Eviction Cleanouts", 
+      desc: "Fast cleanout help for landlords, property managers, and rental turnovers." 
+    },
+    { 
+      icon: <Warehouse />, 
+      title: "Rental Property Cleanouts", 
+      desc: "Junk removal for move-outs, abandoned items, and property prep." 
+    },
+    { 
+      icon: <Warehouse />, 
+      title: "Garage Cleanouts", 
+      desc: "Clear out tools, storage clutter, old furniture, and unwanted junk." 
+    },
+    { 
+      icon: <Warehouse />, 
+      title: "Storage Unit Cleanouts", 
+      desc: "Quick help emptying storage units, leftover items, and bulky debris." 
+    },
+    { 
+      icon: <Truck />, 
+      title: "Appliance & Furniture Removal", 
+      desc: "We remove heavy furniture, appliances, mattresses, and household junk." 
+    }
   ];
 
   return (
@@ -342,14 +357,6 @@ const Services = () => {
               </motion.div>
             );
 
-            if (s.title === "General Junk Removal") {
-              return (
-                <Link key={i} to="/junk-removal-goodlettsville" className="block">
-                  {card}
-                </Link>
-              );
-            }
-
             if (s.title === "Estate Cleanouts") {
               return (
                 <Link key={i} to="/estate-cleanouts" className="block">
@@ -357,35 +364,6 @@ const Services = () => {
                 </Link>
               );
             }
-
-            return card;
-          })}
-        </div>
-
-        <div className="text-center mb-20 mt-24">
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">Specialized Cleanout Services</h2>
-          <p className="text-slate-600 max-w-2xl mx-auto text-lg">
-            We also handle larger and more involved cleanout jobs for families, landlords, and property owners.
-          </p>
-        </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {specializedServices.map((s, i) => {
-            const card = (
-              <motion.div
-                key={i}
-                whileHover={{ y: -10 }}
-                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
-              >
-                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
-                  {s.icon}
-                </div>
-                <div>
-                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">{s.title}</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed">{s.desc}</p>
-                </div>
-              </motion.div>
-            );
 
             if (s.title === "Eviction Cleanouts") {
               return (
