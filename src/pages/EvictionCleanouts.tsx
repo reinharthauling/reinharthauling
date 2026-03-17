@@ -20,17 +20,8 @@ export default function EvictionCleanouts() {
       document.head.appendChild(meta);
     }
   }, []);
-  const removals = [
-    "Furniture",
-    "Mattresses",
-    "Trash and debris",
-    "Appliances",
-    "Household junk",
-    "Storage items",
-  ];
-
   const steps = [
-    "Text photos for a quote",
+    "Text photos for a fast quote",
     "Schedule a removal time",
     "We haul everything away",
   ];
@@ -46,7 +37,7 @@ export default function EvictionCleanouts() {
                 transition={{ duration: 0.6 }}
               >
                 <span className="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-bold uppercase tracking-widest mb-6">
-                  Fast Turnover Cleanouts
+                  FAST TURNOVER CLEANOUTS
                 </span>
                 <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-8">
                   Eviction Cleanouts in <br />
@@ -89,27 +80,101 @@ export default function EvictionCleanouts() {
         <section className="py-24 relative">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-20">
-              <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">What We Remove</h2>
+              <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">
+                Common Cleanout Situations
+              </h2>
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {removals.map((item) => (
-                <motion.div
-                  key={item}
-                  whileHover={{ y: -10 }}
-                  className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
-                >
-                  <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
-                    <CheckCircle2 />
-                  </div>
-                  <div>
-                    <h4 className="font-display text-xl font-bold text-brand-navy mb-2">{item}</h4>
-                    <p className="text-slate-500 text-sm leading-relaxed">
-                      Removal, hauling, and responsible disposal or donation when possible.
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
+              <motion.div
+                whileHover={{ y: -10 }}
+                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+              >
+                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                  <CheckCircle2 />
+                </div>
+                <div>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Tenant Left Junk Behind</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    We remove leftover furniture, trash, and abandoned items after move-outs.
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ y: -10 }}
+                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+              >
+                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                  <CheckCircle2 />
+                </div>
+                <div>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Eviction Trash-Outs</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    Fast cleanout help to clear units after evictions and property vacancies.
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ y: -10 }}
+                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+              >
+                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                  <CheckCircle2 />
+                </div>
+                <div>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Rental Turnovers</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    Quick cleanouts to help get your property ready for repairs or the next tenant.
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ y: -10 }}
+                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+              >
+                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                  <CheckCircle2 />
+                </div>
+                <div>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Full Unit Cleanouts</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    From single rooms to full apartments or homes, we clear it all.
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ y: -10 }}
+                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+              >
+                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                  <CheckCircle2 />
+                </div>
+                <div>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Heavy Items &amp; Appliances</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    We remove couches, mattresses, appliances, and bulky debris.
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ y: -10 }}
+                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+              >
+                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                  <CheckCircle2 />
+                </div>
+                <div>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Garage, Storage &amp; Overflow</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    We clear garages, storage areas, and extra junk left behind on the property.
+                  </p>
+                </div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -146,7 +211,7 @@ export default function EvictionCleanouts() {
             <div className="text-center mb-16">
               <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">Service Areas</h2>
               <p className="text-slate-500 max-w-3xl mx-auto">
-                Goodlettsville, Hendersonville, Madison, East Nashville, Gallatin and surrounding areas.
+                Serving Goodlettsville, Nashville, Hendersonville, Madison, and surrounding areas.
               </p>
             </div>
 
