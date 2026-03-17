@@ -29,7 +29,7 @@ export default function JunkRemovalGoodlettsville() {
 
   return (
     <>
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-white">
           <div className="max-w-7xl mx-auto px-6">
             <div className="max-w-3xl">
               <motion.div
