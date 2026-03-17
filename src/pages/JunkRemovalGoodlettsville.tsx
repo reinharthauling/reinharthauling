@@ -92,11 +92,20 @@ export default function JunkRemovalGoodlettsville() {
         <section className="py-24 relative">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-20">
-              <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">What We Remove</h2>
+              <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">
+                Common Cleanout Situations
+              </h2>
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {removals.map((item) => (
+              {[
+                'Tenant Left Junk Behind',
+                'Eviction Cleanouts',
+                'Rental Turnovers',
+                'Full Property Cleanouts',
+                'Abandoned Items',
+                'Heavy Furniture & Appliances',
+              ].map((item) => (
                 <motion.div
                   key={item}
                   whileHover={{ y: -10 }}
@@ -108,7 +117,7 @@ export default function JunkRemovalGoodlettsville() {
                   <div>
                     <h4 className="font-display text-xl font-bold text-brand-navy mb-2">{item}</h4>
                     <p className="text-slate-500 text-sm leading-relaxed">
-                      Removal, hauling, and responsible disposal or donation when possible.
+                      Practical cleanout help so you can get the space back to normal quickly.
                     </p>
                   </div>
                 </motion.div>
