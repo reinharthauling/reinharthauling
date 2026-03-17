@@ -420,7 +420,7 @@ const Services = () => {
                 </div>
               </motion.div>
 
-              {/* Appliance & Furniture Removal */}
+              {/* Light Demolition */}
               <motion.div
                 whileHover={{ y: -10 }}
                 className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
@@ -429,9 +429,9 @@ const Services = () => {
                   <Truck />
                 </div>
                 <div>
-                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Appliance &amp; Furniture Removal</h4>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Light Demolition</h4>
                   <p className="text-slate-500 text-sm leading-relaxed">
-                    Removal of couches, mattresses, appliances, and heavy household items.
+                    Small demo jobs like sheds, decks, and interior tear-outs before cleanout.
                   </p>
                 </div>
               </motion.div>
