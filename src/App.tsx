@@ -125,7 +125,7 @@ const Hero = () => {
               Tect Photos for a Fast Quote
             </p>
             <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl">
-              Furniture, appliances, garage cleanouts, eviction cleanouts,and full estate cleanouts. Text photos and get a fast quote in minutes.
+              Furniture, appliances, garage cleanouts, eviction cleanouts, and full estate cleanouts. Text photos and get a fast quote in minutes.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
