@@ -9,7 +9,7 @@ export default function EstateCleanouts() {
   const steps = [
     "Text photos for a fast quote",
     "Schedule a pickup time",
-    "We remove everything quickly and responsibly",
+    "We clear the entire property and handle disposal",
   ];
 
   return (
@@ -37,9 +37,16 @@ export default function EstateCleanouts() {
                   Estate Cleanouts in <br />
                   <span className="text-brand-orange">Goodlettsville &amp; North Nashville</span>
                 </h1>
+                <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 max-w-2xl">
+                  Full-service estate cleanout services for homes, inherited properties, and family transitions. We
+                  handle everything—furniture, belongings, and debris—so you don’t have to.
+                </p>
+
                 <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl">
-                  Reinhart Hauling provides full and partial estate cleanout services for homes and inherited
-                  properties. We handle furniture, belongings, and unwanted items so you can focus on what matters.
+                  Looking for a reliable estate cleanout company in Goodlettsville or North Nashville? We
+                  specialize in full estate cleanout services, including house cleanouts after death, inherited
+                  property cleanouts, and complete property cleanouts. Whether you're preparing a home for sale or
+                  clearing out years of belongings, we handle the entire process from start to finish.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -63,8 +70,9 @@ export default function EstateCleanouts() {
                   </motion.a>
                 </div>
                 <div className="mt-3 text-sm text-slate-500 text-center">
-                  <p>⚡ Text photos — most quotes in 5 minutes</p>
-                  <p className="text-slate-400">Call or Text: 615-200-0064</p>
+                  <p>✔ Same-day &amp; next-day availability</p>
+                  <p>✔ Discreet, respectful service</p>
+                  <p className="text-slate-400">✔ Most quotes in 5 minutes via text</p>
                 </div>
               </motion.div>
             </div>
@@ -75,7 +83,7 @@ export default function EstateCleanouts() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-20">
               <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">
-                Common Estate Cleanout Situations
+                Estate Cleanout Services We Handle
               </h2>
             </div>
 
@@ -88,9 +96,9 @@ export default function EstateCleanouts() {
                   <CheckCircle2 />
                 </div>
                 <div>
-                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Full Home Cleanouts</h4>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Full Property Cleanouts</h4>
                   <p className="text-slate-500 text-sm leading-relaxed">
-                    Complete cleanouts for entire homes, including all rooms, garages, and storage areas.
+                    Complete estate cleanouts for entire homes, including all rooms, garages, and storage areas.
                   </p>
                 </div>
               </motion.div>
@@ -103,9 +111,9 @@ export default function EstateCleanouts() {
                   <CheckCircle2 />
                 </div>
                 <div>
-                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Inherited Property Cleanouts</h4>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Inherited Home Cleanouts</h4>
                   <p className="text-slate-500 text-sm leading-relaxed">
-                    We help clear out homes after inheritance or family transitions.
+                    We help families clear inherited properties quickly and respectfully.
                   </p>
                 </div>
               </motion.div>
@@ -118,9 +126,9 @@ export default function EstateCleanouts() {
                   <CheckCircle2 />
                 </div>
                 <div>
-                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Downsizing &amp; Moving</h4>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">House Cleanouts After Death</h4>
                   <p className="text-slate-500 text-sm leading-relaxed">
-                    Removal of furniture and belongings during downsizing or relocation.
+                    Compassionate, discreet cleanout services during difficult times.
                   </p>
                 </div>
               </motion.div>
@@ -133,9 +141,9 @@ export default function EstateCleanouts() {
                   <CheckCircle2 />
                 </div>
                 <div>
-                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Garage &amp; Storage Areas</h4>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Downsizing &amp; Moving Cleanouts</h4>
                   <p className="text-slate-500 text-sm leading-relaxed">
-                    Cleanout of garages, sheds, basements, and storage spaces.
+                    Remove excess belongings before a move or transition.
                   </p>
                 </div>
               </motion.div>
@@ -148,9 +156,9 @@ export default function EstateCleanouts() {
                   <CheckCircle2 />
                 </div>
                 <div>
-                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Furniture &amp; Household Items</h4>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Garage, Basement &amp; Storage Cleanouts</h4>
                   <p className="text-slate-500 text-sm leading-relaxed">
-                    Removal of couches, beds, tables, and general household items.
+                    Clear out packed storage areas and long-term clutter.
                   </p>
                 </div>
               </motion.div>
@@ -163,12 +171,33 @@ export default function EstateCleanouts() {
                   <CheckCircle2 />
                 </div>
                 <div>
-                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Unwanted Items &amp; Debris</h4>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Furniture &amp; Bulk Item Removal</h4>
                   <p className="text-slate-500 text-sm leading-relaxed">
-                    We remove leftover junk, clutter, and items that are no longer needed.
+                    Removal of couches, beds, appliances, and large household items.
                   </p>
                 </div>
               </motion.div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-24 bg-white">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">
+                Why Choose Reinhart Hauling for Estate Cleanouts?
+              </h2>
+              <p className="text-slate-500 max-w-2xl mx-auto">
+                We understand estate cleanouts can be overwhelming. Our team handles the entire process with
+                professionalism, speed, and respect. Whether you're dealing with an inherited property, preparing a
+                home for sale, or managing a difficult situation, we make it simple.
+              </p>
+              <div className="max-w-2xl mx-auto mt-8 space-y-2 text-left text-slate-600">
+                <p>Fast scheduling and turnaround</p>
+                <p>No hidden fees or surprises</p>
+                <p>Local, reliable service in Goodlettsville and North Nashville</p>
+                <p>One call handles everything</p>
+              </div>
             </div>
           </div>
         </section>
@@ -258,10 +287,10 @@ export default function EstateCleanouts() {
                 Junk Removal in Goodlettsville
               </Link>
               <Link
-                to="/garage-cleanouts"
+                to="/eviction-cleanouts"
                 className="px-6 py-3 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
               >
-                Garage Cleanouts
+                Eviction Cleanouts
               </Link>
               <Link
                 to="/landlord-rental-cleanouts"
