@@ -42,18 +42,18 @@ export default function EstateCleanouts() {
                   handle everything—furniture, belongings, and debris—so you don’t have to.
                 </p>
 
-                <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-10 max-w-xl mx-auto">
+                <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-6 max-w-2xl">
                   Looking for a reliable estate cleanout company in Goodlettsville or North Nashville? We
                   specialize in full estate cleanout services, including house cleanouts after death, inherited
                   property cleanouts, and complete property cleanouts. Whether you're preparing a home for sale or
                   clearing out years of belongings, we handle the entire process from start to finish.
                 </p>
 
-                <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-2 max-w-xl mx-auto">
+                <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-3 max-w-2xl">
                   We handle everything from start to finish so you can focus on what matters most.
                 </p>
 
-                <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-8 max-w-xl mx-auto">
+                <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-6 max-w-2xl">
                   We also offer{' '}
                   <Link
                     to="/eviction-cleanouts"
@@ -91,7 +91,7 @@ export default function EstateCleanouts() {
                     Call 615-200-0064
                   </motion.a>
                 </div>
-                <div className="mt-5 text-sm text-slate-500 text-center space-y-2.5">
+                <div className="mt-3 text-sm text-slate-500 text-center space-y-2.5">
                   <p className="leading-relaxed">✔ Same-day &amp; next-day availability</p>
                   <p className="leading-relaxed">✔ Discreet, respectful service</p>
                   <p className="text-slate-400 leading-relaxed">✔ Most quotes in 5 minutes via text</p>
