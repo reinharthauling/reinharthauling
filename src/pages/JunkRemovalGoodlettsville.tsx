@@ -1,25 +1,12 @@
-import React, { useEffect } from 'react';
+
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { CheckCircle2, MapPin, MessageSquare, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function JunkRemovalGoodlettsville() {
-  useEffect(() => {
-    document.title = 'Junk Removal in Goodlettsville TN | Reinhart Hauling';
-
-    const metaDescription = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
-    const content =
-      'Local junk removal in Goodlettsville. Furniture, appliances, garage cleanouts, and more. Text photos for a fast quote.';
-
-    if (metaDescription) {
-      metaDescription.content = content;
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'description';
-      meta.content = content;
-      document.head.appendChild(meta);
-    }
-  }, []);
+  
   const reasons = [
     'Local small business',
     'Fast scheduling',
@@ -29,6 +16,13 @@ export default function JunkRemovalGoodlettsville() {
 
   return (
     <>
+    <Helmet>
+  <title>Junk Removal in Goodlettsville TN | Reinhart Hauling</title>
+  <meta
+    name="description"
+    content="Local junk removal in Goodlettsville. Furniture, appliances, garage cleanouts, and more. Text photos for a fast quote."
+  />
+</Helmet>
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
           <div className="max-w-7xl mx-auto px-6">
             <div className="max-w-3xl">
