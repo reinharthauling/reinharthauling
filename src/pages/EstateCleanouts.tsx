@@ -49,6 +49,28 @@ export default function EstateCleanouts() {
                   clearing out years of belongings, we handle the entire process from start to finish.
                 </p>
 
+                <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-2 max-w-xl mx-auto">
+                  We handle everything from start to finish so you can focus on what matters most.
+                </p>
+
+                <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-8 max-w-xl mx-auto">
+                  We also offer{' '}
+                  <Link
+                    to="/eviction-cleanouts"
+                    className="text-brand-orange hover:text-brand-orange transition-colors"
+                  >
+                    eviction cleanouts
+                  </Link>{' '}
+                  and{' '}
+                  <Link
+                    to="/landlord-rental-cleanouts"
+                    className="text-brand-orange hover:text-brand-orange transition-colors"
+                  >
+                    rental property cleanouts
+                  </Link>{' '}
+                  for landlords and property managers.
+                </p>
+
                 <div className="flex flex-col sm:flex-row gap-4">
                   <motion.a
                     href="sms:6152000064?body=Hi%20I%20need%20a%20junk%20removal%20quote"
@@ -69,7 +91,7 @@ export default function EstateCleanouts() {
                     Call 615-200-0064
                   </motion.a>
                 </div>
-                <div className="mt-4 text-sm text-slate-500 text-center space-y-2">
+                <div className="mt-5 text-sm text-slate-500 text-center space-y-2.5">
                   <p className="leading-relaxed">✔ Same-day &amp; next-day availability</p>
                   <p className="leading-relaxed">✔ Discreet, respectful service</p>
                   <p className="text-slate-400 leading-relaxed">✔ Most quotes in 5 minutes via text</p>
@@ -189,8 +211,7 @@ export default function EstateCleanouts() {
               </h2>
               <div className="max-w-2xl mx-auto">
                 <p className="text-slate-500 leading-relaxed">
-                  We understand estate cleanouts can be overwhelming. Our team handles the entire process with
-                  professionalism, speed, and respect.
+                  Estate cleanouts can be overwhelming. We make the entire process simple, fast, and handled from start to finish.
                 </p>
                 <p className="text-slate-500 leading-relaxed mt-2">
                   Whether you're dealing with an inherited property, preparing a home for sale, or managing a
