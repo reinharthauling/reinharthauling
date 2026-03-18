@@ -4,6 +4,7 @@
  */
 
 import React, { useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Routes, Route, Link } from 'react-router-dom';
 import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
 import { 
@@ -1264,6 +1265,13 @@ const HomePage = () => {
 export default function App() {
   return (
     <>
+    <Helmet>
+  <title>Junk Removal in Nashville | Reinhart Hauling</title>
+  <meta
+    name="description"
+    content="Fast junk removal in Nashville. Furniture, cleanouts, and same-day service. Text photos for a fast quote."
+  />
+</Helmet>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
