@@ -1,25 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { CheckCircle2, MapPin, MessageSquare, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function EstateCleanouts() {
-  useEffect(() => {
-    document.title = 'Estate Cleanouts in Nashville | Full Property Cleanouts';
-
-    const metaDescription = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
-    const content =
-      'Full estate cleanout services for homes and inherited properties. Serving Nashville and surrounding areas.';
-
-    if (metaDescription) {
-      metaDescription.content = content;
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'description';
-      meta.content = content;
-      document.head.appendChild(meta);
-    }
-  }, []);
+ 
   const steps = [
     "Text photos for a fast quote",
     "Schedule a pickup time",
@@ -28,6 +14,14 @@ export default function EstateCleanouts() {
 
   return (
     <>
+      <Helmet>
+        <title>Estate Cleanouts in Nashville | Full Property Cleanouts</title>
+        <meta
+          name="description"
+          content="Full estate cleanout services for homes and inherited properties. Serving Nashville and surrounding areas."
+        />
+      </Helmet>
+    
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
           <div className="max-w-7xl mx-auto px-6">
             <div className="max-w-3xl">
