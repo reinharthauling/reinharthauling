@@ -1202,7 +1202,9 @@ const StickyActionFooter = () => {
 
 const SiteLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="min-h-screen selection:bg-brand-orange selection:text-white">
+    <div
+      className="min-h-screen selection:bg-brand-orange selection:text-white pb-[calc(120px+env(safe-area-inset-bottom))] md:pb-[calc(140px+env(safe-area-inset-bottom))]"
+    >
       <AnimatedBackground />
       <Navbar />
       
