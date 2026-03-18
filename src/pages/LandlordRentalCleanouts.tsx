@@ -1,26 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { CheckCircle2, MapPin, MessageSquare, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function LandlordRentalCleanouts() {
-  useEffect(() => {
-    document.title = 'Landlord & Rental Cleanouts in Goodlettsville & North Nashville';
-
-    const metaDescription = document.querySelector('meta[name=\"description\"]') as HTMLMetaElement | null;
-    const content =
-      'Fast landlord and rental cleanout services in Goodlettsville and North Nashville. Turnover-focused cleanouts for move-outs, evictions, and full property resets.';
-
-    if (metaDescription) {
-      metaDescription.content = content;
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'description';
-      meta.content = content;
-      document.head.appendChild(meta);
-    }
-  }, []);
-
+  
   const situations = [
     'Tenant Left Junk Behind',
     'Eviction Cleanouts',
@@ -45,6 +30,13 @@ export default function LandlordRentalCleanouts() {
 
   return (
     <>
+    <Helmet>
+  <title>Landlord & Rental Cleanouts in Nashville | Fast Turnover Service</title>
+  <meta
+    name="description"
+    content="Landlord and rental cleanout services for move-outs, evictions, and property turnovers in Nashville. Fast quotes by text."
+  />
+</Helmet>
       {/* Hero */}
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
