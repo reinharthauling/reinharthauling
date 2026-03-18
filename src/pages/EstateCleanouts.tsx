@@ -42,7 +42,7 @@ export default function EstateCleanouts() {
                   handle everything—furniture, belongings, and debris—so you don’t have to.
                 </p>
 
-                <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl">
+                <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-10 max-w-xl mx-auto">
                   Looking for a reliable estate cleanout company in Goodlettsville or North Nashville? We
                   specialize in full estate cleanout services, including house cleanouts after death, inherited
                   property cleanouts, and complete property cleanouts. Whether you're preparing a home for sale or
@@ -69,10 +69,10 @@ export default function EstateCleanouts() {
                     Call 615-200-0064
                   </motion.a>
                 </div>
-                <div className="mt-3 text-sm text-slate-500 text-center">
-                  <p>✔ Same-day &amp; next-day availability</p>
-                  <p>✔ Discreet, respectful service</p>
-                  <p className="text-slate-400">✔ Most quotes in 5 minutes via text</p>
+                <div className="mt-4 text-sm text-slate-500 text-center space-y-2">
+                  <p className="leading-relaxed">✔ Same-day &amp; next-day availability</p>
+                  <p className="leading-relaxed">✔ Discreet, respectful service</p>
+                  <p className="text-slate-400 leading-relaxed">✔ Most quotes in 5 minutes via text</p>
                 </div>
               </motion.div>
             </div>
@@ -183,7 +183,7 @@ export default function EstateCleanouts() {
 
         <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-16">
+            <div className="text-center mb-12">
               <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">
                 Why Choose Reinhart Hauling for Estate Cleanouts?
               </h2>
@@ -198,22 +198,22 @@ export default function EstateCleanouts() {
                 </p>
               </div>
 
-              <ul className="max-w-2xl mx-auto mt-6 space-y-2 text-left text-slate-600">
+              <ul className="max-w-2xl mx-auto mt-4 space-y-3 text-left text-slate-600">
                 <li className="flex items-start gap-3">
                   <CheckCircle2 size={18} className="text-brand-orange mt-0.5 flex-shrink-0" />
-                  <span>Fast scheduling and turnaround</span>
+                  <span className="leading-relaxed">Fast scheduling and turnaround</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 size={18} className="text-brand-orange mt-0.5 flex-shrink-0" />
-                  <span>No hidden fees or surprises</span>
+                  <span className="leading-relaxed">No hidden fees or surprises</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 size={18} className="text-brand-orange mt-0.5 flex-shrink-0" />
-                  <span>Local, reliable service in Goodlettsville and North Nashville</span>
+                  <span className="leading-relaxed">Local, reliable service in Goodlettsville and North Nashville</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 size={18} className="text-brand-orange mt-0.5 flex-shrink-0" />
-                  <span>One call handles everything</span>
+                  <span className="leading-relaxed">One call handles everything</span>
                 </li>
               </ul>
             </div>
@@ -267,7 +267,7 @@ export default function EstateCleanouts() {
                     <MapPin />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-brand-navy mb-3">Middle Tennessee</h3>
+                    <h3 className="text-2xl font-bold text-brand-navy mb-3">Goodlettsville &amp; North Nashville</h3>
                     <p className="text-slate-600 leading-relaxed">
                       If you're nearby and not sure if you're in our service area, reach out—chances are we can help.
                     </p>
