@@ -91,7 +91,7 @@ export default function EstateCleanouts() {
                     Call 615-200-0064
                   </motion.a>
                 </div>
-                <div className="mt-3 text-sm text-slate-500 text-center space-y-2.5">
+                <div className="mt-3 text-[15px] text-slate-500 text-center space-y-3">
                   <p className="leading-relaxed">✔ Same-day &amp; next-day availability</p>
                   <p className="leading-relaxed">✔ Discreet, respectful service</p>
                   <p className="text-slate-400 leading-relaxed">✔ Most quotes in 5 minutes via text</p>
