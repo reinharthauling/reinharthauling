@@ -187,17 +187,35 @@ export default function EstateCleanouts() {
               <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">
                 Why Choose Reinhart Hauling for Estate Cleanouts?
               </h2>
-              <p className="text-slate-500 max-w-2xl mx-auto">
-                We understand estate cleanouts can be overwhelming. Our team handles the entire process with
-                professionalism, speed, and respect. Whether you're dealing with an inherited property, preparing a
-                home for sale, or managing a difficult situation, we make it simple.
-              </p>
-              <div className="max-w-2xl mx-auto mt-8 space-y-2 text-left text-slate-600">
-                <p>Fast scheduling and turnaround</p>
-                <p>No hidden fees or surprises</p>
-                <p>Local, reliable service in Goodlettsville and North Nashville</p>
-                <p>One call handles everything</p>
+              <div className="max-w-2xl mx-auto">
+                <p className="text-slate-500 leading-relaxed">
+                  We understand estate cleanouts can be overwhelming. Our team handles the entire process with
+                  professionalism, speed, and respect.
+                </p>
+                <p className="text-slate-500 leading-relaxed mt-2">
+                  Whether you're dealing with an inherited property, preparing a home for sale, or managing a
+                  difficult situation, we make it simple.
+                </p>
               </div>
+
+              <ul className="max-w-2xl mx-auto mt-6 space-y-2 text-left text-slate-600">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={18} className="text-brand-orange mt-0.5 flex-shrink-0" />
+                  <span>Fast scheduling and turnaround</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={18} className="text-brand-orange mt-0.5 flex-shrink-0" />
+                  <span>No hidden fees or surprises</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={18} className="text-brand-orange mt-0.5 flex-shrink-0" />
+                  <span>Local, reliable service in Goodlettsville and North Nashville</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={18} className="text-brand-orange mt-0.5 flex-shrink-0" />
+                  <span>One call handles everything</span>
+                </li>
+              </ul>
             </div>
           </div>
         </section>
