@@ -8,7 +8,7 @@ export default function EvictionCleanouts() {
   const steps = [
     "Text photos for a fast quote",
     "Schedule a removal time",
-    "We haul everything away",
+    "We clear the property and haul everything away",
   ];
 
   return (
@@ -36,9 +36,37 @@ export default function EvictionCleanouts() {
                   Eviction Cleanouts in <br />
                   <span className="text-brand-orange">Goodlettsville &amp; North Nashville</span>
                 </h1>
-                <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl">
-                  Reinhart Hauling provides fast eviction cleanout services for landlords and property managers. We
-                  remove abandoned furniture, trash, and debris so rental properties can be turned over quickly.
+                <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 max-w-2xl">
+                  Fast eviction cleanout services for landlords, property managers, and rental turnovers. We
+                  remove abandoned furniture, trash, and debris so you can get the property ready fast.
+                </p>
+
+                <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 max-w-2xl">
+                  Need a reliable eviction cleanout company in Goodlettsville or North Nashville? We handle tenant
+                  left-behind junk, apartment turnover cleanouts, abandoned property cleanouts, and rental cleanout
+                  services for owners and managers who need the job done quickly.
+                </p>
+
+                <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 max-w-2xl">
+                  We help clear the property quickly so repairs, showings, and re-renting can happen sooner.
+                </p>
+
+                <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-6 max-w-2xl">
+                  We also offer{' '}
+                  <Link
+                    to="/landlord-rental-cleanouts"
+                    className="text-brand-orange hover:text-brand-orange transition-colors"
+                  >
+                    landlord and rental cleanouts
+                  </Link>{' '}
+                  plus{' '}
+                  <Link
+                    to="/junk-removal-goodlettsville"
+                    className="text-brand-orange hover:text-brand-orange transition-colors"
+                  >
+                    general junk removal in Goodlettsville
+                  </Link>
+                  .
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -61,9 +89,10 @@ export default function EvictionCleanouts() {
                     Call 615-200-0064
                   </motion.a>
                 </div>
-                <div className="mt-3 text-sm text-slate-500 text-center">
-                  <p>⚡ Text photos — most quotes in 5 minutes</p>
-                  <p className="text-slate-400">Call or Text: 615-200-0064</p>
+                <div className="mt-4 text-[15px] text-slate-500 text-center space-y-2.5">
+                  <p className="leading-relaxed">✔ Fast scheduling for urgent cleanouts</p>
+                  <p className="leading-relaxed">✔ Clear, upfront pricing</p>
+                  <p className="text-slate-400 leading-relaxed">✔ Most quotes in 5 minutes via text</p>
                 </div>
               </motion.div>
             </div>
@@ -74,7 +103,7 @@ export default function EvictionCleanouts() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-20">
               <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">
-                Common Cleanout Situations
+                Eviction &amp; Turnover Cleanout Services
               </h2>
             </div>
 
@@ -89,7 +118,7 @@ export default function EvictionCleanouts() {
                 <div>
                   <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Tenant Left Junk Behind</h4>
                   <p className="text-slate-500 text-sm leading-relaxed">
-                    We remove leftover furniture, trash, and abandoned items after move-outs.
+                    We remove furniture, bags, trash, and leftover belongings after move-outs.
                   </p>
                 </div>
               </motion.div>
@@ -104,7 +133,7 @@ export default function EvictionCleanouts() {
                 <div>
                   <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Eviction Trash-Outs</h4>
                   <p className="text-slate-500 text-sm leading-relaxed">
-                    Fast cleanout help to clear units after evictions and property vacancies.
+                    Fast cleanout help for units that need to be cleared after eviction.
                   </p>
                 </div>
               </motion.div>
@@ -119,7 +148,7 @@ export default function EvictionCleanouts() {
                 <div>
                   <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Rental Turnovers</h4>
                   <p className="text-slate-500 text-sm leading-relaxed">
-                    Quick cleanouts to help get your property ready for repairs or the next tenant.
+                    Quick cleanouts to help prepare the property for repairs, cleaning, or the next tenant.
                   </p>
                 </div>
               </motion.div>
@@ -132,9 +161,9 @@ export default function EvictionCleanouts() {
                   <CheckCircle2 />
                 </div>
                 <div>
-                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Full Unit Cleanouts</h4>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Abandoned Property Cleanouts</h4>
                   <p className="text-slate-500 text-sm leading-relaxed">
-                    From single rooms to full apartments or homes, we clear it all.
+                    We clear unwanted items and debris left behind in homes, apartments, and rentals.
                   </p>
                 </div>
               </motion.div>
@@ -147,9 +176,9 @@ export default function EvictionCleanouts() {
                   <CheckCircle2 />
                 </div>
                 <div>
-                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Heavy Items &amp; Appliances</h4>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Furniture, Mattresses &amp; Appliances</h4>
                   <p className="text-slate-500 text-sm leading-relaxed">
-                    We remove couches, mattresses, appliances, and bulky debris.
+                    Removal of bulky items commonly left behind in rental properties.
                   </p>
                 </div>
               </motion.div>
@@ -162,12 +191,44 @@ export default function EvictionCleanouts() {
                   <CheckCircle2 />
                 </div>
                 <div>
-                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Garage, Storage &amp; Overflow</h4>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Garage, Storage &amp; Overflow Areas</h4>
                   <p className="text-slate-500 text-sm leading-relaxed">
-                    We clear garages, storage areas, and extra junk left behind on the property.
+                    We clear extra junk from garages, storage rooms, and other packed spaces on the property.
                   </p>
                 </div>
               </motion.div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-24 bg-white">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-12">
+              <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">
+                Why Landlords &amp; Property Managers Call Reinhart Hauling
+              </h2>
+              <p className="text-slate-500 max-w-2xl mx-auto">
+                When a property needs to be cleared fast, delays cost money. We help landlords and property managers get units emptied quickly so they can move on to repairs, cleaning, and re-renting without dragging the process out.
+              </p>
+
+              <ul className="max-w-2xl mx-auto mt-6 space-y-3 text-left text-slate-600">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={18} className="text-brand-orange mt-0.5 flex-shrink-0" />
+                  <span className="leading-relaxed">Fast turnaround for urgent cleanouts</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={18} className="text-brand-orange mt-0.5 flex-shrink-0" />
+                  <span className="leading-relaxed">No hidden fees or surprise add-ons</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={18} className="text-brand-orange mt-0.5 flex-shrink-0" />
+                  <span className="leading-relaxed">Reliable local service in Goodlettsville and North Nashville</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={18} className="text-brand-orange mt-0.5 flex-shrink-0" />
+                  <span className="leading-relaxed">Simple process from photos to removal</span>
+                </li>
+              </ul>
             </div>
           </div>
         </section>
@@ -215,7 +276,7 @@ export default function EvictionCleanouts() {
                     <MapPin />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-brand-navy mb-3">Middle Tennessee</h3>
+                    <h3 className="text-2xl font-bold text-brand-navy mb-3">Goodlettsville &amp; North Nashville</h3>
                     <p className="text-slate-600 leading-relaxed">
                       If you're nearby and not sure if you're in our service area, reach out—chances are we can help.
                     </p>
@@ -253,16 +314,16 @@ export default function EvictionCleanouts() {
                 Landlord &amp; Rental Cleanouts
               </Link>
               <Link
-                to="/estate-cleanouts"
-                className="px-6 py-3 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
-              >
-                Estate Cleanouts
-              </Link>
-              <Link
                 to="/junk-removal-goodlettsville"
                 className="px-6 py-3 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover;border-brand-orange transition-colors text-center"
               >
                 Junk Removal in Goodlettsville
+              </Link>
+              <Link
+                to="/estate-cleanouts"
+                className="px-6 py-3 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
+              >
+                Estate Cleanouts
               </Link>
             </div>
           </div>
