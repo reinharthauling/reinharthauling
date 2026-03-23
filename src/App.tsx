@@ -122,14 +122,17 @@ const Hero = () => {
               LOCAL • FAST • SAME-DAY SERVICE
             </span>
             <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-4">
-              Fast Junk Removal in <br />
+              Full Cleanouts &amp; Junk Removal in <br />
               <span className="text-brand-orange">Nashville</span>
             </h1>
             <p className="text-base lg:text-lg text-brand-orange font-semibold mb-4">
               Text Photos for a Fast Quote
             </p>
             <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl">
-              Furniture, appliances, garage cleanouts, eviction cleanouts, and full estate cleanouts. Text photos and get a fast quote in minutes.
+              Estate cleanouts, move-outs, evictions, and bulk junk removal — we handle everything start to finish.
+            </p>
+            <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl">
+              Specializing in estate cleanouts, eviction cleanouts, and full property cleanouts.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
@@ -235,7 +238,7 @@ const HeroSteps = () => {
             HOW IT WORKS
           </span>
           <h2 className="font-display text-2xl lg:text-3xl font-bold text-brand-navy">
-            Simple 3-Step Junk Removal
+            Simple 3-Step Cleanout &amp; Removal
           </h2>
         </div>
         <div className="grid gap-4 sm:grid-cols-3 text-sm text-slate-600">
@@ -339,7 +342,7 @@ const Services = () => {
         <div className="text-center mb-20">
           <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">What We Haul</h2>
           <p className="text-slate-600 max-w-2xl mx-auto text-lg">
-            From a single couch to a full property cleanout, we have the team and equipment to handle it all.
+            From single items to full property cleanouts, we handle jobs of any size.
           </p>
         </div>
         
@@ -401,7 +404,7 @@ const Services = () => {
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="font-display text-3xl lg:text-4xl font-bold text-brand-navy mb-4">
-                More Junk Removal Services
+                Additional Services
               </h2>
             </div>
 
@@ -1240,6 +1243,7 @@ const HomePage = () => {
     <SiteLayout>
       <Hero />
       <HeroSteps />
+      <Services />
       
       <motion.div
         initial={{ opacity: 0 }}
@@ -1249,8 +1253,6 @@ const HomePage = () => {
         <ValueProps />
       </motion.div>
 
-      <Services />
-      
       <BeforeAfterSlider />
       
       <Testimonials />
