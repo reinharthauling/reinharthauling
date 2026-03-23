@@ -16,7 +16,7 @@ export default function GarageCleanouts() {
   return (
     <>
    <Helmet>
-  <title>Garage Cleanouts in Nashville | Reinhart Hauling</title>
+        <title>Garage Cleanouts in Nashville | Reinhart Hauling &amp; Cleanouts</title>
   <meta
     name="description"
     content="Garage cleanout services in Nashville. Remove clutter, furniture, tools, and junk. Fast quotes by text."
@@ -38,7 +38,7 @@ export default function GarageCleanouts() {
                 <span className="text-brand-orange">Goodlettsville &amp; North Nashville</span>
               </h1>
               <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl">
-                Reinhart Hauling provides fast garage cleanout services for cluttered, packed, or neglected spaces. We
+                Reinhart Hauling &amp; Cleanouts provides fast garage cleanout services for cluttered, packed, or neglected spaces. We
                 remove old furniture, boxes, tools, and junk so you can reclaim your garage.
               </p>
 

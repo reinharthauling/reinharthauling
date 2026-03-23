@@ -205,7 +205,7 @@ export default function EvictionCleanouts() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12">
               <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">
-                Why Landlords &amp; Property Managers Call Reinhart Hauling
+                Why Landlords &amp; Property Managers Call Reinhart Hauling &amp; Cleanouts
               </h2>
               <p className="text-slate-500 max-w-2xl mx-auto">
                 When a property needs to be cleared fast, delays cost money. We help landlords and property managers get units emptied quickly so they can move on to repairs, cleaning, and re-renting without dragging the process out.

@@ -87,7 +87,7 @@ const Navbar = () => {
     <Truck className="text-brand-orange w-6 h-6" />
   </div>
   <span className="font-display font-bold text-xl tracking-tight text-brand-navy">
-    REINHART <span className="text-brand-orange">HAULING</span>
+    REINHART <span className="text-brand-orange">HAULING &amp; CLEANOUTS</span>
   </span>
 </a>
         
@@ -604,7 +604,7 @@ const BeforeAfterSlider = () => {
 
 const Testimonials = () => {
   const reviews = [
-    { name: "Sarah J.", location: "Hendersonville", text: "Reinhart Hauling was incredible! They showed up on time, were super professional, and cleared out my entire garage in under 2 hours. Highly recommend!", stars: 5 },
+    { name: "Sarah J.", location: "Hendersonville", text: "Reinhart Hauling & Cleanouts was incredible! They showed up on time, were super professional, and cleared out my entire garage in under 2 hours. Highly recommend!", stars: 5 },
     { name: "Michael R.", location: "East Nashville", text: "Best junk removal service in Middle TN. Transparent pricing and they even swept the driveway after loading the truck. Truly a premium service.", stars: 5 },
     { name: "David L.", location: "Goodlettsville", text: "I had an old hot tub that I thought would be a nightmare to remove. These guys handled it with ease. Professional team and great communication.", stars: 5 }
   ];
@@ -870,7 +870,7 @@ const MeetTheOwner = () => {
             
             <div className="space-y-6 text-lg text-slate-600">
               <p>
-                When you call Reinhart Hauling, you aren't getting a national call center. You're getting a local business owner who cares about the community.
+                When you call Reinhart Hauling & Cleanouts, you aren't getting a national call center. You're getting a local business owner who cares about the community.
               </p>
               <p>
                 I started this business with a simple mission: to provide Middle Tennessee with a junk removal service that is as reliable as it is professional.
@@ -1121,12 +1121,12 @@ const Footer = () => {
               <Truck className="text-brand-orange w-5 h-5" />
             </div>
             <span className="font-display font-bold text-lg tracking-tight text-brand-navy">
-              REINHART <span className="text-brand-orange">HAULING</span>
+              REINHART <span className="text-brand-orange">HAULING &amp; CLEANOUTS</span>
             </span>
           </div>
           
           <div className="text-slate-400 text-sm font-medium">
-            © {new Date().getFullYear()} Reinhart Hauling. All rights reserved.
+            © {new Date().getFullYear()} Reinhart Hauling &amp; Cleanouts. All rights reserved.
           </div>
           
           <div className="flex gap-6">
@@ -1220,7 +1220,7 @@ const SiteLayout = ({ children }: { children: React.ReactNode }) => {
 
 const HomePage = () => {
   useEffect(() => {
-    document.title = 'Junk Removal in Nashville | Reinhart Hauling';
+    document.title = 'Junk Removal in Nashville | Reinhart Hauling & Cleanouts';
 
     const metaDescription = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
     const content =
@@ -1268,7 +1268,7 @@ export default function App() {
   return (
     <>
     <Helmet>
-  <title>Junk Removal in Nashville | Reinhart Hauling</title>
+  <title>Junk Removal in Nashville | Reinhart Hauling & Cleanouts</title>
   <meta
     name="description"
     content="Fast junk removal in Nashville. Furniture, cleanouts, and same-day service. Text photos for a fast quote."

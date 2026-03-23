@@ -17,7 +17,7 @@ export default function JunkRemovalGoodlettsville() {
   return (
     <>
     <Helmet>
-  <title>Junk Removal in Goodlettsville TN | Reinhart Hauling</title>
+        <title>Junk Removal in Goodlettsville TN | Reinhart Hauling &amp; Cleanouts</title>
   <meta
     name="description"
     content="Local junk removal in Goodlettsville. Furniture, appliances, garage cleanouts, and more. Text photos for a fast quote."
@@ -38,7 +38,7 @@ export default function JunkRemovalGoodlettsville() {
                   Junk Removal in Goodlettsville
                 </h1>
                 <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl">
-                  Reinhart Hauling provides fast junk removal in Goodlettsville for furniture, appliances, garage cleanouts, yard debris, and general household clutter. Text photos for a fast quote and quick scheduling.
+                  Reinhart Hauling &amp; Cleanouts provides fast junk removal in Goodlettsville for furniture, appliances, garage cleanouts, yard debris, and general household clutter. Text photos for a fast quote and quick scheduling.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -175,7 +175,7 @@ export default function JunkRemovalGoodlettsville() {
         <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
-              <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">Why Choose Reinhart Hauling</h2>
+              <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">Why Choose Reinhart Hauling &amp; Cleanouts</h2>
               <p className="text-slate-500 max-w-2xl mx-auto">
                 A local team focused on reliable, stress-free junk removal.
               </p>

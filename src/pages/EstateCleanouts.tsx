@@ -207,7 +207,7 @@ export default function EstateCleanouts() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12">
               <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">
-                Why Choose Reinhart Hauling for Estate Cleanouts?
+                Why Choose Reinhart Hauling &amp; Cleanouts for Estate Cleanouts?
               </h2>
               <div className="max-w-2xl mx-auto">
                 <p className="text-slate-500 leading-relaxed">
