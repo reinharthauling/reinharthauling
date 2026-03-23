@@ -902,7 +902,7 @@ const QuoteForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    jobType: 'Residential Junk Removal',
+    jobType: 'Cleanout / Junk Removal',
     address: '',
     description: ''
   });
@@ -1013,12 +1013,12 @@ const QuoteForm = () => {
                 onChange={handleChange}
                 className="w-full px-6 py-4 rounded-2xl bg-slate-50 border-2 border-transparent focus:border-brand-orange focus:bg-white outline-none transition-all text-brand-navy appearance-none cursor-pointer"
               >
-                <option>Residential Junk Removal</option>
-                <option>Commercial Junk Removal</option>
+                <option>Cleanout / Junk Removal</option>
                 <option>Estate Cleanout</option>
-                <option>Construction Debris</option>
-                <option>Appliance / Furniture Removal</option>
-                <option>Other</option>
+                <option>Eviction Cleanout</option>
+                <option>Garage Cleanout</option>
+                <option>Landlord / Rental Cleanout</option>
+                <option>Appliance & Furniture Removal</option>
               </select>
               <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
                 <ChevronRight className="rotate-90" size={20} />
@@ -1083,11 +1083,10 @@ const CTA = () => {
           className="max-w-4xl mx-auto"
         >
           <h2 className="font-display text-5xl lg:text-7xl font-bold text-brand-navy mb-8 leading-tight">
-            Ready to Reclaim <br />
-            <span className="text-brand-orange">Your Space?</span>
+            Get a Fast Quote for Your Cleanout or Junk Removal
           </h2>
           <p className="text-xl text-slate-600 mb-12 max-w-2xl mx-auto">
-            Get a fast, free quote today. Text us a photo of your junk or give us a call to schedule your removal.
+            Text photos for the fastest quote, or fill out the form below and we’ll get back to you quickly.
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-6">
@@ -1223,7 +1222,7 @@ const SiteLayout = ({ children }: { children: React.ReactNode }) => {
 
 const HomePage = () => {
   useEffect(() => {
-    document.title = 'Junk Removal in Nashville | Reinhart Hauling & Cleanouts';
+    document.title = 'Full Cleanouts & Junk Removal in Nashville | Reinhart Hauling & Cleanouts';
 
     const metaDescription = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
     const content =
@@ -1270,7 +1269,7 @@ export default function App() {
   return (
     <>
     <Helmet>
-  <title>Junk Removal in Nashville | Reinhart Hauling & Cleanouts</title>
+  <title>Full Cleanouts & Junk Removal in Nashville | Reinhart Hauling & Cleanouts</title>
   <meta
     name="description"
     content="Fast junk removal in Nashville. Furniture, cleanouts, and same-day service. Text photos for a fast quote."
