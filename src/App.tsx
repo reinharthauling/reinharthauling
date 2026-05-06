@@ -80,13 +80,13 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md border-b border-slate-200 py-4' : 'bg-transparent py-6'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md border-b border-slate-200 py-2' : 'bg-transparent py-3'}`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between gap-8">
       <a href="/" className="flex items-center cursor-pointer">
   <img
     src="/Reinhart-hauling-cleanouts-nashville.png"
     alt="Reinhart Hauling & Cleanouts Nashville"
-    className="block h-12 md:h-14 w-auto object-contain max-w-full shrink-0"
+    className="block h-14 md:h-16 w-auto object-contain max-w-full shrink-0"
   />
 </a>
         
