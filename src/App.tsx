@@ -80,13 +80,13 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md border-b border-slate-200 py-3' : 'bg-transparent py-6'}`}>
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md border-b border-slate-200 py-4' : 'bg-transparent py-6'}`}>
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between gap-8">
       <a href="/" className="flex items-center cursor-pointer">
   <img
     src="/Reinhart-hauling-cleanouts-nashville.png"
     alt="Reinhart Hauling & Cleanouts Nashville"
-    className="block h-[38px] md:h-12 w-auto object-contain max-w-full shrink-0"
+    className="block h-12 md:h-14 w-auto object-contain max-w-full shrink-0"
   />
 </a>
         
@@ -96,7 +96,7 @@ const Navbar = () => {
           <a href="#reviews" className="text-sm font-medium hover:text-brand-orange transition-colors">Reviews</a>
           <a 
             href="tel:6152000064" 
-            className="bg-brand-navy text-white px-5 py-2.5 rounded-full text-sm font-bold shadow-xl shadow-brand-navy/20 hover:bg-brand-orange transition-all hover:scale-105 active:scale-95 flex items-center gap-2"
+            className="bg-brand-navy text-white px-4 py-2 rounded-full text-sm font-bold shadow-xl shadow-brand-navy/20 hover:bg-brand-orange transition-all hover:scale-105 active:scale-95 flex items-center gap-2"
           >
             <Phone size={16} />
             615-200-0064
