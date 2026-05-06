@@ -82,13 +82,12 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md border-b border-slate-200 py-3' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-      <a href="/" className="flex items-center gap-2 cursor-pointer">
-  <div className="w-10 h-10 bg-brand-navy rounded-lg flex items-center justify-center shadow-lg">
-    <Truck className="text-brand-orange w-6 h-6" />
-  </div>
-  <span className="font-display font-bold text-xl tracking-tight text-brand-navy">
-    REINHART <span className="text-brand-orange">HAULING &amp; CLEANOUTS</span>
-  </span>
+      <a href="/" className="flex items-center cursor-pointer">
+  <img
+    src="/Reinhart-hauling-cleanouts-nashville.png"
+    alt="Reinhart Hauling & Cleanouts Nashville"
+    className="block h-[38px] md:h-12 w-auto object-contain max-w-full shrink-0"
+  />
 </a>
         
         <div className="hidden md:flex items-center gap-8">
@@ -553,15 +552,9 @@ const BeforeAfterSlider = () => {
             {/* After Image */}
             <div className="absolute inset-0">
               <img 
-                src="/after.png" 
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  if (target.src.includes('after.png')) {
-                    target.src = '/after 2.png';
-                  }
-                }}
+                src="/property-cleanout-nashville-after.png" 
                 alt="After" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute bottom-6 right-6 bg-white text-brand-navy px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-xl">After</div>
@@ -573,16 +566,9 @@ const BeforeAfterSlider = () => {
               style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
             >
               <img 
-                src="/before.png" 
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  const currentSrc = target.src;
-                  if (currentSrc.includes('before.png')) {
-                    target.src = '/Before  2.png';
-                  }
-                }}
+                src="/property-cleanout-nashville-before.png" 
                 alt="Before" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute bottom-6 left-6 bg-brand-orange text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-xl">Before</div>
