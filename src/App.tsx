@@ -593,11 +593,11 @@ const BeforeAfterSlider = () => {
 const Testimonials = () => {
   const reviews = [
     {
-      name: "Chris W.",
-      location: "Nashville, TN",
-      text: "Jeremiah and his crew showed up on time, gave fair pricing, and cleared everything out fast. Easy process from start to finish.",
+      name: "Bruce Shamp",
+      location: "Middle Tennessee",
+      text: "Fantastic fast courteous professional really cares about his clients helping in every way to get the job done quickly. Highly recommend him for all your needs. He did a fantastic job — always polite, caring, and professional.",
       stars: 5,
-      label: "Verified Customer",
+      label: "Verified Google Review",
     },
     {
       name: "Amanda R.",
@@ -636,10 +636,15 @@ const Testimonials = () => {
               transition={{ delay: i * 0.1 }}
               className={`p-8 rounded-3xl shadow-lg border ${
                 i === 0
-                  ? 'bg-slate-50 border-brand-orange/30'
+                  ? 'bg-white border-brand-orange/50 shadow-xl shadow-brand-orange/10'
                   : 'bg-white border-slate-100'
               }`}
             >
+              {i === 0 && (
+                <div className="inline-flex items-center rounded-full bg-brand-orange/10 text-brand-orange text-[11px] font-bold uppercase tracking-widest px-3 py-1 mb-4">
+                  Google Review
+                </div>
+              )}
               <div className="flex gap-1 mb-4">
                 {[1,2,3,4,5].map((star) => (
                   <Star key={star} size={16} fill="#F27D26" color="#F27D26" />
