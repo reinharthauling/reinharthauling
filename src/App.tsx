@@ -109,7 +109,7 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+    <section className="relative pt-28 pb-20 lg:pt-44 lg:pb-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-3xl">
           <motion.div
@@ -117,20 +117,20 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-bold uppercase tracking-widest mb-6">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-bold uppercase tracking-widest mb-4">
               LOCAL • FAST • SAME-DAY SERVICE
             </span>
-            <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-4">
+            <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-2">
               Full Cleanouts &amp; Junk Removal in <br />
               <span className="text-brand-orange">Nashville</span>
             </h1>
-            <p className="text-base lg:text-lg text-brand-orange font-semibold mb-4">
+            <p className="text-base lg:text-lg text-brand-orange font-semibold mb-3">
               Text Photos for a Fast Quote
             </p>
-            <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl">
+            <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 max-w-2xl">
               Estate cleanouts, move-outs, evictions, and bulk junk removal — we handle everything start to finish.
             </p>
-            <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl">
+            <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-6 max-w-2xl">
               Specializing in estate cleanouts, eviction cleanouts, and full property cleanouts.
             </p>
             
