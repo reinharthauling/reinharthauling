@@ -279,8 +279,8 @@ const ValueProps = () => {
     },
     {
       icon: <MessageSquare className="w-8 h-8" />,
-      title: "Fast Communication",
-      desc: "Quick response by text or call so jobs move forward faster."
+      title: "Professional Coordination",
+      desc: "Clear scheduling, updates, and coordination from start to finish."
     },
     {
       icon: <CheckCircle2 className="w-8 h-8" />,
