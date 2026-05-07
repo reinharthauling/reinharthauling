@@ -91,9 +91,10 @@ const Navbar = () => {
 </a>
         
         <div className="hidden md:flex items-center gap-5">
+          <a href="#process" className="text-sm font-medium hover:text-brand-orange transition-colors">How It Works</a>
           <a href="#services" className="text-sm font-medium hover:text-brand-orange transition-colors">Services</a>
-          <a href="#areas" className="text-sm font-medium hover:text-brand-orange transition-colors">Service Areas</a>
           <a href="#reviews" className="text-sm font-medium hover:text-brand-orange transition-colors">Reviews</a>
+          <a href="#about" className="text-sm font-medium hover:text-brand-orange transition-colors">About</a>
           <a 
             href="tel:6152000064" 
             className="bg-brand-navy text-white px-4 py-2 rounded-full text-sm font-medium shadow-xl shadow-brand-navy/20 hover:bg-brand-orange transition-all hover:scale-105 active:scale-95 flex items-center gap-2"
@@ -122,8 +123,7 @@ const Hero = () => {
               LOCAL • FAST • SAME-DAY SERVICE
             </span>
             <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-2">
-              Full Cleanouts &amp; Junk Removal in <br />
-              <span className="text-brand-orange">Nashville</span>
+              Full Cleanouts &amp; Junk Removal in <span className="text-brand-orange">Nashville</span>
             </h1>
             <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-5 max-w-2xl">
               Estate cleanouts, evictions, move-outs, and property cleanups handled fast and professionally.
@@ -184,36 +184,50 @@ const Hero = () => {
 
 const HeroSteps = () => {
   return (
-    <section className="py-8">
-      <div className="max-w-3xl mx-auto px-6">
-        <div className="text-center mb-6 text-sm text-slate-500">
-          <p className="font-medium text-brand-navy">
-            Locally owned • Upfront pricing • Fast response
-          </p>
-          <p className="text-slate-500 mt-1">
-            Serving Nashville, Hendersonville, Madison &amp; Goodlettsville
-          </p>
-          <p className="text-slate-500 mt-1">
-            Text photos for a quote in minutes.
-          </p>
-        </div>
-        <div className="text-center mb-6 mt-10">
-          <span className="inline-block px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[11px] font-bold uppercase tracking-[0.18em] mb-3">
+    <section id="process" className="py-24 bg-slate-50/70">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-14">
+          <span className="inline-block px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[11px] font-bold uppercase tracking-[0.18em] mb-4">
             HOW IT WORKS
           </span>
-          <h2 className="font-display text-2xl lg:text-3xl font-bold text-brand-navy">
-            Simple 3-Step Cleanout &amp; Removal
+          <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-4">
+            Simple Cleanout Process
           </h2>
+          <p className="text-slate-600 max-w-2xl mx-auto text-lg">
+            Send photos, get clear pricing, and we handle the heavy lifting.
+          </p>
         </div>
-        <div className="grid gap-4 sm:grid-cols-3 text-sm text-slate-600">
-          <div className="text-center">
-            <div className="font-semibold text-brand-navy mb-1">1. Text photos of the junk</div>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          <div className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm">
+            <div className="flex items-center justify-between mb-5">
+              <span className="text-sm font-bold tracking-[0.2em] text-brand-orange">01</span>
+              <MessageSquare className="text-brand-navy" size={20} />
+            </div>
+            <h3 className="font-display text-2xl font-bold text-brand-navy mb-3">Send Photos or Details</h3>
+            <p className="text-slate-600 leading-relaxed">
+              Text photos of the items, rooms, garage, or property that needs cleaned out.
+            </p>
           </div>
-          <div className="text-center">
-            <div className="font-semibold text-brand-navy mb-1">2. Get a fast quote</div>
+          <div className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm">
+            <div className="flex items-center justify-between mb-5">
+              <span className="text-sm font-bold tracking-[0.2em] text-brand-orange">02</span>
+              <CheckCircle2 className="text-brand-navy" size={20} />
+            </div>
+            <h3 className="font-display text-2xl font-bold text-brand-navy mb-3">Get Clear Pricing</h3>
+            <p className="text-slate-600 leading-relaxed">
+              We review the scope, disposal needs, and access, then give you straightforward pricing.
+            </p>
           </div>
-          <div className="text-center">
-            <div className="font-semibold text-brand-navy mb-1">3. We haul it away</div>
+          <div className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm">
+            <div className="flex items-center justify-between mb-5">
+              <span className="text-sm font-bold tracking-[0.2em] text-brand-orange">03</span>
+              <Truck className="text-brand-navy" size={20} />
+            </div>
+            <h3 className="font-display text-2xl font-bold text-brand-navy mb-3">We Handle The Cleanout</h3>
+            <p className="text-slate-600 leading-relaxed">
+              We load, haul, dispose, and sweep up when the job is done.
+            </p>
           </div>
         </div>
       </div>
@@ -226,24 +240,24 @@ const ValueProps = () => {
     {
       icon: <ShieldCheck className="w-8 h-8" />,
       title: "Fully Insured",
-      desc: "Peace of mind comes standard. We are fully licensed and insured for every job."
+      desc: "Protection and peace of mind on every job."
     },
     {
       icon: <Clock className="w-8 h-8" />,
-      title: "Same-Day Service",
-      desc: "Need it gone now? We offer rapid response and often same-day removal."
+      title: "Same-Day Availability",
+      desc: "Fast scheduling for cleanouts, move-outs, and urgent property jobs."
     },
     {
       icon: <Zap className="w-8 h-8" />,
       title: "Upfront Pricing",
-      desc: "No hidden fees. We provide clear, transparent quotes before we start."
+      desc: "Clear pricing before work starts. No surprise fees."
     }
   ];
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-16 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid md:grid-cols-3 gap-6">
           {props.map((prop, i) => (
             <motion.div
               key={i}
@@ -251,12 +265,12 @@ const ValueProps = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="group"
+              className="group bg-slate-50 border border-slate-200 rounded-3xl p-8"
             >
-              <div className="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center text-brand-navy mb-6 group-hover:bg-brand-orange group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-xl group-hover:shadow-brand-orange/20">
+              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-brand-navy mb-5 group-hover:bg-brand-orange group-hover:text-white transition-all duration-300 shadow-sm">
                 {prop.icon}
               </div>
-              <h3 className="font-display text-2xl font-bold text-brand-navy mb-4">{prop.title}</h3>
+              <h3 className="font-display text-2xl font-bold text-brand-navy mb-3">{prop.title}</h3>
               <p className="text-slate-600 leading-relaxed">{prop.desc}</p>
             </motion.div>
           ))}
@@ -304,9 +318,9 @@ const Services = () => {
     <section id="services" className="py-24 relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">What We Haul</h2>
+          <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">What We Clean Out</h2>
           <p className="text-slate-600 max-w-2xl mx-auto text-lg">
-            From single items to full property cleanouts, we handle jobs of any size.
+            From single items to full property cleanouts, we handle jobs of all sizes.
           </p>
         </div>
         
@@ -484,20 +498,20 @@ const BeforeAfterSlider = () => {
               <span className="text-brand-orange">Real Fast.</span>
             </h2>
             <p className="text-slate-400 text-lg mb-10 leading-relaxed">
-              Don't just take our word for it. See how we transform cluttered spaces into clean, usable areas in just a few hours.
+              See how cluttered spaces become clean, usable areas.
             </p>
             <div className="flex flex-col gap-6">
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-full bg-brand-orange/20 flex items-center justify-center text-brand-orange">
                   <CheckCircle2 size={20} />
                 </div>
-                <span className="font-medium">No damage to property</span>
+                <span className="font-medium">Property-friendly cleanup</span>
               </div>
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-full bg-brand-orange/20 flex items-center justify-center text-brand-orange">
                   <CheckCircle2 size={20} />
                 </div>
-                <span className="font-medium">Eco-friendly disposal</span>
+                <span className="font-medium">Responsible disposal</span>
               </div>
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-full bg-brand-orange/20 flex items-center justify-center text-brand-orange">
@@ -510,7 +524,7 @@ const BeforeAfterSlider = () => {
 
           <div 
             ref={containerRef}
-            className="relative h-[400px] lg:h-[500px] rounded-3xl overflow-hidden cursor-ew-resize shadow-2xl"
+            className="relative h-[380px] lg:h-[440px] rounded-3xl overflow-hidden cursor-ew-resize shadow-2xl"
             onMouseMove={handleMove}
             onTouchMove={handleMove}
           >
@@ -589,7 +603,7 @@ const Testimonials = () => {
           <div className="flex justify-center gap-1 mb-4">
             {[1,2,3,4,5].map(i => <Star key={i} fill="#F27D26" color="#F27D26" />)}
           </div>
-          <p className="text-slate-500">Latest customer reviews from local customers</p>
+          <p className="text-slate-500">Latest customer reviews</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -803,7 +817,7 @@ const ServiceAreas = () => {
 
 const MeetTheOwner = () => {
   return (
-    <section className="py-24 bg-slate-50 overflow-hidden">
+    <section id="about" className="py-24 bg-slate-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -846,16 +860,13 @@ const MeetTheOwner = () => {
             </div>
             
             <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-8 leading-tight">
-              Real People. <br />
-              <span className="text-brand-orange">Real Service.</span>
+              Local, Reliable, and <br />
+              <span className="text-brand-orange">Easy to Work With</span>
             </h2>
             
             <div className="space-y-6 text-lg text-slate-600">
               <p>
-                When you call Reinhart Hauling & Cleanouts, you aren't getting a national call center. You're getting a local business owner who cares about the community.
-              </p>
-              <p>
-                I started this business with a simple mission: to provide Middle Tennessee with a junk removal service that is as reliable as it is professional.
+                Reinhart Hauling &amp; Cleanouts is locally owned and built around showing up, communicating clearly, and getting tough cleanout jobs handled the right way.
               </p>
               
               <div className="pt-6 border-t border-slate-200">
@@ -1062,30 +1073,28 @@ const CTA = () => {
           className="max-w-4xl mx-auto"
         >
           <h2 className="font-display text-5xl lg:text-7xl font-bold text-brand-navy mb-8 leading-tight">
-            Get a Fast Quote for Your Cleanout or Junk Removal
+            Need a Property Cleaned Out?
           </h2>
           <p className="text-xl text-slate-600 mb-12 max-w-2xl mx-auto">
-            Text photos for the fastest quote, or fill out the form below and we’ll get back to you quickly.
+            Text photos or job details and we’ll help you figure out the next step.
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-6">
             <a 
-              href="tel:6152000064" 
+              href="sms:6152000064?body=Hi%20I%20need%20a%20junk%20removal%20quote" 
               className="bg-brand-navy text-white px-10 py-5 rounded-2xl font-bold text-xl shadow-2xl shadow-brand-navy/30 flex items-center justify-center gap-3 hover:bg-brand-orange transition-all hover:scale-105"
+            >
+              <MessageSquare className="text-brand-orange" />
+              Text Photos for Pricing
+            </a>
+            <a 
+              href="tel:6152000064" 
+              className="bg-white border-2 border-slate-200 text-brand-navy px-10 py-5 rounded-2xl font-bold text-xl flex items-center justify-center gap-3 hover:border-brand-orange transition-all hover:scale-105"
             >
               <Phone />
               Call 615-200-0064
             </a>
-            <a 
-              href="sms:6152000064" 
-              className="bg-white border-2 border-slate-200 text-brand-navy px-10 py-5 rounded-2xl font-bold text-xl flex items-center justify-center gap-3 hover:border-brand-orange transition-all hover:scale-105"
-            >
-              <MessageSquare className="text-brand-orange" />
-              Text Photos
-            </a>
           </div>
-
-          <QuoteForm />
         </motion.div>
       </div>
     </section>
@@ -1219,25 +1228,12 @@ const HomePage = () => {
   return (
     <SiteLayout>
       <Hero />
+      <ValueProps />
       <HeroSteps />
       <Services />
-      
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, margin: "-100px" }}
-      >
-        <ValueProps />
-      </motion.div>
-
       <BeforeAfterSlider />
-      
       <Testimonials />
-      
-      <ServiceAreas />
-      
       <MeetTheOwner />
-      
       <CTA />
     </SiteLayout>
   );
