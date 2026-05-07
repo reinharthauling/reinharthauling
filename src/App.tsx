@@ -184,7 +184,7 @@ const Hero = () => {
 
 const HeroSteps = () => {
   return (
-    <section id="process" className="py-24 bg-slate-50/70">
+    <section id="process" className="py-20 bg-slate-50/70">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-14">
           <span className="inline-block px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[11px] font-bold uppercase tracking-[0.18em] mb-4">
@@ -199,35 +199,53 @@ const HeroSteps = () => {
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
-          <div className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm">
-            <div className="flex items-center justify-between mb-5">
-              <span className="text-sm font-bold tracking-[0.2em] text-brand-orange">01</span>
-              <MessageSquare className="text-brand-navy" size={20} />
+          <div className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm flex flex-col h-full">
+            <div className="flex items-center justify-between mb-4">
+              <span className="text-base font-extrabold tracking-[0.2em] text-brand-orange">01</span>
+              <MessageSquare className="text-brand-navy" size={22} />
             </div>
             <h3 className="font-display text-2xl font-bold text-brand-navy mb-3">Send Photos or Details</h3>
             <p className="text-slate-600 leading-relaxed">
               Text photos of the items, rooms, garage, or property that needs cleaned out.
             </p>
+            <a
+              href="sms:6152000064"
+              className="mt-5 inline-flex items-center text-sm font-semibold text-brand-navy hover:text-brand-orange transition-colors"
+            >
+              Text Photos &#8594;
+            </a>
           </div>
-          <div className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm">
-            <div className="flex items-center justify-between mb-5">
-              <span className="text-sm font-bold tracking-[0.2em] text-brand-orange">02</span>
-              <CheckCircle2 className="text-brand-navy" size={20} />
+          <div className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm flex flex-col h-full">
+            <div className="flex items-center justify-between mb-4">
+              <span className="text-base font-extrabold tracking-[0.2em] text-brand-orange">02</span>
+              <CheckCircle2 className="text-brand-navy" size={22} />
             </div>
             <h3 className="font-display text-2xl font-bold text-brand-navy mb-3">Get Clear Pricing</h3>
             <p className="text-slate-600 leading-relaxed">
               We review the scope, disposal needs, and access, then give you straightforward pricing.
             </p>
+            <a
+              href="sms:6152000064?body=Hi%20I%20need%20pricing%20for%20a%20cleanout"
+              className="mt-5 inline-flex items-center text-sm font-semibold text-brand-navy hover:text-brand-orange transition-colors"
+            >
+              Request Pricing &#8594;
+            </a>
           </div>
-          <div className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm">
-            <div className="flex items-center justify-between mb-5">
-              <span className="text-sm font-bold tracking-[0.2em] text-brand-orange">03</span>
-              <Truck className="text-brand-navy" size={20} />
+          <div className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm flex flex-col h-full">
+            <div className="flex items-center justify-between mb-4">
+              <span className="text-base font-extrabold tracking-[0.2em] text-brand-orange">03</span>
+              <Truck className="text-brand-navy" size={22} />
             </div>
             <h3 className="font-display text-2xl font-bold text-brand-navy mb-3">We Handle The Cleanout</h3>
             <p className="text-slate-600 leading-relaxed">
               We load, haul, dispose, and sweep up when the job is done.
             </p>
+            <a
+              href="tel:6152000064"
+              className="mt-5 inline-flex items-center text-sm font-semibold text-brand-navy hover:text-brand-orange transition-colors"
+            >
+              Call Now &#8594;
+            </a>
           </div>
         </div>
       </div>
