@@ -128,7 +128,7 @@ const Hero = () => {
               Full Cleanouts &amp; Junk Removal in <span className="text-brand-orange">Nashville</span>
             </h1>
             <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 max-w-2xl">
-              Estate cleanouts, evictions, move-outs, and property cleanups handled fast and professionally.
+              Property cleanouts, estate cleanouts, and rental turnovers handled quickly, professionally, and start-to-finish.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
@@ -300,12 +300,16 @@ const ValueProps = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="group bg-slate-50 border border-slate-200 rounded-3xl p-6"
+              className={`group rounded-3xl p-6 ${
+                i < 3
+                  ? 'bg-slate-50 border border-slate-300'
+                  : 'bg-slate-50/70 border border-slate-200'
+              }`}
             >
               <div className="w-11 h-11 bg-white rounded-xl flex items-center justify-center text-brand-navy mb-4 group-hover:bg-brand-orange group-hover:text-white transition-all duration-300 shadow-sm">
                 {prop.icon}
               </div>
-              <h3 className="font-display text-xl font-bold text-brand-navy mb-2">{prop.title}</h3>
+              <h3 className={`font-display text-xl text-brand-navy mb-2 ${i < 3 ? 'font-extrabold' : 'font-bold'}`}>{prop.title}</h3>
               <p className="text-slate-600 text-sm leading-relaxed">{prop.desc}</p>
             </motion.div>
           ))}
@@ -413,7 +417,7 @@ const Services = () => {
           })}
         </div>
 
-        <section className="py-24 pt-16">
+        <section className="py-20 pt-14">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="font-display text-3xl lg:text-4xl font-bold text-brand-navy mb-4">
@@ -421,18 +425,18 @@ const Services = () => {
               </h2>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {/* General Junk Removal - linked */}
               <Link to="/junk-removal-goodlettsville" className="block">
                 <motion.div
                   whileHover={{ y: -10 }}
-                  className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+                  className="bg-slate-50 p-6 rounded-3xl shadow-lg shadow-slate-200/40 border border-slate-200/70 flex flex-col gap-5"
                 >
-                  <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                  <div className="w-10 h-10 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
                     <Trash2 />
                   </div>
                   <div>
-                    <h4 className="font-display text-xl font-bold text-brand-navy mb-2">General Junk Removal</h4>
+                    <h4 className="font-display text-lg font-bold text-brand-navy mb-2">General Junk Removal</h4>
                     <p className="text-slate-500 text-sm leading-relaxed">
                       Household clutter, attic cleanouts, and general junk removal.
                     </p>
@@ -443,13 +447,13 @@ const Services = () => {
               {/* Garage & Shed Cleanouts */}
               <motion.div
                 whileHover={{ y: -10 }}
-                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+                className="bg-slate-50 p-6 rounded-3xl shadow-lg shadow-slate-200/40 border border-slate-200/70 flex flex-col gap-5"
               >
-                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                <div className="w-10 h-10 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
                   <Warehouse />
                 </div>
                 <div>
-                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Garage &amp; Shed Cleanouts</h4>
+                  <h4 className="font-display text-lg font-bold text-brand-navy mb-2">Garage &amp; Shed Cleanouts</h4>
                   <p className="text-slate-500 text-sm leading-relaxed">
                     Clean out garages, sheds, and storage spaces quickly and efficiently.
                   </p>
@@ -459,13 +463,13 @@ const Services = () => {
               {/* Light Demolition */}
               <motion.div
                 whileHover={{ y: -10 }}
-                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+                className="bg-slate-50 p-6 rounded-3xl shadow-lg shadow-slate-200/40 border border-slate-200/70 flex flex-col gap-5"
               >
-                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                <div className="w-10 h-10 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
                   <Truck />
                 </div>
                 <div>
-                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Light Demolition</h4>
+                  <h4 className="font-display text-lg font-bold text-brand-navy mb-2">Light Demolition</h4>
                   <p className="text-slate-500 text-sm leading-relaxed">
                     Small demo jobs like sheds, decks, and interior tear-outs before cleanout.
                   </p>
@@ -475,13 +479,13 @@ const Services = () => {
               {/* Hot Tub Removal */}
               <motion.div
                 whileHover={{ y: -10 }}
-                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+                className="bg-slate-50 p-6 rounded-3xl shadow-lg shadow-slate-200/40 border border-slate-200/70 flex flex-col gap-5"
               >
-                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                <div className="w-10 h-10 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
                   <Zap />
                 </div>
                 <div>
-                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Hot Tub Removal</h4>
+                  <h4 className="font-display text-lg font-bold text-brand-navy mb-2">Hot Tub Removal</h4>
                   <p className="text-slate-500 text-sm leading-relaxed">
                     Safe removal and disposal of old hot tubs and spa equipment.
                   </p>
@@ -491,13 +495,13 @@ const Services = () => {
               {/* Yard Debris Removal */}
               <motion.div
                 whileHover={{ y: -10 }}
-                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+                className="bg-slate-50 p-6 rounded-3xl shadow-lg shadow-slate-200/40 border border-slate-200/70 flex flex-col gap-5"
               >
-                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                <div className="w-10 h-10 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
                   <Trash2 />
                 </div>
                 <div>
-                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Yard Debris Removal</h4>
+                  <h4 className="font-display text-lg font-bold text-brand-navy mb-2">Yard Debris Removal</h4>
                   <p className="text-slate-500 text-sm leading-relaxed">
                     Brush, branches, and outdoor debris cleared from your property.
                   </p>
@@ -866,11 +870,11 @@ const MeetTheOwner = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white relative group bg-white">
+            <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white relative group">
               <img 
                 src="/Reinhart-hauling-cleanouts-nashville.png" 
                 alt="Reinhart Hauling & Cleanouts truck branding in Middle Tennessee" 
-                className="w-full h-full object-contain p-8 group-hover:scale-[1.02] transition-transform duration-700"
+                className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-700"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/45 via-brand-navy/10 to-transparent" />
@@ -1256,7 +1260,7 @@ const StickyActionFooter = () => {
 const SiteLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div
-      className="min-h-screen selection:bg-brand-orange selection:text-white pb-[calc(92px+env(safe-area-inset-bottom))] md:pb-[calc(108px+env(safe-area-inset-bottom))]"
+      className="min-h-screen selection:bg-brand-orange selection:text-white pb-[calc(128px+env(safe-area-inset-bottom))] md:pb-[calc(148px+env(safe-area-inset-bottom))]"
     >
       <AnimatedBackground />
       <Navbar />
