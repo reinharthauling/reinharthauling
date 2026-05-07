@@ -155,63 +155,10 @@ const Hero = () => {
               </motion.a>
             </div>
             <div className="mt-3 text-sm text-slate-500 text-center">
-              <p>⚡ Text photos — most quotes in 5 minutes</p>
-              <p className="text-slate-400">Call or Text: 615-200-0064</p>
+              <p>Text photos — most quotes in 5 minutes</p>
             </div>
           </motion.div>
         </div>
-      </div>
-      
-      {/* Decorative Elements inspired by Baseten/ChronoTask */}
-      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-1/2 h-full hidden lg:block">
-        <motion.div 
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="relative w-full h-full"
-        >
-          {/* Floating Cards */}
-          <motion.div 
-            animate={{ y: [0, -20, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-1/4 left-1/4 bg-white p-6 rounded-3xl shadow-2xl border border-slate-100 z-10 w-64"
-          >
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center">
-                <CheckCircle2 className="text-green-600" />
-              </div>
-              <div>
-                <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">Status</div>
-                <div className="text-sm font-bold text-brand-navy">Job Completed</div>
-              </div>
-            </div>
-            <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
-              <div className="h-full w-full bg-green-500" />
-            </div>
-          </motion.div>
-
-          <motion.div 
-            animate={{ y: [0, 20, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-            className="absolute bottom-1/4 right-1/4 bg-white p-6 rounded-3xl shadow-2xl border border-slate-100 z-10 w-72"
-          >
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-12 h-12 bg-brand-orange/10 rounded-2xl flex items-center justify-center text-brand-orange">
-                <Clock />
-              </div>
-              <div>
-                <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">Response Time</div>
-                <div className="text-sm font-bold text-brand-navy">Under 15 Minutes</div>
-              </div>
-            </div>
-            <div className="flex gap-1">
-              {[1,2,3,4,5].map(i => <Star key={i} size={14} fill="#F27D26" color="#F27D26" />)}
-            </div>
-          </motion.div>
-
-          {/* Large Abstract Shape */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-navy/5 rounded-full blur-3xl" />
-        </motion.div>
       </div>
     </section>
   );
