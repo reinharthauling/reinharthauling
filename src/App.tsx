@@ -128,7 +128,7 @@ const Hero = () => {
               Full Cleanouts &amp; Junk Removal in <span className="text-brand-orange">Nashville</span>
             </h1>
             <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 max-w-2xl">
-              Property cleanouts, estate cleanouts, and rental turnovers handled quickly, professionally, and start-to-finish.
+              Estate, eviction, rental, and full-property cleanouts handled with clear pricing, professional communication, and fast turnaround.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
