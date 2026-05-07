@@ -150,14 +150,14 @@ const Hero = () => {
               </motion.a>
             </div>
             <div className="mt-4 max-w-2xl">
-              <div className="rounded-2xl border border-slate-200 bg-white/90 px-4 py-3 flex items-start gap-3 shadow-sm">
-                <div className="w-9 h-9 rounded-xl bg-brand-navy/10 text-brand-orange flex items-center justify-center shrink-0">
-                  <MessageSquare size={18} />
+              <div className="rounded-2xl border border-slate-200 bg-white/90 px-4 py-2.5 flex items-start gap-2.5 shadow-sm">
+                <div className="w-8 h-8 rounded-lg bg-brand-navy/10 text-brand-orange flex items-center justify-center shrink-0">
+                  <MessageSquare size={16} />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-brand-navy leading-tight">Fast response for cleanouts &amp; property jobs</p>
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    Send photos or details of the job and we’ll let you know the next steps, pricing, and availability.
+                  <p className="text-sm font-semibold text-brand-navy leading-snug">Fast response for property cleanouts</p>
+                  <p className="text-sm text-slate-600 leading-snug">
+                    Text photos or job details for pricing and availability.
                   </p>
                 </div>
               </div>
