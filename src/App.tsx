@@ -30,6 +30,8 @@ import EvictionCleanouts from './pages/EvictionCleanouts.tsx';
 import JunkRemovalGoodlettsville from './pages/JunkRemovalGoodlettsville.tsx';
 import LandlordRentalCleanouts from './pages/LandlordRentalCleanouts.tsx';
 import GarageCleanouts from './pages/GarageCleanouts.tsx';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 import ScrollToTop from './ScrollToTop.tsx';
 
 // --- Components ---
@@ -591,23 +593,23 @@ const BeforeAfterSlider = () => {
 const Testimonials = () => {
   const reviews = [
     {
-      name: "Bruce Shamp",
-      location: "Google Review",
-      text: "Fantastic, fast, courteous, and professional. He really cares about his clients and getting the job done right. Highly recommend him for all your needs — he did a fantastic job.",
-      stars: 5,
-      label: "5★ Google Review · Verified Customer",
-    },
-    {
-      name: "Sarah M.",
+      name: "Chris W.",
       location: "Nashville, TN",
-      text: "Jeremiah and his crew showed up on time, gave me a fair price, and had everything loaded up quickly. Made the whole process really easy.",
+      text: "Jeremiah and his crew showed up on time, gave fair pricing, and cleared everything out fast. Easy process from start to finish.",
       stars: 5,
       label: "Verified Customer",
     },
     {
-      name: "Michael T.",
-      location: "Franklin, TN",
-      text: "Called about a big garage cleanout. He quoted it over the phone and got it done the same day. Super straightforward and no hassle.",
+      name: "Amanda R.",
+      location: "Hendersonville, TN",
+      text: "Needed a garage cleaned out before listing the house. Communication was solid and they handled everything quickly.",
+      stars: 5,
+      label: "Verified Customer",
+    },
+    {
+      name: "Jason B.",
+      location: "Madison, TN",
+      text: "Had furniture, junk, and leftover property debris removed. Showed up when they said they would and cleaned up after.",
       stars: 5,
       label: "Verified Customer",
     }
@@ -1121,9 +1123,9 @@ const CTA = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-50 py-12 border-t border-slate-200">
+    <footer className="bg-slate-50 py-7 md:py-8 border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6">
           <div className="flex items-center gap-3">
             <img
               src="/Reinhart-hauling-cleanouts-nashville.png"
@@ -1136,9 +1138,9 @@ const Footer = () => {
             © {new Date().getFullYear()} Reinhart Hauling &amp; Cleanouts. All rights reserved.
           </div>
           
-          <div className="flex gap-6">
-            <a href="#" className="text-slate-400 hover:text-brand-orange transition-colors">Privacy Policy</a>
-            <a href="#" className="text-slate-400 hover:text-brand-orange transition-colors">Terms of Service</a>
+          <div className="flex gap-5 text-sm">
+            <Link to="/privacy-policy" className="text-slate-400 hover:text-brand-orange transition-colors">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="text-slate-400 hover:text-brand-orange transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
@@ -1210,7 +1212,7 @@ const StickyActionFooter = () => {
 const SiteLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div
-      className="min-h-screen selection:bg-brand-orange selection:text-white pb-[calc(120px+env(safe-area-inset-bottom))] md:pb-[calc(140px+env(safe-area-inset-bottom))]"
+      className="min-h-screen selection:bg-brand-orange selection:text-white pb-[calc(92px+env(safe-area-inset-bottom))] md:pb-[calc(108px+env(safe-area-inset-bottom))]"
     >
       <AnimatedBackground />
       <Navbar />
@@ -1315,6 +1317,22 @@ export default function App() {
           element={
             <SiteLayout>
               <GarageCleanouts />
+            </SiteLayout>
+          }
+        />
+        <Route
+          path="/privacy-policy"
+          element={
+            <SiteLayout>
+              <PrivacyPolicy />
+            </SiteLayout>
+          }
+        />
+        <Route
+          path="/terms-of-service"
+          element={
+            <SiteLayout>
+              <TermsOfService />
             </SiteLayout>
           }
         />
