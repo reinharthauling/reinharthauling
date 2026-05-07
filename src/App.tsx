@@ -444,7 +444,7 @@ const Services = () => {
                 </motion.div>
               </Link>
 
-              {/* Garage & Shed Cleanouts */}
+              {/* Property Preparation */}
               <motion.div
                 whileHover={{ y: -10 }}
                 className="bg-slate-50 p-6 rounded-3xl shadow-lg shadow-slate-200/40 border border-slate-200/70 flex flex-col gap-5"
@@ -453,9 +453,9 @@ const Services = () => {
                   <Warehouse />
                 </div>
                 <div>
-                  <h4 className="font-display text-lg font-bold text-brand-navy mb-2">Garage &amp; Shed Cleanouts</h4>
+                  <h4 className="font-display text-lg font-bold text-brand-navy mb-2">Property Preparation</h4>
                   <p className="text-slate-500 text-sm leading-relaxed">
-                    Clean out garages, sheds, and storage spaces quickly and efficiently.
+                    Cleanup and haul-off services before listings, renovations, or property transitions.
                   </p>
                 </div>
               </motion.div>
