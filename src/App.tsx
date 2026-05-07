@@ -851,20 +851,21 @@ const MeetTheOwner = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white relative group">
+            <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white relative group bg-white">
               <img 
-                src="/jeremiah-family.jpg" 
-                alt="Jeremiah Reinhart and family" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                src="/Reinhart-hauling-cleanouts-nashville.png" 
+                alt="Reinhart Hauling & Cleanouts truck branding in Middle Tennessee" 
+                className="w-full h-full object-contain p-8 group-hover:scale-[1.02] transition-transform duration-700"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/60 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/45 via-brand-navy/10 to-transparent" />
               
               {/* Label Overlay */}
-              <div className="absolute bottom-8 left-8 right-8">
-                <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl">
-                  <p className="text-white/70 text-sm font-medium uppercase tracking-widest mb-1">Locally Owned & Operated</p>
-                  <h3 className="text-white text-2xl font-bold">Your Neighbor in Removal</h3>
+              <div className="absolute bottom-6 left-6 right-6">
+                <div className="bg-white/10 backdrop-blur-md border border-white/20 px-4 py-3 rounded-2xl inline-flex">
+                  <p className="text-white/90 text-xs font-bold uppercase tracking-[0.16em]">
+                    LOCALLY OWNED • MIDDLE TENNESSEE
+                  </p>
                 </div>
               </div>
             </div>
@@ -881,18 +882,41 @@ const MeetTheOwner = () => {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-orange/10 text-brand-orange font-bold text-sm mb-6">
               <User size={16} />
-              Meet the Owner
+              LOCALLY OWNED &amp; OPERATED
             </div>
             
             <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-8 leading-tight">
-              Local, Reliable, and <br />
-              <span className="text-brand-orange">Easy to Work With</span>
+              Responsive. <span className="text-brand-orange">Professional.</span> Straightforward.
             </h2>
             
             <div className="space-y-6 text-lg text-slate-600">
               <p>
-                Reinhart Hauling &amp; Cleanouts is locally owned and built around showing up, communicating clearly, and getting tough cleanout jobs handled the right way.
+                Reinhart Hauling &amp; Cleanouts was built to provide a more professional cleanout experience for
+                property owners, landlords, families, and real estate professionals across Middle Tennessee.
               </p>
+              <p>
+                We focus on communication, straightforward pricing, and handling difficult cleanup jobs efficiently
+                from start to finish.
+              </p>
+              <p className="text-base text-slate-500">
+                From garage cleanouts and rental turnovers to full property cleanups, our goal is simple: show up on
+                time, do the work the right way, and make the process easier for the customer.
+              </p>
+
+              <div className="flex flex-wrap gap-x-6 gap-y-3 pt-2 text-sm font-semibold text-brand-navy">
+                <div className="inline-flex items-center gap-2">
+                  <CheckCircle2 size={16} className="text-brand-orange" />
+                  Responsive Communication
+                </div>
+                <div className="inline-flex items-center gap-2">
+                  <CheckCircle2 size={16} className="text-brand-orange" />
+                  Property-Focused Cleanouts
+                </div>
+                <div className="inline-flex items-center gap-2">
+                  <CheckCircle2 size={16} className="text-brand-orange" />
+                  Straightforward Pricing
+                </div>
+              </div>
               
               <div className="pt-6 border-t border-slate-200">
                 <div className="flex items-center gap-4">
