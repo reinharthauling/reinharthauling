@@ -112,7 +112,7 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section className="relative pt-26 pb-12 lg:pt-36 lg:pb-16 overflow-hidden">
+    <section id="hero" className="relative pt-26 pb-12 lg:pt-36 lg:pb-16 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         <div className="max-w-3xl">
@@ -300,16 +300,16 @@ const ValueProps = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className={`group rounded-3xl p-6 ${
+              className={`group bg-slate-50 border border-slate-200 rounded-3xl p-6 ${
                 i < 3
-                  ? 'bg-slate-50 border border-slate-300'
-                  : 'bg-slate-50/70 border border-slate-200'
+                  ? 'shadow-md shadow-slate-200/55'
+                  : 'shadow-sm shadow-slate-200/25'
               }`}
             >
               <div className="w-11 h-11 bg-white rounded-xl flex items-center justify-center text-brand-navy mb-4 group-hover:bg-brand-orange group-hover:text-white transition-all duration-300 shadow-sm">
                 {prop.icon}
               </div>
-              <h3 className={`font-display text-xl text-brand-navy mb-2 ${i < 3 ? 'font-extrabold' : 'font-bold'}`}>{prop.title}</h3>
+              <h3 className="font-display text-xl text-brand-navy mb-2 font-bold">{prop.title}</h3>
               <p className="text-slate-600 text-sm leading-relaxed">{prop.desc}</p>
             </motion.div>
           ))}
@@ -1200,25 +1200,45 @@ const StickyActionFooter = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      // Show after scrolling 300px
-      setIsVisible(window.scrollY > 300);
+    const updateVisibility = () => {
+      const isDesktop = window.innerWidth >= 768;
+
+      if (!isDesktop) {
+        // Keep mobile CTA visible for quick thumb access.
+        setIsVisible(true);
+        return;
+      }
+
+      const hero = document.getElementById('hero');
+      const triggerPoint = hero ? hero.offsetTop + hero.offsetHeight - 120 : 420;
+      setIsVisible(window.scrollY > triggerPoint);
     };
+
+    const handleScroll = () => {
+      updateVisibility();
+    };
+
+    updateVisibility();
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', updateVisibility);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', updateVisibility);
+    };
   }, []);
 
   return (
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          initial={{ y: 100, opacity: 0 }}
+          initial={{ y: 80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 100, opacity: 0 }}
-          className="fixed bottom-0 left-0 right-0 z-[60] p-4 md:p-6 pointer-events-none"
+          exit={{ y: 80, opacity: 0 }}
+          transition={{ duration: 0.24, ease: 'easeOut' }}
+          className="fixed bottom-0 left-0 right-0 z-[60] p-3 md:px-5 md:pt-4 md:pb-7 pointer-events-none"
         >
           <div className="max-w-4xl mx-auto pointer-events-auto">
-            <div className="bg-brand-navy/95 backdrop-blur-md border border-white/10 rounded-3xl md:rounded-full p-2 md:p-3 shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex flex-col md:flex-row items-center justify-between gap-4 px-6">
+            <div className="bg-brand-navy/95 backdrop-blur-md border border-white/10 rounded-3xl md:rounded-full p-2 md:py-2 md:px-5 shadow-[0_14px_34px_rgba(0,0,0,0.24)] flex flex-col md:flex-row items-center justify-between gap-3 px-5">
               <div className="flex items-center gap-4">
                 <div className="hidden sm:flex w-10 h-10 bg-brand-orange rounded-full items-center justify-center text-white shrink-0">
                   <Phone size={20} />
