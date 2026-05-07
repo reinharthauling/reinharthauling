@@ -109,8 +109,9 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section className="relative pt-28 pb-20 lg:pt-44 lg:pb-32 overflow-hidden">
+    <section className="relative pt-24 pb-14 lg:pt-36 lg:pb-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
         <div className="max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -124,14 +125,8 @@ const Hero = () => {
               Full Cleanouts &amp; Junk Removal in <br />
               <span className="text-brand-orange">Nashville</span>
             </h1>
-            <p className="text-base lg:text-lg text-brand-orange font-semibold mb-3">
-              Text Photos for a Fast Quote
-            </p>
-            <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 max-w-2xl">
-              From estate cleanouts and evictions to garage, rental property, and move-out junk removal — we handle the heavy lifting fast and professionally.
-            </p>
-            <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-6 max-w-2xl">
-              Same-day and next-day availability across Nashville and surrounding areas.
+            <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-5 max-w-2xl">
+              Estate cleanouts, evictions, move-outs, and property cleanups handled fast and professionally.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
@@ -168,6 +163,19 @@ const Hero = () => {
               </div>
             </div>
           </motion.div>
+        </div>
+        <div className="hidden lg:block">
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/70 bg-white">
+            <img
+              src="/property-cleanout-nashville-after.png"
+              alt="Property cleanout project in Nashville"
+              className="w-full h-[420px] object-cover object-center"
+            />
+            <div className="absolute bottom-4 left-4 bg-white/95 text-brand-navy px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-sm">
+              Recent Property Cleanout
+            </div>
+          </div>
+        </div>
         </div>
       </div>
     </section>
