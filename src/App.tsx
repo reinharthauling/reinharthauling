@@ -128,10 +128,10 @@ const Hero = () => {
               Text Photos for a Fast Quote
             </p>
             <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 max-w-2xl">
-              Estate cleanouts, move-outs, evictions, and bulk junk removal — we handle everything start to finish.
+              From estate cleanouts and evictions to garage, rental property, and move-out junk removal — we handle the heavy lifting fast and professionally.
             </p>
             <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-6 max-w-2xl">
-              Specializing in estate cleanouts, eviction cleanouts, and full property cleanouts.
+              Same-day and next-day availability across Nashville and surrounding areas.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
