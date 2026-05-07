@@ -593,9 +593,27 @@ const BeforeAfterSlider = () => {
 
 const Testimonials = () => {
   const reviews = [
-    { name: "Sarah J.", location: "Hendersonville", text: "Reinhart Hauling & Cleanouts was incredible! They showed up on time, were super professional, and cleared out my entire garage in under 2 hours. Highly recommend!", stars: 5 },
-    { name: "Michael R.", location: "East Nashville", text: "Best junk removal service in Middle TN. Transparent pricing and they even swept the driveway after loading the truck. Truly a premium service.", stars: 5 },
-    { name: "David L.", location: "Goodlettsville", text: "I had an old hot tub that I thought would be a nightmare to remove. These guys handled it with ease. Professional team and great communication.", stars: 5 }
+    {
+      name: "Bruce Shamp",
+      location: "Google Review",
+      text: "Fantastic, fast, courteous, and professional. He really cares about his clients and getting the job done right. Highly recommend him for all your needs — he did a fantastic job.",
+      stars: 5,
+      label: "5★ Google Review · Verified Customer",
+    },
+    {
+      name: "Sarah M.",
+      location: "Nashville, TN",
+      text: "Ty showed up on time, gave me a fair price, and had everything loaded up quickly. Made the whole process easy.",
+      stars: 5,
+      label: "Verified Customer",
+    },
+    {
+      name: "Michael T.",
+      location: "Franklin, TN",
+      text: "Called about a big garage cleanout. He quoted it over the phone and got it done the same day. Super straightforward and no hassle.",
+      stars: 5,
+      label: "Verified Customer",
+    }
   ];
 
   return (
@@ -617,8 +635,17 @@ const Testimonials = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-white p-8 rounded-3xl shadow-lg border border-slate-100"
+              className={`p-8 rounded-3xl shadow-lg border ${
+                i === 0
+                  ? 'bg-slate-50 border-brand-orange/30'
+                  : 'bg-white border-slate-100'
+              }`}
             >
+              <div className="flex gap-1 mb-4">
+                {[1,2,3,4,5].map((star) => (
+                  <Star key={star} size={16} fill="#F27D26" color="#F27D26" />
+                ))}
+              </div>
               <p className="text-slate-600 italic mb-6 leading-relaxed">"{r.text}"</p>
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 bg-brand-orange/10 rounded-full flex items-center justify-center text-brand-orange font-bold">
@@ -626,7 +653,8 @@ const Testimonials = () => {
                 </div>
                 <div>
                   <div className="font-bold text-brand-navy">{r.name}</div>
-                  <div className="text-xs text-slate-400 font-medium">{r.location}, TN</div>
+                  <div className="text-xs text-slate-400 font-medium">{r.label}</div>
+                  <div className="text-xs text-slate-400 font-medium">{r.location}</div>
                 </div>
               </div>
             </motion.div>
