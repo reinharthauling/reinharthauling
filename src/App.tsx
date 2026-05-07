@@ -154,8 +154,18 @@ const Hero = () => {
                 Call 615-200-0064
               </motion.a>
             </div>
-            <div className="mt-3 text-sm text-slate-500 text-center">
-              <p>Text photos — most quotes in 5 minutes</p>
+            <div className="mt-4 max-w-2xl">
+              <div className="rounded-2xl border border-slate-200 bg-white/90 px-4 py-3 flex items-start gap-3 shadow-sm">
+                <div className="w-9 h-9 rounded-xl bg-brand-navy/10 text-brand-orange flex items-center justify-center shrink-0">
+                  <MessageSquare size={18} />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-brand-navy leading-tight">Text us for a fast quote</p>
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    Send photos of your junk and we’ll reply with pricing — most responses within 5 minutes.
+                  </p>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
