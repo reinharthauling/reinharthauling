@@ -603,7 +603,7 @@ const Testimonials = () => {
     {
       name: "Sarah M.",
       location: "Nashville, TN",
-      text: "Jeremiah and his crew showed up on time, gave me a fair price, and had everything loaded up quickly. Made the whole process easy.",
+      text: "Jeremiah and his crew showed up on time, gave me a fair price, and had everything loaded up quickly. Made the whole process really easy.",
       stars: 5,
       label: "Verified Customer",
     },
@@ -624,7 +624,7 @@ const Testimonials = () => {
           <div className="flex justify-center gap-1 mb-4">
             {[1,2,3,4,5].map(i => <Star key={i} fill="#F27D26" color="#F27D26" />)}
           </div>
-          <p className="text-slate-500">Over 100+ 5-star reviews across Middle Tennessee</p>
+          <p className="text-slate-500">Latest customer reviews from local customers</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
