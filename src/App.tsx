@@ -112,7 +112,7 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section className="relative pt-22 pb-12 lg:pt-32 lg:pb-16 overflow-hidden">
+    <section className="relative pt-26 pb-12 lg:pt-36 lg:pb-16 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         <div className="max-w-3xl">
@@ -201,11 +201,7 @@ const HeroSteps = () => {
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
-          <motion.a
-            href="sms:6152000064"
-            whileHover={{ y: -4 }}
-            className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm flex flex-col h-full transition-shadow hover:shadow-lg hover:shadow-slate-200/70"
-          >
+          <div className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm flex flex-col h-full">
             <div className="flex items-center justify-between mb-4">
               <span className="text-base font-extrabold tracking-[0.2em] text-brand-orange">01</span>
               <MessageSquare className="text-brand-navy" size={24} />
@@ -214,12 +210,14 @@ const HeroSteps = () => {
             <p className="text-slate-600 leading-relaxed">
               Text photos of the items, rooms, garage, or property that needs cleaned out.
             </p>
-          </motion.a>
-          <motion.a
-            href="sms:6152000064?body=Hi%20I%20need%20pricing%20for%20a%20cleanout"
-            whileHover={{ y: -4 }}
-            className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm flex flex-col h-full transition-shadow hover:shadow-lg hover:shadow-slate-200/70"
-          >
+            <a
+              href="sms:6152000064"
+              className="mt-5 inline-flex items-center text-sm font-semibold text-brand-navy hover:text-brand-orange transition-colors"
+            >
+              Text Photos &#8594;
+            </a>
+          </div>
+          <div className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm flex flex-col h-full">
             <div className="flex items-center justify-between mb-4">
               <span className="text-base font-extrabold tracking-[0.2em] text-brand-orange">02</span>
               <CheckCircle2 className="text-brand-navy" size={24} />
@@ -228,12 +226,14 @@ const HeroSteps = () => {
             <p className="text-slate-600 leading-relaxed">
               We review the scope, disposal needs, and access, then give you straightforward pricing.
             </p>
-          </motion.a>
-          <motion.a
-            href="tel:6152000064"
-            whileHover={{ y: -4 }}
-            className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm flex flex-col h-full transition-shadow hover:shadow-lg hover:shadow-slate-200/70"
-          >
+            <a
+              href="sms:6152000064?body=Hi%20I%20need%20pricing%20for%20a%20cleanout"
+              className="mt-5 inline-flex items-center text-sm font-semibold text-brand-navy hover:text-brand-orange transition-colors"
+            >
+              Get Pricing &#8594;
+            </a>
+          </div>
+          <div className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm flex flex-col h-full">
             <div className="flex items-center justify-between mb-4">
               <span className="text-base font-extrabold tracking-[0.2em] text-brand-orange">03</span>
               <Truck className="text-brand-navy" size={24} />
@@ -242,7 +242,13 @@ const HeroSteps = () => {
             <p className="text-slate-600 leading-relaxed">
               We load, haul, dispose, and sweep up when the job is done.
             </p>
-          </motion.a>
+            <a
+              href="tel:6152000064"
+              className="mt-5 inline-flex items-center text-sm font-semibold text-brand-navy hover:text-brand-orange transition-colors"
+            >
+              Call Now &#8594;
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -286,7 +292,7 @@ const ValueProps = () => {
   return (
     <section className="py-16 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {props.map((prop, i) => (
             <motion.div
               key={i}
@@ -294,13 +300,13 @@ const ValueProps = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="group bg-slate-50 border border-slate-200 rounded-3xl p-8"
+              className="group bg-slate-50 border border-slate-200 rounded-3xl p-6"
             >
-              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-brand-navy mb-5 group-hover:bg-brand-orange group-hover:text-white transition-all duration-300 shadow-sm">
+              <div className="w-11 h-11 bg-white rounded-xl flex items-center justify-center text-brand-navy mb-4 group-hover:bg-brand-orange group-hover:text-white transition-all duration-300 shadow-sm">
                 {prop.icon}
               </div>
-              <h3 className="font-display text-2xl font-bold text-brand-navy mb-3">{prop.title}</h3>
-              <p className="text-slate-600 leading-relaxed">{prop.desc}</p>
+              <h3 className="font-display text-xl font-bold text-brand-navy mb-2">{prop.title}</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">{prop.desc}</p>
             </motion.div>
           ))}
         </div>
