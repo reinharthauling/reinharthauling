@@ -142,7 +142,7 @@ const Hero = () => {
                 className="bg-brand-navy text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-brand-navy/30 flex items-center justify-center gap-3 group"
               >
                 <MessageSquare className="text-brand-orange" />
-                Text Photos for a Fast Quote
+                Text Photos for Pricing
               </motion.a>
               <motion.a
                 href="tel:6152000064"
@@ -160,9 +160,9 @@ const Hero = () => {
                   <MessageSquare size={18} />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-brand-navy leading-tight">Text us for a fast quote</p>
+                  <p className="text-sm font-semibold text-brand-navy leading-tight">Fast response for cleanouts &amp; property jobs</p>
                   <p className="text-sm text-slate-600 leading-relaxed">
-                    Send photos of your junk and we’ll reply with pricing — most responses within 5 minutes.
+                    Send photos or details of the job and we’ll let you know the next steps, pricing, and availability.
                   </p>
                 </div>
               </div>
