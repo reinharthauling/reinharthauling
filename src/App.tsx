@@ -80,23 +80,23 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm py-2">
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between gap-8">
-      <a href="/" className="flex items-center cursor-pointer">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm py-3">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 min-h-[104px] flex items-center justify-between gap-8">
+      <a href="/" className="flex items-center shrink-0 overflow-visible">
   <img
     src="/Reinhart-hauling-cleanouts-nashville.png"
     alt="Reinhart Hauling & Cleanouts Nashville"
-    className="block h-12 md:h-14 w-auto object-contain max-w-full shrink-0"
+    className="h-[72px] w-auto object-contain block"
   />
 </a>
         
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-5">
           <a href="#services" className="text-sm font-medium hover:text-brand-orange transition-colors">Services</a>
           <a href="#areas" className="text-sm font-medium hover:text-brand-orange transition-colors">Service Areas</a>
           <a href="#reviews" className="text-sm font-medium hover:text-brand-orange transition-colors">Reviews</a>
           <a 
             href="tel:6152000064" 
-            className="bg-brand-navy text-white px-3.5 py-1.5 rounded-full text-sm font-bold shadow-xl shadow-brand-navy/20 hover:bg-brand-orange transition-all hover:scale-105 active:scale-95 flex items-center gap-2"
+            className="bg-brand-navy text-white px-4 py-2 rounded-full text-sm font-medium shadow-xl shadow-brand-navy/20 hover:bg-brand-orange transition-all hover:scale-105 active:scale-95 flex items-center gap-2"
           >
             <Phone size={16} />
             615-200-0064
