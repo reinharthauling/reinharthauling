@@ -112,9 +112,9 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section className="relative pt-24 pb-14 lg:pt-36 lg:pb-20 overflow-hidden">
+    <section className="relative pt-22 pb-12 lg:pt-32 lg:pb-16 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         <div className="max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -127,7 +127,7 @@ const Hero = () => {
             <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-2">
               Full Cleanouts &amp; Junk Removal in <span className="text-brand-orange">Nashville</span>
             </h1>
-            <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-5 max-w-2xl">
+            <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 max-w-2xl">
               Estate cleanouts, evictions, move-outs, and property cleanups handled fast and professionally.
             </p>
             
@@ -151,7 +151,7 @@ const Hero = () => {
                 Call 615-200-0064
               </motion.a>
             </div>
-            <div className="mt-4 max-w-2xl">
+            <div className="mt-3 max-w-2xl">
               <div className="rounded-2xl border border-slate-200 bg-white/90 px-4 py-2.5 flex items-start gap-2.5 shadow-sm">
                 <div className="w-8 h-8 rounded-lg bg-brand-navy/10 text-brand-orange flex items-center justify-center shrink-0">
                   <MessageSquare size={16} />
@@ -201,54 +201,48 @@ const HeroSteps = () => {
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
-          <div className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm flex flex-col h-full">
+          <motion.a
+            href="sms:6152000064"
+            whileHover={{ y: -4 }}
+            className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm flex flex-col h-full transition-shadow hover:shadow-lg hover:shadow-slate-200/70"
+          >
             <div className="flex items-center justify-between mb-4">
               <span className="text-base font-extrabold tracking-[0.2em] text-brand-orange">01</span>
-              <MessageSquare className="text-brand-navy" size={22} />
+              <MessageSquare className="text-brand-navy" size={24} />
             </div>
             <h3 className="font-display text-2xl font-bold text-brand-navy mb-3">Send Photos or Details</h3>
             <p className="text-slate-600 leading-relaxed">
               Text photos of the items, rooms, garage, or property that needs cleaned out.
             </p>
-            <a
-              href="sms:6152000064"
-              className="mt-5 inline-flex items-center text-sm font-semibold text-brand-navy hover:text-brand-orange transition-colors"
-            >
-              Text Photos &#8594;
-            </a>
-          </div>
-          <div className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm flex flex-col h-full">
+          </motion.a>
+          <motion.a
+            href="sms:6152000064?body=Hi%20I%20need%20pricing%20for%20a%20cleanout"
+            whileHover={{ y: -4 }}
+            className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm flex flex-col h-full transition-shadow hover:shadow-lg hover:shadow-slate-200/70"
+          >
             <div className="flex items-center justify-between mb-4">
               <span className="text-base font-extrabold tracking-[0.2em] text-brand-orange">02</span>
-              <CheckCircle2 className="text-brand-navy" size={22} />
+              <CheckCircle2 className="text-brand-navy" size={24} />
             </div>
             <h3 className="font-display text-2xl font-bold text-brand-navy mb-3">Get Clear Pricing</h3>
             <p className="text-slate-600 leading-relaxed">
               We review the scope, disposal needs, and access, then give you straightforward pricing.
             </p>
-            <a
-              href="sms:6152000064?body=Hi%20I%20need%20pricing%20for%20a%20cleanout"
-              className="mt-5 inline-flex items-center text-sm font-semibold text-brand-navy hover:text-brand-orange transition-colors"
-            >
-              Request Pricing &#8594;
-            </a>
-          </div>
-          <div className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm flex flex-col h-full">
+          </motion.a>
+          <motion.a
+            href="tel:6152000064"
+            whileHover={{ y: -4 }}
+            className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm flex flex-col h-full transition-shadow hover:shadow-lg hover:shadow-slate-200/70"
+          >
             <div className="flex items-center justify-between mb-4">
               <span className="text-base font-extrabold tracking-[0.2em] text-brand-orange">03</span>
-              <Truck className="text-brand-navy" size={22} />
+              <Truck className="text-brand-navy" size={24} />
             </div>
             <h3 className="font-display text-2xl font-bold text-brand-navy mb-3">We Handle The Cleanout</h3>
             <p className="text-slate-600 leading-relaxed">
               We load, haul, dispose, and sweep up when the job is done.
             </p>
-            <a
-              href="tel:6152000064"
-              className="mt-5 inline-flex items-center text-sm font-semibold text-brand-navy hover:text-brand-orange transition-colors"
-            >
-              Call Now &#8594;
-            </a>
-          </div>
+          </motion.a>
         </div>
       </div>
     </section>
@@ -271,13 +265,28 @@ const ValueProps = () => {
       icon: <Zap className="w-8 h-8" />,
       title: "Upfront Pricing",
       desc: "Clear pricing before work starts. No surprise fees."
+    },
+    {
+      icon: <Home className="w-8 h-8" />,
+      title: "Property Cleanup Specialists",
+      desc: "Focused on estate, eviction, and full-property cleanout jobs."
+    },
+    {
+      icon: <MessageSquare className="w-8 h-8" />,
+      title: "Fast Communication",
+      desc: "Quick response by text or call so jobs move forward faster."
+    },
+    {
+      icon: <CheckCircle2 className="w-8 h-8" />,
+      title: "Sweep-Up Included",
+      desc: "We finish by cleaning up so the space is ready for next steps."
     }
   ];
 
   return (
     <section className="py-16 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {props.map((prop, i) => (
             <motion.div
               key={i}
@@ -315,22 +324,22 @@ const Services = () => {
     { 
       icon: <Warehouse />, 
       title: "Landlord & Rental Cleanouts", 
-      desc: "Cleanouts for move-outs, evictions, and getting rentals ready for the next tenant." 
+      desc: "Turnover cleanouts for move-outs, evictions, and re-rental preparation." 
     },
     { 
       icon: <Warehouse />, 
       title: "Garage Cleanouts", 
-      desc: "Clear out tools, storage clutter, old furniture, and unwanted junk." 
+      desc: "Packed garage cleanouts with organized hauling and proper disposal." 
     },
     { 
       icon: <Warehouse />, 
       title: "Storage Unit Cleanouts", 
-      desc: "Quick help emptying storage units, leftover items, and bulky debris." 
+      desc: "Storage unit clear-outs for abandoned contents, overflow, and bulky debris." 
     },
     { 
       icon: <Truck />, 
       title: "Appliance & Furniture Removal", 
-      desc: "We remove heavy furniture, appliances, mattresses, and household junk." 
+      desc: "Bulk item removal as part of full cleanouts and property preparation." 
     }
   ];
 
@@ -514,11 +523,11 @@ const BeforeAfterSlider = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="font-display text-4xl lg:text-5xl font-bold mb-8 leading-tight">
-              Real Results, <br />
+              Real Results. <br />
               <span className="text-brand-orange">Real Fast.</span>
             </h2>
             <p className="text-slate-400 text-lg mb-10 leading-relaxed">
-              See how cluttered spaces become clean, usable areas.
+              Professional property cleanouts completed quickly, safely, and thoroughly across Middle Tennessee.
             </p>
             <div className="flex flex-col gap-6">
               <div className="flex items-center gap-4">
