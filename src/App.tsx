@@ -603,7 +603,7 @@ const Testimonials = () => {
     {
       name: "Sarah M.",
       location: "Nashville, TN",
-      text: "Ty showed up on time, gave me a fair price, and had everything loaded up quickly. Made the whole process easy.",
+      text: "Jeremiah and his crew showed up on time, gave me a fair price, and had everything loaded up quickly. Made the whole process easy.",
       stars: 5,
       label: "Verified Customer",
     },
