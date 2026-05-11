@@ -136,7 +136,7 @@ const Hero = () => {
               Full Property Cleanouts Without the <span className="text-brand-orange">Stress</span>
             </h1>
             <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-3 max-w-2xl">
-              Professional estate cleanouts, eviction cleanouts, rental property cleanups, and junk removal across Middle Tennessee.
+              Professional estate cleanouts, rental cleanups, eviction cleanouts, and junk removal across Middle Tennessee.
             </p>
             <p className="text-sm lg:text-base text-slate-600 leading-relaxed mb-6 max-w-2xl">
               Fast response times. Upfront pricing. Reliable communication from start to finish.
@@ -167,11 +167,11 @@ const Hero = () => {
         </div>
         <div className="hidden lg:block">
           {/* HERO_MEDIA: replace HERO_FEATURE_IMAGE_SRC with project photo or before/after still — same aspect classes */}
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/70 bg-white">
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-slate-900/10 ring-1 ring-slate-900/5 border border-slate-200 bg-white">
             <img
               src={HERO_FEATURE_IMAGE_SRC}
               alt={HERO_FEATURE_IMAGE_ALT}
-              className="w-full h-[420px] object-cover object-center"
+              className="w-full h-[460px] object-cover object-[center_45%]"
             />
             <div className="absolute bottom-4 left-4 bg-white/95 text-brand-navy px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-sm">
               Recent Property Cleanout
