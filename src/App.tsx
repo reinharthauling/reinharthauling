@@ -264,8 +264,8 @@ const ValueProps = () => {
     },
     {
       icon: <Clock className="w-8 h-8" />,
-      title: "Same-Day Availability",
-      desc: "Fast scheduling for cleanouts, move-outs, and urgent property jobs."
+      title: "Fast Response Times",
+      desc: "Quick communication and scheduling for cleanouts and property removals."
     },
     {
       icon: <Zap className="w-8 h-8" />,
@@ -275,17 +275,17 @@ const ValueProps = () => {
     {
       icon: <Home className="w-8 h-8" />,
       title: "Property Cleanup Specialists",
-      desc: "Focused on estate, eviction, and full-property cleanout jobs."
+      desc: "Focused on estate, eviction, and full-property cleanup jobs."
     },
     {
       icon: <MessageSquare className="w-8 h-8" />,
       title: "Professional Coordination",
-      desc: "Clear scheduling, updates, and coordination from start to finish."
+      desc: "Clear communication and reliable scheduling from start to finish."
     },
     {
       icon: <CheckCircle2 className="w-8 h-8" />,
-      title: "Sweep-Up Included",
-      desc: "We finish by cleaning up so the space is ready for next steps."
+      title: "Clean Final Walkthrough",
+      desc: "We leave the property cleared, cleaned up, and ready for its next steps."
     }
   ];
 
