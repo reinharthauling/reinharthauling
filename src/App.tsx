@@ -86,7 +86,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 md:px-6 min-h-[104px] flex items-center justify-between gap-8">
       <a href="/" className="flex items-center shrink-0 overflow-visible">
   <img
-    src="/Reinhart-hauling-cleanouts-nashville.png"
+    src="/branding/Reinhart-hauling-cleanouts-nashville.png"
     alt="Reinhart Hauling & Cleanouts Nashville"
     className="h-[72px] w-auto object-contain block"
   />
@@ -111,7 +111,7 @@ const Navbar = () => {
 };
 
 /** Swap these paths when adding real project or before/after gallery assets — layout unchanged. */
-const HERO_FEATURE_IMAGE_SRC = '/property-cleanout-nashville-after.png';
+const HERO_FEATURE_IMAGE_SRC = '/images/projects/property-cleanout-nashville-after.png';
 const HERO_FEATURE_IMAGE_ALT = 'Property cleanout project in Middle Tennessee';
 
 const Hero = () => {
@@ -586,38 +586,35 @@ const Services = () => {
   );
 };
 
-/** Swap paths per project when adding real job photos — card layout unchanged. */
-const RECENT_PROJECT_BEFORE = '/property-cleanout-nashville-before.png';
-const RECENT_PROJECT_AFTER = '/property-cleanout-nashville-after.png';
-
+/** Real project proof — files in /public/images/projects/ (served as /images/projects/…). */
 const RecentCleanoutProjects = () => {
   const projects = [
     {
       title: 'Estate Cleanout – Hendersonville',
-      meta: 'Full-property cleanout • Residential estate',
-      beforeSrc: RECENT_PROJECT_BEFORE,
-      afterSrc: RECENT_PROJECT_AFTER,
+      meta: 'Estate sale removal • Full cleanout support',
+      beforeSrc: '/images/projects/estate-sale-item-removal-before.jpeg',
+      afterSrc: '/images/projects/estate-sale-cleanup-after.jpeg',
       to: '/estate-cleanouts' as const,
     },
     {
       title: 'Rental Property Cleanup – Goodlettsville',
-      meta: 'Turnover prep • Rental unit',
-      beforeSrc: RECENT_PROJECT_BEFORE,
-      afterSrc: RECENT_PROJECT_AFTER,
+      meta: 'Full interior cleanout • Rental turnover',
+      beforeSrc: '/images/projects/property-cleanout-nashville-before.png',
+      afterSrc: '/images/projects/property-cleanout-nashville-after.png',
       to: '/landlord-rental-cleanouts' as const,
     },
     {
       title: 'Garage Cleanout – Gallatin',
-      meta: 'Packed garage • Haul-away & sweep-up',
-      beforeSrc: RECENT_PROJECT_BEFORE,
-      afterSrc: RECENT_PROJECT_AFTER,
+      meta: 'Packed garage • Load-out & disposal',
+      beforeSrc: '/images/projects/garage-cleanout-hendersonville-before.jpeg',
+      afterSrc: '/images/projects/garage-cleanout-hendersonville-after.jpeg',
       to: '/garage-cleanouts' as const,
     },
     {
       title: 'Property Turnover – Springfield',
-      meta: 'Move-out reset • Landlord turnover',
-      beforeSrc: RECENT_PROJECT_BEFORE,
-      afterSrc: RECENT_PROJECT_AFTER,
+      meta: 'Exterior removal • Move-out reset',
+      beforeSrc: '/images/projects/trampoline-removal-nashville.png',
+      afterSrc: '/images/projects/trampoline-removal-nashville-after.png',
       to: '/landlord-rental-cleanouts' as const,
     },
   ];
@@ -746,7 +743,7 @@ const BeforeAfterSlider = () => {
             {/* After Image */}
             <div className="absolute inset-0">
               <img 
-                src="/property-cleanout-nashville-after.png" 
+                src="/images/projects/property-cleanout-nashville-after.png" 
                 alt="After" 
                 className="w-full h-full object-cover object-center"
                 referrerPolicy="no-referrer"
@@ -760,7 +757,7 @@ const BeforeAfterSlider = () => {
               style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
             >
               <img 
-                src="/property-cleanout-nashville-before.png" 
+                src="/images/projects/property-cleanout-nashville-before.png" 
                 alt="Before" 
                 className="w-full h-full object-cover object-center"
                 referrerPolicy="no-referrer"
@@ -1048,7 +1045,7 @@ const MeetTheOwner = () => {
           >
             <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white relative group">
               <img 
-                src="/Reinhart-hauling-cleanouts-nashville.png" 
+                src="/branding/Reinhart-hauling-cleanouts-nashville.png" 
                 alt="Reinhart Hauling & Cleanouts truck branding in Middle Tennessee" 
                 className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-700"
                 referrerPolicy="no-referrer"
@@ -1352,7 +1349,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6">
           <div className="flex items-center gap-3">
             <img
-              src="/Reinhart-hauling-cleanouts-nashville.png"
+              src="/branding/Reinhart-hauling-cleanouts-nashville.png"
               alt="Reinhart Hauling & Cleanouts Nashville"
               className="h-10 md:h-12 w-auto object-contain"
             />
