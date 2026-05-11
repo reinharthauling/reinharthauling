@@ -586,6 +586,111 @@ const Services = () => {
   );
 };
 
+/** Swap paths per project when adding real job photos — card layout unchanged. */
+const RECENT_PROJECT_BEFORE = '/property-cleanout-nashville-before.png';
+const RECENT_PROJECT_AFTER = '/property-cleanout-nashville-after.png';
+
+const RecentCleanoutProjects = () => {
+  const projects = [
+    {
+      title: 'Estate Cleanout – Hendersonville',
+      meta: 'Full-property cleanout • Residential estate',
+      beforeSrc: RECENT_PROJECT_BEFORE,
+      afterSrc: RECENT_PROJECT_AFTER,
+      to: '/estate-cleanouts' as const,
+    },
+    {
+      title: 'Rental Property Cleanup – Goodlettsville',
+      meta: 'Turnover prep • Rental unit',
+      beforeSrc: RECENT_PROJECT_BEFORE,
+      afterSrc: RECENT_PROJECT_AFTER,
+      to: '/landlord-rental-cleanouts' as const,
+    },
+    {
+      title: 'Garage Cleanout – Gallatin',
+      meta: 'Packed garage • Haul-away & sweep-up',
+      beforeSrc: RECENT_PROJECT_BEFORE,
+      afterSrc: RECENT_PROJECT_AFTER,
+      to: '/garage-cleanouts' as const,
+    },
+    {
+      title: 'Property Turnover – Springfield',
+      meta: 'Move-out reset • Landlord turnover',
+      beforeSrc: RECENT_PROJECT_BEFORE,
+      afterSrc: RECENT_PROJECT_AFTER,
+      to: '/landlord-rental-cleanouts' as const,
+    },
+  ];
+
+  return (
+    <section id="recent-projects" className="py-24 bg-slate-50">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-14">
+          <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">Recent Cleanout Projects</h2>
+          <p className="text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed">
+            From packed garages to full-property cleanouts, we help homeowners, landlords, and families reclaim their
+            spaces quickly and professionally.
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 gap-8">
+          {projects.map((p, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.06 }}
+              whileHover={{ y: -6 }}
+              className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+            >
+              <div>
+                <h4 className="font-display text-xl font-bold text-brand-navy mb-1">{p.title}</h4>
+                <p className="text-slate-500 text-sm leading-relaxed">{p.meta}</p>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div className="relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 aspect-[4/3]">
+                  <img
+                    src={p.beforeSrc}
+                    alt={`${p.title} — before`}
+                    className="w-full h-full object-cover object-center"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute bottom-2 left-2 bg-brand-orange text-white px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-sm">
+                    Before
+                  </div>
+                </div>
+                <div className="relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 aspect-[4/3]">
+                  <img
+                    src={p.afterSrc}
+                    alt={`${p.title} — after`}
+                    className="w-full h-full object-cover object-center"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute bottom-2 right-2 bg-white text-brand-navy px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-sm">
+                    After
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-1 border-t border-slate-100">
+                <Link
+                  to={p.to}
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-brand-navy hover:text-brand-orange transition-colors"
+                >
+                  View project
+                  <ArrowRight size={16} className="text-brand-orange" />
+                </Link>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const BeforeAfterSlider = () => {
   const [sliderPos, setSliderPos] = useState(50);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -1391,6 +1496,7 @@ const HomePage = () => {
       <WhoWeHelp />
       <HeroSteps />
       <Services />
+      <RecentCleanoutProjects />
       <BeforeAfterSlider />
       <Testimonials />
       <MeetTheOwner />
