@@ -110,9 +110,13 @@ const Navbar = () => {
   );
 };
 
+/** Swap these paths when adding real project or before/after gallery assets — layout unchanged. */
+const HERO_FEATURE_IMAGE_SRC = '/property-cleanout-nashville-after.png';
+const HERO_FEATURE_IMAGE_ALT = 'Property cleanout project in Middle Tennessee';
+
 const Hero = () => {
   return (
-    <section id="hero" className="relative pt-26 pb-12 lg:pt-36 lg:pb-16 overflow-hidden">
+    <section id="hero" className="relative pt-28 pb-12 lg:pt-40 lg:pb-16 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         <div className="max-w-3xl">
@@ -120,26 +124,33 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            className="relative rounded-3xl border border-slate-200/80 bg-brand-navy/[0.04] p-6 lg:p-8 shadow-sm"
           >
+            {/* Subtle readability layer — keeps contractor aesthetic without heavy blocks */}
+            <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-b from-brand-navy/[0.06] via-transparent to-transparent" aria-hidden />
+            <div className="relative">
             <span className="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-bold uppercase tracking-widest mb-4">
-              LOCAL • FAST • SAME-DAY SERVICE
+              PROPERTY CLEANOUTS • MIDDLE TENNESSEE
             </span>
-            <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-2">
-              Full Cleanouts &amp; Junk Removal in <span className="text-brand-orange">Nashville</span>
+            <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-3">
+              Full Property Cleanouts Without the <span className="text-brand-orange">Stress</span>
             </h1>
-            <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 max-w-2xl">
-              Estate, eviction, rental, and full-property cleanouts handled with clear pricing, professional communication, and fast turnaround.
+            <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-3 max-w-2xl">
+              Professional estate cleanouts, eviction cleanouts, rental property cleanups, and junk removal across Middle Tennessee.
+            </p>
+            <p className="text-sm lg:text-base text-slate-600 leading-relaxed mb-6 max-w-2xl">
+              Fast response times. Upfront pricing. Reliable communication from start to finish.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
               <motion.a
-                href="sms:6152000064?body=Hi%20I%20need%20a%20junk%20removal%20quote"
+                href="sms:6152000064?body=Hi%2C%20I%20need%20a%20property%20cleanout%20quote"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="bg-brand-navy text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-brand-navy/30 flex items-center justify-center gap-3 group"
               >
                 <MessageSquare className="text-brand-orange" />
-                Text Photos for Pricing
+                Text Photos for a Fast Quote
               </motion.a>
               <motion.a
                 href="tel:6152000064"
@@ -148,29 +159,18 @@ const Hero = () => {
                 className="bg-white border-2 border-slate-200 text-brand-navy px-8 py-4 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 hover:border-brand-orange transition-colors"
               >
                 <Phone />
-                Call 615-200-0064
+                Call Now
               </motion.a>
             </div>
-            <div className="mt-3 max-w-2xl">
-              <div className="rounded-2xl border border-slate-200 bg-white/90 px-4 py-2.5 flex items-start gap-2.5 shadow-sm">
-                <div className="w-8 h-8 rounded-lg bg-brand-navy/10 text-brand-orange flex items-center justify-center shrink-0">
-                  <MessageSquare size={16} />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-brand-navy leading-snug">Fast response for property cleanouts</p>
-                  <p className="text-sm text-slate-600 leading-snug">
-                    Text photos or job details for pricing and availability.
-                  </p>
-                </div>
-              </div>
             </div>
           </motion.div>
         </div>
         <div className="hidden lg:block">
+          {/* HERO_MEDIA: replace HERO_FEATURE_IMAGE_SRC with project photo or before/after still — same aspect classes */}
           <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/70 bg-white">
             <img
-              src="/property-cleanout-nashville-after.png"
-              alt="Property cleanout project in Nashville"
+              src={HERO_FEATURE_IMAGE_SRC}
+              alt={HERO_FEATURE_IMAGE_ALT}
               className="w-full h-[420px] object-cover object-center"
             />
             <div className="absolute bottom-4 left-4 bg-white/95 text-brand-navy px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-sm">
