@@ -111,8 +111,9 @@ const Navbar = () => {
 };
 
 /** Swap these paths when adding real project or before/after gallery assets — layout unchanged. */
-const HERO_FEATURE_IMAGE_SRC = '/images/projects/property-cleanout-nashville-after.png';
-const HERO_FEATURE_IMAGE_ALT = 'Property cleanout project in Middle Tennessee';
+const HERO_FEATURE_IMAGE_SRC = '/images/truck-magnet-cleanouts-middle-tennessee.jpeg';
+const HERO_FEATURE_IMAGE_ALT =
+  'Reinhart Hauling and Cleanouts truck magnet with phone number for estate cleanouts, evictions, and rental turnovers in Middle Tennessee';
 
 const Hero = () => {
   return (
@@ -171,10 +172,10 @@ const Hero = () => {
             <img
               src={HERO_FEATURE_IMAGE_SRC}
               alt={HERO_FEATURE_IMAGE_ALT}
-              className="w-full h-[460px] object-cover object-[center_45%]"
+              className="w-full h-[460px] object-cover object-[center_48%] sm:object-[52%_45%]"
             />
             <div className="absolute bottom-4 left-4 bg-white/95 text-brand-navy px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-sm">
-              Recent Property Cleanout
+              LOCAL CLEANOUT CREW
             </div>
           </div>
         </div>
@@ -597,11 +598,11 @@ const RecentCleanoutProjects = () => {
       to: '/estate-cleanouts' as const,
     },
     {
-      title: 'Rental Property Cleanup – Goodlettsville',
-      meta: 'Full interior cleanout • Rental turnover',
+      title: 'Hoarder Cleanout – Goodlettsville',
+      meta: 'Heavy debris removal • Full property cleanup',
       beforeSrc: '/images/projects/property-cleanout-nashville-before.png',
       afterSrc: '/images/projects/property-cleanout-nashville-after.png',
-      to: '/landlord-rental-cleanouts' as const,
+      to: '/junk-removal-goodlettsville' as const,
     },
     {
       title: 'Garage Cleanout – Gallatin',
@@ -1468,25 +1469,44 @@ const SiteLayout = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
+const OG_IMAGE_HOME = 'https://reinharthauling.com/og/reinhart-hauling-cleanouts-og.jpg?v=2';
+
 const HomePage = () => {
-  useEffect(() => {
-    document.title = 'Full Cleanouts & Junk Removal in Nashville | Reinhart Hauling & Cleanouts';
-
-    const metaDescription = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
-    const content =
-      'Fast junk removal in Nashville. Furniture, cleanouts, and same-day service. Text photos for a fast quote.';
-
-    if (metaDescription) {
-      metaDescription.content = content;
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'description';
-      meta.content = content;
-      document.head.appendChild(meta);
-    }
-  }, []);
-
   return (
+    <>
+      <Helmet>
+        <title>Reinhart Hauling &amp; Cleanouts | Estate, Eviction &amp; Hoarder Cleanouts in Middle Tennessee</title>
+        <meta
+          name="description"
+          content="Reinhart Hauling &amp; Cleanouts helps families, landlords, realtors, and property managers with estate cleanouts, eviction cleanouts, hoarder cleanouts, and full property cleanups across Middle Tennessee."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://reinharthauling.com/" />
+        <meta
+          property="og:title"
+          content="Reinhart Hauling &amp; Cleanouts | Estate, Eviction &amp; Hoarder Cleanouts"
+        />
+        <meta
+          property="og:description"
+          content="Professional cleanout help for estates, evictions, hoarder situations, rentals, and full property cleanups across Middle Tennessee."
+        />
+        <meta property="og:image" content={OG_IMAGE_HOME} />
+        <meta property="og:image:secure_url" content={OG_IMAGE_HOME} />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="Reinhart Hauling &amp; Cleanouts" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Reinhart Hauling &amp; Cleanouts | Estate, Eviction &amp; Hoarder Cleanouts"
+        />
+        <meta
+          name="twitter:description"
+          content="Professional cleanout help for estates, evictions, hoarder situations, rentals, and full property cleanups across Middle Tennessee."
+        />
+        <meta name="twitter:image" content={OG_IMAGE_HOME} />
+      </Helmet>
     <SiteLayout>
       <Hero />
       <ValueProps />
@@ -1499,19 +1519,13 @@ const HomePage = () => {
       <MeetTheOwner />
       <CTA />
     </SiteLayout>
+    </>
   );
 };
 
 export default function App() {
   return (
     <>
-    <Helmet>
-  <title>Full Cleanouts & Junk Removal in Nashville | Reinhart Hauling & Cleanouts</title>
-  <meta
-    name="description"
-    content="Fast junk removal in Nashville. Furniture, cleanouts, and same-day service. Text photos for a fast quote."
-  />
-</Helmet>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
