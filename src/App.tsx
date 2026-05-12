@@ -113,7 +113,7 @@ const Navbar = () => {
 /** Swap these paths when adding real project or before/after gallery assets — layout unchanged. */
 const HERO_FEATURE_IMAGE_SRC = '/images/truck-magnet-cleanouts-middle-tennessee.jpeg';
 const HERO_FEATURE_IMAGE_ALT =
-  'Reinhart Hauling and Cleanouts truck magnet with phone number for estate transitions, eviction support, and rental turnover work in Middle Tennessee';
+  'Reinhart Hauling and Cleanouts truck with contact magnet for full-home cleanouts in Middle Tennessee';
 
 const Hero = () => {
   return (
@@ -130,23 +130,23 @@ const Hero = () => {
             {/* Subtle readability layer — keeps contractor aesthetic without heavy blocks */}
             <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-b from-brand-navy/[0.06] via-transparent to-transparent" aria-hidden />
             <div className="relative">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-bold uppercase tracking-widest mb-4">
-              MIDDLE TENNESSEE • ESTATE &amp; RENTAL TRANSITIONS
+            <span className="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-bold tracking-wide mb-4">
+              Middle Tennessee Cleanout Crew
             </span>
-            <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-3">
+            <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-4">
               Full-Home Cleanouts Without the <span className="text-brand-orange">Stress</span>
             </h1>
             <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-3 max-w-2xl">
-              Estate transitions, eviction support, inherited homes, and rental turnovers—with clear communication and
-              steady follow-through across Middle Tennessee.
+              Estate, eviction, and rental cleanouts handled with clear pricing, fast communication, and reliable
+              follow-through.
             </p>
             <p className="text-sm lg:text-base text-slate-600 leading-relaxed mb-6 max-w-2xl">
-              Responsive communication, upfront pricing, and crews built for difficult situations—not rushed guesswork.
+              Text photos for a fast quote. Same-day and next-day availability when the schedule allows.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4">
               <motion.a
-                href="sms:6152000064?body=Hi%2C%20I%20need%20help%20with%20an%20estate%20or%20rental%20turnover%20quote"
+                href="sms:6152000064?body=Hi%2C%20I%27d%20like%20a%20fast%20quote%20for%20a%20cleanout"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="bg-brand-navy text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-brand-navy/30 flex items-center justify-center gap-3 group"
