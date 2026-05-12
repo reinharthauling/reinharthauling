@@ -704,43 +704,51 @@ const BeforeAfterSlider = () => {
   return (
     <section className="py-24 bg-brand-navy text-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 lg:items-center">
+          <div className="lg:col-span-5">
             <h2 className="font-display text-4xl lg:text-5xl font-bold mb-8 leading-tight">
               Real Results. <br />
               <span className="text-brand-orange">Real Fast.</span>
             </h2>
             <p className="text-slate-400 text-lg mb-10 leading-relaxed">
-              Professional property cleanouts completed quickly, safely, and thoroughly across Middle Tennessee.
+              When the job is heavy or time-sensitive, you need a crew that shows up ready — clear communication, fast
+              turnaround, and cleanouts built for real-world properties across Middle Tennessee.
             </p>
             <div className="flex flex-col gap-6">
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-brand-orange/20 flex items-center justify-center text-brand-orange">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 shrink-0 rounded-full bg-brand-orange/20 flex items-center justify-center text-brand-orange">
                   <CheckCircle2 size={20} />
                 </div>
-                <span className="font-medium">Property-friendly cleanup</span>
+                <span className="font-medium leading-snug pt-1.5">
+                  Trusted by families, landlords &amp; local agents
+                </span>
               </div>
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-brand-orange/20 flex items-center justify-center text-brand-orange">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 shrink-0 rounded-full bg-brand-orange/20 flex items-center justify-center text-brand-orange">
                   <CheckCircle2 size={20} />
                 </div>
-                <span className="font-medium">Responsible disposal</span>
+                <span className="font-medium leading-snug pt-1.5">
+                  Professional crews for difficult cleanout jobs
+                </span>
               </div>
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-brand-orange/20 flex items-center justify-center text-brand-orange">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 shrink-0 rounded-full bg-brand-orange/20 flex items-center justify-center text-brand-orange">
                   <CheckCircle2 size={20} />
                 </div>
-                <span className="font-medium">Swept clean finish</span>
+                <span className="font-medium leading-snug pt-1.5">
+                  Quick turnaround without the chaos
+                </span>
               </div>
             </div>
           </div>
 
-          <div 
-            ref={containerRef}
-            className="relative h-[380px] lg:h-[440px] rounded-3xl overflow-hidden cursor-ew-resize shadow-2xl"
-            onMouseMove={handleMove}
-            onTouchMove={handleMove}
-          >
+          <div className="lg:col-span-7">
+            <div
+              ref={containerRef}
+              className="relative w-full aspect-[4/3] sm:aspect-[5/3] lg:aspect-[2/1] mx-auto lg:mx-0 rounded-3xl overflow-hidden cursor-ew-resize shadow-[0_28px_55px_-12px_rgba(0,0,0,0.55)] ring-1 ring-white/15 select-none"
+              onMouseMove={handleMove}
+              onTouchMove={handleMove}
+            >
             {/* After Image */}
             <div className="absolute inset-0">
               <img 
@@ -776,6 +784,7 @@ const BeforeAfterSlider = () => {
                 <ChevronRight size={16} />
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>
