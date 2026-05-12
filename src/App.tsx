@@ -166,13 +166,13 @@ const Hero = () => {
             </div>
           </motion.div>
         </div>
-        <div className="hidden lg:block">
+        <div className="mt-8 lg:mt-0">
           {/* HERO_MEDIA: replace HERO_FEATURE_IMAGE_SRC with project photo or before/after still — same aspect classes */}
           <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-slate-900/10 ring-1 ring-slate-900/5 border border-slate-200 bg-white">
             <img
               src={HERO_FEATURE_IMAGE_SRC}
               alt={HERO_FEATURE_IMAGE_ALT}
-              className="w-full h-[460px] object-cover object-[center_48%] sm:object-[52%_45%]"
+              className="w-full h-[280px] sm:h-[360px] lg:h-[460px] object-cover object-[center_48%] sm:object-[52%_45%]"
             />
             <div className="absolute bottom-4 left-4 bg-white/95 text-brand-navy px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-sm">
               LOCAL CLEANOUT CREW
