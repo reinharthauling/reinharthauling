@@ -113,7 +113,7 @@ const Navbar = () => {
 /** Swap these paths when adding real project or before/after gallery assets — layout unchanged. */
 const HERO_FEATURE_IMAGE_SRC = '/images/truck-magnet-cleanouts-middle-tennessee.jpeg';
 const HERO_FEATURE_IMAGE_ALT =
-  'Reinhart Hauling and Cleanouts truck magnet with phone number for estate cleanouts, evictions, and rental turnovers in Middle Tennessee';
+  'Reinhart Hauling and Cleanouts truck magnet with phone number for estate transitions, eviction support, and rental turnover work in Middle Tennessee';
 
 const Hero = () => {
   return (
@@ -131,21 +131,22 @@ const Hero = () => {
             <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-b from-brand-navy/[0.06] via-transparent to-transparent" aria-hidden />
             <div className="relative">
             <span className="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-bold uppercase tracking-widest mb-4">
-              PROPERTY CLEANOUTS • MIDDLE TENNESSEE
+              MIDDLE TENNESSEE • ESTATE &amp; RENTAL TRANSITIONS
             </span>
             <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-3">
-              Full Property Cleanouts Without the <span className="text-brand-orange">Stress</span>
+              Full-Home Cleanouts Without the <span className="text-brand-orange">Stress</span>
             </h1>
             <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-3 max-w-2xl">
-              Professional estate cleanouts, rental cleanups, eviction cleanouts, and junk removal across Middle Tennessee.
+              Estate transitions, eviction support, inherited homes, and rental turnovers—with clear communication and
+              steady follow-through across Middle Tennessee.
             </p>
             <p className="text-sm lg:text-base text-slate-600 leading-relaxed mb-6 max-w-2xl">
-              Fast response times. Upfront pricing. Reliable communication from start to finish.
+              Responsive communication, upfront pricing, and crews built for difficult situations—not rushed guesswork.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
               <motion.a
-                href="sms:6152000064?body=Hi%2C%20I%20need%20a%20property%20cleanout%20quote"
+                href="sms:6152000064?body=Hi%2C%20I%20need%20help%20with%20an%20estate%20or%20rental%20turnover%20quote"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="bg-brand-navy text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-brand-navy/30 flex items-center justify-center gap-3 group"
@@ -194,10 +195,10 @@ const HeroSteps = () => {
             HOW IT WORKS
           </span>
           <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-4">
-            Simple Cleanout Process
+            How We Work With You
           </h2>
           <p className="text-slate-600 max-w-2xl mx-auto text-lg">
-            Send photos, get clear pricing, and we handle the heavy lifting.
+            Send photos, get clear scope and pricing, and we handle the load-out.
           </p>
         </div>
 
@@ -209,7 +210,7 @@ const HeroSteps = () => {
             </div>
             <h3 className="font-display text-2xl font-bold text-brand-navy mb-3">Send Photos or Details</h3>
             <p className="text-slate-600 leading-relaxed">
-              Text photos of the items, rooms, garage, or property that needs cleaned out.
+              Text photos of rooms, garages, estates, turnovers, or inherited homes—whatever needs to be cleared.
             </p>
             <a
               href="sms:6152000064"
@@ -225,7 +226,7 @@ const HeroSteps = () => {
             </div>
             <h3 className="font-display text-2xl font-bold text-brand-navy mb-3">Get Clear Pricing</h3>
             <p className="text-slate-600 leading-relaxed">
-              We review the scope, disposal needs, and access, then give you straightforward pricing.
+              We review access, debris volume, and disposal needs, then give straightforward pricing before we start.
             </p>
             <a
               href="sms:6152000064?body=Hi%20I%20need%20pricing%20for%20a%20cleanout"
@@ -239,9 +240,9 @@ const HeroSteps = () => {
               <span className="text-base font-extrabold tracking-[0.2em] text-brand-orange">03</span>
               <Truck className="text-brand-navy" size={24} />
             </div>
-            <h3 className="font-display text-2xl font-bold text-brand-navy mb-3">We Handle The Cleanout</h3>
+            <h3 className="font-display text-2xl font-bold text-brand-navy mb-3">We Handle the Load-Out</h3>
             <p className="text-slate-600 leading-relaxed">
-              We load, haul, dispose, and sweep up when the job is done.
+              We load, haul, dispose, and leave spaces cleared and ready for what comes next.
             </p>
             <a
               href="tel:6152000064"
@@ -261,32 +262,32 @@ const ValueProps = () => {
     {
       icon: <ShieldCheck className="w-8 h-8" />,
       title: "Fully Insured",
-      desc: "Protection and peace of mind on every job."
+      desc: "Coverage in place so work on-site is handled responsibly."
     },
     {
       icon: <Clock className="w-8 h-8" />,
       title: "Fast Response Times",
-      desc: "Quick communication and scheduling for cleanouts and property removals."
+      desc: "Responsive communication and scheduling when timing matters."
     },
     {
       icon: <Zap className="w-8 h-8" />,
       title: "Upfront Pricing",
-      desc: "Clear pricing before work starts. No surprise fees."
+      desc: "Clear numbers before we start—no surprise line items."
     },
     {
       icon: <Home className="w-8 h-8" />,
-      title: "Property Cleanup Specialists",
-      desc: "Focused on estate, eviction, and full-property cleanup jobs."
+      title: "Heavy Transitions, Calm Process",
+      desc: "Estate, eviction, and rental turnover support from one steady crew."
     },
     {
       icon: <MessageSquare className="w-8 h-8" />,
-      title: "Professional Coordination",
-      desc: "Clear communication and reliable scheduling from start to finish."
+      title: "Straightforward Coordination",
+      desc: "You know who is coming, when, and what to expect on site."
     },
     {
       icon: <CheckCircle2 className="w-8 h-8" />,
-      title: "Clean Final Walkthrough",
-      desc: "We leave the property cleared, cleaned up, and ready for its next steps."
+      title: "Move-Out Ready Finish",
+      desc: "We leave interiors broom-clean and ready for the next step."
     }
   ];
 
@@ -324,33 +325,33 @@ const WhoWeHelp = () => {
   const audiences = [
     {
       icon: <User className="w-6 h-6" />,
-      title: 'Families Handling Estate Cleanouts',
-      desc: 'Respectful, reliable help during downsizing, estate transitions, and inherited property cleanouts.',
+      title: 'Families in Estate Transitions',
+      desc: 'Respectful support for downsizing, inherited homes, and emotionally heavy clear-outs.',
     },
     {
       icon: <MapPin className="w-6 h-6" />,
-      title: 'Realtors Preparing Homes for Sale',
-      desc: 'Fast property cleanups that help listings show better and get market-ready.',
+      title: 'Realtors & Seller Prep',
+      desc: 'Debris cleared and interiors market-ready so listings show their best.',
     },
     {
       icon: <Warehouse className="w-6 h-6" />,
-      title: 'Property Managers Handling Tenant Turnover',
-      desc: 'Efficient cleanouts for move-outs, abandoned items, and rental property resets.',
+      title: 'Property Managers & Portfolios',
+      desc: 'Rental turnover support after move-outs, abandoned contents, or unit resets.',
     },
     {
       icon: <Trash2 className="w-6 h-6" />,
-      title: 'Landlords Dealing With Evictions',
-      desc: 'Quick turnaround cleanout services to help prepare units for the next tenant.',
+      title: 'Landlords After Evictions',
+      desc: 'Fast turnaround when you need the unit cleared and ready for the next occupant.',
     },
     {
       icon: <Home className="w-6 h-6" />,
-      title: 'Homeowners Overwhelmed by Clutter',
-      desc: 'From packed garages to large cleanup projects, we help reclaim usable space.',
+      title: 'Overwhelming Situations at Home',
+      desc: 'When a whole-home reset feels impossible, we bring professional cleanup support and a steady plan.',
     },
     {
       icon: <Truck className="w-6 h-6" />,
-      title: 'Real Estate Investors',
-      desc: 'Reliable cleanup support for distressed properties, flips, and investment projects.',
+      title: 'Investors & Distressed Assets',
+      desc: 'Load-out and sweep-through support for acquisitions, flips, and transitions—done on schedule.',
     },
   ];
 
@@ -360,8 +361,8 @@ const WhoWeHelp = () => {
         <div className="text-center mb-14">
           <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">Who We Help</h2>
           <p className="text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed">
-            We help homeowners, landlords, property managers, and families handle difficult cleanout situations
-            quickly and professionally.
+            From inherited homes to tight deadlines—we work alongside families, agents, and managers who need the job
+            done without drama.
           </p>
         </div>
 
@@ -396,32 +397,32 @@ const Services = () => {
     { 
       icon: <Home />, 
       title: "Estate Cleanouts", 
-      desc: "Full and partial cleanouts for homes, estates, and inherited properties." 
+      desc: "Sensitive full-home and partial clear-outs for estates and inherited homes." 
     },
     { 
       icon: <Trash2 />, 
       title: "Eviction Cleanouts", 
-      desc: "Fast cleanout help for landlords, property managers, and rental turnovers." 
+      desc: "Eviction support for landlords and managers—fast turnaround when you need the unit back online." 
     },
     { 
       icon: <Warehouse />, 
       title: "Landlord & Rental Cleanouts", 
-      desc: "Turnover cleanouts for move-outs, evictions, and re-rental preparation." 
+      desc: "Turnover support: move-outs, contents left behind, and rental reset work." 
     },
     { 
       icon: <Warehouse />, 
       title: "Garage Cleanouts", 
-      desc: "Packed garage cleanouts with organized hauling and proper disposal." 
+      desc: "Packed garages unloaded, sorted, and hauled with an organized load-out." 
     },
     { 
       icon: <Warehouse />, 
       title: "Storage Unit Cleanouts", 
-      desc: "Storage unit clear-outs for abandoned contents, overflow, and bulky debris." 
+      desc: "Storage units cleared for abandoned contents, overflow, and bulky debris." 
     },
     { 
       icon: <Truck />, 
       title: "Appliance & Furniture Removal", 
-      desc: "Bulk item removal as part of full cleanouts and property preparation." 
+      desc: "Appliances, furniture, and heavy items as part of estate and turnover jobs." 
     }
   ];
 
@@ -429,9 +430,9 @@ const Services = () => {
     <section id="services" className="py-24 relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">What We Clean Out</h2>
+          <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">What We Take On</h2>
           <p className="text-slate-600 max-w-2xl mx-auto text-lg">
-            From single items to full property cleanouts, we handle jobs of all sizes.
+            From single rooms to full-home transitions—we scale the crew and trucks to the job.
           </p>
         </div>
         
@@ -498,7 +499,7 @@ const Services = () => {
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* General Junk Removal - linked */}
+              {/* Mixed household load-outs - linked */}
               <Link to="/junk-removal-goodlettsville" className="block">
                 <motion.div
                   whileHover={{ y: -10 }}
@@ -508,9 +509,9 @@ const Services = () => {
                     <Trash2 />
                   </div>
                   <div>
-                    <h4 className="font-display text-lg font-bold text-brand-navy mb-2">General Junk Removal</h4>
+                    <h4 className="font-display text-lg font-bold text-brand-navy mb-2">Mixed Household Load-Outs</h4>
                     <p className="text-slate-500 text-sm leading-relaxed">
-                      Household clutter, attic cleanouts, and general junk removal.
+                      Attics, basements, and mixed household debris when the scope goes beyond a single room.
                     </p>
                   </div>
                 </motion.div>
@@ -525,9 +526,9 @@ const Services = () => {
                   <Warehouse />
                 </div>
                 <div>
-                  <h4 className="font-display text-lg font-bold text-brand-navy mb-2">Property Preparation</h4>
+                  <h4 className="font-display text-lg font-bold text-brand-navy mb-2">Listing &amp; Seller Prep</h4>
                   <p className="text-slate-500 text-sm leading-relaxed">
-                    Cleanup and haul-off services before listings, renovations, or property transitions.
+                    Cleared and ready for photos, contractors, or the next occupant.
                   </p>
                 </div>
               </motion.div>
@@ -543,7 +544,7 @@ const Services = () => {
                 <div>
                   <h4 className="font-display text-lg font-bold text-brand-navy mb-2">Light Demolition</h4>
                   <p className="text-slate-500 text-sm leading-relaxed">
-                    Small demo jobs like sheds, decks, and interior tear-outs before cleanout.
+                    Small demo—sheds, decks, and interior tear-outs before the load-out.
                   </p>
                 </div>
               </motion.div>
@@ -575,7 +576,7 @@ const Services = () => {
                 <div>
                   <h4 className="font-display text-lg font-bold text-brand-navy mb-2">Yard Debris Removal</h4>
                   <p className="text-slate-500 text-sm leading-relaxed">
-                    Brush, branches, and outdoor debris cleared from your property.
+                    Brush, branches, and outdoor debris cleared from your yard or lot.
                   </p>
                 </div>
               </motion.div>
@@ -592,14 +593,14 @@ const RecentCleanoutProjects = () => {
   const projects = [
     {
       title: 'Estate Cleanout – Hendersonville',
-      meta: 'Estate sale removal • Full cleanout support',
+      meta: 'Estate sale removal • Transition support',
       beforeSrc: '/images/projects/estate-sale-item-removal-before.jpeg',
       afterSrc: '/images/projects/estate-sale-cleanup-after.jpeg',
       to: '/estate-cleanouts' as const,
     },
     {
       title: 'Hoarder Cleanout – Goodlettsville',
-      meta: 'Heavy debris removal • Full property cleanup',
+      meta: 'Heavy debris • Whole-home reset',
       beforeSrc: '/images/projects/property-cleanout-nashville-before.png',
       afterSrc: '/images/projects/property-cleanout-nashville-after.png',
       to: '/junk-removal-goodlettsville' as const,
@@ -612,7 +613,7 @@ const RecentCleanoutProjects = () => {
       to: '/garage-cleanouts' as const,
     },
     {
-      title: 'Property Turnover – Springfield',
+      title: 'Rental Turnover – Springfield',
       meta: 'Exterior removal • Move-out reset',
       beforeSrc: '/images/projects/trampoline-removal-nashville.png',
       afterSrc: '/images/projects/trampoline-removal-nashville-after.png',
@@ -624,10 +625,9 @@ const RecentCleanoutProjects = () => {
     <section id="recent-projects" className="py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-14">
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">Recent Cleanout Projects</h2>
+          <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">Recent Jobs</h2>
           <p className="text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed">
-            From packed garages to full-property cleanouts, we help homeowners, landlords, and families reclaim their
-            spaces quickly and professionally.
+            Garages, estates, rental turnovers, and difficult situations handled professionally—here in Middle Tennessee.
           </p>
         </div>
 
@@ -707,12 +707,12 @@ const BeforeAfterSlider = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 lg:items-center">
           <div className="lg:col-span-5">
             <h2 className="font-display text-4xl lg:text-5xl font-bold mb-8 leading-tight">
-              Real Results. <br />
-              <span className="text-brand-orange">Real Fast.</span>
+              From Crowded to <br />
+              <span className="text-brand-orange">Move-Out Ready</span>
             </h2>
             <p className="text-slate-400 text-lg mb-10 leading-relaxed">
-              When the job is heavy or time-sensitive, you need a crew that shows up ready — clear communication, fast
-              turnaround, and cleanouts built for real-world properties across Middle Tennessee.
+              Slide to compare: a full-home interior cleared, swept, and ready for its next chapter—without the chaos on
+              your end.
             </p>
             <div className="flex flex-col gap-6">
               <div className="flex items-start gap-4">
@@ -728,7 +728,7 @@ const BeforeAfterSlider = () => {
                   <CheckCircle2 size={20} />
                 </div>
                 <span className="font-medium leading-snug pt-1.5">
-                  Professional crews for difficult cleanout jobs
+                  Crews experienced with heavy, emotional, or time-pressed jobs
                 </span>
               </div>
               <div className="flex items-start gap-4">
@@ -753,7 +753,7 @@ const BeforeAfterSlider = () => {
             <div className="absolute inset-0">
               <img 
                 src="/images/projects/property-cleanout-nashville-after.png" 
-                alt="After" 
+                alt="Interior after work—cleared and move-out ready" 
                 className="w-full h-full object-cover object-center"
                 referrerPolicy="no-referrer"
               />
@@ -767,7 +767,7 @@ const BeforeAfterSlider = () => {
             >
               <img 
                 src="/images/projects/property-cleanout-nashville-before.png" 
-                alt="Before" 
+                alt="Interior before work—cluttered rooms" 
                 className="w-full h-full object-cover object-center"
                 referrerPolicy="no-referrer"
               />
@@ -821,11 +821,11 @@ const Testimonials = () => {
     <section id="reviews" className="py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">What Our Neighbors Say</h2>
+          <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">What Neighbors Say</h2>
           <div className="flex justify-center gap-1 mb-4">
             {[1,2,3,4,5].map(i => <Star key={i} fill="#F27D26" color="#F27D26" />)}
           </div>
-          <p className="text-slate-500">Latest customer reviews</p>
+          <p className="text-slate-500">Feedback from homeowners, landlords, and agents across Middle Tennessee.</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -1022,7 +1022,7 @@ const ServiceAreas = () => {
                 transition={{ duration: 4, repeat: Infinity }}
                 className="absolute -top-4 -right-4 bg-white text-brand-navy px-4 py-2 rounded-xl text-xs font-bold shadow-2xl border border-slate-100 z-20"
               >
-                Local Experts
+                Locally Based
               </motion.div>
               <motion.div 
                 animate={{ y: [0, 10, 0] }}
@@ -1088,21 +1088,21 @@ const MeetTheOwner = () => {
             </div>
             
             <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-8 leading-tight">
-              Responsive. <span className="text-brand-orange">Professional.</span> Straightforward.
+              Responsive. <span className="text-brand-orange">Steady.</span> Straightforward.
             </h2>
             
             <div className="space-y-6 text-lg text-slate-600">
               <p>
-                Reinhart Hauling &amp; Cleanouts was built to provide a more professional cleanout experience for
-                property owners, landlords, families, and real estate professionals across Middle Tennessee.
+                Reinhart Hauling &amp; Cleanouts exists for neighbors who need a calmer way through heavy transitions—
+                estates, evictions, inherited homes, and rental turnovers across Middle Tennessee.
               </p>
               <p>
-                We focus on communication, straightforward pricing, and handling difficult cleanup jobs efficiently
-                from start to finish.
+                We focus on clear communication, upfront pricing, and crews that know how to work through difficult
+                interiors without adding stress.
               </p>
               <p className="text-base text-slate-500">
-                From garage cleanouts and rental turnovers to full property cleanups, our goal is simple: show up on
-                time, do the work the right way, and make the process easier for the customer.
+                Whether it is a packed garage or a whole-home reset, we show up on time, execute the plan, and leave you
+                with space that feels cleared and ready.
               </p>
 
               <div className="flex flex-wrap gap-x-6 gap-y-3 pt-2 text-sm font-semibold text-brand-navy">
@@ -1112,7 +1112,7 @@ const MeetTheOwner = () => {
                 </div>
                 <div className="inline-flex items-center gap-2">
                   <CheckCircle2 size={16} className="text-brand-orange" />
-                  Property-Focused Cleanouts
+                  Estate &amp; Turnover Support
                 </div>
                 <div className="inline-flex items-center gap-2">
                   <CheckCircle2 size={16} className="text-brand-orange" />
@@ -1324,19 +1324,19 @@ const CTA = () => {
           className="max-w-4xl mx-auto"
         >
           <h2 className="font-display text-5xl lg:text-7xl font-bold text-brand-navy mb-8 leading-tight">
-            Need a Property Cleaned Out?
+            Need the Space Cleared—Soon?
           </h2>
           <p className="text-xl text-slate-600 mb-12 max-w-2xl mx-auto">
-            Text photos or job details and we’ll help you figure out the next step.
+            Text photos for a fast, no-drama read on scope. We respond quickly and keep communication simple.
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-6">
             <a 
-              href="sms:6152000064?body=Hi%20I%20need%20a%20junk%20removal%20quote" 
+              href="sms:6152000064?body=Hi%2C%20I%20need%20help%20with%20an%20estate%20or%20rental%20turnover%20quote" 
               className="bg-brand-navy text-white px-10 py-5 rounded-2xl font-bold text-xl shadow-2xl shadow-brand-navy/30 flex items-center justify-center gap-3 hover:bg-brand-orange transition-all hover:scale-105"
             >
               <MessageSquare className="text-brand-orange" />
-              Text Photos for Pricing
+              Text Photos for a Fast Quote
             </a>
             <a 
               href="tel:6152000064" 
@@ -1354,9 +1354,9 @@ const CTA = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-50 py-7 md:py-8 border-t border-slate-200">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6">
+    <footer className="bg-slate-50 py-8 border-t border-slate-200">
+      <div className="max-w-7xl mx-auto px-6 space-y-5">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <img
               src="/branding/Reinhart-hauling-cleanouts-nashville.png"
@@ -1364,16 +1364,27 @@ const Footer = () => {
               className="h-10 md:h-12 w-auto object-contain"
             />
           </div>
-          
-          <div className="text-slate-400 text-sm font-medium">
+          <div className="text-slate-400 text-sm font-medium text-center">
             © {new Date().getFullYear()} Reinhart Hauling &amp; Cleanouts. All rights reserved.
           </div>
-          
           <div className="flex gap-5 text-sm">
-            <Link to="/privacy-policy" className="text-slate-400 hover:text-brand-orange transition-colors">Privacy Policy</Link>
-            <Link to="/terms-of-service" className="text-slate-400 hover:text-brand-orange transition-colors">Terms of Service</Link>
+            <Link to="/privacy-policy" className="text-slate-400 hover:text-brand-orange transition-colors">
+              Privacy Policy
+            </Link>
+            <Link to="/terms-of-service" className="text-slate-400 hover:text-brand-orange transition-colors">
+              Terms of Service
+            </Link>
           </div>
         </div>
+        <p className="text-center md:text-left text-sm text-slate-500 leading-relaxed max-w-2xl mx-auto md:mx-0">
+          Estate, eviction, and rental turnover support across Middle Tennessee.{' '}
+          <a
+            href="tel:6152000064"
+            className="font-semibold text-brand-navy hover:text-brand-orange transition-colors whitespace-nowrap"
+          >
+            Call 615-200-0064
+          </a>
+        </p>
       </div>
     </footer>
   );
@@ -1440,7 +1451,7 @@ const StickyActionFooter = () => {
                   className="flex-1 md:flex-none bg-white text-brand-navy px-5 py-3 rounded-2xl md:rounded-full font-bold text-sm flex items-center justify-center gap-2 hover:bg-brand-orange hover:text-white transition-all active:scale-95 group"
                 >
                   <MessageSquare size={18} className="text-brand-orange group-hover:text-white transition-colors" />
-                  <span className="whitespace-nowrap">Text Photos</span>
+                  <span className="whitespace-nowrap">Text photos for quote</span>
                 </a>
                 <a 
                   href="tel:6152000064"
@@ -1484,17 +1495,17 @@ const HomePage = () => {
   return (
     <>
       <Helmet>
-        <title>Reinhart Hauling &amp; Cleanouts | Property Cleanouts</title>
+        <title>Reinhart Hauling &amp; Cleanouts | Estate &amp; Turnover Support</title>
         <meta
           name="description"
-          content="Professional estate cleanouts, eviction cleanouts, rental turnovers, and full property cleanups across Middle Tennessee."
+          content="Estate transitions, eviction support, rental turnovers, inherited homes, and difficult interiors—cleared with responsive communication across Middle Tennessee."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://reinharthauling.com/" />
-        <meta property="og:title" content="Reinhart Hauling &amp; Cleanouts | Property Cleanouts" />
+        <meta property="og:title" content="Reinhart Hauling &amp; Cleanouts | Estate &amp; Turnover Support" />
         <meta
           property="og:description"
-          content="Professional estate cleanouts, eviction cleanouts, rental turnovers, and full property cleanups across Middle Tennessee."
+          content="Estate transitions, eviction support, rental turnovers, inherited homes, and difficult interiors—cleared with responsive communication across Middle Tennessee."
         />
         <meta property="og:image" content={OG_IMAGE_HOME} />
         <meta property="og:image:secure_url" content={OG_IMAGE_HOME} />
@@ -1503,10 +1514,10 @@ const HomePage = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="Reinhart Hauling &amp; Cleanouts" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Reinhart Hauling &amp; Cleanouts | Property Cleanouts" />
+        <meta name="twitter:title" content="Reinhart Hauling &amp; Cleanouts | Estate &amp; Turnover Support" />
         <meta
           name="twitter:description"
-          content="Professional estate cleanouts, eviction cleanouts, rental turnovers, and full property cleanups across Middle Tennessee."
+          content="Estate transitions, eviction support, rental turnovers, inherited homes, and difficult interiors—cleared with responsive communication across Middle Tennessee."
         />
         <meta name="twitter:image" content={OG_IMAGE_HOME} />
       </Helmet>
