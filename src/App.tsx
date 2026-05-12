@@ -1469,26 +1469,23 @@ const SiteLayout = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-const OG_IMAGE_HOME = 'https://reinharthauling.com/og/reinhart-hauling-cleanouts-og.jpg?v=2';
+const OG_IMAGE_HOME = 'https://reinharthauling.com/og/reinhart-cleanouts-og-v2.jpg?v=3';
 
 const HomePage = () => {
   return (
     <>
       <Helmet>
-        <title>Reinhart Hauling &amp; Cleanouts | Estate, Eviction &amp; Hoarder Cleanouts in Middle Tennessee</title>
+        <title>Reinhart Hauling &amp; Cleanouts | Property Cleanouts</title>
         <meta
           name="description"
-          content="Reinhart Hauling &amp; Cleanouts helps families, landlords, realtors, and property managers with estate cleanouts, eviction cleanouts, hoarder cleanouts, and full property cleanups across Middle Tennessee."
+          content="Professional estate cleanouts, eviction cleanouts, rental turnovers, and full property cleanups across Middle Tennessee."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://reinharthauling.com/" />
-        <meta
-          property="og:title"
-          content="Reinhart Hauling &amp; Cleanouts | Estate, Eviction &amp; Hoarder Cleanouts"
-        />
+        <meta property="og:title" content="Reinhart Hauling &amp; Cleanouts | Property Cleanouts" />
         <meta
           property="og:description"
-          content="Professional cleanout help for estates, evictions, hoarder situations, rentals, and full property cleanups across Middle Tennessee."
+          content="Professional estate cleanouts, eviction cleanouts, rental turnovers, and full property cleanups across Middle Tennessee."
         />
         <meta property="og:image" content={OG_IMAGE_HOME} />
         <meta property="og:image:secure_url" content={OG_IMAGE_HOME} />
@@ -1497,13 +1494,10 @@ const HomePage = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="Reinhart Hauling &amp; Cleanouts" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Reinhart Hauling &amp; Cleanouts | Estate, Eviction &amp; Hoarder Cleanouts"
-        />
+        <meta name="twitter:title" content="Reinhart Hauling &amp; Cleanouts | Property Cleanouts" />
         <meta
           name="twitter:description"
-          content="Professional cleanout help for estates, evictions, hoarder situations, rentals, and full property cleanups across Middle Tennessee."
+          content="Professional estate cleanouts, eviction cleanouts, rental turnovers, and full property cleanups across Middle Tennessee."
         />
         <meta name="twitter:image" content={OG_IMAGE_HOME} />
       </Helmet>
