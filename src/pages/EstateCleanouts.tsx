@@ -3,13 +3,48 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { CheckCircle2, MapPin, MessageSquare, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import CleanoutProcess from '../components/CleanoutProcess.tsx';
+import OptionalServiceImage from '../components/OptionalServiceImage.tsx';
+import EstateFaq from '../components/EstateFaq.tsx';
 
 export default function EstateCleanouts() {
- 
-  const steps = [
-    "Text photos for a fast quote",
-    "Schedule a pickup time",
-    "We clear the entire property and handle disposal",
+  const serviceTiles = [
+    {
+      title: 'Full Property Cleanouts',
+      desc: 'Complete estate cleanouts for entire homes, including all rooms, garages, and storage areas.',
+      imageSrc: undefined as string | undefined,
+      imageAlt: undefined as string | undefined,
+    },
+    {
+      title: 'Inherited Home Cleanouts',
+      desc: 'We help families clear inherited properties quickly and respectfully.',
+      imageSrc: undefined,
+      imageAlt: undefined,
+    },
+    {
+      title: 'House Cleanouts After Death',
+      desc: 'Compassionate, discreet cleanout services during difficult times.',
+      imageSrc: undefined,
+      imageAlt: undefined,
+    },
+    {
+      title: 'Downsizing & Moving Cleanouts',
+      desc: 'Remove excess belongings before a move or transition.',
+      imageSrc: undefined,
+      imageAlt: undefined,
+    },
+    {
+      title: 'Garage, Basement & Storage Cleanouts',
+      desc: 'Clear out packed storage areas and long-term clutter.',
+      imageSrc: undefined,
+      imageAlt: undefined,
+    },
+    {
+      title: 'Furniture & Bulk Item Removal',
+      desc: 'Removal of couches, beds, appliances, and large household items.',
+      imageSrc: undefined,
+      imageAlt: undefined,
+    },
   ];
 
   return (
@@ -110,95 +145,22 @@ export default function EstateCleanouts() {
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              <motion.div
-                whileHover={{ y: -10 }}
-                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
-              >
-                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
-                  <CheckCircle2 />
-                </div>
-                <div>
-                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Full Property Cleanouts</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed">
-                    Complete estate cleanouts for entire homes, including all rooms, garages, and storage areas.
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ y: -10 }}
-                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
-              >
-                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
-                  <CheckCircle2 />
-                </div>
-                <div>
-                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Inherited Home Cleanouts</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed">
-                    We help families clear inherited properties quickly and respectfully.
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ y: -10 }}
-                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
-              >
-                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
-                  <CheckCircle2 />
-                </div>
-                <div>
-                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">House Cleanouts After Death</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed">
-                    Compassionate, discreet cleanout services during difficult times.
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ y: -10 }}
-                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
-              >
-                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
-                  <CheckCircle2 />
-                </div>
-                <div>
-                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Downsizing &amp; Moving Cleanouts</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed">
-                    Remove excess belongings before a move or transition.
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ y: -10 }}
-                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
-              >
-                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
-                  <CheckCircle2 />
-                </div>
-                <div>
-                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Garage, Basement &amp; Storage Cleanouts</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed">
-                    Clear out packed storage areas and long-term clutter.
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ y: -10 }}
-                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
-              >
-                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
-                  <CheckCircle2 />
-                </div>
-                <div>
-                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Furniture &amp; Bulk Item Removal</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed">
-                    Removal of couches, beds, appliances, and large household items.
-                  </p>
-                </div>
-              </motion.div>
+              {serviceTiles.map((tile) => (
+                <motion.div
+                  key={tile.title}
+                  whileHover={{ y: -10 }}
+                  className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-5 h-full"
+                >
+                  <OptionalServiceImage src={tile.imageSrc} alt={tile.imageAlt} />
+                  <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                    <CheckCircle2 />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-display text-xl font-bold text-brand-navy mb-2">{tile.title}</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">{tile.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
@@ -241,42 +203,19 @@ export default function EstateCleanouts() {
           </div>
         </section>
 
-        <section className="py-24 bg-white">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">
-                How Our Estate Cleanout Service Works
-              </h2>
-              <p className="text-slate-500 max-w-2xl mx-auto">
-                A simple, respectful process designed to make a tough time easier.
-              </p>
-            </div>
+        <CleanoutProcess
+          title="How Our Estate Cleanout Service Works"
+          subtitle="A calm, organized workflow for inherited homes, estate transitions, and full-property cleanouts."
+          className="py-24 bg-white"
+        />
 
-            <div className="grid md:grid-cols-3 gap-12">
-              {steps.map((text, i) => (
-                <motion.div
-                  key={text}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="group"
-                >
-                  <div className="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center text-brand-navy mb-6 group-hover:bg-brand-orange group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-xl group-hover:shadow-brand-orange/20">
-                    <span className="font-display font-bold text-2xl">{i + 1}</span>
-                  </div>
-                  <h3 className="font-display text-2xl font-bold text-brand-navy mb-4">{text}</h3>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <EstateFaq />
 
         <section className="py-24 bg-slate-50">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">Areas We Serve</h2>
-              <p className="text-slate-500 max-w-3xl mx_auto">
+              <p className="text-slate-500 max-w-3xl mx-auto">
                 Serving Goodlettsville, Nashville, Hendersonville, Madison, and surrounding areas.
               </p>
             </div>
@@ -333,7 +272,7 @@ export default function EstateCleanouts() {
               </Link>
               <Link
                 to="/landlord-rental-cleanouts"
-                className="px-6 py-3 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover;border-brand-orange transition-colors text-center"
+                className="px-6 py-3 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
               >
                 Landlord &amp; Rental Cleanouts
               </Link>

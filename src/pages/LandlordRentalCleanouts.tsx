@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { CheckCircle2, MapPin, MessageSquare, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import CleanoutProcess from '../components/CleanoutProcess.tsx';
 
 export default function LandlordRentalCleanouts() {
   
@@ -20,12 +21,6 @@ export default function LandlordRentalCleanouts() {
     'Reliable & Show Up',
     'Simple Pricing',
     'Text-to-Quote',
-  ];
-
-  const steps = [
-    'Text photos for a fast quote',
-    'Schedule a removal time',
-    'We haul everything away',
   ];
 
   return (
@@ -147,35 +142,10 @@ export default function LandlordRentalCleanouts() {
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">How It Works</h2>
-            <p className="text-slate-500 max-w-2xl mx-auto">
-              A simple, landlord-friendly process designed around fast turnovers.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-12">
-            {steps.map((text, i) => (
-              <motion.div
-                key={text}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="group"
-              >
-                <div className="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center text-brand-navy mb-6 group-hover:bg-brand-orange group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-xl group-hover:shadow-brand-orange/20">
-                  <span className="font-display font-bold text-2xl">{i + 1}</span>
-                </div>
-                <h3 className="font-display text-2xl font-bold text-brand-navy mb-4">{text}</h3>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <CleanoutProcess
+        subtitle="A straightforward workflow for rental turnovers, move-outs, and property resets."
+        className="py-24 bg-white"
+      />
 
       {/* Service Areas */}
       <section className="py-24 bg-slate-50">

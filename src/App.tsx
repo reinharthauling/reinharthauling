@@ -37,6 +37,8 @@ import PropertyCleanouts from './pages/PropertyCleanouts.tsx';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import ScrollToTop from './ScrollToTop.tsx';
+import CleanoutProcess from './components/CleanoutProcess.tsx';
+import OptionalServiceImage from './components/OptionalServiceImage.tsx';
 
 // --- Components ---
 
@@ -357,76 +359,7 @@ const Hero = () => {
   );
 };
 
-const HeroSteps = () => {
-  return (
-    <section id="process" className="py-20 bg-slate-50/70">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-14">
-          <span className="inline-block px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[11px] font-bold uppercase tracking-[0.18em] mb-4">
-            HOW IT WORKS
-          </span>
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-4">
-            How We Work With You
-          </h2>
-          <p className="text-slate-600 max-w-2xl mx-auto text-lg">
-            Send photos, get clear scope and pricing, and we handle the load-out.
-          </p>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-3">
-          <div className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm flex flex-col h-full">
-            <div className="flex items-center justify-between mb-4">
-              <span className="text-base font-extrabold tracking-[0.2em] text-brand-orange">01</span>
-              <MessageSquare className="text-brand-navy" size={24} />
-            </div>
-            <h3 className="font-display text-2xl font-bold text-brand-navy mb-3">Send Photos or Details</h3>
-            <p className="text-slate-600 leading-relaxed">
-              Text photos of rooms, garages, estates, turnovers, or inherited homes—whatever needs to be cleared.
-            </p>
-            <a
-              href="sms:6152000064"
-              className="mt-5 inline-flex items-center text-sm font-semibold text-brand-navy hover:text-brand-orange transition-colors"
-            >
-              Text Photos &#8594;
-            </a>
-          </div>
-          <div className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm flex flex-col h-full">
-            <div className="flex items-center justify-between mb-4">
-              <span className="text-base font-extrabold tracking-[0.2em] text-brand-orange">02</span>
-              <CheckCircle2 className="text-brand-navy" size={24} />
-            </div>
-            <h3 className="font-display text-2xl font-bold text-brand-navy mb-3">Get Clear Pricing</h3>
-            <p className="text-slate-600 leading-relaxed">
-              We review access, debris volume, and disposal needs, then give straightforward pricing before we start.
-            </p>
-            <a
-              href="sms:6152000064?body=Hi%20I%20need%20pricing%20for%20a%20cleanout"
-              className="mt-5 inline-flex items-center text-sm font-semibold text-brand-navy hover:text-brand-orange transition-colors"
-            >
-              Get Pricing &#8594;
-            </a>
-          </div>
-          <div className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm flex flex-col h-full">
-            <div className="flex items-center justify-between mb-4">
-              <span className="text-base font-extrabold tracking-[0.2em] text-brand-orange">03</span>
-              <Truck className="text-brand-navy" size={24} />
-            </div>
-            <h3 className="font-display text-2xl font-bold text-brand-navy mb-3">We Handle the Load-Out</h3>
-            <p className="text-slate-600 leading-relaxed">
-              We load, haul, dispose, and leave spaces cleared and ready for what comes next.
-            </p>
-            <a
-              href="tel:6152000064"
-              className="mt-5 inline-flex items-center text-sm font-semibold text-brand-navy hover:text-brand-orange transition-colors"
-            >
-              Call Now &#8594;
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
+const HeroSteps = () => <CleanoutProcess />;
 
 const ValueProps = () => {
   const props = [
@@ -570,30 +503,40 @@ const Services = () => {
       title: 'Estate Cleanouts',
       desc: 'Sensitive full-home clear-outs for inherited homes, estate transitions, and family handoffs.',
       to: '/estate-cleanouts' as const,
+      imageSrc: undefined as string | undefined,
+      imageAlt: undefined as string | undefined,
     },
     {
       icon: <Trash2 />,
       title: 'Eviction Cleanouts',
-      desc: 'Organized load-outs after evictions so landlords and managers can reset units quickly.',
+      desc: 'Coordinated cleanout process after evictions so landlords and managers can reset units quickly.',
       to: '/eviction-cleanouts' as const,
+      imageSrc: undefined,
+      imageAlt: undefined,
     },
     {
       icon: <Warehouse />,
       title: 'Landlord & Rental Cleanouts',
       desc: 'Rental turnover support—move-out contents, abandoned items, and unit reset work.',
       to: '/landlord-rental-cleanouts' as const,
+      imageSrc: undefined,
+      imageAlt: undefined,
     },
     {
       icon: <Warehouse />,
       title: 'Garage Cleanouts',
-      desc: 'Packed garages cleared with a structured load-out when space has been neglected for years.',
+      desc: 'Packed garages cleared with structured workflow when space has been neglected for years.',
       to: '/garage-cleanouts' as const,
+      imageSrc: undefined,
+      imageAlt: undefined,
     },
     {
       icon: <Home />,
       title: 'Property Cleanouts',
       desc: 'Whole-property cleanouts for difficult transitions, seller prep, and move-out-ready finishes.',
       to: '/property-cleanouts' as const,
+      imageSrc: undefined,
+      imageAlt: undefined,
     },
   ];
 
@@ -616,8 +559,9 @@ const Services = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.06 }}
                 whileHover={{ y: -10 }}
-                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6 h-full transition-all duration-300 group-hover:border-brand-orange/35 group-hover:shadow-brand-orange/10"
+                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-5 h-full transition-all duration-300 group-hover:border-brand-orange/35 group-hover:shadow-brand-orange/10"
               >
+                <OptionalServiceImage src={service.imageSrc} alt={service.imageAlt} />
                 <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange group-hover:bg-brand-orange/10 transition-colors">
                   {service.icon}
                 </div>

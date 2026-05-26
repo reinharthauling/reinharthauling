@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { MessageSquare, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import CleanoutProcess from '../components/CleanoutProcess.tsx';
 
 export default function PropertyCleanouts() {
   return (
@@ -74,6 +75,11 @@ export default function PropertyCleanouts() {
           </div>
         </div>
       </section>
+
+      <CleanoutProcess
+        subtitle="Full-property cleanouts planned with the same walkthrough-first approach used on larger transition jobs."
+        className="py-24 bg-slate-50/70"
+      />
     </>
   );
 }
