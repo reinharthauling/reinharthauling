@@ -291,41 +291,28 @@ const Hero = () => {
             <span className="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-bold tracking-wide mb-4">
               Middle Tennessee Cleanout Crew
             </span>
-            <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-4">
+            <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-3">
               <span className="text-brand-orange">Estate &amp; Property Cleanouts</span> in Nashville, TN
             </h1>
-            <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-3 max-w-2xl">
-              Professional cleanout support for estate transitions, eviction turnovers, rental resets, and
-              full-property load-outs—clear pricing, responsive communication, and organized execution from start to finish.
+            <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 max-w-2xl">
+              Estate transitions, eviction turnovers, and property cleanouts—clear pricing, responsive
+              communication, and organized load-outs.
             </p>
-            <p className="text-sm lg:text-base text-slate-600 leading-relaxed mb-3 max-w-2xl">
-              Learn more about our{' '}
+            <p className="text-sm text-slate-500 leading-relaxed mb-5 max-w-2xl">
               <Link to="/estate-cleanouts" className="text-brand-orange hover:text-brand-orange-light transition-colors">
-                estate cleanouts
+                Estate cleanouts
               </Link>
-              ,{' '}
+              <span className="text-slate-300 mx-2">·</span>
               <Link to="/eviction-cleanouts" className="text-brand-orange hover:text-brand-orange-light transition-colors">
-                eviction cleanouts
+                Eviction cleanouts
               </Link>
-              ,{' '}
+              <span className="text-slate-300 mx-2">·</span>
               <Link to="/property-cleanouts" className="text-brand-orange hover:text-brand-orange-light transition-colors">
-                property cleanouts
+                Property cleanouts
               </Link>
-              , and{' '}
-              <Link to="/garage-cleanouts" className="text-brand-orange hover:text-brand-orange-light transition-colors">
-                garage cleanouts
-              </Link>
-              —plus{' '}
-              <Link
-                to="/landlord-rental-cleanouts"
-                className="text-brand-orange hover:text-brand-orange-light transition-colors"
-              >
-                rental turnover support
-              </Link>
-              .
             </p>
             <p className="text-sm lg:text-base text-slate-600 leading-relaxed mb-6 max-w-2xl">
-              Text photos for a fast quote. Same-day and next-day availability when the schedule allows.
+              Text photos for a fast quote. Same-day scheduling when available.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
