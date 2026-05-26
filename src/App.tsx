@@ -1196,6 +1196,61 @@ const ServiceAreas = () => {
   );
 };
 
+const HOME_SERVICE_AREAS = [
+  'Goodlettsville',
+  'Nashville',
+  'Hendersonville',
+  'Madison',
+  'Gallatin',
+  'White House',
+  'Springfield',
+  'Joelton',
+  'Greenbrier',
+  'Portland',
+  'Ridgetop',
+  'Millersville',
+];
+
+const AreasWeServe = () => {
+  return (
+    <section
+      id="service-areas"
+      className="py-20 md:py-24 bg-white border-t border-slate-100"
+      aria-labelledby="areas-we-serve-heading"
+    >
+      <div className="max-w-7xl mx-auto px-6">
+        <h2 id="areas-we-serve-heading" className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-4">
+          Areas We Serve
+        </h2>
+        <p className="text-slate-600 max-w-3xl text-base md:text-lg leading-relaxed mb-8 md:mb-10">
+          Reinhart Hauling &amp; Cleanouts provides estate cleanouts, eviction cleanouts, garage cleanouts, rental
+          turnover support, and property cleanout services across North Nashville and surrounding Middle Tennessee
+          communities.
+        </p>
+
+        <ul
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-3 md:gap-4 mb-8 md:mb-10"
+          role="list"
+        >
+          {HOME_SERVICE_AREAS.map((area) => (
+            <li
+              key={area}
+              className="rounded-2xl border border-slate-200 bg-slate-50/80 px-3 py-3 sm:px-4 sm:py-3.5 text-center text-sm font-semibold text-brand-navy"
+            >
+              {area}
+            </li>
+          ))}
+        </ul>
+
+        <p className="text-slate-500 text-sm md:text-base leading-relaxed max-w-2xl">
+          Outside these areas? Reach out with photos or the property address and we&apos;ll let you know if we can
+          help.
+        </p>
+      </div>
+    </section>
+  );
+};
+
 const MeetTheOwner = () => {
   return (
     <section id="about" className="py-24 bg-slate-50 overflow-hidden">
@@ -1684,6 +1739,7 @@ const HomePage = () => {
       <RecentCleanoutProjects />
       <BeforeAfterSlider />
       <Testimonials />
+      <AreasWeServe />
       <MeetTheOwner />
       <CTA />
     </SiteLayout>

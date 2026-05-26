@@ -313,20 +313,10 @@ export default function EstateCleanouts() {
                 {area}
               </div>
             ))}
-            <div className="rounded-2xl border border-dashed border-slate-300 bg-white/60 px-4 py-3.5 text-center text-sm font-medium text-slate-500 col-span-2 sm:col-span-3 lg:col-span-4">
-              Surrounding Middle Tennessee communities
-            </div>
           </div>
-
-          <div className="mt-10">
-            <a
-              href="tel:6152000064"
-              className="inline-flex items-center gap-3 bg-brand-navy text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-brand-navy/20 hover:bg-brand-orange transition-all"
-            >
-              <Phone size={20} />
-              Call or Text 615-200-0064
-            </a>
-          </div>
+          <p className="mt-8 text-slate-500 text-sm md:text-base leading-relaxed max-w-3xl">
+            We also help clients in nearby Middle Tennessee communities depending on scheduling and project scope.
+          </p>
         </div>
       </section>
 
