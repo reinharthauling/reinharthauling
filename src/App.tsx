@@ -295,8 +295,8 @@ const Hero = () => {
               <span className="text-brand-orange">Estate &amp; Property Cleanouts</span> in Nashville, TN
             </h1>
             <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-3 max-w-2xl">
-              Estate, eviction, and rental cleanouts handled with clear pricing, fast communication, and reliable
-              follow-through.
+              Professional cleanout support for estate transitions, eviction turnovers, rental resets, and
+              full-property load-outs—clear pricing, responsive communication, and organized execution from start to finish.
             </p>
             <p className="text-sm lg:text-base text-slate-600 leading-relaxed mb-3 max-w-2xl">
               Learn more about our{' '}
@@ -307,12 +307,20 @@ const Hero = () => {
               <Link to="/eviction-cleanouts" className="text-brand-orange hover:text-brand-orange-light transition-colors">
                 eviction cleanouts
               </Link>
+              ,{' '}
+              <Link to="/property-cleanouts" className="text-brand-orange hover:text-brand-orange-light transition-colors">
+                property cleanouts
+              </Link>
               , and{' '}
+              <Link to="/garage-cleanouts" className="text-brand-orange hover:text-brand-orange-light transition-colors">
+                garage cleanouts
+              </Link>
+              —plus{' '}
               <Link
-                to="/junk-removal-goodlettsville"
+                to="/landlord-rental-cleanouts"
                 className="text-brand-orange hover:text-brand-orange-light transition-colors"
               >
-                junk removal in Goodlettsville
+                rental turnover support
               </Link>
               .
             </p>
