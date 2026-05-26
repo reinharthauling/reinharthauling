@@ -35,7 +35,7 @@ export default function EstateCleanouts() {
                 </span>
                 <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-8">
                   Estate Cleanouts in <br />
-                  <span className="text-brand-orange">Goodlettsville &amp; North Nashville</span>
+                  <span className="text-brand-orange">Nashville &amp; Middle Tennessee</span>
                 </h1>
                 <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 max-w-2xl">
                   Full-service estate cleanout services for homes, inherited properties, and family transitions. We

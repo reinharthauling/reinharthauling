@@ -35,7 +35,7 @@ export default function JunkRemovalGoodlettsville() {
                   LOCAL JUNK REMOVAL
                 </span>
                 <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-8">
-                  Junk Removal in Goodlettsville
+                  Junk Removal in Goodlettsville, TN
                 </h1>
                 <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl">
                   Reinhart Hauling &amp; Cleanouts provides fast junk removal in Goodlettsville for furniture, appliances, garage cleanouts, yard debris, and general household clutter. Text photos for a fast quote and quick scheduling.
