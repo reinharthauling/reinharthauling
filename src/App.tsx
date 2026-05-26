@@ -110,8 +110,8 @@ const Navbar = () => {
   );
 };
 
-/** Swap these paths when adding real project or before/after gallery assets — layout unchanged. */
-const HERO_FEATURE_IMAGE_SRC = '/images/truck-magnet-cleanouts-middle-tennessee.jpeg';
+/** Served from /public/images/ — ?v bumps cache when the file is replaced in place. */
+const HERO_FEATURE_IMAGE_SRC = '/images/truck-magnet-cleanouts-middle-tennessee.jpeg?v=2';
 const HERO_FEATURE_IMAGE_ALT =
   'Reinhart Hauling and Cleanouts truck with contact magnet for full-home cleanouts in Middle Tennessee';
 
@@ -134,7 +134,7 @@ const Hero = () => {
               Middle Tennessee Cleanout Crew
             </span>
             <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-4">
-              Full-Home Cleanouts Without the <span className="text-brand-orange">Stress</span>
+              <span className="text-brand-orange">Estate &amp; Property Cleanouts</span> in Nashville, TN
             </h1>
             <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-3 max-w-2xl">
               Estate, eviction, and rental cleanouts handled with clear pricing, fast communication, and reliable
@@ -169,11 +169,11 @@ const Hero = () => {
         </div>
         <div className="mt-8 lg:mt-0">
           {/* HERO_MEDIA: replace HERO_FEATURE_IMAGE_SRC with project photo or before/after still — same aspect classes */}
-          <div className="relative h-[280px] sm:h-[360px] lg:h-[460px] rounded-3xl overflow-hidden shadow-2xl shadow-slate-900/10 ring-1 ring-slate-900/5 border border-slate-200/80 bg-slate-200/60">
+          <div className="relative h-[280px] sm:h-[360px] lg:h-[460px] rounded-3xl overflow-hidden shadow-2xl shadow-slate-900/10 ring-1 ring-slate-900/5 border border-slate-200/80 bg-slate-900">
             <img
               src={HERO_FEATURE_IMAGE_SRC}
               alt={HERO_FEATURE_IMAGE_ALT}
-              className="h-full w-full object-cover object-[52%_center] sm:object-[54%_center] lg:object-[56%_center]"
+              className="h-full w-full object-cover object-center"
             />
             <div className="absolute bottom-4 left-4 bg-white/95 text-brand-navy px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-sm">
               LOCAL CLEANOUT CREW
