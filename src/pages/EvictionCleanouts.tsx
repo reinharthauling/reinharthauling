@@ -1,20 +1,161 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
-import { CheckCircle2, MapPin, MessageSquare, Phone } from 'lucide-react';
+import { CalendarClock, CheckCircle2, ChevronDown, ClipboardCheck, MapPin, MessageSquare, Phone, Truck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import CleanoutProcess from '../components/CleanoutProcess.tsx';
 
+const WHO_WE_HELP = [
+  {
+    title: 'Property Managers',
+    desc: 'Fast response for occupied-to-vacant transitions, with scheduling updates your team can rely on.',
+  },
+  {
+    title: 'Landlords',
+    desc: 'Straightforward support when a unit needs to be cleared quickly so repairs and showings can move forward.',
+  },
+  {
+    title: 'Real Estate Investors',
+    desc: 'Cleanout execution built for timeline-sensitive acquisitions, flips, and rental reset work.',
+  },
+  {
+    title: 'Turnover Teams',
+    desc: 'Coordinated cleanout sequencing so cleaners, maintenance crews, and contractors can step in without delays.',
+  },
+  {
+    title: 'Rental Portfolios',
+    desc: 'Consistent cleanout support across multiple units with clear scope and reliable communication.',
+  },
+  {
+    title: 'Distressed Property Owners',
+    desc: 'Practical, respectful help on difficult properties that need structure, planning, and steady follow-through.',
+  },
+];
+
+const INCLUDED_SERVICES = [
+  {
+    title: 'Apartment Cleanouts',
+    desc: 'Full unit clearing after move-outs and evictions, including remaining furniture and general debris.',
+  },
+  {
+    title: 'Rental Turnovers',
+    desc: 'Cleanout support that helps properties move into repair, cleaning, and re-listing without unnecessary lag.',
+  },
+  {
+    title: 'Furniture & Debris Removal',
+    desc: 'Beds, couches, loose debris, and mixed contents removed with a structured load-out process.',
+  },
+  {
+    title: 'Appliance Removal',
+    desc: 'Old or abandoned appliances removed safely so the next project phase can proceed.',
+  },
+  {
+    title: 'Garage & Storage Cleanouts',
+    desc: 'Overflow areas, detached storage spaces, and garages cleared as part of the turnover scope.',
+  },
+  {
+    title: 'Move-Out Trash Removal',
+    desc: 'Bagged waste, boxed leftovers, and scattered trash handled quickly during vacant-unit transitions.',
+  },
+  {
+    title: 'Abandoned Property Removal',
+    desc: 'Left-behind personal items and bulk contents removed with clear communication on what should stay.',
+  },
+  {
+    title: 'Interior Sweep-Outs',
+    desc: 'Final pass for loose debris and remaining items so the property is ready for the next step.',
+  },
+];
+
+const EVICTION_PROCESS_STEPS = [
+  {
+    number: '01',
+    icon: MessageSquare,
+    title: 'Text Photos or Request Walkthrough',
+    description:
+      'Smaller turnovers can often be quoted from photos. For larger or more complex jobs, we can schedule a walkthrough first.',
+    cta: { href: 'sms:6152000064', label: 'Text Photos ->' },
+  },
+  {
+    number: '02',
+    icon: ClipboardCheck,
+    title: 'Scope Review & Scheduling Plan',
+    description:
+      'We review access, labor, debris volume, disposal needs, and scheduling so expectations are clear before work begins.',
+    cta: { href: 'sms:6152000064?body=Hi%20I%20need%20an%20eviction%20cleanout%20quote', label: 'Get Scope & Pricing ->' },
+  },
+  {
+    number: '03',
+    icon: Truck,
+    title: 'Property Clear-Out & Final Readiness',
+    description:
+      'Our crew arrives on schedule, clears the unit, hauls debris, and leaves the space ready for cleaning, repairs, or listing prep.',
+    cta: { href: 'tel:6152000064', label: 'Call Now ->' },
+  },
+];
+
+const EVICTION_FAQS = [
+  {
+    question: 'How quickly can you schedule an eviction cleanout?',
+    answer:
+      'We prioritize turnover timelines and can often schedule quickly depending on scope and calendar availability. Text photos first and we can usually give you a clear next-step timeline right away.',
+  },
+  {
+    question: 'Do you work with property managers?',
+    answer:
+      'Yes. We regularly coordinate with property managers, landlords, and leasing teams to keep unit transitions moving with clear communication.',
+  },
+  {
+    question: 'Can you remove abandoned furniture and trash?',
+    answer:
+      'Yes. We remove abandoned furniture, bagged trash, loose debris, and mixed leftover contents from apartments, homes, and rental units.',
+  },
+  {
+    question: 'Do you offer walkthroughs before larger jobs?',
+    answer:
+      'Absolutely. Larger turnovers often benefit from a walkthrough so we can assess volume, access, labor, disposal needs, and timing before scheduling.',
+  },
+  {
+    question: 'What areas do you service?',
+    answer:
+      'We serve Nashville, Goodlettsville, Hendersonville, Madison, Gallatin, Springfield, White House, Joelton, Greenbrier, and nearby Middle Tennessee communities.',
+  },
+  {
+    question: 'Do you clean garages and storage areas too?',
+    answer:
+      'Yes. Garage and storage-area clearing is part of many turnover projects, and we can include it in the same scope when needed.',
+  },
+  {
+    question: 'Can you work while maintenance crews are onsite?',
+    answer:
+      'Yes. We can coordinate timing with cleaning and maintenance teams so the handoff stays organized and the unit moves forward efficiently.',
+  },
+];
+
+const EVICTION_SERVICE_AREAS = [
+  'Nashville',
+  'Goodlettsville',
+  'Hendersonville',
+  'Madison',
+  'Gallatin',
+  'Springfield',
+  'White House',
+  'Joelton',
+  'Greenbrier',
+];
+
 export default function EvictionCleanouts() {
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+
   return (
     <>
       <Helmet>
-    <title>Eviction Cleanouts in Nashville | Fast Turnover Service</title>
-    <meta
-      name="description"
-      content="Eviction cleanouts for landlords and property managers. Fast junk removal and property turnover service in Nashville."
-    />
-  </Helmet>
+        <title>Eviction Cleanout Services in Nashville &amp; Middle Tennessee</title>
+        <meta
+          name="description"
+          content="Eviction cleanout services for landlords and property managers across Nashville and Middle Tennessee. Fast turnover support, clear scheduling, and reliable property clearing."
+        />
+      </Helmet>
     
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
           <div className="max-w-7xl mx-auto px-6">
@@ -28,66 +169,65 @@ export default function EvictionCleanouts() {
                   FAST TURNOVER CLEANOUTS
                 </span>
                 <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-8">
-                  Eviction Cleanouts in <br />
-                  <span className="text-brand-orange">Goodlettsville &amp; North Nashville</span>
+                  Eviction Cleanout Services in <br />
+                  <span className="text-brand-orange">Nashville &amp; Middle Tennessee</span>
                 </h1>
                 <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 max-w-2xl">
-                  Fast eviction cleanout services for landlords, property managers, and rental turnovers. We
-                  remove abandoned furniture, trash, and debris so you can get the property ready fast.
+                  Operational eviction cleanout support for landlords and property managers who need units turned
+                  over quickly. We handle abandoned belongings removal, debris clearing, and rental reset prep with
+                  responsive communication from first message to final sweep-through.
                 </p>
 
                 <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 max-w-2xl">
-                  Need a reliable eviction cleanout company in Goodlettsville or North Nashville? We handle tenant
-                  left-behind junk, apartment turnover cleanouts, abandoned property cleanouts, and rental cleanout
-                  services for owners and managers who need the job done quickly.
-                </p>
-
-                <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 max-w-2xl">
-                  We help clear the property quickly so repairs, showings, and re-renting can happen sooner.
+                  Smaller jobs can often be quoted from texted photos. Larger turnovers and more complex properties
+                  can be reviewed through an on-site walkthrough so scope, access, and scheduling are clear upfront.
                 </p>
 
                 <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-6 max-w-2xl">
-                  We also offer{' '}
+                  Related support includes{' '}
                   <Link
                     to="/landlord-rental-cleanouts"
                     className="text-brand-orange hover:text-brand-orange transition-colors"
                   >
-                    landlord and rental cleanouts
+                    landlord &amp; rental cleanouts
                   </Link>{' '}
-                  plus{' '}
+                  ,{' '}
                   <Link
-                    to="/junk-removal-goodlettsville"
+                    to="/property-cleanouts"
                     className="text-brand-orange hover:text-brand-orange transition-colors"
                   >
-                    junk removal in Goodlettsville
+                    property cleanouts
+                  </Link>
+                  ,{' '}
+                  <Link to="/estate-cleanouts" className="text-brand-orange hover:text-brand-orange transition-colors">
+                    estate cleanouts
+                  </Link>
+                  , and{' '}
+                  <Link to="/garage-cleanouts" className="text-brand-orange hover:text-brand-orange transition-colors">
+                    garage cleanouts
                   </Link>
                   .
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <motion.a
-                    href="sms:6152000064?body=Hi%20I%20need%20a%20junk%20removal%20quote"
+                    href="sms:6152000064?body=Hi%2C%20I%20need%20an%20eviction%20cleanout%20quote"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     className="bg-brand-navy text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-brand-navy/30 flex items-center justify-center gap-3 group hover:bg-brand-orange transition-all"
                   >
                     <MessageSquare className="text-brand-orange" />
-                    Text Photos for Fast Quote
+                    Text Photos for a Fast Quote
                   </motion.a>
                   <motion.a
                     href="tel:6152000064"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="bg-white border-2 border-slate-200 text-brand-navy px-8 py-4 rounded-2xl font-bold text-lg flex items-center justify_center gap-3 hover:border-brand-orange transition-colors"
+                    className="bg-white border-2 border-slate-200 text-brand-navy px-8 py-4 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 hover:border-brand-orange transition-colors"
                   >
                     <Phone />
-                    Call 615-200-0064
+                    Call Now
                   </motion.a>
-                </div>
-                <div className="mt-4 text-[15px] text-slate-500 text-center space-y-2.5">
-                  <p className="leading-relaxed">✔ Fast scheduling for urgent cleanouts</p>
-                  <p className="leading-relaxed">✔ Clear, upfront pricing</p>
-                  <p className="text-slate-400 leading-relaxed">✔ Most quotes in 5 minutes via text</p>
                 </div>
               </motion.div>
             </div>
@@ -96,175 +236,144 @@ export default function EvictionCleanouts() {
 
         <section className="py-24 relative">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-20">
+            <div className="mb-14">
               <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">
-                Eviction &amp; Turnover Cleanout Services
+                Who We Help
               </h2>
+              <p className="text-slate-600 max-w-2xl text-lg leading-relaxed">
+                Built for teams and owners who need dependable turnover support and clear scheduling communication.
+              </p>
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              <motion.div
-                whileHover={{ y: -10 }}
-                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
-              >
-                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
-                  <CheckCircle2 />
-                </div>
-                <div>
-                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Tenant Left Junk Behind</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed">
-                    We remove furniture, bags, trash, and leftover belongings after move-outs.
-                  </p>
-                </div>
-              </motion.div>
+              {WHO_WE_HELP.map((item) => (
+                <motion.div
+                  key={item.title}
+                  whileHover={{ y: -8 }}
+                  className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex h-full flex-col gap-5"
+                >
+                  <div className="w-10 h-10 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                    <CheckCircle2 size={18} />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-display text-xl font-bold text-brand-navy mb-2">{item.title}</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
 
-              <motion.div
-                whileHover={{ y: -10 }}
-                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
-              >
-                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
-                  <CheckCircle2 />
-                </div>
-                <div>
-                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Eviction Trash-Outs</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed">
-                    Fast cleanout help for units that need to be cleared after eviction.
-                  </p>
-                </div>
-              </motion.div>
+        <section className="py-24 bg-slate-50">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="mb-14">
+              <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">
+                Services Included
+              </h2>
+              <p className="text-slate-600 max-w-3xl leading-relaxed">
+                Structured eviction and turnover cleanout services designed to keep properties moving toward
+                readiness without confusion.
+              </p>
+            </div>
 
-              <motion.div
-                whileHover={{ y: -10 }}
-                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
-              >
-                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
-                  <CheckCircle2 />
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {INCLUDED_SERVICES.map((service) => (
+                <div
+                  key={service.title}
+                  className="bg-white p-7 rounded-3xl border border-slate-200 shadow-sm flex h-full flex-col"
+                >
+                  <h3 className="font-display text-xl font-bold text-brand-navy mb-2">{service.title}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed flex-1">{service.desc}</p>
                 </div>
-                <div>
-                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Rental Turnovers</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed">
-                    Quick cleanouts to help prepare the property for repairs, cleaning, or the next tenant.
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ y: -10 }}
-                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
-              >
-                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
-                  <CheckCircle2 />
-                </div>
-                <div>
-                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Abandoned Property Cleanouts</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed">
-                    We clear unwanted items and debris left behind in homes, apartments, and rentals.
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ y: -10 }}
-                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
-              >
-                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
-                  <CheckCircle2 />
-                </div>
-                <div>
-                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Furniture, Mattresses &amp; Appliances</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed">
-                    Removal of bulky items commonly left behind in rental properties.
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ y: -10 }}
-                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
-              >
-                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
-                  <CheckCircle2 />
-                </div>
-                <div>
-                  <h4 className="font-display text-xl font-bold text-brand-navy mb-2">Garage, Storage &amp; Overflow Areas</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed">
-                    We clear extra junk from garages, storage rooms, and other packed spaces on the property.
-                  </p>
-                </div>
-              </motion.div>
+              ))}
             </div>
           </div>
         </section>
 
         <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-12">
-              <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">
-                Why Landlords &amp; Property Managers Call Reinhart Hauling &amp; Cleanouts
-              </h2>
-              <p className="text-slate-500 max-w-2xl mx-auto">
-                When a property needs to be cleared fast, delays cost money. We help landlords and property managers get units emptied quickly so they can move on to repairs, cleaning, and re-renting without dragging the process out.
+            <div className="mb-12">
+              <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">How We Work</h2>
+              <p className="text-slate-600 max-w-3xl leading-relaxed">
+                A straightforward workflow for eviction and turnover projects, including walkthroughs when larger
+                scope requires extra planning.
               </p>
+            </div>
+          </div>
 
-              <ul className="max-w-2xl mx-auto mt-6 space-y-3 text-left text-slate-600">
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-brand-orange mt-0.5 flex-shrink-0" />
-                  <span className="leading-relaxed">Fast turnaround for urgent cleanouts</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-brand-orange mt-0.5 flex-shrink-0" />
-                  <span className="leading-relaxed">No hidden fees or surprise add-ons</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-brand-orange mt-0.5 flex-shrink-0" />
-                  <span className="leading-relaxed">Reliable local service in Goodlettsville and North Nashville</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-brand-orange mt-0.5 flex-shrink-0" />
-                  <span className="leading-relaxed">Simple process from photos to removal</span>
-                </li>
-              </ul>
+          <CleanoutProcess
+            title="How Our Eviction Cleanout Process Works"
+            subtitle="Smaller jobs often start from photos, while larger turnovers can be scoped through walkthroughs to keep execution smooth."
+            className="pt-0 pb-0 bg-white"
+            steps={EVICTION_PROCESS_STEPS}
+          />
+        </section>
+
+        <section className="py-24 bg-slate-50">
+          <div className="max-w-4xl mx-auto px-6">
+            <div className="text-center mb-12">
+              <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">Eviction Cleanout FAQs</h2>
+              <p className="text-slate-600 leading-relaxed">
+                Practical answers for property managers, landlords, and turnover teams.
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              {EVICTION_FAQS.map((item, index) => {
+                const isOpen = openFaqIndex === index;
+                return (
+                  <div
+                    key={item.question}
+                    className="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden"
+                  >
+                    <button
+                      type="button"
+                      className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
+                      aria-expanded={isOpen}
+                      onClick={() => setOpenFaqIndex(isOpen ? null : index)}
+                    >
+                      <span className="font-display text-base md:text-lg font-bold text-brand-navy leading-snug">
+                        {item.question}
+                      </span>
+                      <ChevronDown
+                        size={20}
+                        className={`shrink-0 text-brand-orange transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+                      />
+                    </button>
+                    {isOpen && (
+                      <div className="px-5 pb-5 pt-0">
+                        <p className="text-slate-600 text-sm md:text-base leading-relaxed">{item.answer}</p>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
 
-        <CleanoutProcess
-          subtitle="From first photos to final sweep-through—built for landlords and managers who need units cleared efficiently."
-          className="py-24 bg-white"
-        />
-
-        <section className="py-24 bg-slate-50">
+        <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">Service Areas</h2>
-              <p className="text-slate-500 max-w-3xl mx-auto">
-                Serving Goodlettsville, Nashville, Hendersonville, Madison, and surrounding areas.
+            <div className="mb-12">
+              <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">Areas We Serve</h2>
+              <p className="text-slate-600 max-w-3xl leading-relaxed">
+                Eviction and turnover cleanouts across Nashville, Goodlettsville, Hendersonville, Madison, Gallatin,
+                Springfield, White House, Joelton, Greenbrier, and surrounding Middle Tennessee communities.
               </p>
             </div>
 
-            <div className="max-w-3xl mx-auto">
-              <div className="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl border border-slate-100 relative text-left">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-brand-orange/10 rounded-2xl flex items-center justify-center text-brand-orange shrink-0">
-                    <MapPin />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-brand-navy mb-3">Goodlettsville &amp; North Nashville</h3>
-                    <p className="text-slate-600 leading-relaxed">
-                      If you're nearby and not sure if you're in our service area, reach out—chances are we can help.
-                    </p>
-                  </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
+              {EVICTION_SERVICE_AREAS.map((area) => (
+                <div
+                  key={area}
+                  className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3.5 text-center text-sm font-semibold text-brand-navy"
+                >
+                  {area}
                 </div>
-
-                <div className="mt-10 flex flex-col sm:flex-row gap-4">
-                  <a
-                    href="tel:6152000064"
-                    className="bg-brand-navy text-white px-10 py-5 rounded-2xl font-bold text-xl shadow-2xl shadow-brand-navy/30 flex items-center justify-center gap-3 hover:bg-brand-orange transition-all hover:scale-105"
-                  >
-                    <Phone />
-                    Call or Text 615-200-0064
-                  </a>
-                </div>
+              ))}
+              <div className="rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-center text-sm font-medium text-slate-500 col-span-2 sm:col-span-3 lg:col-span-5">
+                Surrounding Middle Tennessee communities
               </div>
             </div>
           </div>
@@ -272,36 +381,42 @@ export default function EvictionCleanouts() {
 
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-10">
+            <div className="mb-10">
               <h2 className="font-display text-3xl font-bold text-brand-navy mb-4">Related Services</h2>
-              <p className="text-slate-500">
-                Explore more estate and junk removal services in the area.
+              <p className="text-slate-500 max-w-3xl">
+                Related cleanout services for complex transitions and larger property scopes.
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <Link
+                to="/estate-cleanouts"
+                className="px-6 py-4 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
+              >
+                Estate Cleanouts
+              </Link>
               <Link
                 to="/landlord-rental-cleanouts"
-                className="px-6 py-3 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
+                className="px-6 py-4 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
               >
                 Landlord &amp; Rental Cleanouts
               </Link>
               <Link
-                to="/junk-removal-goodlettsville"
-                className="px-6 py-3 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover;border-brand-orange transition-colors text-center"
+                to="/property-cleanouts"
+                className="px-6 py-4 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
               >
-                Junk Removal in Goodlettsville
+                Property Cleanouts
               </Link>
               <Link
-                to="/estate-cleanouts"
-                className="px-6 py-3 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
+                to="/garage-cleanouts"
+                className="px-6 py-4 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
               >
-                Estate Cleanouts
+                Garage Cleanouts
               </Link>
             </div>
           </div>
         </section>
       </>
-  );
+    );
 }
 
