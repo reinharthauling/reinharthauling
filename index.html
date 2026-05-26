@@ -11,7 +11,7 @@
       content="Estate transitions, eviction support, rental turnovers, inherited homes, and difficult interiors—cleared with responsive communication across Middle Tennessee."
     />
 
-    <link rel="canonical" href="https://reinharthauling.com/" />
+    <link rel="canonical" href="https://www.reinharthauling.com/" />
     <link rel="icon" href="/branding/Reinhart-hauling-cleanouts-nashville.png" sizes="32x32" type="image/png" />
     <link rel="icon" href="/branding/Reinhart-hauling-cleanouts-nashville.png" sizes="192x192" type="image/png" />
     <link rel="shortcut icon" href="/branding/Reinhart-hauling-cleanouts-nashville.png" type="image/png" />
@@ -43,24 +43,64 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
+        "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
+        "@id": "https://www.reinharthauling.com/#business",
         "name": "Reinhart Hauling & Cleanouts",
-        "url": "https://reinharthauling.com/",
-        "image": "https://reinharthauling.com/og/reinhart-cleanouts-og-v2.jpg?v=3",
-        "telephone": "+1-615-200-0064",
+        "url": "https://www.reinharthauling.com/",
+        "image": "https://www.reinharthauling.com/og/reinhart-cleanouts-og-v2.jpg?v=3",
+        "logo": "https://www.reinharthauling.com/branding/Reinhart-hauling-cleanouts-nashville.png",
+        "telephone": "+16152000064",
         "priceRange": "$$",
         "description": "Estate transitions, eviction support, rental turnovers, inherited homes, and difficult interiors—cleared with responsive communication across Middle Tennessee.",
         "areaServed": [
-          "Goodlettsville TN",
-          "Hendersonville TN",
-          "Gallatin TN",
-          "White House TN",
-          "Springfield TN",
-          "Greenbrier TN",
-          "Madison TN",
-          "East Nashville TN",
-          "Nashville TN"
-        ]
+          { "@type": "City", "name": "Goodlettsville" },
+          { "@type": "City", "name": "Nashville" },
+          { "@type": "City", "name": "Hendersonville" },
+          { "@type": "City", "name": "White House" },
+          { "@type": "City", "name": "Madison" },
+          { "@type": "City", "name": "Gallatin" },
+          { "@type": "City", "name": "Springfield" },
+          { "@type": "Place", "name": "Joelton" },
+          { "@type": "AdministrativeArea", "name": "Middle Tennessee" }
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Cleanout and hauling services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": { "@type": "Service", "name": "Estate Cleanouts", "provider": { "@id": "https://www.reinharthauling.com/#business" } }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": { "@type": "Service", "name": "Eviction Cleanouts", "provider": { "@id": "https://www.reinharthauling.com/#business" } }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": { "@type": "Service", "name": "Property Cleanouts", "provider": { "@id": "https://www.reinharthauling.com/#business" } }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": { "@type": "Service", "name": "Garage Cleanouts", "provider": { "@id": "https://www.reinharthauling.com/#business" } }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": { "@type": "Service", "name": "Junk Removal", "provider": { "@id": "https://www.reinharthauling.com/#business" } }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": { "@type": "Service", "name": "Appliance Removal", "provider": { "@id": "https://www.reinharthauling.com/#business" } }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": { "@type": "Service", "name": "Furniture Removal", "provider": { "@id": "https://www.reinharthauling.com/#business" } }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": { "@type": "Service", "name": "Rental Property Cleanouts", "provider": { "@id": "https://www.reinharthauling.com/#business" } }
+            }
+          ]
+        }
       }
     </script>
   </head>
