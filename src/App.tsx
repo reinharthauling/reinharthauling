@@ -295,8 +295,8 @@ const Hero = () => {
               <span className="text-brand-orange">Estate &amp; Property Cleanouts</span> in Nashville, TN
             </h1>
             <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 max-w-2xl">
-              Estate transitions, eviction turnovers, and property cleanouts—clear pricing, responsive
-              communication, and organized load-outs.
+              Estate transitions, eviction turnovers, and property cleanouts—handled with responsive communication
+              and steady coordination from start to finish.
             </p>
             <p className="text-sm text-slate-500 leading-relaxed mb-5 max-w-2xl">
               <Link to="/estate-cleanouts" className="text-brand-orange hover:text-brand-orange-light transition-colors">
