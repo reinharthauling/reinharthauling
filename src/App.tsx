@@ -1489,7 +1489,7 @@ const SiteLayout = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-const OG_IMAGE_HOME = 'https://reinharthauling.com/og/reinhart-cleanouts-og-v2.jpg?v=3';
+const OG_IMAGE_HOME = 'https://www.reinharthauling.com/og/reinhart-cleanouts-og-v2.jpg?v=3';
 
 const HomePage = () => {
   return (
@@ -1501,7 +1501,7 @@ const HomePage = () => {
           content="Estate transitions, eviction support, rental turnovers, inherited homes, and difficult interiors—cleared with responsive communication across Middle Tennessee."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://reinharthauling.com/" />
+        <meta property="og:url" content="https://www.reinharthauling.com/" />
         <meta property="og:title" content="Reinhart Hauling &amp; Cleanouts | Estate &amp; Turnover Support" />
         <meta
           property="og:description"
