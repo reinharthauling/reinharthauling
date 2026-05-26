@@ -5,7 +5,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
 import { 
   Truck, 
@@ -20,6 +20,9 @@ import {
   ArrowRight,
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
+  Menu,
+  X,
   Clock,
   ShieldCheck,
   Zap,
@@ -30,6 +33,7 @@ import EvictionCleanouts from './pages/EvictionCleanouts.tsx';
 import JunkRemovalGoodlettsville from './pages/JunkRemovalGoodlettsville.tsx';
 import LandlordRentalCleanouts from './pages/LandlordRentalCleanouts.tsx';
 import GarageCleanouts from './pages/GarageCleanouts.tsx';
+import PropertyCleanouts from './pages/PropertyCleanouts.tsx';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import ScrollToTop from './ScrollToTop.tsx';
@@ -72,40 +76,194 @@ const AnimatedBackground = () => {
   );
 };
 
+const SERVICE_NAV_LINKS = [
+  { label: 'Estate Cleanouts', to: '/estate-cleanouts' },
+  { label: 'Eviction Cleanouts', to: '/eviction-cleanouts' },
+  { label: 'Landlord & Rental Cleanouts', to: '/landlord-rental-cleanouts' },
+  { label: 'Garage Cleanouts', to: '/garage-cleanouts' },
+  { label: 'Property Cleanouts', to: '/property-cleanouts' },
+] as const;
+
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const servicesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    setMobileMenuOpen(false);
+    setServicesOpen(false);
+    setMobileServicesOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (servicesRef.current && !servicesRef.current.contains(event.target as Node)) {
+        setServicesOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+    setMobileServicesOpen(false);
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm py-3">
       <div className="max-w-7xl mx-auto px-4 md:px-6 min-h-[104px] flex items-center justify-between gap-8">
-      <a href="/" className="flex items-center shrink-0 overflow-visible">
-  <img
-    src="/branding/Reinhart-hauling-cleanouts-nashville.png"
-    alt="Reinhart Hauling & Cleanouts Nashville"
-    className="h-[72px] w-auto object-contain block"
-  />
-</a>
-        
+        <Link to="/" className="flex items-center shrink-0 overflow-visible">
+          <img
+            src="/branding/Reinhart-hauling-cleanouts-nashville.png"
+            alt="Reinhart Hauling & Cleanouts Nashville"
+            className="h-[72px] w-auto object-contain block"
+          />
+        </Link>
+
         <div className="hidden md:flex items-center gap-5">
-          <a href="#process" className="text-sm font-medium hover:text-brand-orange transition-colors">How It Works</a>
-          <a href="#services" className="text-sm font-medium hover:text-brand-orange transition-colors">Services</a>
-          <a href="#reviews" className="text-sm font-medium hover:text-brand-orange transition-colors">Reviews</a>
-          <a href="#about" className="text-sm font-medium hover:text-brand-orange transition-colors">About</a>
-          <a 
-            href="tel:6152000064" 
+          <Link to="/#process" className="text-sm font-medium hover:text-brand-orange transition-colors">
+            How It Works
+          </Link>
+
+          <div
+            ref={servicesRef}
+            className="relative"
+            onMouseEnter={() => setServicesOpen(true)}
+            onMouseLeave={() => setServicesOpen(false)}
+          >
+            <button
+              type="button"
+              onClick={() => setServicesOpen((open) => !open)}
+              aria-expanded={servicesOpen}
+              aria-haspopup="true"
+              className="flex items-center gap-1 text-sm font-medium hover:text-brand-orange transition-colors"
+            >
+              Services
+              <ChevronDown
+                size={16}
+                className={`transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`}
+              />
+            </button>
+
+            {servicesOpen && (
+              <div className="absolute top-full left-0 pt-2 w-64">
+                <div className="rounded-2xl border border-slate-100 bg-white py-2 shadow-xl shadow-slate-200/60 ring-1 ring-slate-900/5">
+                  {SERVICE_NAV_LINKS.map((item) => (
+                    <Link
+                      key={item.to}
+                      to={item.to}
+                      className="block px-4 py-2.5 text-sm font-medium text-brand-navy hover:bg-brand-orange/5 hover:text-brand-orange transition-colors"
+                      onClick={() => setServicesOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          <Link to="/#reviews" className="text-sm font-medium hover:text-brand-orange transition-colors">
+            Reviews
+          </Link>
+          <Link to="/#about" className="text-sm font-medium hover:text-brand-orange transition-colors">
+            About
+          </Link>
+          <a
+            href="tel:6152000064"
             className="bg-brand-navy text-white px-4 py-2 rounded-full text-sm font-medium shadow-xl shadow-brand-navy/20 hover:bg-brand-orange transition-all hover:scale-105 active:scale-95 flex items-center gap-2"
           >
             <Phone size={16} />
             615-200-0064
           </a>
         </div>
+
+        <button
+          type="button"
+          className="md:hidden inline-flex items-center justify-center w-11 h-11 rounded-xl border border-slate-200 text-brand-navy hover:border-brand-orange hover:text-brand-orange transition-colors"
+          aria-expanded={mobileMenuOpen}
+          aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+          onClick={() => setMobileMenuOpen((open) => !open)}
+        >
+          {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
       </div>
+
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden overflow-hidden border-t border-slate-100 bg-white"
+          >
+            <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
+              <Link
+                to="/#process"
+                className="px-3 py-3 text-sm font-medium text-brand-navy hover:text-brand-orange transition-colors rounded-xl hover:bg-slate-50"
+                onClick={closeMobileMenu}
+              >
+                How It Works
+              </Link>
+
+              <button
+                type="button"
+                className="flex items-center justify-between px-3 py-3 text-sm font-medium text-brand-navy hover:text-brand-orange transition-colors rounded-xl hover:bg-slate-50"
+                aria-expanded={mobileServicesOpen}
+                onClick={() => setMobileServicesOpen((open) => !open)}
+              >
+                Services
+                <ChevronDown
+                  size={16}
+                  className={`transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180' : ''}`}
+                />
+              </button>
+
+              {mobileServicesOpen && (
+                <div className="ml-2 mb-1 flex flex-col gap-0.5 border-l-2 border-brand-orange/20 pl-3">
+                  {SERVICE_NAV_LINKS.map((item) => (
+                    <Link
+                      key={item.to}
+                      to={item.to}
+                      className="px-3 py-2.5 text-sm text-slate-600 hover:text-brand-orange transition-colors rounded-lg hover:bg-slate-50"
+                      onClick={closeMobileMenu}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+
+              <Link
+                to="/#reviews"
+                className="px-3 py-3 text-sm font-medium text-brand-navy hover:text-brand-orange transition-colors rounded-xl hover:bg-slate-50"
+                onClick={closeMobileMenu}
+              >
+                Reviews
+              </Link>
+              <Link
+                to="/#about"
+                className="px-3 py-3 text-sm font-medium text-brand-navy hover:text-brand-orange transition-colors rounded-xl hover:bg-slate-50"
+                onClick={closeMobileMenu}
+              >
+                About
+              </Link>
+              <a
+                href="tel:6152000064"
+                className="mt-2 bg-brand-navy text-white px-4 py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 hover:bg-brand-orange transition-colors"
+                onClick={closeMobileMenu}
+              >
+                <Phone size={16} />
+                615-200-0064
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
@@ -1606,6 +1764,14 @@ export default function App() {
           element={
             <SiteLayout>
               <GarageCleanouts />
+            </SiteLayout>
+          }
+        />
+        <Route
+          path="/property-cleanouts"
+          element={
+            <SiteLayout>
+              <PropertyCleanouts />
             </SiteLayout>
           }
         />
