@@ -64,7 +64,7 @@ export default function EvictionCleanouts() {
                     to="/junk-removal-goodlettsville"
                     className="text-brand-orange hover:text-brand-orange transition-colors"
                   >
-                    general junk removal in Goodlettsville
+                    junk removal in Goodlettsville
                   </Link>
                   .
                 </p>

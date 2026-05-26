@@ -40,6 +40,28 @@ export default function JunkRemovalGoodlettsville() {
                 <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl">
                   Reinhart Hauling &amp; Cleanouts provides fast junk removal in Goodlettsville for furniture, appliances, garage cleanouts, yard debris, and general household clutter. Text photos for a fast quote and quick scheduling.
                 </p>
+                <p className="text-base text-slate-600 leading-relaxed mb-8 max-w-2xl">
+                  Need a bigger scope? We also handle{' '}
+                  <Link to="/estate-cleanouts" className="text-brand-orange hover:text-brand-orange-light transition-colors">
+                    estate cleanouts
+                  </Link>
+                  ,{' '}
+                  <Link to="/eviction-cleanouts" className="text-brand-orange hover:text-brand-orange-light transition-colors">
+                    eviction cleanouts
+                  </Link>
+                  , and{' '}
+                  <Link to="/garage-cleanouts" className="text-brand-orange hover:text-brand-orange-light transition-colors">
+                    garage
+                  </Link>{' '}
+                  and{' '}
+                  <Link
+                    to="/landlord-rental-cleanouts"
+                    className="text-brand-orange hover:text-brand-orange-light transition-colors"
+                  >
+                    property cleanouts
+                  </Link>
+                  .
+                </p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <motion.a

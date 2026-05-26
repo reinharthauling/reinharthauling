@@ -140,6 +140,24 @@ const Hero = () => {
               Estate, eviction, and rental cleanouts handled with clear pricing, fast communication, and reliable
               follow-through.
             </p>
+            <p className="text-sm lg:text-base text-slate-600 leading-relaxed mb-3 max-w-2xl">
+              Learn more about our{' '}
+              <Link to="/estate-cleanouts" className="text-brand-orange hover:text-brand-orange-light transition-colors">
+                estate cleanouts
+              </Link>
+              ,{' '}
+              <Link to="/eviction-cleanouts" className="text-brand-orange hover:text-brand-orange-light transition-colors">
+                eviction cleanouts
+              </Link>
+              , and{' '}
+              <Link
+                to="/junk-removal-goodlettsville"
+                className="text-brand-orange hover:text-brand-orange-light transition-colors"
+              >
+                junk removal in Goodlettsville
+              </Link>
+              .
+            </p>
             <p className="text-sm lg:text-base text-slate-600 leading-relaxed mb-6 max-w-2xl">
               Text photos for a fast quote. Same-day and next-day availability when the schedule allows.
             </p>
