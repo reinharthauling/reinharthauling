@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle2, MessageSquare, Truck, type LucideIcon } from 'lucide-react';
+import { Calendar, CheckCircle2, MessageSquare, Truck, type LucideIcon } from 'lucide-react';
 
 type ProcessStep = {
   number: string;
@@ -9,7 +9,7 @@ type ProcessStep = {
   cta?: { href: string; label: string };
 };
 
-const PROCESS_STEPS: ProcessStep[] = [
+const DEFAULT_PROCESS_STEPS: ProcessStep[] = [
   {
     number: '01',
     icon: MessageSquare,
@@ -44,6 +44,7 @@ type CleanoutProcessProps = {
   title?: string;
   subtitle?: string;
   className?: string;
+  steps?: ProcessStep[];
 };
 
 export default function CleanoutProcess({
@@ -51,7 +52,13 @@ export default function CleanoutProcess({
   title = 'How We Work With You',
   subtitle = 'A realistic workflow for estate, eviction, inherited-property, and turnover cleanouts.',
   className = 'py-20 bg-slate-50/70',
+  steps = DEFAULT_PROCESS_STEPS,
 }: CleanoutProcessProps) {
+  const gridClass =
+    steps.length === 4
+      ? 'grid gap-8 md:gap-10 sm:grid-cols-2 lg:grid-cols-4'
+      : 'grid gap-8 md:gap-10 md:grid-cols-3';
+
   return (
     <section id={id} className={className}>
       <div className="max-w-7xl mx-auto px-6">
@@ -63,8 +70,8 @@ export default function CleanoutProcess({
           <p className="text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed">{subtitle}</p>
         </div>
 
-        <div className="grid gap-8 md:gap-10 md:grid-cols-3">
-          {PROCESS_STEPS.map((step, i) => {
+        <div className={gridClass}>
+          {steps.map((step) => {
             const Icon = step.icon;
             return (
               <div

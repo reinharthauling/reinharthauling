@@ -1,11 +1,99 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
-import { CheckCircle2, MapPin, MessageSquare, Phone } from 'lucide-react';
+import {
+  Calendar,
+  CheckCircle2,
+  HandHeart,
+  MapPin,
+  MessageSquare,
+  Phone,
+  ShieldCheck,
+  Truck,
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 import CleanoutProcess from '../components/CleanoutProcess.tsx';
 import OptionalServiceImage from '../components/OptionalServiceImage.tsx';
 import EstateFaq from '../components/EstateFaq.tsx';
+
+const ESTATE_PROCESS_STEPS = [
+  {
+    number: '01',
+    icon: MessageSquare,
+    title: 'Send Photos or Project Details',
+    description:
+      'Text photos, explain the situation, or share property details so we can understand the scope—rooms involved, garage or storage areas, and any family items that need to stay.',
+    cta: { href: 'sms:6152000064', label: 'Text Photos \u2192' },
+  },
+  {
+    number: '02',
+    icon: CheckCircle2,
+    title: 'Walkthrough & Clear Scope',
+    description:
+      'Smaller jobs can often be quoted from photos. Larger estate or full-property cleanouts usually benefit from an on-site walkthrough to assess volume, access, labor, disposal needs, and timing—so scope and pricing stay clear.',
+    cta: {
+      href: 'sms:6152000064?body=Hi%20I%20need%20pricing%20for%20an%20estate%20cleanout',
+      label: 'Get Pricing \u2192',
+    },
+  },
+  {
+    number: '03',
+    icon: Calendar,
+    title: 'Schedule the Cleanout',
+    description:
+      'We confirm the date, coordinate access, and align on what stays, what goes, and how the day will run—so everyone knows what to expect before we arrive.',
+    cta: { href: 'tel:6152000064', label: 'Call to Schedule \u2192' },
+  },
+  {
+    number: '04',
+    icon: Truck,
+    title: 'Clear, Haul, and Final Sweep',
+    description:
+      'Our crew works through the property with organized execution—clearing rooms, hauling debris, handling disposal, and finishing with a final sweep-through before we close out the job.',
+    cta: { href: 'tel:6152000064', label: 'Call Now \u2192' },
+  },
+];
+
+const WHY_CHOOSE_CARDS = [
+  {
+    icon: HandHeart,
+    title: 'Respectful Estate Support',
+    desc: 'Calm communication during inherited-home and family transitions—we work at a steady pace and respect what matters to you.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Clear Scope & Pricing',
+    desc: 'You know what is included before we start. No vague estimates or surprise line items once work is underway.',
+  },
+  {
+    icon: CheckCircle2,
+    title: 'Walkthroughs for Larger Jobs',
+    desc: 'Full-home and estate cleanouts get an on-site look when needed—so volume, access, and disposal are assessed properly upfront.',
+  },
+  {
+    icon: Truck,
+    title: 'Reliable Follow-Through',
+    desc: 'From scheduled arrival through hauling, disposal, and final sweep-through—we stay organized and keep you updated as the job progresses.',
+  },
+];
+
+const SERVICE_AREAS = [
+  'Goodlettsville',
+  'Nashville',
+  'Hendersonville',
+  'Madison',
+  'Joelton',
+  'White House',
+  'Gallatin',
+  'Springfield',
+];
+
+const RELATED_SERVICES = [
+  { label: 'Eviction Cleanouts', to: '/eviction-cleanouts' },
+  { label: 'Garage Cleanouts', to: '/garage-cleanouts' },
+  { label: 'Landlord & Rental Cleanouts', to: '/landlord-rental-cleanouts' },
+  { label: 'Property Cleanouts', to: '/property-cleanouts' },
+];
 
 export default function EstateCleanouts() {
   const serviceTiles = [
@@ -56,230 +144,212 @@ export default function EstateCleanouts() {
           content="Full estate cleanout services for homes and inherited properties. Serving Nashville and surrounding areas."
         />
       </Helmet>
-    
+
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="max-w-3xl">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-3xl">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-bold uppercase tracking-widest mb-6">
+                FULL PROPERTY CLEANOUTS
+              </span>
+              <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-8">
+                Estate Cleanouts in <br />
+                <span className="text-brand-orange">Nashville &amp; Middle Tennessee</span>
+              </h1>
+              <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 max-w-2xl">
+                Full-service estate cleanout services for homes, inherited properties, and family transitions. We
+                handle everything—furniture, belongings, and debris—so you don&apos;t have to.
+              </p>
+
+              <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-6 max-w-2xl">
+                Looking for a reliable estate cleanout company in Goodlettsville or North Nashville? We
+                specialize in full estate cleanout services, including house cleanouts after death, inherited
+                property cleanouts, and complete property cleanouts. Whether you&apos;re preparing a home for sale or
+                clearing out years of belongings, we handle the entire process from start to finish.
+              </p>
+
+              <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-3 max-w-2xl">
+                We handle everything from start to finish so you can focus on what matters most.
+              </p>
+
+              <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-6 max-w-2xl">
+                We also offer{' '}
+                <Link
+                  to="/eviction-cleanouts"
+                  className="text-brand-orange hover:text-brand-orange transition-colors"
+                >
+                  eviction cleanouts
+                </Link>{' '}
+                and{' '}
+                <Link
+                  to="/landlord-rental-cleanouts"
+                  className="text-brand-orange hover:text-brand-orange transition-colors"
+                >
+                  rental property cleanouts
+                </Link>{' '}
+                for landlords and property managers.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <motion.a
+                  href="sms:6152000064?body=Hi%2C%20I%20need%20an%20estate%20cleanout%20quote"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="bg-brand-navy text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-brand-navy/30 flex items-center justify-center gap-3 group hover:bg-brand-orange transition-all"
+                >
+                  <MessageSquare className="text-brand-orange" />
+                  Text Photos for Fast Quote
+                </motion.a>
+                <motion.a
+                  href="tel:6152000064"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="bg-white border-2 border-slate-200 text-brand-navy px-8 py-4 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 hover:border-brand-orange transition-colors"
+                >
+                  <Phone />
+                  Call 615-200-0064
+                </motion.a>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 relative">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">
+              Estate Cleanout Services We Handle
+            </h2>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {serviceTiles.map((tile) => (
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+                key={tile.title}
+                whileHover={{ y: -10 }}
+                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-5 h-full"
               >
-                <span className="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-bold uppercase tracking-widest mb-6">
-                  FULL PROPERTY CLEANOUTS
-                </span>
-                <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-8">
-                  Estate Cleanouts in <br />
-                  <span className="text-brand-orange">Nashville &amp; Middle Tennessee</span>
-                </h1>
-                <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 max-w-2xl">
-                  Full-service estate cleanout services for homes, inherited properties, and family transitions. We
-                  handle everything—furniture, belongings, and debris—so you don’t have to.
-                </p>
-
-                <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-6 max-w-2xl">
-                  Looking for a reliable estate cleanout company in Goodlettsville or North Nashville? We
-                  specialize in full estate cleanout services, including house cleanouts after death, inherited
-                  property cleanouts, and complete property cleanouts. Whether you're preparing a home for sale or
-                  clearing out years of belongings, we handle the entire process from start to finish.
-                </p>
-
-                <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-3 max-w-2xl">
-                  We handle everything from start to finish so you can focus on what matters most.
-                </p>
-
-                <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-6 max-w-2xl">
-                  We also offer{' '}
-                  <Link
-                    to="/eviction-cleanouts"
-                    className="text-brand-orange hover:text-brand-orange transition-colors"
-                  >
-                    eviction cleanouts
-                  </Link>{' '}
-                  and{' '}
-                  <Link
-                    to="/landlord-rental-cleanouts"
-                    className="text-brand-orange hover:text-brand-orange transition-colors"
-                  >
-                    rental property cleanouts
-                  </Link>{' '}
-                  for landlords and property managers.
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <motion.a
-                    href="sms:6152000064?body=Hi%20I%20need%20a%20junk%20removal%20quote"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="bg-brand-navy text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-brand-navy/30 flex items-center justify-center gap-3 group hover:bg-brand-orange transition-all"
-                  >
-                    <MessageSquare className="text-brand-orange" />
-                    Text Photos for Fast Quote
-                  </motion.a>
-                  <motion.a
-                    href="tel:6152000064"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="bg-white border-2 border-slate-200 text-brand-navy px-8 py-4 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 hover:border-brand-orange transition-colors"
-                  >
-                    <Phone />
-                    Call 615-200-0064
-                  </motion.a>
+                <OptionalServiceImage src={tile.imageSrc} alt={tile.imageAlt} />
+                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                  <CheckCircle2 />
                 </div>
-                <div className="mt-3 text-[15px] text-slate-500 text-center space-y-3">
-                  <p className="leading-relaxed">✔ Same-day &amp; next-day availability</p>
-                  <p className="leading-relaxed">✔ Discreet, respectful service</p>
-                  <p className="text-slate-400 leading-relaxed">✔ Most quotes in 5 minutes via text</p>
+                <div className="flex-1">
+                  <h3 className="font-display text-xl font-bold text-brand-navy mb-2">{tile.title}</h3>
+                  <p className="text-slate-500 text-sm leading-relaxed">{tile.desc}</p>
                 </div>
               </motion.div>
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="py-24 relative">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-20">
-              <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">
-                Estate Cleanout Services We Handle
-              </h2>
-            </div>
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="mb-14">
+            <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-4">
+              Why Choose Reinhart Hauling &amp; Cleanouts for Estate Cleanouts?
+            </h2>
+            <p className="text-slate-600 max-w-2xl text-lg leading-relaxed">
+              Estate work takes more than hauling—it takes clear communication, realistic planning, and steady
+              execution when the property and timeline matter.
+            </p>
+          </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {serviceTiles.map((tile) => (
-                <motion.div
-                  key={tile.title}
-                  whileHover={{ y: -10 }}
-                  className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-5 h-full"
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {WHY_CHOOSE_CARDS.map((card) => {
+              const Icon = card.icon;
+              return (
+                <div
+                  key={card.title}
+                  className="flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-7 md:p-8 shadow-sm"
                 >
-                  <OptionalServiceImage src={tile.imageSrc} alt={tile.imageAlt} />
-                  <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
-                    <CheckCircle2 />
+                  <div className="mb-5 w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                    <Icon size={22} />
                   </div>
-                  <div className="flex-1">
-                    <h3 className="font-display text-xl font-bold text-brand-navy mb-2">{tile.title}</h3>
-                    <p className="text-slate-500 text-sm leading-relaxed">{tile.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="py-24 bg-white">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-12">
-              <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">
-                Why Choose Reinhart Hauling &amp; Cleanouts for Estate Cleanouts?
-              </h2>
-              <div className="max-w-2xl mx-auto">
-                <p className="text-slate-500 leading-relaxed">
-                  Estate cleanouts can be overwhelming. We make the entire process simple, fast, and handled from start to finish.
-                </p>
-                <p className="text-slate-500 leading-relaxed mt-2">
-                  Whether you're dealing with an inherited property, preparing a home for sale, or managing a
-                  difficult situation, we make it simple.
-                </p>
-              </div>
-
-              <ul className="max-w-2xl mx-auto mt-4 space-y-3 text-left text-slate-600">
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-brand-orange mt-0.5 flex-shrink-0" />
-                  <span className="leading-relaxed">Fast scheduling and turnaround</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-brand-orange mt-0.5 flex-shrink-0" />
-                  <span className="leading-relaxed">No hidden fees or surprises</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-brand-orange mt-0.5 flex-shrink-0" />
-                  <span className="leading-relaxed">Local, reliable service in Goodlettsville and North Nashville</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-brand-orange mt-0.5 flex-shrink-0" />
-                  <span className="leading-relaxed">One call handles everything</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <CleanoutProcess
-          title="How Our Estate Cleanout Service Works"
-          subtitle="A calm, organized workflow for inherited homes, estate transitions, and full-property cleanouts."
-          className="py-24 bg-white"
-        />
-
-        <EstateFaq />
-
-        <section className="py-24 bg-slate-50">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">Areas We Serve</h2>
-              <p className="text-slate-500 max-w-3xl mx-auto">
-                Serving Goodlettsville, Nashville, Hendersonville, Madison, and surrounding areas.
-              </p>
-            </div>
-
-            <div className="max-w-3xl mx-auto">
-              <div className="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl border border-slate-100 relative text-left">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-brand-orange/10 rounded-2xl flex items-center justify-center text-brand-orange shrink-0">
-                    <MapPin />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-brand-navy mb-3">Goodlettsville &amp; North Nashville</h3>
-                    <p className="text-slate-600 leading-relaxed">
-                      If you're nearby and not sure if you're in our service area, reach out—chances are we can help.
-                    </p>
-                  </div>
+                  <h3 className="font-display text-xl font-bold text-brand-navy mb-3">{card.title}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed flex-1">{card.desc}</p>
                 </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
-                <div className="mt-10 flex flex-col sm:flex-row gap-4">
-                  <a
-                    href="tel:6152000064"
-                    className="bg-brand-navy text-white px-10 py-5 rounded-2xl font-bold text-xl shadow-2xl shadow-brand-navy/30 flex items-center justify-center gap-3 hover:bg-brand-orange transition-all hover:scale-105"
-                  >
-                    <Phone />
-                    Call or Text 615-200-0064
-                  </a>
-                </div>
+      <CleanoutProcess
+        title="How Our Estate Cleanout Service Works"
+        subtitle="Smaller jobs can often start from photos. Larger estate and full-property cleanouts usually benefit from a walkthrough so scope, access, and timing are clear before we schedule."
+        className="py-24 bg-white"
+        steps={ESTATE_PROCESS_STEPS}
+      />
+
+      <EstateFaq />
+
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="mb-12">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 bg-brand-orange/10 rounded-xl flex items-center justify-center text-brand-orange">
+                <MapPin size={20} />
               </div>
+              <h2 className="font-display text-4xl font-bold text-brand-navy">Areas We Serve</h2>
+            </div>
+            <p className="text-slate-600 max-w-3xl leading-relaxed">
+              Estate and property cleanouts across Middle Tennessee—including the communities below and nearby
+              areas. Not sure if you&apos;re in range? Reach out and we&apos;ll let you know quickly.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+            {SERVICE_AREAS.map((area) => (
+              <div
+                key={area}
+                className="rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-center text-sm font-semibold text-brand-navy shadow-sm"
+              >
+                {area}
+              </div>
+            ))}
+            <div className="rounded-2xl border border-dashed border-slate-300 bg-white/60 px-4 py-3.5 text-center text-sm font-medium text-slate-500 col-span-2 sm:col-span-3 lg:col-span-4">
+              Surrounding Middle Tennessee communities
             </div>
           </div>
-        </section>
 
-        <section className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-10">
-              <h2 className="font-display text-3xl font-bold text-brand-navy mb-4">Related Services</h2>
-              <p className="text-slate-500">
-                Explore more specialized cleanout and junk removal services.
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link
-                to="/junk-removal-goodlettsville"
-                className="px-6 py-3 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
-              >
-                Junk Removal in Goodlettsville
-              </Link>
-              <Link
-                to="/eviction-cleanouts"
-                className="px-6 py-3 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
-              >
-                Eviction Cleanouts
-              </Link>
-              <Link
-                to="/landlord-rental-cleanouts"
-                className="px-6 py-3 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
-              >
-                Landlord &amp; Rental Cleanouts
-              </Link>
-            </div>
+          <div className="mt-10">
+            <a
+              href="tel:6152000064"
+              className="inline-flex items-center gap-3 bg-brand-navy text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-brand-navy/20 hover:bg-brand-orange transition-all"
+            >
+              <Phone size={20} />
+              Call or Text 615-200-0064
+            </a>
           </div>
-        </section>
-      </>
+        </div>
+      </section>
+
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="mb-10">
+            <h2 className="font-display text-3xl font-bold text-brand-navy mb-3">Related Services</h2>
+            <p className="text-slate-500">Other cleanout services that often pair with estate work.</p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {RELATED_SERVICES.map((service) => (
+              <Link
+                key={service.to}
+                to={service.to}
+                className="px-6 py-4 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
+              >
+                {service.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
-

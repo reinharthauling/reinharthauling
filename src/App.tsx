@@ -38,6 +38,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import ScrollToTop from './ScrollToTop.tsx';
 import CleanoutProcess from './components/CleanoutProcess.tsx';
+import { scrollToSection } from './utils/scrollToSection.ts';
 import OptionalServiceImage from './components/OptionalServiceImage.tsx';
 
 // --- Components ---
@@ -114,6 +115,22 @@ const Navbar = () => {
     setMobileServicesOpen(false);
   };
 
+  const navigateToHomeSection = (event: React.MouseEvent, sectionId: string) => {
+    const shouldDelayForMenu = mobileMenuOpen;
+    if (shouldDelayForMenu) closeMobileMenu();
+
+    if (location.pathname !== '/') return;
+
+    event.preventDefault();
+    const scroll = () => scrollToSection(sectionId);
+    if (shouldDelayForMenu) {
+      window.setTimeout(scroll, 220);
+    } else {
+      scroll();
+    }
+    window.history.pushState(null, '', `#${sectionId}`);
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm py-3">
       <div className="max-w-7xl mx-auto px-4 md:px-6 min-h-[104px] flex items-center justify-between gap-8">
@@ -126,7 +143,11 @@ const Navbar = () => {
         </Link>
 
         <div className="hidden md:flex items-center gap-5">
-          <Link to="/#process" className="text-sm font-medium hover:text-brand-orange transition-colors">
+          <Link
+            to="/#how-it-works"
+            className="text-sm font-medium hover:text-brand-orange transition-colors"
+            onClick={(event) => navigateToHomeSection(event, 'how-it-works')}
+          >
             How It Works
           </Link>
 
@@ -168,10 +189,18 @@ const Navbar = () => {
             )}
           </div>
 
-          <Link to="/#reviews" className="text-sm font-medium hover:text-brand-orange transition-colors">
+          <Link
+            to="/#reviews"
+            className="text-sm font-medium hover:text-brand-orange transition-colors"
+            onClick={(event) => navigateToHomeSection(event, 'reviews')}
+          >
             Reviews
           </Link>
-          <Link to="/#about" className="text-sm font-medium hover:text-brand-orange transition-colors">
+          <Link
+            to="/#about"
+            className="text-sm font-medium hover:text-brand-orange transition-colors"
+            onClick={(event) => navigateToHomeSection(event, 'about')}
+          >
             About
           </Link>
           <a
@@ -205,9 +234,9 @@ const Navbar = () => {
           >
             <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
               <Link
-                to="/#process"
+                to="/#how-it-works"
                 className="px-3 py-3 text-sm font-medium text-brand-navy hover:text-brand-orange transition-colors rounded-xl hover:bg-slate-50"
-                onClick={closeMobileMenu}
+                onClick={(event) => navigateToHomeSection(event, 'how-it-works')}
               >
                 How It Works
               </Link>
@@ -243,14 +272,14 @@ const Navbar = () => {
               <Link
                 to="/#reviews"
                 className="px-3 py-3 text-sm font-medium text-brand-navy hover:text-brand-orange transition-colors rounded-xl hover:bg-slate-50"
-                onClick={closeMobileMenu}
+                onClick={(event) => navigateToHomeSection(event, 'reviews')}
               >
                 Reviews
               </Link>
               <Link
                 to="/#about"
                 className="px-3 py-3 text-sm font-medium text-brand-navy hover:text-brand-orange transition-colors rounded-xl hover:bg-slate-50"
-                onClick={closeMobileMenu}
+                onClick={(event) => navigateToHomeSection(event, 'about')}
               >
                 About
               </Link>
@@ -359,7 +388,7 @@ const Hero = () => {
   );
 };
 
-const HeroSteps = () => <CleanoutProcess />;
+const HeroSteps = () => <CleanoutProcess id="how-it-works" />;
 
 const ValueProps = () => {
   const props = [
