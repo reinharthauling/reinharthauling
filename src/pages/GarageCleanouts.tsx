@@ -1,9 +1,25 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
-import { CheckCircle2, MapPin, MessageSquare, Phone } from 'lucide-react';
+import { CheckCircle2, MessageSquare, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import CleanoutProcess from '../components/CleanoutProcess.tsx';
+
+const GARAGE_SHOWCASE = {
+  beforeSrc: '/projects/garage-cleanout-gallatin-before.jpeg',
+  afterSrc: '/projects/garage-cleanout-after-gallatin.jpeg',
+};
+
+const SERVICE_AREAS = [
+  'Goodlettsville',
+  'Nashville',
+  'Hendersonville',
+  'Madison',
+  'Gallatin',
+  'White House',
+  'Springfield',
+  'Joelton',
+];
 
 export default function GarageCleanouts() {
   return (
@@ -15,9 +31,9 @@ export default function GarageCleanouts() {
     content="Garage cleanout services in Nashville. Remove clutter, furniture, tools, and junk. Fast quotes by text."
   />
 </Helmet>
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl lg:max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -26,18 +42,23 @@ export default function GarageCleanouts() {
               <span className="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-bold uppercase tracking-widest mb-6">
                 GARAGE CLEANOUT SERVICE
               </span>
-              <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-8">
-                Garage Cleanouts in <br />
-                <span className="text-brand-orange">Goodlettsville &amp; North Nashville</span>
+              <h1 className="font-display text-5xl md:text-6xl lg:text-[4.25rem] xl:text-7xl font-bold leading-[1.02] tracking-tighter text-brand-navy mb-8">
+                Garage Cleanout Services in <br />
+                <span className="text-brand-orange">Nashville &amp; Middle Tennessee</span>
               </h1>
-              <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl">
-                Reinhart Hauling &amp; Cleanouts provides fast garage cleanout services for cluttered, packed, or neglected spaces. We
-                remove old furniture, boxes, tools, and junk so you can reclaim your garage.
+              <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 max-w-2xl">
+                Professional garage cleanout support for cluttered, packed, or neglected spaces—we remove furniture,
+                storage bins, tools, and accumulated contents so you can reclaim usable space.
+              </p>
+
+              <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-6 max-w-2xl">
+                Text photos for a fast quote on smaller jobs, or request a walkthrough when access and volume need a
+                closer look before scheduling.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <motion.a
-                  href="sms:6152000064?body=Hi%20I%20need%20a%20garage%20cleanout%20quote"
+                  href="sms:6152000064?body=Hi%2C%20I%20need%20a%20garage%20cleanout%20quote"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="bg-brand-navy text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-brand-navy/30 flex items-center justify-center gap-3 group hover:bg-brand-orange transition-all"
@@ -52,19 +73,60 @@ export default function GarageCleanouts() {
                   className="bg-white border-2 border-slate-200 text-brand-navy px-8 py-4 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 hover:border-brand-orange transition-colors"
                 >
                   <Phone />
-                  Call 615-200-0064
+                  Call Now
                 </motion.a>
-              </div>
-              <div className="mt-3 text-sm text-slate-500 text-center">
-                <p>⚡ Text photos — most quotes in 5 minutes</p>
-                <p className="text-slate-400">Call or Text: 615-200-0064</p>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      <section className="py-24 relative">
+      <section className="py-20 md:py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="mb-10 md:mb-12 max-w-3xl">
+            <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-4">
+              Recent Garage Cleanout Project
+            </h2>
+            <p className="text-lg text-slate-600 leading-relaxed mb-4">
+              Packed garage cleared, loaded out, and swept clean for the next phase of the property.
+            </p>
+            <p className="text-slate-600 leading-relaxed">
+              This project involved a heavily packed garage with furniture, storage bins, debris, and years of
+              accumulated contents. We coordinated the load-out, disposal, and final clean sweep to leave the space
+              cleared and usable again.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 p-6 md:p-8 lg:p-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+              <div className="relative rounded-[1.75rem] overflow-hidden border border-slate-200 bg-slate-100 aspect-[4/3] lg:aspect-[5/4]">
+                <img
+                  src={GARAGE_SHOWCASE.beforeSrc}
+                  alt="Garage cleanout in Gallatin — before, packed with furniture and storage"
+                  className="w-full h-full object-cover object-center"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute bottom-4 left-4 bg-brand-orange text-white px-3 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest shadow-sm">
+                  Before
+                </div>
+              </div>
+              <div className="relative rounded-[1.75rem] overflow-hidden border border-slate-200 bg-slate-100 aspect-[4/3] lg:aspect-[5/4]">
+                <img
+                  src={GARAGE_SHOWCASE.afterSrc}
+                  alt="Garage cleanout in Gallatin — after, cleared and swept clean"
+                  className="w-full h-full object-cover object-center"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute bottom-4 right-4 bg-white text-brand-navy px-3 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest shadow-sm">
+                  After
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 relative bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">
@@ -171,40 +233,29 @@ export default function GarageCleanouts() {
         className="py-24 bg-white"
       />
 
-      <section className="py-24 bg-slate-50">
+      <section className="py-20 md:py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">Service Areas</h2>
-            <p className="text-slate-500 max-w-3xl mx-auto">
-              Serving Goodlettsville, Nashville, Hendersonville, Madison, and surrounding areas.
+          <div className="mb-10">
+            <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">Areas We Serve</h2>
+            <p className="text-slate-600 max-w-3xl leading-relaxed">
+              Garage cleanouts across Middle Tennessee—including the communities below and nearby areas.
             </p>
           </div>
 
-          <div className="max-w-3xl mx-auto">
-            <div className="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl border border-slate-100 relative text-left">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-brand-orange/10 rounded-2xl flex items-center justify-center text-brand-orange shrink-0">
-                  <MapPin />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-brand-navy mb-3">Middle Tennessee</h3>
-                  <p className="text-slate-600 leading-relaxed">
-                    If you're nearby and not sure if you're in our service area, reach out—chances are we can help.
-                  </p>
-                </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+            {SERVICE_AREAS.map((area) => (
+              <div
+                key={area}
+                className="rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-center text-sm font-semibold text-brand-navy shadow-sm"
+              >
+                {area}
               </div>
-
-              <div className="mt-10 flex flex-col sm:flex-row gap-4">
-                <a
-                  href="tel:6152000064"
-                  className="bg-brand-navy text-white px-10 py-5 rounded-2xl font-bold text-xl shadow-2xl shadow-brand-navy/30 flex items-center justify-center gap-3 hover:bg-brand-orange transition-all hover:scale-105"
-                >
-                  <Phone />
-                  Call or Text 615-200-0064
-                </a>
-              </div>
-            </div>
+            ))}
           </div>
+
+          <p className="mt-6 md:mt-8 text-slate-500 text-sm md:text-base leading-relaxed max-w-3xl">
+            We also help clients in nearby Middle Tennessee communities depending on scheduling and project scope.
+          </p>
         </div>
       </section>
 
@@ -232,7 +283,7 @@ export default function GarageCleanouts() {
             </Link>
             <Link
               to="/landlord-rental-cleanouts"
-              className="px-6 py-3 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover;border-brand-orange transition-colors text-center"
+              className="px-6 py-3 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
             >
               Landlord &amp; Rental Cleanouts
             </Link>
