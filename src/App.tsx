@@ -323,11 +323,11 @@ const Hero = () => {
               Middle Tennessee Cleanout Crew
             </span>
             <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-3">
-              <span className="text-brand-orange">Estate &amp; Property Cleanouts</span> in Nashville, TN
+              <span className="text-brand-orange">Estate, Rental &amp; Property Cleanouts</span> Across Middle Tennessee
             </h1>
             <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 max-w-2xl">
-              Estate transitions, eviction turnovers, and property cleanouts—handled with responsive communication
-              and steady coordination from start to finish.
+              We help families, landlords, property managers, and real estate professionals clear estates, rental
+              properties, storage units, and unwanted items quickly and professionally.
             </p>
             <p className="text-sm text-slate-500 leading-relaxed mb-5 max-w-2xl">
               <Link to="/estate-cleanouts" className="text-brand-orange hover:text-brand-orange-light transition-colors">
