@@ -26,7 +26,9 @@ import {
   Clock,
   ShieldCheck,
   Zap,
-  User
+  User,
+  Building2,
+  Music
 } from 'lucide-react';
 import EstateCleanouts from './pages/EstateCleanouts.tsx';
 import EvictionCleanouts from './pages/EvictionCleanouts.tsx';
@@ -571,6 +573,14 @@ const Services = () => {
       imageSrc: undefined,
       imageAlt: undefined,
     },
+    {
+      icon: <Building2 />,
+      title: 'Commercial Cleanouts',
+      desc: 'Office, retail, warehouse, and business cleanouts including cubicles, office furniture, file cabinets, fixtures, inventory, and leftover contents.',
+      to: '/commercial-cleanouts' as const,
+      imageSrc: undefined,
+      imageAlt: undefined,
+    },
   ];
 
   return (
@@ -735,6 +745,23 @@ const Services = () => {
                   <h3 className="font-display text-lg font-bold text-brand-navy mb-2">Yard Debris Removal</h3>
                   <p className="text-slate-500 text-sm leading-relaxed">
                     Brush, branches, and outdoor debris cleared from your yard or lot.
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Piano Removal */}
+              <motion.div
+                whileHover={{ y: -10 }}
+                className="bg-slate-50 p-6 rounded-3xl shadow-lg shadow-slate-200/40 border border-slate-200/70 flex flex-col gap-5"
+              >
+                <div className="w-10 h-10 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                  <Music />
+                </div>
+                <div>
+                  <h3 className="font-display text-lg font-bold text-brand-navy mb-2">Piano Removal</h3>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    Removal of upright pianos, baby grands, and other heavy specialty items as part of scheduled
+                    hauling and cleanout projects.
                   </p>
                 </div>
               </motion.div>
