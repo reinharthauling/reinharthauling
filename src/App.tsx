@@ -300,9 +300,9 @@ const Navbar = () => {
 };
 
 /** Served from /public/images/ — ?v bumps cache when the file is replaced in place. */
-const HERO_FEATURE_IMAGE_SRC = '/images/truck-magnet-cleanouts-middle-tennessee.jpeg?v=2';
+const HERO_FEATURE_IMAGE_SRC = '/images/truck-trailer.jpeg?v=1';
 const HERO_FEATURE_IMAGE_ALT =
-  'Reinhart Hauling and Cleanouts truck with contact magnet for full-home cleanouts in Middle Tennessee';
+  'Reinhart Hauling and Cleanouts truck and trailer for property cleanouts in Middle Tennessee';
 
 const Hero = () => {
   return (
@@ -375,7 +375,11 @@ const Hero = () => {
             <img
               src={HERO_FEATURE_IMAGE_SRC}
               alt={HERO_FEATURE_IMAGE_ALT}
-              className="h-full w-full object-cover object-center"
+              width={1600}
+              height={1200}
+              fetchPriority="high"
+              decoding="async"
+              className="h-full w-full object-cover object-[42%_50%] sm:object-[45%_50%] lg:object-center"
             />
             <div className="absolute bottom-4 left-4 bg-white/95 text-brand-navy px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-sm">
               LOCAL CLEANOUT CREW
