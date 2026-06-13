@@ -325,27 +325,11 @@ const Hero = () => {
               Middle Tennessee Cleanout Crew
             </span>
             <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-3">
-              <span className="text-brand-orange">Estate, Rental &amp; Property Cleanouts</span> Across Middle Tennessee
+              <span className="text-brand-orange">Estate, Property &amp; Commercial Cleanouts</span> Across Middle Tennessee
             </h1>
-            <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 max-w-2xl">
-              We help families, landlords, property managers, and real estate professionals clear estates, rental
-              properties, storage units, and unwanted items quickly and professionally.
-            </p>
-            <p className="text-sm text-slate-500 leading-relaxed mb-5 max-w-2xl">
-              <Link to="/estate-cleanouts" className="text-brand-orange hover:text-brand-orange-light transition-colors">
-                Estate cleanouts
-              </Link>
-              <span className="text-slate-300 mx-2">·</span>
-              <Link to="/eviction-cleanouts" className="text-brand-orange hover:text-brand-orange-light transition-colors">
-                Eviction cleanouts
-              </Link>
-              <span className="text-slate-300 mx-2">·</span>
-              <Link to="/property-cleanouts" className="text-brand-orange hover:text-brand-orange-light transition-colors">
-                Property cleanouts
-              </Link>
-            </p>
-            <p className="text-sm lg:text-base text-slate-600 leading-relaxed mb-6 max-w-2xl">
-              Text photos for a fast quote. Same-day scheduling when available.
+            <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-6 max-w-2xl">
+              We help families, landlords, property managers, businesses, and real estate professionals clear estates,
+              rental properties, offices, storage units, and unwanted items quickly and professionally.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
