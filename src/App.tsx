@@ -36,6 +36,7 @@ import JunkRemovalGoodlettsville from './pages/JunkRemovalGoodlettsville.tsx';
 import LandlordRentalCleanouts from './pages/LandlordRentalCleanouts.tsx';
 import GarageCleanouts from './pages/GarageCleanouts.tsx';
 import PropertyCleanouts from './pages/PropertyCleanouts.tsx';
+import CommercialCleanouts from './pages/CommercialCleanouts.tsx';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import ScrollToTop from './ScrollToTop.tsx';
@@ -87,6 +88,7 @@ const SERVICE_NAV_LINKS = [
   { label: 'Landlord & Rental Cleanouts', to: '/landlord-rental-cleanouts' },
   { label: 'Garage Cleanouts', to: '/garage-cleanouts' },
   { label: 'Property Cleanouts', to: '/property-cleanouts' },
+  { label: 'Commercial Cleanouts', to: '/commercial-cleanouts' },
 ] as const;
 
 const Navbar = () => {
@@ -1653,17 +1655,17 @@ const StickyActionFooter = () => {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 80, opacity: 0 }}
           transition={{ duration: 0.24, ease: 'easeOut' }}
-          className="fixed bottom-0 left-0 right-0 z-[60] p-3 md:px-5 md:pt-4 md:pb-7 pointer-events-none"
+          className="fixed bottom-0 left-0 right-0 z-[60] p-3 md:px-5 md:pt-3 md:pb-4 pointer-events-none"
         >
           <div className="max-w-4xl mx-auto pointer-events-auto">
-            <div className="bg-brand-navy/95 backdrop-blur-md border border-white/10 rounded-3xl md:rounded-full p-2 md:py-2 md:px-5 shadow-[0_14px_34px_rgba(0,0,0,0.24)] flex flex-col md:flex-row items-center justify-between gap-3 px-5">
+            <div className="bg-brand-navy/95 backdrop-blur-md border border-white/10 rounded-3xl md:rounded-full p-2 md:py-1.5 md:px-5 shadow-[0_14px_34px_rgba(0,0,0,0.24)] flex flex-col md:flex-row items-center justify-between gap-3 md:gap-2 px-5">
               <div className="flex items-center gap-4">
-                <div className="hidden sm:flex w-10 h-10 bg-brand-orange rounded-full items-center justify-center text-white shrink-0">
-                  <Phone size={20} />
+                <div className="hidden sm:flex w-10 h-10 md:w-9 md:h-9 bg-brand-orange rounded-full items-center justify-center text-white shrink-0">
+                  <Phone size={18} />
                 </div>
                 <div className="text-center md:text-left">
-                  <div className="text-[10px] md:text-xs font-bold text-brand-orange uppercase tracking-widest leading-none mb-1">Direct Line</div>
-                  <a href="tel:6152000064" className="text-lg md:text-xl font-bold text-white hover:text-brand-orange transition-colors">
+                  <div className="text-[10px] md:text-[11px] font-bold text-brand-orange uppercase tracking-widest leading-none mb-1">Direct Line</div>
+                  <a href="tel:6152000064" className="text-lg md:text-lg font-bold text-white hover:text-brand-orange transition-colors">
                     615-200-0064
                   </a>
                 </div>
@@ -1672,14 +1674,14 @@ const StickyActionFooter = () => {
               <div className="flex items-center gap-2 w-full md:w-auto">
                 <a 
                   href="sms:6152000064"
-                  className="flex-1 md:flex-none bg-white text-brand-navy px-5 py-3 rounded-2xl md:rounded-full font-bold text-sm flex items-center justify-center gap-2 hover:bg-brand-orange hover:text-white transition-all active:scale-95 group"
+                  className="flex-1 md:flex-none bg-white text-brand-navy px-5 py-3 md:py-2 rounded-2xl md:rounded-full font-bold text-sm flex items-center justify-center gap-2 hover:bg-brand-orange hover:text-white transition-all active:scale-95 group"
                 >
                   <MessageSquare size={18} className="text-brand-orange group-hover:text-white transition-colors" />
                   <span className="whitespace-nowrap">Text photos for quote</span>
                 </a>
                 <a 
                   href="tel:6152000064"
-                  className="flex-1 md:flex-none bg-brand-orange text-white px-5 py-3 rounded-2xl md:rounded-full font-bold text-sm flex items-center justify-center gap-2 hover:bg-brand-orange-light transition-all active:scale-95 shadow-lg shadow-brand-orange/20"
+                  className="flex-1 md:flex-none bg-brand-orange text-white px-5 py-3 md:py-2 rounded-2xl md:rounded-full font-bold text-sm flex items-center justify-center gap-2 hover:bg-brand-orange-light transition-all active:scale-95 shadow-lg shadow-brand-orange/20"
                 >
                   <Phone size={18} />
                   <span className="whitespace-nowrap">Call Us</span>
@@ -1698,7 +1700,7 @@ const StickyActionFooter = () => {
 const SiteLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div
-      className="min-h-screen selection:bg-brand-orange selection:text-white pb-[calc(128px+env(safe-area-inset-bottom))] md:pb-[calc(148px+env(safe-area-inset-bottom))]"
+      className="min-h-screen selection:bg-brand-orange selection:text-white pb-[calc(128px+env(safe-area-inset-bottom))] md:pb-[calc(120px+env(safe-area-inset-bottom))]"
     >
       <AnimatedBackground />
       <Navbar />
@@ -1821,6 +1823,14 @@ export default function App() {
           element={
             <SiteLayout>
               <PropertyCleanouts />
+            </SiteLayout>
+          }
+        />
+        <Route
+          path="/commercial-cleanouts"
+          element={
+            <SiteLayout>
+              <CommercialCleanouts />
             </SiteLayout>
           }
         />
