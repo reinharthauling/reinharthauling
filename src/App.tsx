@@ -779,16 +779,16 @@ const RecentCleanoutProjects = () => {
     {
       title: 'Garage Cleanout – Gallatin',
       meta: 'Packed garage • Load-out & disposal',
-      beforeSrc: '/images/projects/garage-cleanout-hendersonville-before.jpeg',
-      afterSrc: '/images/projects/garage-cleanout-hendersonville-after.jpeg',
+      beforeSrc: '/projects/garage-cleanout-gallatin-before.jpeg',
+      afterSrc: '/projects/garage-cleanout-after-gallatin.jpeg',
       to: '/garage-cleanouts' as const,
     },
     {
-      title: 'Rental Turnover – Springfield',
-      meta: 'Exterior removal • Move-out reset',
-      beforeSrc: '/images/projects/trampoline-removal-nashville.png',
-      afterSrc: '/images/projects/trampoline-removal-nashville-after.png',
-      to: '/landlord-rental-cleanouts' as const,
+      title: 'Garage Cleanout – Hendersonville',
+      meta: 'Estate transition • Garage cleanout • Responsible disposal',
+      beforeSrc: '/projects/1%20estate%20rachel%20seth%20cleanout%20before.jpg',
+      afterSrc: '/projects/3%20estate%20rachel%20seth%20cleanout%20after.jpg',
+      to: '/garage-cleanouts' as const,
     },
   ];
 
@@ -796,9 +796,11 @@ const RecentCleanoutProjects = () => {
     <section id="recent-projects" className="py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-14">
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">Recent Jobs</h2>
+          <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">
+            Recent Jobs Across Middle Tennessee
+          </h2>
           <p className="text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed">
-            Garages, estates, rental turnovers, and difficult situations handled professionally—here in Middle Tennessee.
+            Real cleanout projects completed for estates, rentals, garages, and difficult property transitions.
           </p>
         </div>
 
@@ -848,7 +850,7 @@ const RecentCleanoutProjects = () => {
                   to={p.to}
                   className="inline-flex items-center gap-2 text-sm font-semibold text-brand-navy hover:text-brand-orange transition-colors"
                 >
-                  View project
+                  See before &amp; after
                   <ArrowRight size={16} className="text-brand-orange" />
                 </Link>
               </div>
@@ -966,18 +968,18 @@ const BeforeAfterSlider = () => {
 const Testimonials = () => {
   const reviews = [
     {
+      name: "Rachel Huber",
+      location: "Middle Tennessee",
+      text: "The service we got from Reinhart Cleanout was amazing! He was prompt and left our space immaculate! Such a huge help and peace of mind while cleaning out my mom's house. I highly recommend!",
+      stars: 5,
+      label: "Verified Google Review",
+    },
+    {
       name: "Bruce Shamp",
       location: "Middle Tennessee",
       text: "Fantastic fast courteous professional really cares about his clients helping in every way to get the job done quickly. Highly recommend him for all your needs. He did a fantastic job — always polite, caring, and professional.",
       stars: 5,
       label: "Verified Google Review",
-    },
-    {
-      name: "Amanda R.",
-      location: "Hendersonville, TN",
-      text: "Needed a garage cleaned out before listing the house. Communication was solid and they handled everything quickly.",
-      stars: 5,
-      label: "Verified Customer",
     },
     {
       name: "Jason B.",
@@ -1007,7 +1009,7 @@ const Testimonials = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className={`p-8 rounded-3xl shadow-lg border ${
+              className={`p-8 rounded-3xl shadow-lg border h-full flex flex-col ${
                 i === 0
                   ? 'bg-white border-brand-orange/50 shadow-xl shadow-brand-orange/10'
                   : 'bg-white border-slate-100'
@@ -1023,7 +1025,7 @@ const Testimonials = () => {
                   <Star key={star} size={16} fill="#F27D26" color="#F27D26" />
                 ))}
               </div>
-              <p className="text-slate-600 italic mb-6 leading-relaxed">"{r.text}"</p>
+              <p className="text-slate-600 italic mb-6 leading-relaxed flex-1">"{r.text}"</p>
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 bg-brand-orange/10 rounded-full flex items-center justify-center text-brand-orange font-bold">
                   {r.name[0]}
@@ -1749,16 +1751,12 @@ const HomePage = () => {
       </Helmet>
     <SiteLayout>
       <Hero />
-      <ValueProps />
+      <RecentCleanoutProjects />
+      <Services />
       <WhoWeHelp />
       <HeroSteps />
-      <Services />
-      <RecentCleanoutProjects />
       <BeforeAfterSlider />
       <Testimonials />
-      <AreasWeServe />
-      <MeetTheOwner />
-      <CTA />
     </SiteLayout>
     </>
   );
