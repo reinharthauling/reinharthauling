@@ -387,57 +387,56 @@ const ValueProps = () => {
     {
       icon: <ShieldCheck className="w-8 h-8" />,
       title: "Fully Insured",
-      desc: "Coverage in place so work on-site is handled responsibly."
+      desc: "Coverage in place for residential and commercial projects."
     },
     {
-      icon: <Clock className="w-8 h-8" />,
-      title: "Fast Response Times",
-      desc: "Responsive communication and scheduling when timing matters."
-    },
-    {
-      icon: <Zap className="w-8 h-8" />,
-      title: "Upfront Pricing",
-      desc: "Clear numbers before we start—no surprise line items."
-    },
-    {
-      icon: <Home className="w-8 h-8" />,
-      title: "Heavy Transitions, Calm Process",
-      desc: "Estate, eviction, and rental turnover support from one steady crew."
-    },
-    {
-      icon: <MessageSquare className="w-8 h-8" />,
-      title: "Straightforward Coordination",
-      desc: "You know who is coming, when, and what to expect on site."
+      icon: <Star className="w-8 h-8" />,
+      title: "5-Star Google Reviews",
+      desc: "Real feedback from customers across Middle Tennessee."
     },
     {
       icon: <CheckCircle2 className="w-8 h-8" />,
-      title: "Move-Out Ready Finish",
-      desc: "We leave interiors broom-clean and ready for the next step."
+      title: "Real Project & Site Photos",
+      desc: "Real cleanout photos from local properties — no stock images or AI-generated work."
+    },
+    {
+      icon: <MessageSquare className="w-8 h-8" />,
+      title: "Fast Quote Process",
+      desc: "Text photos and receive a quote quickly."
+    },
+    {
+      icon: <MapPin className="w-8 h-8" />,
+      title: "Local Middle Tennessee Company",
+      desc: "Based locally and serving Nashville and surrounding communities."
+    },
+    {
+      icon: <Building2 className="w-8 h-8" />,
+      title: "Estate • Property • Commercial",
+      desc: "Focused on cleanouts, transitions, turnovers, and load-outs."
     }
   ];
 
   return (
     <section className="py-16 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {props.map((prop, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className={`group bg-slate-50 border border-slate-200 rounded-3xl p-6 ${
-                i < 3
-                  ? 'shadow-md shadow-slate-200/55'
-                  : 'shadow-sm shadow-slate-200/25'
-              }`}
+              transition={{ delay: i * 0.06 }}
+              whileHover={{ y: -6 }}
+              className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
             >
-              <div className="w-11 h-11 bg-white rounded-xl flex items-center justify-center text-brand-navy mb-4 group-hover:bg-brand-orange group-hover:text-white transition-all duration-300 shadow-sm">
+              <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange shrink-0">
                 {prop.icon}
               </div>
-              <h3 className="font-display text-xl text-brand-navy mb-2 font-bold">{prop.title}</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">{prop.desc}</p>
+              <div>
+                <h3 className="font-display text-xl font-bold text-brand-navy mb-2">{prop.title}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">{prop.desc}</p>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -770,25 +769,25 @@ const RecentCleanoutProjects = () => {
       to: '/estate-cleanouts' as const,
     },
     {
-      title: 'Hoarder Cleanout – Goodlettsville',
-      meta: 'Heavy debris • Whole-home reset',
+      title: 'Hoarder Cleanout – Joelton',
+      meta: 'Heavy debris • Whole-home cleanout',
       beforeSrc: '/images/projects/property-cleanout-nashville-before.png',
       afterSrc: '/images/projects/property-cleanout-nashville-after.png',
       to: '/junk-removal-goodlettsville' as const,
     },
     {
-      title: 'Garage Cleanout – Gallatin',
-      meta: 'Packed garage • Load-out & disposal',
-      beforeSrc: '/projects/garage-cleanout-gallatin-before.jpeg',
-      afterSrc: '/projects/garage-cleanout-after-gallatin.jpeg',
-      to: '/garage-cleanouts' as const,
-    },
-    {
-      title: 'Garage Cleanout – Hendersonville',
+      title: 'Garage Cleanout – Nashville',
       meta: 'Estate transition • Garage cleanout • Responsible disposal',
       beforeSrc: '/projects/1%20estate%20rachel%20seth%20cleanout%20before.jpg',
       afterSrc: '/projects/3%20estate%20rachel%20seth%20cleanout%20after.jpg',
       to: '/garage-cleanouts' as const,
+    },
+    {
+      title: 'Commercial Cleanout – Downtown Nashville',
+      meta: 'Office furniture • Cubicles • Commercial load-outs',
+      beforeSrc: '/projects/full%20sized%20office%20cleanout%20cubicles.jpeg',
+      afterSrc: '/projects/executive%20office%20furniture%20cleanout.jpeg',
+      to: '/commercial-cleanouts' as const,
     },
   ];
 
@@ -813,14 +812,14 @@ const RecentCleanoutProjects = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.06 }}
               whileHover={{ y: -6 }}
-              className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
+              className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6 h-full"
             >
               <div>
                 <h4 className="font-display text-xl font-bold text-brand-navy mb-1">{p.title}</h4>
                 <p className="text-slate-500 text-sm leading-relaxed">{p.meta}</p>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-3 flex-1">
                 <div className="relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 aspect-[4/3]">
                   <img
                     src={p.beforeSrc}
@@ -1552,7 +1551,7 @@ const CTA = () => {
           className="max-w-4xl mx-auto"
         >
           <h2 className="font-display text-5xl lg:text-7xl font-bold text-brand-navy mb-8 leading-tight">
-            Need the Space Cleared—Soon?
+            Need a Space Cleared?
           </h2>
           <p className="text-xl text-slate-600 mb-12 max-w-2xl mx-auto">
             Text photos for a fast, no-drama read on scope. We respond quickly and keep communication simple.
@@ -1571,7 +1570,7 @@ const CTA = () => {
               className="bg-white border-2 border-slate-200 text-brand-navy px-10 py-5 rounded-2xl font-bold text-xl flex items-center justify-center gap-3 hover:border-brand-orange transition-all hover:scale-105"
             >
               <Phone />
-              Call 615-200-0064
+              Call Now
             </a>
           </div>
         </motion.div>
@@ -1751,12 +1750,16 @@ const HomePage = () => {
       </Helmet>
     <SiteLayout>
       <Hero />
+      <ValueProps />
       <RecentCleanoutProjects />
-      <Services />
+      <Testimonials />
       <WhoWeHelp />
+      <Services />
       <HeroSteps />
       <BeforeAfterSlider />
-      <Testimonials />
+      <AreasWeServe />
+      <MeetTheOwner />
+      <CTA />
     </SiteLayout>
     </>
   );
