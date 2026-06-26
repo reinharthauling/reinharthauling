@@ -40,6 +40,7 @@ import CommercialCleanouts from './pages/CommercialCleanouts.tsx';
 import About from './pages/About.tsx';
 import Projects from './pages/Projects.tsx';
 import ProjectDetail from './pages/ProjectDetail.tsx';
+import InteriorDemolition from './pages/InteriorDemolition.tsx';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import ScrollToTop from './ScrollToTop.tsx';
@@ -92,6 +93,7 @@ const SERVICE_NAV_LINKS = [
   { label: 'Garage Cleanouts', to: '/garage-cleanouts' },
   { label: 'Property Cleanouts', to: '/property-cleanouts' },
   { label: 'Commercial Cleanouts', to: '/commercial-cleanouts' },
+  { label: 'Interior Demolition', to: '/interior-demolition' },
 ] as const;
 
 const Navbar = () => {
@@ -701,21 +703,27 @@ const Services = () => {
                 </div>
               </motion.div>
 
-              {/* Light Demolition */}
-              <motion.div
-                whileHover={{ y: -10 }}
-                className="bg-slate-50 p-6 rounded-3xl shadow-lg shadow-slate-200/40 border border-slate-200/70 flex flex-col gap-5"
-              >
-                <div className="w-10 h-10 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
-                  <Truck />
-                </div>
-                <div>
-                  <h3 className="font-display text-lg font-bold text-brand-navy mb-2">Light Demolition</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">
-                    Small demo—sheds, decks, and interior tear-outs before the load-out.
-                  </p>
-                </div>
-              </motion.div>
+              {/* Interior Demolition */}
+              <Link to="/interior-demolition" className="group block h-full">
+                <motion.div
+                  whileHover={{ y: -10 }}
+                  className="bg-slate-50 p-6 rounded-3xl shadow-lg shadow-slate-200/40 border border-slate-200/70 flex flex-col gap-5 h-full transition-colors group-hover:border-brand-orange/30"
+                >
+                  <div className="w-10 h-10 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
+                    <Truck />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-display text-lg font-bold text-brand-navy mb-2">Interior Demolition</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">
+                      Drywall removal, selective tear-outs, shed/deck demo, and cleanup before renovation or repair work.
+                    </p>
+                  </div>
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-brand-navy group-hover:text-brand-orange transition-colors">
+                    Learn More
+                    <ArrowRight size={14} className="text-brand-orange" />
+                  </span>
+                </motion.div>
+              </Link>
 
               {/* Hot Tub Removal */}
               <motion.div
@@ -1627,7 +1635,7 @@ const Footer = () => {
     { label: 'Commercial Cleanouts', to: '/commercial-cleanouts' },
     { label: 'Garage Cleanouts', to: '/garage-cleanouts' },
     { label: 'Rental Turnovers', to: '/landlord-rental-cleanouts' },
-    { label: 'Demolition', to: '/property-cleanouts' },
+    { label: 'Interior Demolition', to: '/interior-demolition' },
     { label: 'Yard Debris Removal', to: '/junk-removal-goodlettsville' },
   ];
 
@@ -2007,6 +2015,14 @@ export default function App() {
           element={
             <SiteLayout>
               <ProjectDetail />
+            </SiteLayout>
+          }
+        />
+        <Route
+          path="/interior-demolition"
+          element={
+            <SiteLayout>
+              <InteriorDemolition />
             </SiteLayout>
           }
         />
