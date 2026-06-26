@@ -330,8 +330,9 @@ const Hero = () => {
               <span className="text-brand-orange">Estate, Property &amp; Commercial Cleanouts</span> Across Middle Tennessee
             </h1>
             <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-6 max-w-2xl">
-              We help families, landlords, property managers, businesses, and real estate professionals clear estates,
-              rental properties, offices, storage units, and unwanted items quickly and professionally.
+              We help homeowners, investors, property managers, contractors, businesses, and estate representatives
+              solve difficult property problems through professional cleanouts, demolition, hauling, and property
+              preparation.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -386,33 +387,33 @@ const ValueProps = () => {
   const props = [
     {
       icon: <ShieldCheck className="w-8 h-8" />,
-      title: "Fully Insured",
-      desc: "Coverage in place for residential and commercial projects."
+      title: "Responsive Communication",
+      desc: "Clear, proactive communication from first contact through project completion."
     },
     {
       icon: <Star className="w-8 h-8" />,
-      title: "5-Star Google Reviews",
-      desc: "Real feedback from customers across Middle Tennessee."
+      title: "Clear Upfront Pricing",
+      desc: "Honest recommendations and transparent pricing before work begins."
     },
     {
       icon: <CheckCircle2 className="w-8 h-8" />,
-      title: "Real Project & Site Photos",
-      desc: "Real cleanout photos from local properties — no stock images or AI-generated work."
+      title: "We Solve Difficult Problems",
+      desc: "From inherited homes to commercial properties, we help move projects forward."
     },
     {
       icon: <MessageSquare className="w-8 h-8" />,
-      title: "Fast Quote Process",
-      desc: "Text photos and receive a quote quickly."
+      title: "Real Project Photos",
+      desc: "Every photo on this site is from an actual Reinhart project."
     },
     {
       icon: <MapPin className="w-8 h-8" />,
-      title: "Local Middle Tennessee Company",
-      desc: "Based locally and serving Nashville and surrounding communities."
+      title: "Fully Insured",
+      desc: "Professional service backed by proper insurance for residential and commercial work."
     },
     {
       icon: <Building2 className="w-8 h-8" />,
-      title: "Estate • Property • Commercial",
-      desc: "Focused on cleanouts, transitions, turnovers, and load-outs."
+      title: "Trusted Across Middle Tennessee",
+      desc: "Serving homeowners, investors, businesses, and property managers."
     }
   ];
 
@@ -449,33 +450,28 @@ const WhoWeHelp = () => {
   const audiences = [
     {
       icon: <User className="w-6 h-6" />,
-      title: 'Families in Estate Transitions',
-      desc: 'Respectful support for downsizing, inherited homes, and emotionally heavy clear-outs.',
+      title: 'Homeowners',
+      desc: 'Helping families navigate difficult property transitions with professionalism and care.',
     },
     {
       icon: <MapPin className="w-6 h-6" />,
-      title: 'Realtors & Seller Prep',
-      desc: 'Debris cleared and interiors market-ready so listings show their best.',
+      title: 'Real Estate Investors',
+      desc: 'Fast cleanouts, demolition, and property preparation that keeps renovation projects moving.',
     },
     {
       icon: <Warehouse className="w-6 h-6" />,
-      title: 'Property Managers & Portfolios',
-      desc: 'Rental turnover support after move-outs, abandoned contents, or unit resets.',
+      title: 'Property Managers',
+      desc: 'Reliable turnover support, move-outs, abandoned units, and recurring property cleanup.',
     },
     {
       icon: <Trash2 className="w-6 h-6" />,
-      title: 'Landlords After Evictions',
-      desc: 'Fast turnaround when you need the unit cleared and ready for the next occupant.',
+      title: 'Contractors',
+      desc: 'Jobsite cleanup, demolition support, debris removal, and project assistance.',
     },
     {
       icon: <Home className="w-6 h-6" />,
-      title: 'Overwhelming Situations at Home',
-      desc: 'When a whole-home reset feels impossible, we bring professional cleanup support and a steady plan.',
-    },
-    {
-      icon: <Truck className="w-6 h-6" />,
-      title: 'Investors & Distressed Assets',
-      desc: 'Load-out and sweep-through support for acquisitions, flips, and transitions—done on schedule.',
+      title: 'Businesses',
+      desc: 'Office cleanouts, commercial load-outs, storage cleanups, and property support.',
     },
   ];
 
@@ -572,9 +568,10 @@ const Services = () => {
     <section id="services" className="py-24 relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">What We Take On</h2>
+          <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">How We Help</h2>
           <p className="text-slate-600 max-w-2xl mx-auto text-lg">
-            Core cleanout lanes for property transitions, rental turnover, and organized full-home load-outs.
+            Professional property services designed to solve difficult cleanup, demolition, and property transition
+            projects.
           </p>
         </div>
 
@@ -613,7 +610,7 @@ const Services = () => {
                 Additional Services
               </h2>
               <p className="text-slate-600 max-w-2xl mx-auto text-base">
-                Supporting load-outs when the scope goes beyond a single room or core transition.
+                Additional services that support property transitions, renovations, and specialized cleanup projects.
               </p>
             </div>
 
@@ -799,7 +796,8 @@ const RecentCleanoutProjects = () => {
             Recent Jobs Across Middle Tennessee
           </h2>
           <p className="text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed">
-            Real cleanout projects completed for estates, rentals, garages, and difficult property transitions.
+            Real projects completed for homeowners, investors, property managers, and businesses across Middle
+            Tennessee.
           </p>
         </div>
 
@@ -879,12 +877,12 @@ const BeforeAfterSlider = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 lg:items-center">
           <div className="lg:col-span-5">
             <h2 className="font-display text-4xl lg:text-5xl font-bold mb-8 leading-tight">
-              From Crowded to <br />
-              <span className="text-brand-orange">Move-Out Ready</span>
+              From Problem Property to <br />
+              <span className="text-brand-orange">Ready for What&apos;s Next</span>
             </h2>
             <p className="text-slate-400 text-lg mb-10 leading-relaxed">
-              Slide to compare: a full-home interior cleared, swept, and ready for its next chapter—without the chaos on
-              your end.
+              Slide to compare how a difficult interior can be cleared, opened up, and prepared for the property&apos;s
+              next phase.
             </p>
             <div className="flex flex-col gap-6">
               <div className="flex items-start gap-4">
@@ -892,7 +890,7 @@ const BeforeAfterSlider = () => {
                   <CheckCircle2 size={20} />
                 </div>
                 <span className="font-medium leading-snug pt-1.5">
-                  Trusted by families, landlords &amp; local agents
+                  Trusted by homeowners, investors &amp; property teams
                 </span>
               </div>
               <div className="flex items-start gap-4">
@@ -900,7 +898,7 @@ const BeforeAfterSlider = () => {
                   <CheckCircle2 size={20} />
                 </div>
                 <span className="font-medium leading-snug pt-1.5">
-                  Crews experienced with heavy, emotional, or time-pressed jobs
+                  Experienced with difficult, time-sensitive property problems
                 </span>
               </div>
               <div className="flex items-start gap-4">
@@ -908,7 +906,7 @@ const BeforeAfterSlider = () => {
                   <CheckCircle2 size={20} />
                 </div>
                 <span className="font-medium leading-snug pt-1.5">
-                  Quick turnaround without the chaos
+                  Clear execution from scope to completion
                 </span>
               </div>
             </div>
@@ -993,11 +991,14 @@ const Testimonials = () => {
     <section id="reviews" className="py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">What Neighbors Say</h2>
+          <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">Trusted to Keep Projects Moving</h2>
           <div className="flex justify-center gap-1 mb-4">
             {[1,2,3,4,5].map(i => <Star key={i} fill="#F27D26" color="#F27D26" />)}
           </div>
-          <p className="text-slate-500">Feedback from homeowners, landlords, and agents across Middle Tennessee.</p>
+          <p className="text-slate-500">
+            Feedback from homeowners, investors, property managers, and businesses we&apos;ve helped across Middle
+            Tennessee.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -1241,9 +1242,9 @@ const AreasWeServe = () => {
           Areas We Serve
         </h2>
         <p className="text-slate-600 max-w-3xl text-base md:text-lg leading-relaxed mb-8 md:mb-10">
-          Reinhart Hauling &amp; Cleanouts provides estate cleanouts, eviction cleanouts, garage cleanouts, rental
-          turnover support, and property cleanout services across North Nashville and surrounding Middle Tennessee
-          communities.
+          Reinhart Hauling &amp; Cleanouts proudly serves homeowners, investors, businesses, and property managers
+          throughout Middle Tennessee. If your property is outside our listed service area, reach out—we&apos;re happy
+          to review the project.
         </p>
 
         <ul
@@ -1315,21 +1316,21 @@ const MeetTheOwner = () => {
             </div>
             
             <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-8 leading-tight">
-              Responsive. <span className="text-brand-orange">Steady.</span> Straightforward.
+              Professional. <span className="text-brand-orange">Responsive.</span> Dependable.
             </h2>
             
             <div className="space-y-6 text-lg text-slate-600">
               <p>
-                Reinhart Hauling &amp; Cleanouts exists for neighbors who need a calmer way through heavy transitions—
-                estates, evictions, inherited homes, and rental turnovers across Middle Tennessee.
+                Reinhart Hauling &amp; Cleanouts exists to solve difficult property problems with clear communication,
+                organized planning, and dependable execution.
               </p>
               <p>
-                We focus on clear communication, upfront pricing, and crews that know how to work through difficult
-                interiors without adding stress.
+                We support homeowners, investors, property managers, businesses, and estate representatives when a
+                property needs to be cleared, prepared, or moved into its next phase.
               </p>
               <p className="text-base text-slate-500">
-                Whether it is a packed garage or a whole-home reset, we show up on time, execute the plan, and leave you
-                with space that feels cleared and ready.
+                Whether the project involves an inherited home, a commercial load-out, demolition support, or a
+                difficult cleanup, we show up prepared, communicate clearly, and complete the work with care.
               </p>
 
               <div className="flex flex-wrap gap-x-6 gap-y-3 pt-2 text-sm font-semibold text-brand-navy">
@@ -1339,11 +1340,11 @@ const MeetTheOwner = () => {
                 </div>
                 <div className="inline-flex items-center gap-2">
                   <CheckCircle2 size={16} className="text-brand-orange" />
-                  Estate &amp; Turnover Support
+                  Property Preparation
                 </div>
                 <div className="inline-flex items-center gap-2">
                   <CheckCircle2 size={16} className="text-brand-orange" />
-                  Straightforward Pricing
+                  Dependable Execution
                 </div>
               </div>
               
@@ -1554,7 +1555,8 @@ const CTA = () => {
             Need a Space Cleared?
           </h2>
           <p className="text-xl text-slate-600 mb-12 max-w-2xl mx-auto">
-            Text photos for a fast, no-drama read on scope. We respond quickly and keep communication simple.
+            Text photos for a fast, straightforward assessment. We&apos;ll help you understand the scope and the best
+            path forward.
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-6">

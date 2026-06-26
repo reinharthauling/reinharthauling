@@ -15,15 +15,15 @@ const DEFAULT_PROCESS_STEPS: ProcessStep[] = [
     icon: MessageSquare,
     title: 'Send Photos or Project Details',
     description:
-      'Text photos, explain the situation, or send property details so we can understand the scope of the cleanout—whether that is a garage, inherited home, rental turnover, estate situation, or full property cleanout.',
+      'Share photos, project details, access notes, and timing needs so we can understand the problem and respond clearly.',
     cta: { href: 'sms:6152000064', label: 'Text Photos \u2192' },
   },
   {
     number: '02',
     icon: CheckCircle2,
-    title: 'Walkthrough & Clear Pricing',
+    title: 'Clear Scope & Pricing',
     description:
-      'Smaller jobs can often be quoted from photos. Larger estate and property cleanouts usually benefit from an on-site walkthrough, where we assess labor, access, debris volume, disposal needs, logistics, and scheduling—so pricing is accurate and execution stays smooth.',
+      'We review labor, access, volume, disposal needs, and scheduling, then provide straightforward recommendations and pricing.',
     cta: {
       href: 'sms:6152000064?body=Hi%20I%20need%20pricing%20for%20a%20cleanout',
       label: 'Get Pricing \u2192',
@@ -32,9 +32,9 @@ const DEFAULT_PROCESS_STEPS: ProcessStep[] = [
   {
     number: '03',
     icon: Truck,
-    title: 'Scheduling & Cleanout Execution',
+    title: 'Efficient Execution & Completion',
     description:
-      'We confirm scheduling, coordinate access, and run a coordinated cleanout process—hauling, disposal, efficient property clearing, and a final sweep-through before completion.',
+      'Our crew arrives prepared, completes the work efficiently, communicates throughout the project, and leaves the property ready for what is next.',
     cta: { href: 'tel:6152000064', label: 'Call Now \u2192' },
   },
 ];
@@ -50,7 +50,7 @@ type CleanoutProcessProps = {
 export default function CleanoutProcess({
   id = 'process',
   title = 'How We Work With You',
-  subtitle = 'A realistic workflow for estate, eviction, inherited-property, and turnover cleanouts.',
+  subtitle = 'A clear process built around communication, scope, execution, and reliable completion.',
   className = 'py-20 bg-slate-50/70',
   steps = DEFAULT_PROCESS_STEPS,
 }: CleanoutProcessProps) {
