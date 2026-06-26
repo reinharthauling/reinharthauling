@@ -1004,11 +1004,11 @@ const Testimonials = () => {
       label: "Verified Google Review",
     },
     {
-      name: "Jason B.",
-      location: "Madison, TN",
-      text: "Had furniture, junk, and leftover property debris removed. Showed up when they said they would and cleaned up after.",
+      name: "David Abbondanza",
+      location: "Middle Tennessee",
+      text: "We hired Reinhart to remove drywall from an entire house. The workmanship, attention to detail is outstanding and pricing is more than fair. Jeremiah, the owner is a great communicator, courteous and punctual. I highly recommend their services for any hauling, interior demo and general clean-up.",
       stars: 5,
-      label: "Verified Customer",
+      label: "Verified Google Review",
     }
   ];
 
