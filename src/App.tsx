@@ -37,6 +37,7 @@ import LandlordRentalCleanouts from './pages/LandlordRentalCleanouts.tsx';
 import GarageCleanouts from './pages/GarageCleanouts.tsx';
 import PropertyCleanouts from './pages/PropertyCleanouts.tsx';
 import CommercialCleanouts from './pages/CommercialCleanouts.tsx';
+import About from './pages/About.tsx';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import ScrollToTop from './ScrollToTop.tsx';
@@ -201,9 +202,8 @@ const Navbar = () => {
             Reviews
           </Link>
           <Link
-            to="/#about"
+            to="/about"
             className="text-sm font-medium hover:text-brand-orange transition-colors"
-            onClick={(event) => navigateToHomeSection(event, 'about')}
           >
             About
           </Link>
@@ -281,9 +281,9 @@ const Navbar = () => {
                 Reviews
               </Link>
               <Link
-                to="/#about"
+                to="/about"
                 className="px-3 py-3 text-sm font-medium text-brand-navy hover:text-brand-orange transition-colors rounded-xl hover:bg-slate-50"
-                onClick={(event) => navigateToHomeSection(event, 'about')}
+                onClick={closeMobileMenu}
               >
                 About
               </Link>
@@ -1560,7 +1560,7 @@ const QuoteForm = () => {
 
 const CTA = () => {
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden" data-hide-sticky-cta>
       <div className="max-w-7xl mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -1752,6 +1752,16 @@ const StickyActionFooter = () => {
   useEffect(() => {
     const updateVisibility = () => {
       const isDesktop = window.innerWidth >= 768;
+      const hideTargets = Array.from(document.querySelectorAll<HTMLElement>('[data-hide-sticky-cta], footer'));
+      const shouldHideForContent = hideTargets.some((element) => {
+        const rect = element.getBoundingClientRect();
+        return rect.top < window.innerHeight - 80 && rect.bottom > 0;
+      });
+
+      if (shouldHideForContent) {
+        setIsVisible(false);
+        return;
+      }
 
       if (!isDesktop) {
         // Keep mobile CTA visible for quick thumb access.
@@ -1830,7 +1840,7 @@ const StickyActionFooter = () => {
 const SiteLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div
-      className="min-h-screen selection:bg-brand-orange selection:text-white pb-[calc(128px+env(safe-area-inset-bottom))] md:pb-[calc(120px+env(safe-area-inset-bottom))]"
+      className="min-h-screen selection:bg-brand-orange selection:text-white pb-[calc(152px+env(safe-area-inset-bottom))] md:pb-[calc(136px+env(safe-area-inset-bottom))]"
     >
       <AnimatedBackground />
       <Navbar />
@@ -1961,6 +1971,14 @@ export default function App() {
           element={
             <SiteLayout>
               <CommercialCleanouts />
+            </SiteLayout>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <SiteLayout>
+              <About />
             </SiteLayout>
           }
         />
