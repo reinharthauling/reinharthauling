@@ -451,27 +451,32 @@ const WhoWeHelp = () => {
     {
       icon: <User className="w-6 h-6" />,
       title: 'Homeowners',
-      desc: 'Helping families navigate difficult property transitions with professionalism and care.',
+      desc: 'Helping families navigate inherited homes, downsizing, major cleanouts, and difficult property transitions.',
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: 'Real Estate Investors',
-      desc: 'Fast cleanouts, demolition, and property preparation that keeps renovation projects moving.',
+      desc: 'Preparing properties for renovation, resale, demolition, and faster project turnover.',
     },
     {
       icon: <Warehouse className="w-6 h-6" />,
       title: 'Property Managers',
-      desc: 'Reliable turnover support, move-outs, abandoned units, and recurring property cleanup.',
+      desc: 'Move-outs, abandoned units, rental turnovers, recurring cleanup support, and problem properties.',
     },
     {
       icon: <Trash2 className="w-6 h-6" />,
       title: 'Contractors',
-      desc: 'Jobsite cleanup, demolition support, debris removal, and project assistance.',
+      desc: 'Interior demolition, debris removal, project support, and site preparation.',
     },
     {
       icon: <Home className="w-6 h-6" />,
-      title: 'Businesses',
-      desc: 'Office cleanouts, commercial load-outs, storage cleanups, and property support.',
+      title: 'Commercial Businesses',
+      desc: 'Office cleanouts, warehouse cleanouts, decommissioning, relocations, and facility support.',
+    },
+    {
+      icon: <Truck className="w-6 h-6" />,
+      title: 'Developers & Builders',
+      desc: 'Property preparation, demolition support, final cleanups, and site readiness.',
     },
   ];
 
@@ -479,10 +484,9 @@ const WhoWeHelp = () => {
     <section id="who-we-help" className="py-20 bg-slate-50/50">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-14">
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">Who We Help</h2>
+          <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">Who We Partner With</h2>
           <p className="text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed">
-            From inherited homes to tight deadlines—we work alongside families, agents, and managers who need the job
-            done without drama.
+            When difficult property problems slow progress, we help move projects forward.
           </p>
         </div>
 
@@ -517,7 +521,7 @@ const Services = () => {
     {
       icon: <Home />,
       title: 'Estate Cleanouts',
-      desc: 'Sensitive full-home clear-outs for inherited homes, estate transitions, and family handoffs.',
+      desc: 'Respectful property transitions following inheritance, downsizing, or family changes.',
       to: '/estate-cleanouts' as const,
       imageSrc: undefined as string | undefined,
       imageAlt: undefined as string | undefined,
@@ -525,7 +529,7 @@ const Services = () => {
     {
       icon: <Trash2 />,
       title: 'Eviction Cleanouts',
-      desc: 'Coordinated cleanout process after evictions so landlords and managers can reset units quickly.',
+      desc: 'Restoring rental properties to a workable condition so ownership teams can move forward.',
       to: '/eviction-cleanouts' as const,
       imageSrc: undefined,
       imageAlt: undefined,
@@ -533,7 +537,7 @@ const Services = () => {
     {
       icon: <Warehouse />,
       title: 'Landlord & Rental Cleanouts',
-      desc: 'Rental turnover support—move-out contents, abandoned items, and unit reset work.',
+      desc: 'Helping owners and managers turn difficult units into spaces ready for maintenance, listing, or occupancy.',
       to: '/landlord-rental-cleanouts' as const,
       imageSrc: undefined,
       imageAlt: undefined,
@@ -541,7 +545,7 @@ const Services = () => {
     {
       icon: <Warehouse />,
       title: 'Garage Cleanouts',
-      desc: 'Packed garages cleared with structured workflow when space has been neglected for years.',
+      desc: 'Clearing years of accumulated contents with an organized process that restores usable space.',
       to: '/garage-cleanouts' as const,
       imageSrc: undefined,
       imageAlt: undefined,
@@ -549,7 +553,7 @@ const Services = () => {
     {
       icon: <Home />,
       title: 'Property Cleanouts',
-      desc: 'Whole-property cleanouts for difficult transitions, seller prep, and move-out-ready finishes.',
+      desc: 'Preparing difficult properties for renovation, sale, occupancy, or their next phase.',
       to: '/property-cleanouts' as const,
       imageSrc: undefined,
       imageAlt: undefined,
@@ -557,7 +561,7 @@ const Services = () => {
     {
       icon: <Building2 />,
       title: 'Commercial Cleanouts',
-      desc: 'Office, retail, warehouse, and business cleanouts including cubicles, office furniture, file cabinets, fixtures, inventory, and leftover contents.',
+      desc: 'Supporting offices, warehouses, facilities, and businesses through organized cleanouts, decommissioning, and property transitions.',
       to: '/commercial-cleanouts' as const,
       imageSrc: undefined,
       imageAlt: undefined,
@@ -568,10 +572,9 @@ const Services = () => {
     <section id="services" className="py-24 relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">How We Help</h2>
+          <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">Our Core Services</h2>
           <p className="text-slate-600 max-w-2xl mx-auto text-lg">
-            Professional property services designed to solve difficult cleanup, demolition, and property transition
-            projects.
+            Professional property services that remove obstacles and move projects forward.
           </p>
         </div>
 
@@ -878,11 +881,13 @@ const BeforeAfterSlider = () => {
           <div className="lg:col-span-5">
             <h2 className="font-display text-4xl lg:text-5xl font-bold mb-8 leading-tight">
               From Problem Property to <br />
-              <span className="text-brand-orange">Ready for What&apos;s Next</span>
+              <span className="text-brand-orange">Progress</span>
             </h2>
             <p className="text-slate-400 text-lg mb-10 leading-relaxed">
-              Slide to compare how a difficult interior can be cleared, opened up, and prepared for the property&apos;s
-              next phase.
+              Every project starts with an obstacle.
+              <br />
+              <br />
+              Our job is to remove it so the next phase can begin.
             </p>
             <div className="flex flex-col gap-6">
               <div className="flex items-start gap-4">
@@ -890,7 +895,7 @@ const BeforeAfterSlider = () => {
                   <CheckCircle2 size={20} />
                 </div>
                 <span className="font-medium leading-snug pt-1.5">
-                  Trusted by homeowners, investors &amp; property teams
+                  Clear communication from start to finish
                 </span>
               </div>
               <div className="flex items-start gap-4">
@@ -898,7 +903,7 @@ const BeforeAfterSlider = () => {
                   <CheckCircle2 size={20} />
                 </div>
                 <span className="font-medium leading-snug pt-1.5">
-                  Experienced with difficult, time-sensitive property problems
+                  Organized execution on difficult projects
                 </span>
               </div>
               <div className="flex items-start gap-4">
@@ -906,7 +911,7 @@ const BeforeAfterSlider = () => {
                   <CheckCircle2 size={20} />
                 </div>
                 <span className="font-medium leading-snug pt-1.5">
-                  Clear execution from scope to completion
+                  Preparing properties for what&apos;s next
                 </span>
               </div>
             </div>
@@ -1217,17 +1222,22 @@ const ServiceAreas = () => {
 
 const HOME_SERVICE_AREAS = [
   'Goodlettsville',
-  'Nashville',
   'Hendersonville',
-  'Madison',
   'Gallatin',
   'White House',
-  'Springfield',
-  'Joelton',
-  'Greenbrier',
   'Portland',
-  'Ridgetop',
+  'Springfield',
+  'Greenbrier',
+  'Joelton',
+  'Madison',
+  'East Nashville',
+  'North Nashville',
+  'Downtown Nashville',
+  'Belle Meade',
+  'Brentwood',
+  'Mt. Juliet',
   'Millersville',
+  'Ridgetop',
 ];
 
 const AreasWeServe = () => {
@@ -1239,12 +1249,15 @@ const AreasWeServe = () => {
     >
       <div className="max-w-7xl mx-auto px-6">
         <h2 id="areas-we-serve-heading" className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-4">
-          Areas We Serve
+          Areas We Serve Across Middle Tennessee
         </h2>
         <p className="text-slate-600 max-w-3xl text-base md:text-lg leading-relaxed mb-8 md:mb-10">
-          Reinhart Hauling &amp; Cleanouts proudly serves homeowners, investors, businesses, and property managers
-          throughout Middle Tennessee. If your property is outside our listed service area, reach out—we&apos;re happy
-          to review the project.
+          Reinhart Hauling &amp; Cleanouts proudly serves homeowners, investors, property managers, businesses,
+          contractors, and commercial clients throughout Middle Tennessee.
+          <br />
+          <br />
+          Most projects are completed within approximately 45 minutes of Goodlettsville, but we regularly travel
+          farther for larger cleanouts, demolition projects, and commercial work.
         </p>
 
         <ul
@@ -1262,8 +1275,7 @@ const AreasWeServe = () => {
         </ul>
 
         <p className="text-slate-500 text-sm md:text-base leading-relaxed max-w-2xl">
-          Outside these areas? Reach out with photos or the property address and we&apos;ll let you know if we can
-          help.
+          If your property isn&apos;t listed, send us the address—we&apos;re happy to review the project.
         </p>
       </div>
     </section>
@@ -1321,30 +1333,35 @@ const MeetTheOwner = () => {
             
             <div className="space-y-6 text-lg text-slate-600">
               <p>
-                Reinhart Hauling &amp; Cleanouts exists to solve difficult property problems with clear communication,
-                organized planning, and dependable execution.
+                Reinhart Hauling &amp; Cleanouts exists to solve difficult property problems through clear
+                communication, organized planning, and dependable execution.
               </p>
               <p>
-                We support homeowners, investors, property managers, businesses, and estate representatives when a
-                property needs to be cleared, prepared, or moved into its next phase.
+                Whether we&apos;re preparing a home for sale, clearing an inherited property, supporting a renovation,
+                or helping a business move a project forward, our focus stays the same: remove obstacles, create
+                order, and keep the project moving.
               </p>
               <p className="text-base text-slate-500">
-                Whether the project involves an inherited home, a commercial load-out, demolition support, or a
-                difficult cleanup, we show up prepared, communicate clearly, and complete the work with care.
+                Difficult jobs deserve thoughtful planning, honest communication, and work completed the right
+                way—not shortcuts.
               </p>
 
               <div className="flex flex-wrap gap-x-6 gap-y-3 pt-2 text-sm font-semibold text-brand-navy">
                 <div className="inline-flex items-center gap-2">
                   <CheckCircle2 size={16} className="text-brand-orange" />
-                  Responsive Communication
+                  Clear Communication
                 </div>
                 <div className="inline-flex items-center gap-2">
                   <CheckCircle2 size={16} className="text-brand-orange" />
-                  Property Preparation
+                  Honest Recommendations
                 </div>
                 <div className="inline-flex items-center gap-2">
                   <CheckCircle2 size={16} className="text-brand-orange" />
                   Dependable Execution
+                </div>
+                <div className="inline-flex items-center gap-2">
+                  <CheckCircle2 size={16} className="text-brand-orange" />
+                  Property Preparation
                 </div>
               </div>
               
@@ -1552,11 +1569,13 @@ const CTA = () => {
           className="max-w-4xl mx-auto"
         >
           <h2 className="font-display text-5xl lg:text-7xl font-bold text-brand-navy mb-8 leading-tight">
-            Need a Space Cleared?
+            Have a Property Problem?
           </h2>
           <p className="text-xl text-slate-600 mb-12 max-w-2xl mx-auto">
-            Text photos for a fast, straightforward assessment. We&apos;ll help you understand the scope and the best
-            path forward.
+            Whether you&apos;re preparing a property for sale, managing an estate, coordinating a renovation, clearing
+            a commercial facility, or facing a difficult cleanup, Reinhart removes obstacles so your project can move
+            forward. Send photos for a straightforward assessment. We&apos;ll review the scope, explain your options,
+            and recommend the best path forward.
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-6">
