@@ -38,6 +38,8 @@ import GarageCleanouts from './pages/GarageCleanouts.tsx';
 import PropertyCleanouts from './pages/PropertyCleanouts.tsx';
 import CommercialCleanouts from './pages/CommercialCleanouts.tsx';
 import About from './pages/About.tsx';
+import Projects from './pages/Projects.tsx';
+import ProjectDetail from './pages/ProjectDetail.tsx';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import ScrollToTop from './ScrollToTop.tsx';
@@ -202,6 +204,12 @@ const Navbar = () => {
             Reviews
           </Link>
           <Link
+            to="/projects"
+            className="text-sm font-medium hover:text-brand-orange transition-colors"
+          >
+            Projects
+          </Link>
+          <Link
             to="/about"
             className="text-sm font-medium hover:text-brand-orange transition-colors"
           >
@@ -279,6 +287,13 @@ const Navbar = () => {
                 onClick={(event) => navigateToHomeSection(event, 'reviews')}
               >
                 Reviews
+              </Link>
+              <Link
+                to="/projects"
+                className="px-3 py-3 text-sm font-medium text-brand-navy hover:text-brand-orange transition-colors rounded-xl hover:bg-slate-50"
+                onClick={closeMobileMenu}
+              >
+                Projects
               </Link>
               <Link
                 to="/about"
@@ -764,30 +779,34 @@ const RecentCleanoutProjects = () => {
     {
       title: 'Estate Cleanout – Hendersonville',
       meta: 'Estate sale removal • Transition support',
+      slug: 'estate-cleanout-hendersonville',
       beforeSrc: '/images/projects/estate-sale-item-removal-before.jpeg',
       afterSrc: '/images/projects/estate-sale-cleanup-after.jpeg',
-      to: '/estate-cleanouts' as const,
+      to: '/projects' as const,
     },
     {
       title: 'Hoarder Cleanout – Joelton',
       meta: 'Heavy debris • Whole-home cleanout',
+      slug: 'hoarder-cleanout-joelton',
       beforeSrc: '/images/projects/property-cleanout-nashville-before.png',
       afterSrc: '/images/projects/property-cleanout-nashville-after.png',
-      to: '/junk-removal-goodlettsville' as const,
+      to: '/projects' as const,
     },
     {
       title: 'Garage Cleanout – Nashville',
       meta: 'Estate transition • Garage cleanout • Responsible disposal',
+      slug: 'garage-cleanout-nashville',
       beforeSrc: '/projects/1%20estate%20rachel%20seth%20cleanout%20before.jpg',
       afterSrc: '/projects/3%20estate%20rachel%20seth%20cleanout%20after.jpg',
-      to: '/garage-cleanouts' as const,
+      to: '/projects' as const,
     },
     {
       title: 'Commercial Cleanout – Downtown Nashville',
       meta: 'Office furniture • Cubicles • Commercial load-outs',
+      slug: 'commercial-cleanout-downtown-nashville',
       beforeSrc: '/projects/full%20sized%20office%20cleanout%20cubicles.jpeg',
       afterSrc: '/projects/executive%20office%20furniture%20cleanout.jpeg',
-      to: '/commercial-cleanouts' as const,
+      to: '/projects' as const,
     },
   ];
 
@@ -796,11 +815,11 @@ const RecentCleanoutProjects = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-14">
           <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">
-            Recent Jobs Across Middle Tennessee
+            Featured Projects
           </h2>
           <p className="text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed">
-            Real projects completed for homeowners, investors, property managers, and businesses across Middle
-            Tennessee.
+            A selection of real Reinhart projects completed for homeowners, investors, businesses, landlords, and estate
+            representatives across Middle Tennessee.
           </p>
         </div>
 
@@ -813,7 +832,7 @@ const RecentCleanoutProjects = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.06 }}
               whileHover={{ y: -6 }}
-              className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6 h-full"
+              className="group bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6 h-full cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-slate-200/70"
             >
               <div>
                 <h4 className="font-display text-xl font-bold text-brand-navy mb-1">{p.title}</h4>
@@ -825,7 +844,7 @@ const RecentCleanoutProjects = () => {
                   <img
                     src={p.beforeSrc}
                     alt={`${p.title} — before`}
-                    className="w-full h-full object-cover object-center"
+                    className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-[1.04]"
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute bottom-2 left-2 bg-brand-orange text-white px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-sm">
@@ -836,7 +855,7 @@ const RecentCleanoutProjects = () => {
                   <img
                     src={p.afterSrc}
                     alt={`${p.title} — after`}
-                    className="w-full h-full object-cover object-center"
+                    className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-[1.04]"
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute bottom-2 right-2 bg-white text-brand-navy px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-sm">
@@ -848,9 +867,10 @@ const RecentCleanoutProjects = () => {
               <div className="pt-1 border-t border-slate-100">
                 <Link
                   to={p.to}
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-brand-navy hover:text-brand-orange transition-colors"
+                  state={{ futureProjectSlug: p.slug }}
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-brand-navy transition-colors duration-300 group-hover:text-brand-orange hover:text-brand-orange"
                 >
-                  See before &amp; after
+                  View Project
                   <ArrowRight size={16} className="text-brand-orange" />
                 </Link>
               </div>
@@ -1971,6 +1991,22 @@ export default function App() {
           element={
             <SiteLayout>
               <CommercialCleanouts />
+            </SiteLayout>
+          }
+        />
+        <Route
+          path="/projects"
+          element={
+            <SiteLayout>
+              <Projects />
+            </SiteLayout>
+          }
+        />
+        <Route
+          path="/projects/:slug"
+          element={
+            <SiteLayout>
+              <ProjectDetail />
             </SiteLayout>
           }
         />
