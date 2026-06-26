@@ -1601,38 +1601,146 @@ const CTA = () => {
 };
 
 const Footer = () => {
+  const footerServices = [
+    { label: 'Estate Cleanouts', to: '/estate-cleanouts' },
+    { label: 'Property Cleanouts', to: '/property-cleanouts' },
+    { label: 'Commercial Cleanouts', to: '/commercial-cleanouts' },
+    { label: 'Garage Cleanouts', to: '/garage-cleanouts' },
+    { label: 'Rental Turnovers', to: '/landlord-rental-cleanouts' },
+    { label: 'Demolition', to: '/property-cleanouts' },
+    { label: 'Yard Debris Removal', to: '/junk-removal-goodlettsville' },
+  ];
+
+  const footerAreas = [
+    'Gallatin',
+    'Goodlettsville',
+    'Greenbrier',
+    'Hendersonville',
+    'Joelton',
+    'Madison',
+    'Nashville',
+    'Springfield',
+    'White House',
+  ];
+
+  const socialLinks = [
+    {
+      label: 'Google Reviews',
+      href: 'https://maps.app.goo.gl/fW4f5CPsAJpLfPmG7',
+      icon: 'G',
+    },
+    { label: 'Facebook', href: 'https://www.facebook.com/reinharthaulingcleanouts/', icon: 'f' },
+  ];
+
   return (
-    <footer className="bg-slate-50 py-8 border-t border-slate-200">
-      <div className="max-w-7xl mx-auto px-6 space-y-5">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
+    <footer className="bg-brand-navy text-white border-t border-white/10">
+      <div className="max-w-7xl mx-auto px-6 py-14 md:py-16">
+        <div className="grid gap-12 lg:gap-14 md:grid-cols-2 lg:grid-cols-4">
+          <div className="order-1">
             <img
               src="/branding/Reinhart-hauling-cleanouts-nashville.png"
               alt="Reinhart Hauling & Cleanouts Nashville"
-              className="h-10 md:h-12 w-auto object-contain"
+              className="h-[68px] w-auto object-contain bg-white rounded-xl px-2 py-1 mb-5"
             />
+            <h2 className="font-display text-xl font-bold mb-3">Reinhart Hauling &amp; Cleanouts</h2>
+            <p className="text-slate-300 text-sm leading-relaxed">
+              Helping homeowners, investors, landlords, estate representatives, and businesses move difficult property
+              projects forward throughout Middle Tennessee.
+            </p>
+            <div className="flex gap-3 mt-6">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={link.label}
+                  className="group relative w-10 h-10 rounded-full border border-white/15 bg-white/5 flex items-center justify-center text-sm font-bold text-white hover:border-brand-orange hover:text-brand-orange transition-colors"
+                >
+                  {link.icon}
+                  <span className="pointer-events-none absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap rounded-full bg-white px-3 py-1 text-[11px] font-semibold text-brand-navy opacity-0 shadow-lg transition-opacity group-hover:opacity-100">
+                    {link.label}
+                  </span>
+                </a>
+              ))}
+            </div>
           </div>
-          <div className="text-slate-400 text-sm font-medium text-center">
-            © {new Date().getFullYear()} Reinhart Hauling &amp; Cleanouts. All rights reserved.
+
+          <div className="order-2">
+            <h3 className="font-display text-lg font-bold mb-4">Services</h3>
+            <nav className="space-y-2" aria-label="Footer services">
+              {footerServices.map((service) => (
+                <Link
+                  key={service.label}
+                  to={service.to}
+                  className="block text-sm text-slate-300 hover:text-brand-orange transition-colors"
+                >
+                  {service.label}
+                </Link>
+              ))}
+            </nav>
           </div>
-          <div className="flex gap-5 text-sm">
-            <Link to="/privacy-policy" className="text-slate-400 hover:text-brand-orange transition-colors">
+
+          <div className="order-4 lg:order-3">
+            <h3 className="font-display text-lg font-bold mb-4">Areas Served</h3>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-4">
+              {footerAreas.map((area) => (
+                <span key={area} className="text-sm text-slate-300">
+                  {area}
+                </span>
+              ))}
+            </div>
+            <Link to="/#service-areas" className="inline-flex text-sm font-bold text-brand-orange hover:text-brand-orange-light transition-colors">
+              View Full Service Area
+            </Link>
+          </div>
+
+          <div className="order-3 lg:order-4">
+            <h3 className="font-display text-lg font-bold mb-4">Contact</h3>
+            <div className="space-y-4 text-sm text-slate-300">
+              <p>
+                <span className="block text-white font-semibold">Phone</span>
+                <a href="tel:6152000064" className="hover:text-brand-orange transition-colors">
+                  615-200-0064
+                </a>
+              </p>
+              <p>
+                <span className="block text-white font-semibold">Text Photos</span>
+                <a href="sms:6152000064" className="hover:text-brand-orange transition-colors">
+                  Fastest way to get a quote
+                </a>
+              </p>
+              <p>
+                <span className="block text-white font-semibold">Business Hours</span>
+                Mon–Sat
+                <br />
+                8:00 AM – 6:00 PM
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-16 pt-6 border-t border-white/10 flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-300">
+          {['Licensed & Insured', 'Locally Owned', 'Fast Response', 'Free Estimates'].map((item) => (
+            <span key={item} className="inline-flex items-center gap-2">
+              <CheckCircle2 size={16} className="text-brand-orange" />
+              {item}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-6 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-400">
+          <div>© {new Date().getFullYear()} Reinhart Hauling &amp; Cleanouts. All rights reserved.</div>
+          <div className="flex items-center gap-3">
+            <Link to="/privacy-policy" className="hover:text-brand-orange transition-colors">
               Privacy Policy
             </Link>
-            <Link to="/terms-of-service" className="text-slate-400 hover:text-brand-orange transition-colors">
+            <span className="text-slate-600">•</span>
+            <Link to="/terms-of-service" className="hover:text-brand-orange transition-colors">
               Terms of Service
             </Link>
           </div>
         </div>
-        <p className="text-center md:text-left text-sm text-slate-500 leading-relaxed max-w-2xl mx-auto md:mx-0">
-          Estate, eviction, and rental turnover support across Middle Tennessee.{' '}
-          <a
-            href="tel:6152000064"
-            className="font-semibold text-brand-navy hover:text-brand-orange transition-colors whitespace-nowrap"
-          >
-            Call 615-200-0064
-          </a>
-        </p>
       </div>
     </footer>
   );
