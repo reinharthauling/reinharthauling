@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import { Calendar, CheckCircle2, ChevronDown, ClipboardCheck, MessageSquare, Truck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import CleanoutProcess from '../components/CleanoutProcess.tsx';
+import { projectImages } from '../data/projectImages';
 
 const WHO_WE_HELP = [
   {
@@ -132,20 +133,20 @@ const PROPERTY_PROJECTS = [
   {
     title: 'Full-Home Property Cleanout – Nashville Area',
     meta: 'Whole-home reset • Heavy accumulation',
-    beforeSrc: '/images/projects/property-cleanout-nashville-before.png',
-    afterSrc: '/images/projects/property-cleanout-nashville-after.png',
+    beforeSrc: projectImages.propertyCleanouts.nashville.before,
+    afterSrc: projectImages.propertyCleanouts.nashville.after,
   },
   {
     title: 'Estate Property Cleanout – Hendersonville',
     meta: 'Inherited home • Room-by-room clearing',
-    beforeSrc: '/images/projects/estate-sale-item-removal-before.jpeg',
-    afterSrc: '/images/projects/estate-sale-cleanup-after.jpeg',
+    beforeSrc: projectImages.estateCleanouts.hendersonville.before,
+    afterSrc: projectImages.estateCleanouts.hendersonville.after,
   },
   {
     title: 'Garage & Storage Cleanout – Hendersonville',
     meta: 'Packed garage • Property support scope',
-    beforeSrc: '/images/projects/garage-cleanout-hendersonville-before.jpeg',
-    afterSrc: '/images/projects/garage-cleanout-hendersonville-after.jpeg',
+    beforeSrc: projectImages.garageCleanouts.hendersonville.before,
+    afterSrc: projectImages.garageCleanouts.hendersonville.after,
   },
 ];
 

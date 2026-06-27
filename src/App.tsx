@@ -47,6 +47,7 @@ import ScrollToTop from './ScrollToTop.tsx';
 import CleanoutProcess from './components/CleanoutProcess.tsx';
 import { scrollToSection } from './utils/scrollToSection.ts';
 import OptionalServiceImage from './components/OptionalServiceImage.tsx';
+import { projectImages } from './data/projectImages';
 
 // --- Components ---
 
@@ -788,32 +789,32 @@ const RecentCleanoutProjects = () => {
       title: 'Estate Cleanout – Hendersonville',
       meta: 'Estate sale removal • Transition support',
       slug: 'estate-cleanout-hendersonville',
-      beforeSrc: '/images/projects/estate-sale-item-removal-before.jpeg',
-      afterSrc: '/images/projects/estate-sale-cleanup-after.jpeg',
+      beforeSrc: projectImages.estateCleanouts.hendersonville.before,
+      afterSrc: projectImages.estateCleanouts.hendersonville.after,
       to: '/projects' as const,
     },
     {
       title: 'Hoarder Cleanout – Joelton',
       meta: 'Heavy debris • Whole-home cleanout',
       slug: 'hoarder-cleanout-joelton',
-      beforeSrc: '/images/projects/property-cleanout-nashville-before.png',
-      afterSrc: '/images/projects/property-cleanout-nashville-after.png',
+      beforeSrc: projectImages.propertyCleanouts.nashville.before,
+      afterSrc: projectImages.propertyCleanouts.nashville.after,
       to: '/projects' as const,
     },
     {
       title: 'Garage Cleanout – Nashville',
       meta: 'Estate transition • Garage cleanout • Responsible disposal',
       slug: 'garage-cleanout-nashville',
-      beforeSrc: '/projects/1%20estate%20rachel%20seth%20cleanout%20before.jpg',
-      afterSrc: '/projects/3%20estate%20rachel%20seth%20cleanout%20after.jpg',
+      beforeSrc: projectImages.garageCleanouts.nashville.before,
+      afterSrc: projectImages.garageCleanouts.nashville.after,
       to: '/projects' as const,
     },
     {
       title: 'Commercial Cleanout – Downtown Nashville',
       meta: 'Office furniture • Cubicles • Commercial load-outs',
       slug: 'commercial-cleanout-downtown-nashville',
-      beforeSrc: '/projects/full%20sized%20office%20cleanout%20cubicles.jpeg',
-      afterSrc: '/projects/executive%20office%20furniture%20cleanout.jpeg',
+      beforeSrc: projectImages.commercialCleanouts.downtownNashville.cubicles,
+      afterSrc: projectImages.commercialCleanouts.downtownNashville.executiveFurniture,
       to: '/projects' as const,
     },
   ];
@@ -955,7 +956,7 @@ const BeforeAfterSlider = () => {
             {/* After Image */}
             <div className="absolute inset-0">
               <img 
-                src="/images/projects/property-cleanout-nashville-after.png" 
+                src={projectImages.propertyCleanouts.nashville.after}
                 alt="Interior after work—cleared and move-out ready" 
                 className="w-full h-full object-cover object-center"
                 referrerPolicy="no-referrer"
@@ -969,7 +970,7 @@ const BeforeAfterSlider = () => {
               style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
             >
               <img 
-                src="/images/projects/property-cleanout-nashville-before.png" 
+                src={projectImages.propertyCleanouts.nashville.before}
                 alt="Interior before work—cluttered rooms" 
                 className="w-full h-full object-cover object-center"
                 referrerPolicy="no-referrer"

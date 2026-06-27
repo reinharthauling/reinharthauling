@@ -4,10 +4,11 @@ import { motion } from 'motion/react';
 import { CheckCircle2, MessageSquare, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import CleanoutProcess from '../components/CleanoutProcess.tsx';
+import { projectImages } from '../data/projectImages';
 
 const GARAGE_SHOWCASE = {
-  beforeSrc: '/projects/garage-cleanout-gallatin-before.jpeg',
-  afterSrc: '/projects/garage-cleanout-after-gallatin.jpeg',
+  beforeSrc: projectImages.garageCleanouts.gallatin.before,
+  afterSrc: projectImages.garageCleanouts.gallatin.after,
 };
 
 const SERVICE_AREAS = [

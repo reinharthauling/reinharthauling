@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import { CheckCircle2, ChevronDown, ClipboardCheck, MessageSquare, Phone, Truck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import CleanoutProcess from '../components/CleanoutProcess.tsx';
+import { projectImages } from '../data/projectImages';
 
 const COMMERCIAL_SERVICES = [
   {
@@ -34,17 +35,17 @@ const COMMERCIAL_SERVICES = [
 
 const COMMERCIAL_PROJECT_PHOTOS = [
   {
-    src: '/projects/full%20sized%20office%20cleanout%20cubicles.jpeg',
+    src: projectImages.commercialCleanouts.downtownNashville.cubicles,
     alt: 'Commercial office cubicle removal Nashville TN',
     caption: 'Cubicle removal and office furniture cleanout project.',
   },
   {
-    src: '/projects/executive%20office%20furniture%20cleanout.jpeg',
+    src: projectImages.commercialCleanouts.downtownNashville.executiveFurniture,
     alt: 'Executive office furniture removal Nashville TN',
     caption: 'Executive office furniture removal and office cleanout services.',
   },
   {
-    src: '/projects/office%20cleanout%20metal%20file%20cabinets.jpeg',
+    src: projectImages.commercialCleanouts.downtownNashville.fileCabinets,
     alt: 'Filing cabinet removal Nashville TN',
     caption: 'Filing cabinet and office equipment removal project.',
   },
@@ -246,7 +247,7 @@ export default function CommercialCleanouts() {
               className="relative h-[300px] sm:h-[380px] lg:h-[480px] rounded-3xl overflow-hidden shadow-2xl shadow-slate-900/10 ring-1 ring-slate-900/5 border border-slate-200/80 bg-slate-900"
             >
               <img
-                src="/projects/full%20sized%20office%20cleanout%20cubicles.jpeg"
+                src={projectImages.commercialCleanouts.downtownNashville.cubicles}
                 alt="Commercial office cubicle removal Nashville TN"
                 className="h-full w-full object-cover object-[42%_50%] sm:object-[45%_50%] lg:object-center"
                 width={1600}
