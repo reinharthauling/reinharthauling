@@ -794,7 +794,7 @@ const RecentCleanoutProjects = () => {
         '/images/projects/2026%20Projects/2026-04_Hoarder-Property-Cleanout_Joelton/04_Hero/hero-driveway-before-01.jpeg',
       afterSrc:
         '/images/projects/2026%20Projects/2026-04_Hoarder-Property-Cleanout_Joelton/04_Hero/hero-driveway-after-01.jpeg',
-      to: '/projects/hoarder-property-cleanup-joelton' as const,
+      href: '/projects/hoarder-property-cleanup-joelton' as const,
     },
     {
       title: 'Investor Property Cleanup – Gallatin',
@@ -804,7 +804,7 @@ const RecentCleanoutProjects = () => {
         '/images/projects/2026%20Projects/2026-06_Investor-Property-Cleanup_Gallatin/04_Hero/hero-general-property-before-02.jpeg',
       afterSrc:
         '/images/projects/2026%20Projects/2026-06_Investor-Property-Cleanup_Gallatin/04_Hero/hero-general-property-after-01%20copy.jpeg',
-      to: '/projects/investor-property-cleanup-gallatin' as const,
+      href: '/projects/investor-property-cleanup-gallatin' as const,
     },
     {
       title: 'Interior Demo – Portland',
@@ -814,7 +814,7 @@ const RecentCleanoutProjects = () => {
         '/images/projects/2026%20Projects/2026-06_Interior-Demo-Portland/04_Hero/hero-kitchen-before-02.jpeg',
       afterSrc:
         '/images/projects/2026%20Projects/2026-06_Interior-Demo-Portland/04_Hero/hero-kitchen-after-01.jpeg',
-      to: '/projects/interior-demo-portland' as const,
+      href: '/projects/interior-demo-portland' as const,
     },
     {
       title: 'Commercial Cleanout – Downtown Nashville',
@@ -824,7 +824,7 @@ const RecentCleanoutProjects = () => {
         '/images/projects/2026%20Projects/2026-06_Commercial-Office-Cleanout_Nashville/01_Before/cubicle-office-before-01.jpeg',
       afterSrc:
         '/images/projects/2026%20Projects/2026-06_Commercial-Office-Cleanout_Nashville/01_Before/open-office-before-01.jpeg',
-      to: '/projects/commercial-cleanout-downtown-nashville' as const,
+      href: '/projects/commercial-cleanout-downtown-nashville' as const,
     },
   ];
 
@@ -843,7 +843,7 @@ const RecentCleanoutProjects = () => {
 
         <div className="grid sm:grid-cols-2 gap-8">
           {projects.map((p, i) => (
-            <Link key={p.slug} to={p.to} className="block h-full">
+            <Link key={p.slug} to={p.href} className="block h-full">
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
