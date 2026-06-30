@@ -136,19 +136,29 @@ export const projects: Project[] = [
   {
     id: 'featured-commercial-office-cleanout',
     slug: 'commercial-cleanout-downtown-nashville',
-    title: 'Commercial Cleanout',
+    title: 'Commercial Office Load-Out',
     category: 'Commercial',
     city: 'Downtown Nashville',
     serviceArea: 'Downtown Nashville, TN',
-    summary: 'Commercial office cleanout involving cubicles, office furniture, filing cabinets, and load-out support.',
+    summary: 'Commercial office load-out involving cubicles, office furniture, elevator access, and transport staging.',
     overview:
-      'This commercial office cleanout helped clear unwanted furniture and office contents so the business space could be reset.',
+      'This project involved removing office furniture, cubicles, desks, shelving, and miscellaneous office equipment from a commercial office suite. Materials were disassembled, staged, loaded through the building elevators, and prepared for transport.',
     problem:
-      'The office had cubicles, furniture, filing cabinets, and leftover contents that needed to be removed before the space could be reused.',
+      'Commercial office load-outs require planning around access, building movement, elevators, staging, and efficient removal of bulky office systems.',
     solution:
-      'Reinhart removed office furniture and commercial contents, handled loading and hauling, and helped prepare the space for its next use.',
-    scope: ['Office cleanout', 'Cubicle removal', 'Office furniture removal', 'Filing cabinet removal', 'Commercial load-out'],
-    outcome: 'The office contents were removed and the space was better prepared for turnover or renovation.',
+      'Reinhart disassembled, staged, loaded, and prepared office contents for transport through the building.',
+    scope: [
+      'Cubicle disassembly',
+      'Office furniture removal',
+      'Desk removal',
+      'Shelving removal',
+      'Elevator load-out',
+      'Commercial hauling',
+      'Trailer loading',
+      'Responsible disposal',
+    ],
+    outcome:
+      'The project documented Reinhart’s commercial load-out capability for office furniture, cubicle systems, elevator logistics, and commercial hauling.',
     featuredImage:
       '/images/projects/2026%20Projects/2026-06_Commercial-Office-Cleanout_Nashville/01_Before/cubicle-office-before-01.jpeg',
     beforeImages: [
@@ -160,7 +170,7 @@ export const projects: Project[] = [
       '/images/projects/2026%20Projects/2026-06_Commercial-Office-Cleanout_Nashville/01_Before/open-office-before-01.jpeg',
     ],
     tags: ['Commercial Cleanout', 'Office Furniture', 'Downtown Nashville'],
-    seoTitle: 'Commercial Cleanout in Downtown Nashville | Reinhart Hauling & Cleanouts',
+    seoTitle: 'Commercial Office Load-Out in Downtown Nashville | Reinhart Hauling & Cleanouts',
     seoDescription:
       'Commercial office cleanout project in Downtown Nashville with office furniture, cubicles, and filing cabinet removal.',
   },

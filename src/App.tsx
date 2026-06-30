@@ -44,6 +44,7 @@ import InteriorDemolition from './pages/InteriorDemolition.tsx';
 import HoarderPropertyCleanupJoelton from './pages/HoarderPropertyCleanupJoelton.tsx';
 import InvestorPropertyCleanupGallatin from './pages/InvestorPropertyCleanupGallatin.tsx';
 import InteriorDemoPortland from './pages/InteriorDemoPortland.tsx';
+import CommercialCleanoutDowntownNashville from './pages/CommercialCleanoutDowntownNashville.tsx';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import ScrollToTop from './ScrollToTop.tsx';
@@ -2048,6 +2049,14 @@ export default function App() {
           element={
             <SiteLayout>
               <InteriorDemoPortland />
+            </SiteLayout>
+          }
+        />
+        <Route
+          path="/projects/commercial-cleanout-downtown-nashville"
+          element={
+            <SiteLayout>
+              <CommercialCleanoutDowntownNashville />
             </SiteLayout>
           }
         />
