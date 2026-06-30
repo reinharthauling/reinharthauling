@@ -10,8 +10,6 @@ const projectImage = (folder: string, file: string) => `${PROJECT_BASE}/${folder
 
 const heroImage = projectImage('04_Hero', 'hero-insulation-during-01.jpeg');
 
-const heroStats = ['Portland', 'Investor Project', 'Expanded Scope', 'PPE Required', 'Drywall, Floors & Ceiling'];
-
 const projectFacts = [
   ['Location', 'Portland'],
   ['Client', 'Real Estate Investor'],
@@ -113,17 +111,6 @@ export default function InteriorDemoPortland() {
                 property or move toward a full demolition. What began as drywall removal expanded to flooring, ceiling
                 demolition, insulation removal, and debris cleanup.
               </p>
-
-              <div className="mt-8 grid grid-cols-2 gap-3">
-                {heroStats.map((stat) => (
-                  <div
-                    key={stat}
-                    className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-bold text-brand-navy shadow-sm"
-                  >
-                    {stat}
-                  </div>
-                ))}
-              </div>
             </motion.div>
 
             <motion.div
@@ -178,7 +165,7 @@ export default function InteriorDemoPortland() {
             <aside className="lg:col-span-5">
               <div className="sticky top-36 space-y-6">
                 <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8">
-                  <h2 className="mb-6 font-display text-3xl font-bold text-brand-navy">Project Facts</h2>
+                  <h2 className="mb-6 font-display text-3xl font-bold text-brand-navy">Project Details</h2>
                   <div className="space-y-4">
                     {projectFacts.map(([label, value]) => (
                       <div key={label} className="border-b border-slate-200 pb-4 last:border-b-0 last:pb-0">
