@@ -135,8 +135,8 @@ export const projects: Project[] = [
   },
   {
     id: 'featured-commercial-office-cleanout',
-    slug: 'commercial-office-cleanout',
-    title: 'Commercial Office Cleanout',
+    slug: 'commercial-cleanout-downtown-nashville',
+    title: 'Commercial Cleanout',
     category: 'Commercial',
     city: 'Downtown Nashville',
     serviceArea: 'Downtown Nashville, TN',
@@ -150,30 +150,30 @@ export const projects: Project[] = [
     scope: ['Office cleanout', 'Cubicle removal', 'Office furniture removal', 'Filing cabinet removal', 'Commercial load-out'],
     outcome: 'The office contents were removed and the space was better prepared for turnover or renovation.',
     featuredImage:
-      '/images/projects/commercial-cleanouts/commercial-office-cleanout-nashville-cubicles.jpeg',
+      '/images/projects/2026%20Projects/2026-06_Commercial-Office-Cleanout_Nashville/01_Before/cubicle-office-before-01.jpeg',
     beforeImages: [
-      '/images/projects/commercial-cleanouts/commercial-office-cleanout-nashville-cubicles.jpeg',
-      '/images/projects/commercial-cleanouts/commercial-office-cleanout-nashville-file-cabinets.jpeg',
+      '/images/projects/2026%20Projects/2026-06_Commercial-Office-Cleanout_Nashville/01_Before/cubicle-office-before-01.jpeg',
+      '/images/projects/2026%20Projects/2026-06_Commercial-Office-Cleanout_Nashville/01_Before/file-cabinets-office-before-01.png',
     ],
     duringImages: [],
     afterImages: [
-      '/images/projects/commercial-cleanouts/commercial-office-cleanout-nashville-executive-furniture.jpeg',
+      '/images/projects/2026%20Projects/2026-06_Commercial-Office-Cleanout_Nashville/01_Before/open-office-before-01.jpeg',
     ],
     tags: ['Commercial Cleanout', 'Office Furniture', 'Downtown Nashville'],
-    seoTitle: 'Commercial Office Cleanout in Downtown Nashville | Reinhart Hauling & Cleanouts',
+    seoTitle: 'Commercial Cleanout in Downtown Nashville | Reinhart Hauling & Cleanouts',
     seoDescription:
       'Commercial office cleanout project in Downtown Nashville with office furniture, cubicles, and filing cabinet removal.',
   },
   {
     id: 'project-1',
-    slug: 'interior-demo',
-    title: 'Interior Demo Project',
+    slug: 'interior-demo-portland',
+    title: 'Interior Demo',
     category: 'Demolition',
-    city: 'Gallatin',
-    serviceArea: 'Gallatin, TN',
-    summary: 'Selective interior demolition to open up the property for inspection, repairs, and renovation planning.',
+    city: 'Portland',
+    serviceArea: 'Portland, TN',
+    summary: 'Selective interior demolition to open up rooms for inspection, repairs, and renovation planning.',
     overview:
-      'This project involved removing interior materials so the property owner could better evaluate the condition of the structure and decide the best next step.',
+      'This project involved removing selected interior materials so the property owner could better evaluate the condition of the space and prepare for renovation work.',
     problem:
       'The property had interior materials blocking visibility into the framing, flooring, and repair needs.',
     solution:
@@ -187,23 +187,24 @@ export const projects: Project[] = [
     ],
     outcome:
       "The owner had a clearer view of the property's condition and could move forward with repair and renovation decisions.",
-    featuredImage: '/images/projects/interior-demo/featured.jpg',
+    featuredImage:
+      '/images/projects/2026%20Projects/2026-06_Interior-Demo-Portland/04_Hero/hero-kitchen-before-02.jpeg',
     beforeImages: [
-      '/images/projects/interior-demo/before-1.jpg',
-      '/images/projects/interior-demo/before-2.jpg',
+      '/images/projects/2026%20Projects/2026-06_Interior-Demo-Portland/01_Before/kitchen-before-02.jpeg',
+      '/images/projects/2026%20Projects/2026-06_Interior-Demo-Portland/01_Before/master-bedroom-before-01.jpeg',
     ],
     duringImages: [
-      '/images/projects/interior-demo/during-1.jpg',
-      '/images/projects/interior-demo/during-2.jpg',
+      '/images/projects/2026%20Projects/2026-06_Interior-Demo-Portland/02_During/kitchen-during-01.jpeg',
+      '/images/projects/2026%20Projects/2026-06_Interior-Demo-Portland/02_During/master-bedroom-during-01.jpeg',
     ],
     afterImages: [
-      '/images/projects/interior-demo/after-1.jpg',
-      '/images/projects/interior-demo/after-2.jpg',
+      '/images/projects/2026%20Projects/2026-06_Interior-Demo-Portland/03_After/kitchen-after-01.jpeg',
+      '/images/projects/2026%20Projects/2026-06_Interior-Demo-Portland/03_After/master-bedroom-after-01.jpeg',
     ],
-    tags: ['Interior Demo', 'Property Preparation', 'Investor Project'],
-    seoTitle: 'Interior Demo Project in Gallatin, TN | Reinhart Hauling & Cleanouts',
+    tags: ['Interior Demo', 'Property Preparation', 'Renovation Prep'],
+    seoTitle: 'Interior Demo in Portland, TN | Reinhart Hauling & Cleanouts',
     seoDescription:
-      'Selective interior demolition and cleanup project in Gallatin, TN by Reinhart Hauling & Cleanouts.',
+      'Selective interior demolition and cleanup project in Portland, TN by Reinhart Hauling & Cleanouts.',
   },
   {
     id: 'project-2',
@@ -345,7 +346,7 @@ export const projects: Project[] = [
   },
   {
     id: 'project-6',
-    slug: 'investor-property-cleanup',
+    slug: 'investor-property-cleanup-gallatin',
     title: 'Investor Property Cleanup',
     category: 'Investor Projects',
     city: 'Gallatin',
@@ -368,18 +369,19 @@ export const projects: Project[] = [
     ],
     outcome:
       'The investor had a cleaner, more manageable property and could continue moving the project forward.',
-    featuredImage: '/images/projects/investor-property-cleanup/featured.jpg',
+    featuredImage:
+      '/images/projects/2026%20Projects/2026-06_Investor-Property-Cleanup_Gallatin/04_Hero/hero-general-property-before-02.jpeg',
     beforeImages: [
-      '/images/projects/investor-property-cleanup/before-1.jpg',
-      '/images/projects/investor-property-cleanup/before-2.jpg',
+      '/images/projects/2026%20Projects/2026-06_Investor-Property-Cleanup_Gallatin/01_Before/general-property-before-01.jpeg',
+      '/images/projects/2026%20Projects/2026-06_Investor-Property-Cleanup_Gallatin/01_Before/dumpster-access-blocked-01.jpeg',
     ],
     duringImages: [
-      '/images/projects/investor-property-cleanup/during-1.jpg',
-      '/images/projects/investor-property-cleanup/during-2.jpg',
+      '/images/projects/2026%20Projects/2026-06_Investor-Property-Cleanup_Gallatin/02_During/trailer-full-load-during-01.jpeg',
+      '/images/projects/2026%20Projects/2026-06_Investor-Property-Cleanup_Gallatin/02_During/transfer-station-unloading-01.jpeg',
     ],
     afterImages: [
-      '/images/projects/investor-property-cleanup/after-1.jpg',
-      '/images/projects/investor-property-cleanup/after-2.jpg',
+      '/images/projects/2026%20Projects/2026-06_Investor-Property-Cleanup_Gallatin/03_After/general-property-after-01.jpeg',
+      '/images/projects/2026%20Projects/2026-06_Investor-Property-Cleanup_Gallatin/03_After/dumpster-access-cleared-01.jpeg',
     ],
     tags: ['Investor Project', 'Property Cleanup', 'Debris Removal'],
     seoTitle: 'Investor Property Cleanup in Gallatin, TN | Reinhart Hauling & Cleanouts',

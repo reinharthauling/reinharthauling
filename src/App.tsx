@@ -787,36 +787,44 @@ const Services = () => {
 const RecentCleanoutProjects = () => {
   const projects = [
     {
-      title: 'Estate Cleanout – Hendersonville',
-      meta: 'Estate sale removal • Transition support',
-      slug: 'estate-cleanout-hendersonville',
-      beforeSrc: projectImages.estateCleanouts.hendersonville.before,
-      afterSrc: projectImages.estateCleanouts.hendersonville.after,
-      to: '/projects/estate-cleanout' as const,
-    },
-    {
       title: 'Hoarder Cleanout – Joelton',
       meta: 'Heavy debris • Whole-home cleanout',
       slug: 'hoarder-cleanout-joelton',
-      beforeSrc: projectImages.propertyCleanouts.nashville.before,
-      afterSrc: projectImages.propertyCleanouts.nashville.after,
-      to: '/projects/hoarder-property-cleanup' as const,
+      beforeSrc:
+        '/images/projects/2026%20Projects/2026-04_Hoarder-Property-Cleanout_Joelton/04_Hero/hero-driveway-before-01.jpeg',
+      afterSrc:
+        '/images/projects/2026%20Projects/2026-04_Hoarder-Property-Cleanout_Joelton/04_Hero/hero-driveway-after-01.jpeg',
+      to: '/projects/hoarder-property-cleanup-joelton' as const,
     },
     {
-      title: 'Garage Cleanout – Nashville',
-      meta: 'Estate transition • Garage cleanout • Responsible disposal',
-      slug: 'garage-cleanout-nashville',
-      beforeSrc: projectImages.garageCleanouts.nashville.before,
-      afterSrc: projectImages.garageCleanouts.nashville.after,
-      to: '/projects/garage-cleanout' as const,
+      title: 'Investor Property Cleanup – Gallatin',
+      meta: 'Investor project • Debris removal • Property prep',
+      slug: 'investor-property-cleanup-gallatin',
+      beforeSrc:
+        '/images/projects/2026%20Projects/2026-06_Investor-Property-Cleanup_Gallatin/04_Hero/hero-general-property-before-02.jpeg',
+      afterSrc:
+        '/images/projects/2026%20Projects/2026-06_Investor-Property-Cleanup_Gallatin/04_Hero/hero-general-property-after-01%20copy.jpeg',
+      to: '/projects/investor-property-cleanup-gallatin' as const,
+    },
+    {
+      title: 'Interior Demo – Portland',
+      meta: 'Selective interior demo • Renovation prep',
+      slug: 'interior-demo-portland',
+      beforeSrc:
+        '/images/projects/2026%20Projects/2026-06_Interior-Demo-Portland/04_Hero/hero-kitchen-before-02.jpeg',
+      afterSrc:
+        '/images/projects/2026%20Projects/2026-06_Interior-Demo-Portland/04_Hero/hero-kitchen-after-01.jpeg',
+      to: '/projects/interior-demo-portland' as const,
     },
     {
       title: 'Commercial Cleanout – Downtown Nashville',
       meta: 'Office furniture • Cubicles • Commercial load-outs',
       slug: 'commercial-cleanout-downtown-nashville',
-      beforeSrc: projectImages.commercialCleanouts.downtownNashville.cubicles,
-      afterSrc: projectImages.commercialCleanouts.downtownNashville.executiveFurniture,
-      to: '/projects/commercial-office-cleanout' as const,
+      beforeSrc:
+        '/images/projects/2026%20Projects/2026-06_Commercial-Office-Cleanout_Nashville/01_Before/cubicle-office-before-01.jpeg',
+      afterSrc:
+        '/images/projects/2026%20Projects/2026-06_Commercial-Office-Cleanout_Nashville/01_Before/open-office-before-01.jpeg',
+      to: '/projects/commercial-cleanout-downtown-nashville' as const,
     },
   ];
 
