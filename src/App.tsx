@@ -41,6 +41,7 @@ import About from './pages/About.tsx';
 import Projects from './pages/Projects.tsx';
 import ProjectDetail from './pages/ProjectDetail.tsx';
 import InteriorDemolition from './pages/InteriorDemolition.tsx';
+import HoarderPropertyCleanupJoelton from './pages/HoarderPropertyCleanupJoelton.tsx';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import ScrollToTop from './ScrollToTop.tsx';
@@ -791,7 +792,7 @@ const RecentCleanoutProjects = () => {
       slug: 'estate-cleanout-hendersonville',
       beforeSrc: projectImages.estateCleanouts.hendersonville.before,
       afterSrc: projectImages.estateCleanouts.hendersonville.after,
-      to: '/projects' as const,
+      to: '/projects/estate-cleanout' as const,
     },
     {
       title: 'Hoarder Cleanout – Joelton',
@@ -799,7 +800,7 @@ const RecentCleanoutProjects = () => {
       slug: 'hoarder-cleanout-joelton',
       beforeSrc: projectImages.propertyCleanouts.nashville.before,
       afterSrc: projectImages.propertyCleanouts.nashville.after,
-      to: '/projects' as const,
+      to: '/projects/hoarder-property-cleanup' as const,
     },
     {
       title: 'Garage Cleanout – Nashville',
@@ -807,7 +808,7 @@ const RecentCleanoutProjects = () => {
       slug: 'garage-cleanout-nashville',
       beforeSrc: projectImages.garageCleanouts.nashville.before,
       afterSrc: projectImages.garageCleanouts.nashville.after,
-      to: '/projects' as const,
+      to: '/projects/garage-cleanout' as const,
     },
     {
       title: 'Commercial Cleanout – Downtown Nashville',
@@ -815,7 +816,7 @@ const RecentCleanoutProjects = () => {
       slug: 'commercial-cleanout-downtown-nashville',
       beforeSrc: projectImages.commercialCleanouts.downtownNashville.cubicles,
       afterSrc: projectImages.commercialCleanouts.downtownNashville.executiveFurniture,
-      to: '/projects' as const,
+      to: '/projects/commercial-office-cleanout' as const,
     },
   ];
 
@@ -834,56 +835,53 @@ const RecentCleanoutProjects = () => {
 
         <div className="grid sm:grid-cols-2 gap-8">
           {projects.map((p, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.06 }}
-              whileHover={{ y: -6 }}
-              className="group bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6 h-full cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-slate-200/70"
-            >
-              <div>
-                <h4 className="font-display text-xl font-bold text-brand-navy mb-1">{p.title}</h4>
-                <p className="text-slate-500 text-sm leading-relaxed">{p.meta}</p>
-              </div>
+            <Link key={p.slug} to={p.to} className="block h-full">
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.06 }}
+                whileHover={{ y: -6 }}
+                className="group bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6 h-full cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-slate-200/70"
+              >
+                <div>
+                  <h4 className="font-display text-xl font-bold text-brand-navy mb-1">{p.title}</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">{p.meta}</p>
+                </div>
 
-              <div className="grid grid-cols-2 gap-3 flex-1">
-                <div className="relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 aspect-[4/3]">
-                  <img
-                    src={p.beforeSrc}
-                    alt={`${p.title} — before`}
-                    className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-[1.04]"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute bottom-2 left-2 bg-brand-orange text-white px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-sm">
-                    Before
+                <div className="grid grid-cols-2 gap-3 flex-1">
+                  <div className="relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 aspect-[4/3]">
+                    <img
+                      src={p.beforeSrc}
+                      alt={`${p.title} — before`}
+                      className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-[1.04]"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute bottom-2 left-2 bg-brand-orange text-white px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-sm">
+                      Before
+                    </div>
+                  </div>
+                  <div className="relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 aspect-[4/3]">
+                    <img
+                      src={p.afterSrc}
+                      alt={`${p.title} — after`}
+                      className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-[1.04]"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute bottom-2 right-2 bg-white text-brand-navy px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-sm">
+                      After
+                    </div>
                   </div>
                 </div>
-                <div className="relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 aspect-[4/3]">
-                  <img
-                    src={p.afterSrc}
-                    alt={`${p.title} — after`}
-                    className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-[1.04]"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute bottom-2 right-2 bg-white text-brand-navy px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-sm">
-                    After
-                  </div>
-                </div>
-              </div>
 
-              <div className="pt-1 border-t border-slate-100">
-                <Link
-                  to={p.to}
-                  state={{ futureProjectSlug: p.slug }}
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-brand-navy transition-colors duration-300 group-hover:text-brand-orange hover:text-brand-orange"
-                >
+                <div className="pt-1 border-t border-slate-100">
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-brand-navy transition-colors duration-300 group-hover:text-brand-orange">
                   View Project
                   <ArrowRight size={16} className="text-brand-orange" />
-                </Link>
-              </div>
-            </motion.div>
+                  </span>
+                </div>
+              </motion.div>
+            </Link>
           ))}
         </div>
       </div>
@@ -2008,6 +2006,22 @@ export default function App() {
           element={
             <SiteLayout>
               <Projects />
+            </SiteLayout>
+          }
+        />
+        <Route
+          path="/projects/hoarder-property-cleanup"
+          element={
+            <SiteLayout>
+              <HoarderPropertyCleanupJoelton />
+            </SiteLayout>
+          }
+        />
+        <Route
+          path="/projects/hoarder-property-cleanup-joelton"
+          element={
+            <SiteLayout>
+              <HoarderPropertyCleanupJoelton />
             </SiteLayout>
           }
         />

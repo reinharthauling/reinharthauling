@@ -36,6 +36,135 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: 'project-2026-04-hoarder-property-cleanup-joelton',
+    slug: 'hoarder-property-cleanup',
+    title: 'Hoarder Property Cleanup',
+    category: 'Property Cleanup',
+    city: 'Joelton',
+    serviceArea: 'Joelton, TN',
+    summary:
+      'Three-day whole-property cleanup involving heavy debris removal, sorting, scrap recycling, and responsible disposal.',
+    overview:
+      'This Joelton project involved a whole-property cleanup where accumulated belongings, debris, appliances, and miscellaneous materials needed to be sorted, loaded, hauled, recycled when appropriate, and removed responsibly.',
+    problem:
+      'Years of accumulated items and debris had made portions of the property difficult to access and slowed the next phase for the owner.',
+    solution:
+      'Reinhart completed a multi-day cleanup with property assessment, sorting, heavy debris removal, multiple trailer loads, scrap recycling, responsible disposal, and final cleanup.',
+    scope: [
+      'Property assessment',
+      'Sorting and separation',
+      'Heavy debris removal',
+      'Multiple trailer loads',
+      'Scrap metal recycling',
+      'Responsible disposal',
+      'Final cleanup',
+    ],
+    outcome:
+      'The property was cleared, access improved, recyclable scrap was separated, and the site was ready for its next phase.',
+    featuredImage:
+      '/images/projects/2026%20Projects/2026-04_Hoarder-Property-Cleanout_Joelton/04_Hero/hero-driveway-before-01.jpeg',
+    beforeImages: [
+      '/images/projects/2026%20Projects/2026-04_Hoarder-Property-Cleanout_Joelton/01_Before/front-yard-before-01.jpeg',
+      '/images/projects/2026%20Projects/2026-04_Hoarder-Property-Cleanout_Joelton/01_Before/driveway-before-01.jpeg',
+      '/images/projects/2026%20Projects/2026-04_Hoarder-Property-Cleanout_Joelton/01_Before/garage-before-01.jpeg',
+    ],
+    duringImages: [
+      '/images/projects/2026%20Projects/2026-04_Hoarder-Property-Cleanout_Joelton/02_During/driveway-during-01.jpeg',
+      '/images/projects/2026%20Projects/2026-04_Hoarder-Property-Cleanout_Joelton/02_During/front-yard-scrap-staged-01.jpeg',
+      '/images/projects/2026%20Projects/2026-04_Hoarder-Property-Cleanout_Joelton/02_During/scrap-trailer-loaded-01.png',
+    ],
+    afterImages: [
+      '/images/projects/2026%20Projects/2026-04_Hoarder-Property-Cleanout_Joelton/03_After/driveway-after-01.jpeg',
+      '/images/projects/2026%20Projects/2026-04_Hoarder-Property-Cleanout_Joelton/03_After/front-yard-after-04.jpeg',
+      '/images/projects/2026%20Projects/2026-04_Hoarder-Property-Cleanout_Joelton/03_After/garage-after-01.jpeg',
+    ],
+    tags: ['Hoarder Cleanup', 'Property Cleanup', 'Heavy Debris Removal'],
+    seoTitle: 'Hoarder Property Cleanup in Joelton, TN | Reinhart Hauling & Cleanouts',
+    seoDescription:
+      'Real Joelton, TN hoarder property cleanup project by Reinhart Hauling & Cleanouts with heavy debris removal, sorting, scrap recycling, and responsible disposal.',
+  },
+  {
+    id: 'featured-estate-cleanout',
+    slug: 'estate-cleanout',
+    title: 'Estate Cleanout',
+    category: 'Estate Cleanouts',
+    city: 'Hendersonville',
+    serviceArea: 'Hendersonville, TN',
+    summary: 'Estate sale removal and property cleanup support for a family transition in Hendersonville.',
+    overview:
+      'This estate cleanout helped remove remaining items and restore order so the property could continue moving through the transition process.',
+    problem:
+      'The property had leftover estate contents and items that needed to be removed before the next step could move forward.',
+    solution:
+      'Reinhart removed unwanted items, loaded and hauled materials, and left the space cleaner and easier to prepare for what came next.',
+    scope: ['Estate cleanout', 'Item removal', 'Loading and hauling', 'Property cleanup'],
+    outcome: 'The property was cleared of remaining items and better prepared for its next phase.',
+    featuredImage: '/images/projects/estate-cleanouts/estate-cleanout-hendersonville-before.jpeg',
+    beforeImages: ['/images/projects/estate-cleanouts/estate-cleanout-hendersonville-before.jpeg'],
+    duringImages: [],
+    afterImages: ['/images/projects/estate-cleanouts/estate-cleanout-hendersonville-after.jpeg'],
+    tags: ['Estate Cleanout', 'Hendersonville', 'Property Cleanup'],
+    seoTitle: 'Estate Cleanout in Hendersonville, TN | Reinhart Hauling & Cleanouts',
+    seoDescription:
+      'Estate cleanout and property cleanup project completed in Hendersonville, TN by Reinhart Hauling & Cleanouts.',
+  },
+  {
+    id: 'featured-garage-cleanout',
+    slug: 'garage-cleanout',
+    title: 'Garage Cleanout',
+    category: 'Property Cleanup',
+    city: 'Nashville',
+    serviceArea: 'Nashville, TN',
+    summary: 'Garage cleanout support during an estate transition with loading, hauling, and responsible disposal.',
+    overview:
+      'This garage cleanout removed unwanted contents and opened up space so the property could continue moving forward.',
+    problem:
+      'The garage had accumulated items that were slowing cleanup and limiting access to usable space.',
+    solution:
+      'Reinhart loaded, hauled, and disposed of unwanted garage contents while keeping the work area organized.',
+    scope: ['Garage cleanout', 'Heavy item loading', 'Hauling', 'Responsible disposal', 'Property preparation'],
+    outcome: 'The garage was cleared and the property was better prepared for the next step.',
+    featuredImage: '/images/projects/garage-cleanouts/garage-cleanout-nashville-before.jpg',
+    beforeImages: ['/images/projects/garage-cleanouts/garage-cleanout-nashville-before.jpg'],
+    duringImages: [],
+    afterImages: ['/images/projects/garage-cleanouts/garage-cleanout-nashville-after.jpg'],
+    tags: ['Garage Cleanout', 'Nashville', 'Estate Transition'],
+    seoTitle: 'Garage Cleanout in Nashville, TN | Reinhart Hauling & Cleanouts',
+    seoDescription:
+      'Garage cleanout and hauling project completed in Nashville, TN by Reinhart Hauling & Cleanouts.',
+  },
+  {
+    id: 'featured-commercial-office-cleanout',
+    slug: 'commercial-office-cleanout',
+    title: 'Commercial Office Cleanout',
+    category: 'Commercial',
+    city: 'Downtown Nashville',
+    serviceArea: 'Downtown Nashville, TN',
+    summary: 'Commercial office cleanout involving cubicles, office furniture, filing cabinets, and load-out support.',
+    overview:
+      'This commercial office cleanout helped clear unwanted furniture and office contents so the business space could be reset.',
+    problem:
+      'The office had cubicles, furniture, filing cabinets, and leftover contents that needed to be removed before the space could be reused.',
+    solution:
+      'Reinhart removed office furniture and commercial contents, handled loading and hauling, and helped prepare the space for its next use.',
+    scope: ['Office cleanout', 'Cubicle removal', 'Office furniture removal', 'Filing cabinet removal', 'Commercial load-out'],
+    outcome: 'The office contents were removed and the space was better prepared for turnover or renovation.',
+    featuredImage:
+      '/images/projects/commercial-cleanouts/commercial-office-cleanout-nashville-cubicles.jpeg',
+    beforeImages: [
+      '/images/projects/commercial-cleanouts/commercial-office-cleanout-nashville-cubicles.jpeg',
+      '/images/projects/commercial-cleanouts/commercial-office-cleanout-nashville-file-cabinets.jpeg',
+    ],
+    duringImages: [],
+    afterImages: [
+      '/images/projects/commercial-cleanouts/commercial-office-cleanout-nashville-executive-furniture.jpeg',
+    ],
+    tags: ['Commercial Cleanout', 'Office Furniture', 'Downtown Nashville'],
+    seoTitle: 'Commercial Office Cleanout in Downtown Nashville | Reinhart Hauling & Cleanouts',
+    seoDescription:
+      'Commercial office cleanout project in Downtown Nashville with office furniture, cubicles, and filing cabinet removal.',
+  },
+  {
     id: 'project-1',
     slug: 'interior-demo',
     title: 'Interior Demo Project',
