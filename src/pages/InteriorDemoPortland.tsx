@@ -39,29 +39,29 @@ const photoGroups = [
     title: 'Before',
     description: 'Rooms, wall surfaces, floors, and ceiling areas before interior materials were opened up.',
     photos: [
-      ['Drywall removal began as original scope', projectImage('01_Before', 'kitchen-before-02.jpeg')],
-      ['Room before interior demo work', projectImage('01_Before', 'master-bedroom-before-01.jpeg')],
-      ['Bathroom before removal work', projectImage('01_Before', 'bathroom-before-01.jpeg')],
-      ['Interior opened for evaluation planning', projectImage('01_Before', 'living-room-before-01.jpeg')],
+      ['Original interior finishes before demolition', projectImage('01_Before', 'kitchen-before-02.jpeg')],
+      ['Drywall and flooring before removal', projectImage('01_Before', 'master-bedroom-before-01.jpeg')],
+      ['Bathroom finishes before removal', projectImage('01_Before', 'bathroom-before-01.jpeg')],
+      ['Living area before interior work began', projectImage('01_Before', 'living-room-before-01.jpeg')],
     ],
   },
   {
     title: 'During',
     description: 'Drywall removal, flooring removal, ceiling material removal, insulation exposure, and debris loading.',
     photos: [
-      ['Ceiling removal exposed heavy insulation', projectImage('02_During', 'insulation-during-01.jpeg')],
-      ['Flooring added after work began', projectImage('02_During', 'kitchen-during-01.jpeg')],
-      ['Interior demo debris staged for removal', projectImage('02_During', 'master-bedroom-during-01.jpeg')],
-      ['PPE required for insulation and demo dust', projectImage('02_During', 'dumpster-partial-load-01.jpeg')],
+      ['Heavy blown-in insulation', projectImage('02_During', 'insulation-during-01.jpeg')],
+      ['Flooring removal', projectImage('02_During', 'kitchen-during-01.jpeg')],
+      ['Drywall demolition', projectImage('02_During', 'master-bedroom-during-01.jpeg')],
+      ['Interior debris removal', projectImage('02_During', 'dumpster-partial-load-01.jpeg')],
     ],
   },
   {
     title: 'Cleaned-Up',
     description: 'Cleared rooms, removed debris, and opened-up areas ready for investor inspection and next decisions.',
     photos: [
-      ['Debris removed for clearer investor evaluation', projectImage('03_After', 'kitchen-after-01.jpeg')],
-      ['Interior opened up for next decision', projectImage('03_After', 'master-bedroom-after-01.jpeg')],
-      ['Bathroom area cleared after demo', projectImage('03_After', 'bathroom-after-01.jpeg')],
+      ['Interior opened for inspection', projectImage('03_After', 'kitchen-after-01.jpeg')],
+      ['Structural framing exposed', projectImage('03_After', 'master-bedroom-after-01.jpeg')],
+      ['Property ready for evaluation', projectImage('03_After', 'bathroom-after-01.jpeg')],
       ['Demo debris removed from the house', projectImage('03_After', 'full-dumpster-01.jpeg')],
     ],
   },
@@ -109,9 +109,9 @@ export default function InteriorDemoPortland() {
                 Interior Demo – Portland
               </h1>
               <p className="text-xl leading-relaxed text-slate-600">
-                Interior demolition for a real estate investor evaluating whether to continue renovation or move toward
-                a larger demo decision. The project began with drywall removal and expanded into flooring, ceiling
-                material, insulation, and debris cleanup.
+                Interior demolition completed for a real estate investor evaluating whether to continue renovating the
+                property or move toward a full demolition. What began as drywall removal expanded to flooring, ceiling
+                demolition, insulation removal, and debris cleanup.
               </p>
 
               <div className="mt-8 grid grid-cols-2 gap-3">
@@ -156,19 +156,15 @@ export default function InteriorDemoPortland() {
                 {[
                   [
                     'Project Overview',
-                    'This investor-owned property needed interior demo completed so the investor could evaluate whether the house was suitable for continued renovation or whether a larger demo decision made more sense. Reinhart was brought in for drywall removal, then the scope expanded as more areas needed to be opened up and cleared.',
-                  ],
-                  [
-                    'Problem',
-                    'The original scope was drywall removal, but the project expanded once work began. Flooring and ceiling material also needed to come out, and the ceiling contained heavy blown-in insulation. The work required PPE, careful debris handling, and a full cleanup so the investor could clearly assess the property.',
+                    "This project was performed to expose the home's structure so the investor could accurately evaluate its condition before making additional investment decisions. As demolition progressed, additional work was requested after hidden conditions were uncovered.",
                   ],
                   [
                     'Solution',
-                    'Reinhart removed drywall, flooring, ceiling material, insulation, and interior demo debris. The work area was cleared, debris was hauled out, and the property was left easier to inspect for the investor’s next decision.',
+                    'Reinhart safely completed interior demolition as the scope expanded throughout the project. Drywall, flooring, ceiling material, blown-in insulation, trim, and debris were removed while using appropriate PPE for insulation and demolition dust.',
                   ],
                   [
                     'Outcome',
-                    'The investor gained a clearer view of the condition of the house and could make a better decision about continued investment versus a larger demo path. The interior debris, insulation, and demo materials were removed so the next phase could move forward.',
+                    'The investor finished with a property that could be properly inspected and evaluated. Interior finishes, debris, and insulation were removed so structural conditions were visible and the next decision could be made with confidence.',
                   ],
                 ].map(([title, content]) => (
                   <div key={title} className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
