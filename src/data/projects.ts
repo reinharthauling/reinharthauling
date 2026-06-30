@@ -171,24 +171,28 @@ export const projects: Project[] = [
     category: 'Demolition',
     city: 'Portland',
     serviceArea: 'Portland, TN',
-    summary: 'Selective interior demolition to open up rooms for inspection, repairs, and renovation planning.',
+    summary:
+      'Interior demo for an investor evaluating continued renovation versus a larger demo decision.',
     overview:
-      'This project involved removing selected interior materials so the property owner could better evaluate the condition of the space and prepare for renovation work.',
+      'This investor-owned property needed interior demo completed so the investor could evaluate whether the house was suitable for continued renovation or whether a larger demo decision made more sense. Reinhart was brought in for drywall removal, then the scope expanded as more areas needed to be opened up and cleared.',
     problem:
-      'The property had interior materials blocking visibility into the framing, flooring, and repair needs.',
+      'The original scope was drywall removal, but the project expanded once work began. Flooring and ceiling material also needed to come out, and the ceiling contained heavy blown-in insulation. The work required PPE, careful debris handling, and a full cleanup so the investor could clearly assess the property.',
     solution:
-      'Reinhart removed selected interior materials, loaded debris, kept the work area organized, and helped move the property into the next phase of evaluation.',
+      'Reinhart removed drywall, flooring, ceiling material, insulation, and interior demo debris. The work area was cleared, debris was hauled out, and the property was left easier to inspect for the investor’s next decision.',
     scope: [
-      'Interior demo',
-      'Debris removal',
-      'Loading and hauling',
-      'Work area cleanup',
-      'Property preparation',
+      'Interior demolition',
+      'Drywall removal',
+      'Flooring removal',
+      'Ceiling material removal',
+      'Insulation cleanup',
+      'Demo debris removal',
+      'PPE-controlled work',
+      'Property evaluation support',
     ],
     outcome:
-      "The owner had a clearer view of the property's condition and could move forward with repair and renovation decisions.",
+      'The investor gained a clearer view of the condition of the house and could make a better decision about continued investment versus a larger demo path. The interior debris, insulation, and demo materials were removed so the next phase could move forward.',
     featuredImage:
-      '/images/projects/2026%20Projects/2026-06_Interior-Demo-Portland/04_Hero/hero-kitchen-before-02.jpeg',
+      '/images/projects/2026%20Projects/2026-06_Interior-Demo-Portland/04_Hero/hero-insulation-during-01.jpeg',
     beforeImages: [
       '/images/projects/2026%20Projects/2026-06_Interior-Demo-Portland/01_Before/kitchen-before-02.jpeg',
       '/images/projects/2026%20Projects/2026-06_Interior-Demo-Portland/01_Before/master-bedroom-before-01.jpeg',
@@ -352,25 +356,25 @@ export const projects: Project[] = [
     city: 'Gallatin',
     serviceArea: 'Gallatin, TN',
     summary:
-      'Helping a real estate investor remove obstacles, clear debris, and move the property toward repair and resale.',
+      'Single-day investor property cleanup with fence demo, bulky item removal, debris hauling, and transfer station disposal.',
     overview:
-      'This project supported an investor-owned property that needed multiple cleanup and removal tasks completed before the next phase of work.',
+      'This investor-owned property needed several cleanup and removal tasks completed before the next phase of work could continue. Reinhart handled the debris removal, fence demo, bulky item cleanup, and disposal so the property could move forward.',
     problem:
-      'The property had several cleanup obstacles, including debris, unwanted materials, old fencing, bulky items, and areas that needed to be cleared.',
+      'The property had scattered debris, old fencing, bulky materials, doors, and exterior cleanup items that were slowing down progress for the investor and other contractors.',
     solution:
-      'Reinhart completed multiple removal and cleanup tasks, helped restore order to the site, and gave the investor a cleaner property to continue working from.',
+      'We cleared the assigned areas, removed fencing and bulky items, hauled debris to the transfer station, and left the property cleaner and easier to access for the next phase of renovation.',
     scope: [
       'Investor property cleanup',
-      'Fence demo',
+      'Fence demolition',
+      'Construction debris removal',
       'Bulky item removal',
-      'Debris hauling',
-      'Site cleanup',
       'Property preparation',
+      'Transfer station disposal',
     ],
     outcome:
-      'The investor had a cleaner, more manageable property and could continue moving the project forward.',
+      'The investor had a cleaner, more manageable property ready for continued renovation. Debris, fencing, and bulky materials were removed so the next steps could move forward without delay.',
     featuredImage:
-      '/images/projects/2026%20Projects/2026-06_Investor-Property-Cleanup_Gallatin/04_Hero/hero-general-property-before-02.jpeg',
+      '/images/projects/2026%20Projects/2026-06_Investor-Property-Cleanup_Gallatin/04_Hero/hero-general-property-after-01%20copy.jpeg',
     beforeImages: [
       '/images/projects/2026%20Projects/2026-06_Investor-Property-Cleanup_Gallatin/01_Before/general-property-before-01.jpeg',
       '/images/projects/2026%20Projects/2026-06_Investor-Property-Cleanup_Gallatin/01_Before/dumpster-access-blocked-01.jpeg',

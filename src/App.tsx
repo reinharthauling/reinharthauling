@@ -42,6 +42,8 @@ import Projects from './pages/Projects.tsx';
 import ProjectDetail from './pages/ProjectDetail.tsx';
 import InteriorDemolition from './pages/InteriorDemolition.tsx';
 import HoarderPropertyCleanupJoelton from './pages/HoarderPropertyCleanupJoelton.tsx';
+import InvestorPropertyCleanupGallatin from './pages/InvestorPropertyCleanupGallatin.tsx';
+import InteriorDemoPortland from './pages/InteriorDemoPortland.tsx';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import ScrollToTop from './ScrollToTop.tsx';
@@ -2030,6 +2032,22 @@ export default function App() {
           element={
             <SiteLayout>
               <HoarderPropertyCleanupJoelton />
+            </SiteLayout>
+          }
+        />
+        <Route
+          path="/projects/investor-property-cleanup-gallatin"
+          element={
+            <SiteLayout>
+              <InvestorPropertyCleanupGallatin />
+            </SiteLayout>
+          }
+        />
+        <Route
+          path="/projects/interior-demo-portland"
+          element={
+            <SiteLayout>
+              <InteriorDemoPortland />
             </SiteLayout>
           }
         />
