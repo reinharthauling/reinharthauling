@@ -5,7 +5,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Routes, Route, Link, useLocation } from 'react-router-dom';
+import { Routes, Route, Link, Navigate, useLocation } from 'react-router-dom';
 import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
 import { 
   Truck, 
@@ -45,6 +45,7 @@ import HoarderPropertyCleanupJoelton from './pages/HoarderPropertyCleanupJoelton
 import InvestorPropertyCleanupGallatin from './pages/InvestorPropertyCleanupGallatin.tsx';
 import InteriorDemoPortland from './pages/InteriorDemoPortland.tsx';
 import CommercialCleanoutDowntownNashville from './pages/CommercialCleanoutDowntownNashville.tsx';
+import WhatWeTake from './pages/WhatWeTake.tsx';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import ScrollToTop from './ScrollToTop.tsx';
@@ -211,6 +212,12 @@ const Navbar = () => {
             Reviews
           </Link>
           <Link
+            to="/what-we-take"
+            className="text-sm font-medium hover:text-brand-orange transition-colors"
+          >
+            What We Take
+          </Link>
+          <Link
             to="/projects"
             className="text-sm font-medium hover:text-brand-orange transition-colors"
           >
@@ -294,6 +301,13 @@ const Navbar = () => {
                 onClick={(event) => navigateToHomeSection(event, 'reviews')}
               >
                 Reviews
+              </Link>
+              <Link
+                to="/what-we-take"
+                className="px-3 py-3 text-sm font-medium text-brand-navy hover:text-brand-orange transition-colors rounded-xl hover:bg-slate-50"
+                onClick={closeMobileMenu}
+              >
+                What We Take
               </Link>
               <Link
                 to="/projects"
@@ -1948,6 +1962,7 @@ export default function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/services" element={<Navigate to="/#services" replace />} />
         <Route
           path="/estate-cleanouts"
           element={
@@ -2057,6 +2072,14 @@ export default function App() {
           element={
             <SiteLayout>
               <CommercialCleanoutDowntownNashville />
+            </SiteLayout>
+          }
+        />
+        <Route
+          path="/what-we-take"
+          element={
+            <SiteLayout>
+              <WhatWeTake />
             </SiteLayout>
           }
         />
