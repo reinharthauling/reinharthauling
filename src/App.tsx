@@ -356,7 +356,7 @@ const HERO_FEATURE_IMAGE_ALT =
 
 const Hero = () => {
   return (
-    <section id="hero" className="relative pt-28 pb-12 lg:pt-40 lg:pb-16 overflow-hidden">
+    <section id="hero" className="relative pt-28 pb-8 lg:pt-36 lg:pb-10 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         <div className="max-w-3xl">
@@ -370,27 +370,37 @@ const Hero = () => {
             <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-b from-brand-navy/[0.06] via-transparent to-transparent" aria-hidden />
             <div className="relative">
             <span className="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-bold tracking-wide mb-4">
-              Middle Tennessee Cleanout Crew
+              RESIDENTIAL • COMMERCIAL • DEMOLITION
             </span>
-            <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-3">
-              <span className="text-brand-orange">Estate, Property &amp; Commercial Cleanouts</span> Across Middle Tennessee
+            <h1 className="font-display text-5xl lg:text-6xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-3">
+              <span className="text-brand-orange">Professional Property</span>
+              <br />
+              <span className="text-brand-orange">Solutions</span>
+              <br />
+              Across Middle Tennessee
             </h1>
             <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-6 max-w-2xl">
-              We help homeowners, investors, property managers, contractors, businesses, and estate representatives
-              solve difficult property problems through professional cleanouts, demolition, hauling, and property
-              preparation.
+              From estate transitions and rental turnovers to commercial cleanouts and selective demolition,
+              Reinhart helps prepare properties for sale, renovation, occupancy, and whatever comes next.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <motion.a
-                href="sms:6152000064?body=Hi%2C%20I%27d%20like%20a%20fast%20quote%20for%20a%20cleanout"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="bg-brand-navy text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-brand-navy/30 flex items-center justify-center gap-3 group"
-              >
-                <MessageSquare className="text-brand-orange" />
-                Text Photos for a Fast Quote
-              </motion.a>
+            <div className="flex flex-col sm:flex-row gap-4 sm:items-start">
+              <div className="flex flex-col items-stretch sm:items-start">
+                <motion.a
+                  href="sms:6152000064?body=Hi%2C%20I%27d%20like%20a%20fast%20quote%20for%20a%20cleanout"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="bg-brand-navy text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-brand-navy/30 flex items-center justify-center gap-3 group"
+                >
+                  <MessageSquare className="text-brand-orange" />
+                  Text Photos for a Fast Quote
+                </motion.a>
+                <p className="mt-2 text-xs leading-relaxed text-slate-500 max-w-[16rem] text-center sm:text-left">
+                  Fastest option.
+                  <br />
+                  Most photo quotes are returned during business hours.
+                </p>
+              </div>
               <motion.a
                 href="tel:6152000064"
                 whileHover={{ scale: 1.02 }}
@@ -400,6 +410,27 @@ const Hero = () => {
                 <Phone />
                 Call Now
               </motion.a>
+            </div>
+
+            <div className="mt-5 flex flex-col gap-0.5">
+              <span className="text-sm font-semibold text-brand-navy">Need an on-site estimate?</span>
+              <span className="inline-flex items-center gap-2 text-sm font-semibold">
+                <a
+                  href="tel:6152000064"
+                  className="text-brand-orange transition-colors hover:text-brand-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-offset-2 rounded-md"
+                >
+                  Call Us
+                </a>
+                <span className="text-slate-300" aria-hidden="true">
+                  •
+                </span>
+                <a
+                  href="mailto:reinharthauling@gmail.com"
+                  className="text-brand-orange transition-colors hover:text-brand-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-offset-2 rounded-md"
+                >
+                  Email Us
+                </a>
+              </span>
             </div>
             </div>
           </motion.div>
@@ -426,6 +457,22 @@ const Hero = () => {
     </section>
   );
 };
+
+const HeroTrustStrip = () => (
+  <section className="border-y border-slate-100 bg-white/90 py-5">
+    <div className="max-w-7xl mx-auto px-6">
+      <p className="text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-2.5 text-center lg:text-left">
+        Trusted by
+      </p>
+      <p className="text-sm font-medium leading-relaxed text-slate-600 text-center lg:text-left">
+        Homeowners · Real Estate Investors · Property Managers · Contractors · Commercial Businesses
+      </p>
+      <p className="mt-3 text-xs text-slate-500 text-center lg:text-left">
+        Fully Insured • Transparent Pricing • Real Project Experience
+      </p>
+    </div>
+  </section>
+);
 
 const HeroSteps = () => <CleanoutProcess id="how-it-works" />;
 
@@ -2003,6 +2050,7 @@ const HomePage = () => {
       </Helmet>
     <SiteLayout>
       <Hero />
+      <HeroTrustStrip />
       <ValueProps />
       <RecentCleanoutProjects />
       <Testimonials />
