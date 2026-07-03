@@ -69,6 +69,7 @@ import TermsOfService from './pages/TermsOfService';
 import ScrollToTop from './ScrollToTop.tsx';
 import CleanoutProcess from './components/CleanoutProcess.tsx';
 import { ServicesMegaMenuPanel, ServicesMobileAccordions } from './components/ServicesMegaMenu.tsx';
+import EmailContactMenu from './components/EmailContactMenu.tsx';
 import { scrollToSection } from './utils/scrollToSection.ts';
 import { projectImages } from './data/projectImages';
 
@@ -353,7 +354,6 @@ const Navbar = () => {
 const HERO_FEATURE_IMAGE_SRC = '/images/truck-trailer.jpeg?v=1';
 const HERO_FEATURE_IMAGE_ALT =
   'Reinhart Hauling and Cleanouts truck and trailer for property cleanouts in Middle Tennessee';
-const BUSINESS_EMAIL = 'reinharthauling@gmail.com';
 
 const Hero = () => {
   return (
@@ -425,12 +425,7 @@ const Hero = () => {
                 <span className="text-slate-300" aria-hidden="true">
                   •
                 </span>
-                <a
-                  href={`mailto:${BUSINESS_EMAIL}`}
-                  className="text-brand-orange transition-colors hover:text-brand-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-offset-2 rounded-md"
-                >
-                  Email Us
-                </a>
+                <EmailContactMenu />
               </span>
             </div>
             </div>
