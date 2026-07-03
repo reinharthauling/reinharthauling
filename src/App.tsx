@@ -50,6 +50,7 @@ import JunkRemovalGoodlettsville from './pages/JunkRemovalGoodlettsville.tsx';
 import LandlordRentalCleanouts from './pages/LandlordRentalCleanouts.tsx';
 import GarageCleanouts from './pages/GarageCleanouts.tsx';
 import PropertyCleanouts from './pages/PropertyCleanouts.tsx';
+import PropertyCleanup from './pages/PropertyCleanup.tsx';
 import CommercialCleanouts from './pages/CommercialCleanouts.tsx';
 import About from './pages/About.tsx';
 import Projects from './pages/Projects.tsx';
@@ -2062,6 +2063,14 @@ export default function App() {
           element={
             <SiteLayout>
               <PropertyCleanouts />
+            </SiteLayout>
+          }
+        />
+        <Route
+          path="/property-cleanup"
+          element={
+            <SiteLayout>
+              <PropertyCleanup />
             </SiteLayout>
           }
         />

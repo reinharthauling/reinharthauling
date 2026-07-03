@@ -45,6 +45,7 @@ type CleanoutProcessProps = {
   subtitle?: string;
   className?: string;
   steps?: ProcessStep[];
+  showEyebrow?: boolean;
 };
 
 export default function CleanoutProcess({
@@ -53,6 +54,7 @@ export default function CleanoutProcess({
   subtitle = 'A clear process built around communication, scope, execution, and reliable completion.',
   className = 'py-20 bg-slate-50/70',
   steps = DEFAULT_PROCESS_STEPS,
+  showEyebrow = true,
 }: CleanoutProcessProps) {
   const gridClass =
     steps.length === 4
@@ -63,9 +65,11 @@ export default function CleanoutProcess({
     <section id={id} className={className}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-14 md:mb-16">
-          <span className="inline-block px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[11px] font-bold uppercase tracking-[0.18em] mb-4">
-            HOW IT WORKS
-          </span>
+          {showEyebrow && (
+            <span className="inline-block px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[11px] font-bold uppercase tracking-[0.18em] mb-4">
+              HOW IT WORKS
+            </span>
+          )}
           <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-4">{title}</h2>
           <p className="text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed">{subtitle}</p>
         </div>

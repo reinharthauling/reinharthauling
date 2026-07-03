@@ -380,21 +380,12 @@ export default function PropertyCleanouts() {
       </section>
 
       <section className="py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-12">
-            <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">How We Work</h2>
-            <p className="text-slate-600 max-w-3xl leading-relaxed">
-              A realistic workflow for property cleanouts—walkthroughs recommended when scope, access, or debris
-              volume needs a closer look before scheduling.
-            </p>
-          </div>
-        </div>
-
         <CleanoutProcess
           title="How Our Property Cleanout Process Works"
           subtitle="Photos work well for smaller scopes. Walkthroughs help on larger properties so quoting, labor, and disposal planning stay accurate."
           className="pt-0 pb-0 bg-slate-50"
           steps={PROPERTY_PROCESS_STEPS}
+          showEyebrow={false}
         />
       </section>
 
