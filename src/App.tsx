@@ -51,6 +51,9 @@ import LandlordRentalCleanouts from './pages/LandlordRentalCleanouts.tsx';
 import GarageCleanouts from './pages/GarageCleanouts.tsx';
 import PropertyCleanouts from './pages/PropertyCleanouts.tsx';
 import PropertyCleanup from './pages/PropertyCleanup.tsx';
+import ResidentialPropertyServices from './pages/ResidentialPropertyServices.tsx';
+import CommercialServicesHub from './pages/CommercialServicesHub.tsx';
+import DemolitionServices from './pages/DemolitionServices.tsx';
 import CommercialCleanouts from './pages/CommercialCleanouts.tsx';
 import About from './pages/About.tsx';
 import Projects from './pages/Projects.tsx';
@@ -65,6 +68,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import ScrollToTop from './ScrollToTop.tsx';
 import CleanoutProcess from './components/CleanoutProcess.tsx';
+import { ServicesMegaMenuPanel, ServicesMobileAccordions } from './components/ServicesMegaMenu.tsx';
 import { scrollToSection } from './utils/scrollToSection.ts';
 import { projectImages } from './data/projectImages';
 
@@ -106,22 +110,13 @@ const AnimatedBackground = () => {
   );
 };
 
-const SERVICE_NAV_LINKS = [
-  { label: 'Estate Cleanouts', to: '/estate-cleanouts' },
-  { label: 'Eviction Cleanouts', to: '/eviction-cleanouts' },
-  { label: 'Landlord & Rental Cleanouts', to: '/landlord-rental-cleanouts' },
-  { label: 'Garage Cleanouts', to: '/garage-cleanouts' },
-  { label: 'Property Cleanouts', to: '/property-cleanouts' },
-  { label: 'Commercial Cleanouts', to: '/commercial-cleanouts' },
-  { label: 'Interior Demolition', to: '/interior-demolition' },
-] as const;
-
 const Navbar = () => {
   const location = useLocation();
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const servicesRef = useRef<HTMLDivElement>(null);
+  const servicesButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     setMobileMenuOpen(false);
@@ -138,6 +133,20 @@ const Navbar = () => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  useEffect(() => {
+    if (!servicesOpen) return;
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setServicesOpen(false);
+        servicesButtonRef.current?.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [servicesOpen]);
 
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
@@ -187,34 +196,28 @@ const Navbar = () => {
             onMouseLeave={() => setServicesOpen(false)}
           >
             <button
+              ref={servicesButtonRef}
               type="button"
+              id="services-menu-button"
               onClick={() => setServicesOpen((open) => !open)}
               aria-expanded={servicesOpen}
               aria-haspopup="true"
-              className="flex items-center gap-1 text-sm font-medium hover:text-brand-orange transition-colors"
+              aria-controls="services-mega-menu"
+              className="flex items-center gap-1 text-sm font-medium hover:text-brand-orange transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-offset-2 rounded-md"
             >
               Services
               <ChevronDown
                 size={16}
                 className={`transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`}
+                aria-hidden="true"
               />
             </button>
 
             {servicesOpen && (
-              <div className="absolute top-full left-0 pt-2 w-64">
-                <div className="rounded-2xl border border-slate-100 bg-white py-2 shadow-xl shadow-slate-200/60 ring-1 ring-slate-900/5">
-                  {SERVICE_NAV_LINKS.map((item) => (
-                    <Link
-                      key={item.to}
-                      to={item.to}
-                      className="block px-4 py-2.5 text-sm font-medium text-brand-navy hover:bg-brand-orange/5 hover:text-brand-orange transition-colors"
-                      onClick={() => setServicesOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
+              <ServicesMegaMenuPanel
+                id="services-mega-menu"
+                onNavigate={() => setServicesOpen(false)}
+              />
             )}
           </div>
 
@@ -229,7 +232,7 @@ const Navbar = () => {
             to="/what-we-take"
             className="text-sm font-medium hover:text-brand-orange transition-colors"
           >
-            What We Take
+            Items We Remove
           </Link>
           <Link
             to="/projects"
@@ -283,29 +286,22 @@ const Navbar = () => {
 
               <button
                 type="button"
-                className="flex items-center justify-between px-3 py-3 text-sm font-medium text-brand-navy hover:text-brand-orange transition-colors rounded-xl hover:bg-slate-50"
+                className="flex items-center justify-between px-3 py-3 text-sm font-medium text-brand-navy hover:text-brand-orange transition-colors rounded-xl hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-inset"
                 aria-expanded={mobileServicesOpen}
+                aria-controls="mobile-services-menu"
                 onClick={() => setMobileServicesOpen((open) => !open)}
               >
                 Services
                 <ChevronDown
                   size={16}
                   className={`transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180' : ''}`}
+                  aria-hidden="true"
                 />
               </button>
 
               {mobileServicesOpen && (
-                <div className="ml-2 mb-1 flex flex-col gap-0.5 border-l-2 border-brand-orange/20 pl-3">
-                  {SERVICE_NAV_LINKS.map((item) => (
-                    <Link
-                      key={item.to}
-                      to={item.to}
-                      className="px-3 py-2.5 text-sm text-slate-600 hover:text-brand-orange transition-colors rounded-lg hover:bg-slate-50"
-                      onClick={closeMobileMenu}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
+                <div id="mobile-services-menu" className="mb-1 px-1">
+                  <ServicesMobileAccordions onNavigate={closeMobileMenu} />
                 </div>
               )}
 
@@ -321,7 +317,7 @@ const Navbar = () => {
                 className="px-3 py-3 text-sm font-medium text-brand-navy hover:text-brand-orange transition-colors rounded-xl hover:bg-slate-50"
                 onClick={closeMobileMenu}
               >
-                What We Take
+                Items We Remove
               </Link>
               <Link
                 to="/projects"
@@ -509,6 +505,8 @@ type ServiceCategory = {
   pill: string;
   title: string;
   description: string;
+  hubLink: string;
+  hubCtaLabel: string;
   services: ServiceTile[];
 };
 
@@ -519,6 +517,8 @@ const serviceCategories: ServiceCategory[] = [
     title: 'Residential & Property Services',
     description:
       'Cleanouts and property cleanup for homeowners, families, landlords, investors, and real estate transitions.',
+    hubLink: '/residential-property-services',
+    hubCtaLabel: 'View Residential & Property Services',
     services: [
       {
         icon: <Trash2 />,
@@ -582,6 +582,8 @@ const serviceCategories: ServiceCategory[] = [
     title: 'Commercial Services',
     description:
       'Cleanout and removal support for offices, warehouses, businesses, property managers, and contractors.',
+    hubLink: '/commercial-services',
+    hubCtaLabel: 'View Commercial Services',
     services: [
       {
         icon: <Building2 />,
@@ -635,10 +637,12 @@ const serviceCategories: ServiceCategory[] = [
   },
   {
     id: 'demolition',
-    pill: 'Demolition',
-    title: 'Demolition',
+    pill: 'Demolition Services',
+    title: 'Demolition Services',
     description:
       'Selective demolition and removal work that prepares homes, rentals, offices, and commercial spaces for renovation.',
+    hubLink: '/demolition-services',
+    hubCtaLabel: 'View Demolition Services',
     services: [
       {
         icon: <Hammer />,
@@ -749,8 +753,19 @@ const Services = () => {
                 <span className="mb-4 inline-block rounded-full bg-brand-orange/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-brand-orange">
                   {category.pill}
                 </span>
-                <h3 className="font-display text-3xl lg:text-4xl font-bold text-brand-navy mb-4">{category.title}</h3>
+                <Link to={category.hubLink} className="group block">
+                  <h3 className="font-display text-3xl lg:text-4xl font-bold text-brand-navy mb-4 group-hover:text-brand-orange transition-colors">
+                    {category.title}
+                  </h3>
+                </Link>
                 <p className="text-slate-600 text-lg leading-relaxed">{category.description}</p>
+                <Link
+                  to={category.hubLink}
+                  className="mt-6 inline-flex items-center gap-2 rounded-2xl border-2 border-slate-200 bg-white px-6 py-3 text-sm font-bold text-brand-navy transition-colors hover:border-brand-orange hover:text-brand-orange"
+                >
+                  {category.hubCtaLabel}
+                  <ArrowRight size={16} className="text-brand-orange" />
+                </Link>
               </div>
 
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -2010,6 +2025,31 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/services" element={<Navigate to="/#services" replace />} />
+        <Route
+          path="/residential-property-services"
+          element={
+            <SiteLayout>
+              <ResidentialPropertyServices />
+            </SiteLayout>
+          }
+        />
+        <Route
+          path="/commercial-services"
+          element={
+            <SiteLayout>
+              <CommercialServicesHub />
+            </SiteLayout>
+          }
+        />
+        <Route
+          path="/demolition-services"
+          element={
+            <SiteLayout>
+              <DemolitionServices />
+            </SiteLayout>
+          }
+        />
+        <Route path="/demolition" element={<Navigate to="/demolition-services" replace />} />
         <Route
           path="/estate-cleanouts"
           element={

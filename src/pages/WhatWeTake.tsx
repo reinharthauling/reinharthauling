@@ -650,7 +650,7 @@ const breadcrumbSchema = {
     {
       '@type': 'ListItem',
       position: 2,
-      name: 'What We Take',
+      name: 'Items We Remove',
       item: 'https://www.reinharthauling.com/what-we-take',
     },
   ],
@@ -715,7 +715,7 @@ export default function WhatWeTake() {
   return (
     <>
       <Helmet>
-        <title>What We Take | Junk Removal, Cleanouts & Debris Removal in Middle Tennessee</title>
+        <title>Items We Remove | Junk Removal, Cleanouts &amp; Debris Removal in Middle Tennessee</title>
         <meta
           name="description"
           content="See what Reinhart Hauling & Cleanouts removes: furniture, appliances, office furniture, garage items, construction debris, yard debris, hot tubs, storage units, estate contents, and more across Middle Tennessee."
@@ -748,7 +748,7 @@ export default function WhatWeTake() {
               Home
             </Link>
             <span>/</span>
-            <span className="text-brand-navy">What We Take</span>
+            <span className="text-brand-navy">Items We Remove</span>
           </nav>
 
           <div className="max-w-5xl">
@@ -756,7 +756,7 @@ export default function WhatWeTake() {
               Item Removal Guide
             </span>
             <h1 className="mb-7 font-display text-5xl font-bold leading-[0.95] tracking-tighter text-brand-navy lg:text-7xl">
-              What We Take
+              Items We Remove
             </h1>
             <div className="max-w-4xl space-y-5 text-lg leading-relaxed text-slate-600 lg:text-xl">
               <p>
