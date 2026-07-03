@@ -353,6 +353,7 @@ const Navbar = () => {
 const HERO_FEATURE_IMAGE_SRC = '/images/truck-trailer.jpeg?v=1';
 const HERO_FEATURE_IMAGE_ALT =
   'Reinhart Hauling and Cleanouts truck and trailer for property cleanouts in Middle Tennessee';
+const BUSINESS_EMAIL = 'reinharthauling@gmail.com';
 
 const Hero = () => {
   return (
@@ -367,8 +368,8 @@ const Hero = () => {
             className="relative rounded-3xl border border-slate-200/80 bg-brand-navy/[0.04] p-6 lg:p-8 shadow-sm"
           >
             {/* Subtle readability layer — keeps contractor aesthetic without heavy blocks */}
-            <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-b from-brand-navy/[0.06] via-transparent to-transparent" aria-hidden />
-            <div className="relative">
+            <div className="pointer-events-none absolute inset-0 z-0 rounded-3xl bg-gradient-to-b from-brand-navy/[0.06] via-transparent to-transparent" aria-hidden />
+            <div className="relative z-10">
             <span className="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-bold tracking-wide mb-4">
               RESIDENTIAL • COMMERCIAL • DEMOLITION
             </span>
@@ -425,7 +426,7 @@ const Hero = () => {
                   •
                 </span>
                 <a
-                  href="mailto:reinharthauling@gmail.com"
+                  href={`mailto:${BUSINESS_EMAIL}`}
                   className="text-brand-orange transition-colors hover:text-brand-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-offset-2 rounded-md"
                 >
                   Email Us
