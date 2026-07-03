@@ -25,10 +25,24 @@ import {
   X,
   Clock,
   ShieldCheck,
-  Zap,
-  User,
   Building2,
-  Music
+  User,
+  Hammer,
+  Bath,
+  UtensilsCrossed,
+  Layers,
+  Archive,
+  Store,
+  Briefcase,
+  HardHat,
+  PanelTop,
+  Trees,
+  Box,
+  KeyRound,
+  Package,
+  SquareStack,
+  Users,
+  TrendingUp,
 } from 'lucide-react';
 import EstateCleanouts from './pages/EstateCleanouts.tsx';
 import EvictionCleanouts from './pages/EvictionCleanouts.tsx';
@@ -51,7 +65,6 @@ import TermsOfService from './pages/TermsOfService';
 import ScrollToTop from './ScrollToTop.tsx';
 import CleanoutProcess from './components/CleanoutProcess.tsx';
 import { scrollToSection } from './utils/scrollToSection.ts';
-import OptionalServiceImage from './components/OptionalServiceImage.tsx';
 import { projectImages } from './data/projectImages';
 
 // --- Components ---
@@ -482,69 +495,269 @@ const ValueProps = () => {
   );
 };
 
-const WhoWeHelp = () => {
-  const audiences = [
-    {
-      icon: <User className="w-6 h-6" />,
-      title: 'Homeowners',
-      desc: 'Helping families navigate inherited homes, downsizing, major cleanouts, and difficult property transitions.',
-    },
-    {
-      icon: <MapPin className="w-6 h-6" />,
-      title: 'Real Estate Investors',
-      desc: 'Preparing properties for renovation, resale, demolition, and faster project turnover.',
-    },
-    {
-      icon: <Warehouse className="w-6 h-6" />,
-      title: 'Property Managers',
-      desc: 'Move-outs, abandoned units, rental turnovers, recurring cleanup support, and problem properties.',
-    },
-    {
-      icon: <Trash2 className="w-6 h-6" />,
-      title: 'Contractors',
-      desc: 'Interior demolition, debris removal, project support, and site preparation.',
-    },
-    {
-      icon: <Home className="w-6 h-6" />,
-      title: 'Commercial Businesses',
-      desc: 'Office cleanouts, warehouse cleanouts, decommissioning, relocations, and facility support.',
-    },
-    {
-      icon: <Truck className="w-6 h-6" />,
-      title: 'Developers & Builders',
-      desc: 'Property preparation, demolition support, final cleanups, and site readiness.',
-    },
-  ];
+type ServiceTile = {
+  icon: React.ReactNode;
+  title: string;
+  desc: string;
+  to: string;
+  cta?: 'View Service' | 'Learn More';
+};
+
+type ServiceCategory = {
+  id: string;
+  pill: string;
+  title: string;
+  description: string;
+  services: ServiceTile[];
+};
+
+const serviceCategories: ServiceCategory[] = [
+  {
+    id: 'residential-property',
+    pill: 'Residential & Property',
+    title: 'Residential & Property Services',
+    description:
+      'Cleanouts and property cleanup for homeowners, families, landlords, investors, and real estate transitions.',
+    services: [
+      {
+        icon: <Trash2 />,
+        title: 'Junk Removal',
+        desc: 'General junk removal for furniture, clutter, appliances, and unwanted items.',
+        to: '/junk-removal',
+      },
+      {
+        icon: <Home />,
+        title: 'Estate Cleanouts',
+        desc: 'Respectful cleanouts after inheritance, downsizing, estate sales, or family transitions.',
+        to: '/estate-cleanouts',
+      },
+      {
+        icon: <Warehouse />,
+        title: 'Hoarder Cleanouts',
+        desc: 'Large-scale cleanouts handled with structure, discretion, and steady progress.',
+        to: '/hoarder-cleanouts',
+      },
+      {
+        icon: <Warehouse />,
+        title: 'Garage Cleanouts',
+        desc: 'Clear years of accumulated items and restore usable garage space.',
+        to: '/garage-cleanouts',
+      },
+      {
+        icon: <Trash2 />,
+        title: 'Eviction Cleanouts',
+        desc: 'Fast rental cleanouts to help owners regain control and prepare the unit.',
+        to: '/eviction-cleanouts',
+      },
+      {
+        icon: <Home />,
+        title: 'Landlord & Rental Cleanouts',
+        desc: 'Turnover cleanouts for rental homes, apartments, and problem properties.',
+        to: '/landlord-rental-cleanouts',
+      },
+      {
+        icon: <KeyRound />,
+        title: 'Foreclosure Cleanouts',
+        desc: 'Property cleanup after foreclosure, abandonment, or bank-owned transitions.',
+        to: '/foreclosure-cleanouts',
+      },
+      {
+        icon: <Package />,
+        title: 'Storage Unit Cleanouts',
+        desc: 'Removal of abandoned, overflow, or bulky contents from storage units.',
+        to: '/storage-unit-cleanouts',
+      },
+      {
+        icon: <Home />,
+        title: 'Property Cleanup',
+        desc: 'Whole-property cleanup for renovation, sale, occupancy, or next steps.',
+        to: '/property-cleanouts',
+      },
+    ],
+  },
+  {
+    id: 'commercial',
+    pill: 'Commercial',
+    title: 'Commercial Services',
+    description:
+      'Cleanout and removal support for offices, warehouses, businesses, property managers, and contractors.',
+    services: [
+      {
+        icon: <Building2 />,
+        title: 'Commercial Cleanouts',
+        desc: 'Cleanouts for offices, businesses, facilities, and commercial property transitions.',
+        to: '/commercial-cleanouts',
+      },
+      {
+        icon: <Briefcase />,
+        title: 'Office Cleanouts',
+        desc: 'Office furniture, files, cubicles, equipment, and general contents removed.',
+        to: '/office-cleanouts',
+      },
+      {
+        icon: <Archive />,
+        title: 'Office Furniture Removal',
+        desc: 'Desks, chairs, cabinets, conference tables, and workstations removed.',
+        to: '/office-furniture-removal',
+      },
+      {
+        icon: <Warehouse />,
+        title: 'Warehouse Cleanouts',
+        desc: 'Bulk contents, racking, pallets, equipment, and abandoned materials cleared.',
+        to: '/warehouse-cleanouts',
+      },
+      {
+        icon: <Store />,
+        title: 'Retail Store Cleanouts',
+        desc: 'Fixtures, displays, shelving, backroom contents, and store cleanout support.',
+        to: '/retail-store-cleanouts',
+      },
+      {
+        icon: <Building2 />,
+        title: 'Property Management Cleanouts',
+        desc: 'Recurring cleanout support for managers handling units, turnovers, and problem spaces.',
+        to: '/property-management-cleanouts',
+      },
+      {
+        icon: <HardHat />,
+        title: 'Construction Cleanup',
+        desc: 'Jobsite debris, renovation debris, packaging, and leftover materials removed.',
+        to: '/construction-cleanup',
+      },
+      {
+        icon: <Truck />,
+        title: 'Commercial Junk Removal',
+        desc: 'Reliable removal for bulky items, business clutter, and commercial debris.',
+        to: '/commercial-junk-removal',
+      },
+    ],
+  },
+  {
+    id: 'demolition',
+    pill: 'Demolition',
+    title: 'Demolition',
+    description:
+      'Selective demolition and removal work that prepares homes, rentals, offices, and commercial spaces for renovation.',
+    services: [
+      {
+        icon: <Hammer />,
+        title: 'Interior Demolition',
+        desc: 'Selective tear-outs for renovation, repair, and property preparation.',
+        to: '/interior-demolition',
+        cta: 'Learn More',
+      },
+      {
+        icon: <UtensilsCrossed />,
+        title: 'Kitchen Demolition',
+        desc: 'Cabinets, counters, flooring, fixtures, and kitchen materials removed.',
+        to: '/kitchen-demolition',
+      },
+      {
+        icon: <Bath />,
+        title: 'Bathroom Demolition',
+        desc: 'Vanities, tile, flooring, fixtures, drywall, and bathroom materials removed.',
+        to: '/bathroom-demolition',
+      },
+      {
+        icon: <Layers />,
+        title: 'Flooring Removal',
+        desc: 'Carpet, laminate, vinyl, tile, and other flooring removed and hauled away.',
+        to: '/flooring-removal',
+      },
+      {
+        icon: <Archive />,
+        title: 'Cabinet Removal',
+        desc: 'Kitchen, bathroom, office, and built-in cabinets removed cleanly.',
+        to: '/cabinet-removal',
+      },
+      {
+        icon: <SquareStack />,
+        title: 'Drywall Removal',
+        desc: 'Drywall tear-out and debris removal for repairs, remodels, and restoration prep.',
+        to: '/drywall-removal',
+      },
+      {
+        icon: <PanelTop />,
+        title: 'Fence Removal',
+        desc: 'Old fencing, posts, panels, and related debris removed from the property.',
+        to: '/fence-removal',
+      },
+      {
+        icon: <Trees />,
+        title: 'Deck Removal',
+        desc: 'Deck boards, framing, railings, and demolition debris removed.',
+        to: '/deck-removal',
+      },
+      {
+        icon: <Box />,
+        title: 'Shed Demolition',
+        desc: 'Small sheds and outdoor structures taken down and hauled away.',
+        to: '/shed-demolition',
+      },
+    ],
+  },
+];
+
+const ServiceCard = ({ service, index }: { service: ServiceTile; index: number }) => {
+  const ctaLabel = service.cta ?? 'View Service';
 
   return (
-    <section id="who-we-help" className="py-20 bg-slate-50/50">
+    <Link to={service.to} className="group block h-full">
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: index * 0.04 }}
+        whileHover={{ y: -10 }}
+        className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-5 h-full transition-all duration-300 group-hover:border-brand-orange/35 group-hover:shadow-brand-orange/10"
+      >
+        <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange group-hover:bg-brand-orange/10 transition-colors">
+          {service.icon}
+        </div>
+        <div className="flex flex-col flex-1 gap-2">
+          <h3 className="font-display text-xl font-bold text-brand-navy">{service.title}</h3>
+          <p className="text-slate-500 text-sm leading-relaxed">{service.desc}</p>
+        </div>
+        <span className="inline-flex items-center gap-2 text-sm font-semibold text-brand-navy group-hover:text-brand-orange transition-colors pt-1 border-t border-slate-100">
+          {ctaLabel}
+          <ArrowRight size={16} className="text-brand-orange transition-transform group-hover:translate-x-0.5" />
+        </span>
+      </motion.div>
+    </Link>
+  );
+};
+
+const Services = () => {
+  return (
+    <section id="services" className="py-24 relative bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-14">
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">Who We Partner With</h2>
-          <p className="text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed">
-            When difficult property problems slow progress, we help move projects forward.
+        <div className="text-center mb-20">
+          <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">
+            Services Built Around Property Projects
+          </h2>
+          <p className="text-slate-600 max-w-3xl mx-auto text-lg leading-relaxed">
+            From estate cleanouts and rental turnovers to commercial load-outs and demolition prep, Reinhart helps
+            clear the way for what comes next.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {audiences.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.06 }}
-              whileHover={{ y: -6 }}
-              className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-6"
-            >
-              <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange shrink-0">
-                {item.icon}
+        <div className="space-y-24">
+          {serviceCategories.map((category) => (
+            <div key={category.id}>
+              <div className="mb-10 max-w-3xl">
+                <span className="mb-4 inline-block rounded-full bg-brand-orange/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-brand-orange">
+                  {category.pill}
+                </span>
+                <h3 className="font-display text-3xl lg:text-4xl font-bold text-brand-navy mb-4">{category.title}</h3>
+                <p className="text-slate-600 text-lg leading-relaxed">{category.description}</p>
               </div>
-              <div>
-                <h4 className="font-display text-xl font-bold text-brand-navy mb-2">{item.title}</h4>
-                <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
+
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {category.services.map((service, index) => (
+                  <ServiceCard key={service.to} service={service} index={index} />
+                ))}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -552,249 +765,82 @@ const WhoWeHelp = () => {
   );
 };
 
-const Services = () => {
-  const primaryServices = [
+const WhoWeWorkWith = () => {
+  const audiences = [
     {
-      icon: <Home />,
-      title: 'Estate Cleanouts',
-      desc: 'Respectful property transitions following inheritance, downsizing, or family changes.',
-      to: '/estate-cleanouts' as const,
-      imageSrc: undefined as string | undefined,
-      imageAlt: undefined as string | undefined,
+      icon: <Home className="w-5 h-5" />,
+      title: 'Homeowners',
+      desc: 'Garage cleanouts, junk removal, yard debris, hot tubs, and property cleanup.',
     },
     {
-      icon: <Trash2 />,
-      title: 'Eviction Cleanouts',
-      desc: 'Restoring rental properties to a workable condition so ownership teams can move forward.',
-      to: '/eviction-cleanouts' as const,
-      imageSrc: undefined,
-      imageAlt: undefined,
+      icon: <Users className="w-5 h-5" />,
+      title: 'Families & Estates',
+      desc: 'Estate cleanouts, downsizing, inherited homes, and post-sale cleanout support.',
     },
     {
-      icon: <Warehouse />,
-      title: 'Landlord & Rental Cleanouts',
-      desc: 'Helping owners and managers turn difficult units into spaces ready for maintenance, listing, or occupancy.',
-      to: '/landlord-rental-cleanouts' as const,
-      imageSrc: undefined,
-      imageAlt: undefined,
+      icon: <KeyRound className="w-5 h-5" />,
+      title: 'Realtors',
+      desc: 'Listing prep, seller prep, estate properties, and last-minute property cleanups.',
     },
     {
-      icon: <Warehouse />,
-      title: 'Garage Cleanouts',
-      desc: 'Clearing years of accumulated contents with an organized process that restores usable space.',
-      to: '/garage-cleanouts' as const,
-      imageSrc: undefined,
-      imageAlt: undefined,
+      icon: <Building2 className="w-5 h-5" />,
+      title: 'Property Managers',
+      desc: 'Rental turnovers, eviction cleanouts, abandoned items, and recurring cleanup support.',
     },
     {
-      icon: <Home />,
-      title: 'Property Cleanouts',
-      desc: 'Preparing difficult properties for renovation, sale, occupancy, or their next phase.',
-      to: '/property-cleanouts' as const,
-      imageSrc: undefined,
-      imageAlt: undefined,
+      icon: <TrendingUp className="w-5 h-5" />,
+      title: 'Real Estate Investors',
+      desc: 'Flip properties, foreclosure cleanouts, renovation prep, and demo support.',
     },
     {
-      icon: <Building2 />,
-      title: 'Commercial Cleanouts',
-      desc: 'Supporting offices, warehouses, facilities, and businesses through organized cleanouts, decommissioning, and property transitions.',
-      to: '/commercial-cleanouts' as const,
-      imageSrc: undefined,
-      imageAlt: undefined,
+      icon: <ShieldCheck className="w-5 h-5" />,
+      title: 'Restoration Companies',
+      desc: 'Tear-out debris, contents removal, jobsite cleanup, and recovery project support.',
+    },
+    {
+      icon: <HardHat className="w-5 h-5" />,
+      title: 'Contractors',
+      desc: 'Construction debris, demolition debris, material removal, and site cleanup.',
+    },
+    {
+      icon: <Briefcase className="w-5 h-5" />,
+      title: 'Commercial Businesses',
+      desc: 'Office cleanouts, furniture removal, warehouse cleanup, and facility transitions.',
     },
   ];
 
   return (
-    <section id="services" className="py-24 relative">
+    <section id="who-we-work-with" className="scroll-mt-32 bg-slate-50/60 py-16 lg:py-20">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-20">
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">Our Core Services</h2>
-          <p className="text-slate-600 max-w-2xl mx-auto text-lg">
-            Professional property services that remove obstacles and move projects forward.
+        <div className="text-center mb-10 max-w-3xl mx-auto">
+          <h2 className="font-display text-3xl lg:text-4xl font-bold text-brand-navy mb-4">Who We Work With</h2>
+          <p className="text-slate-600 text-base lg:text-lg leading-relaxed">
+            Reinhart supports homeowners, families, businesses, and property professionals who need spaces cleared,
+            cleaned out, or prepared for what comes next.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {primaryServices.map((service, i) => (
-            <Link key={service.to} to={service.to} className="group block h-full">
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.06 }}
-                whileHover={{ y: -10 }}
-                className="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col gap-5 h-full transition-all duration-300 group-hover:border-brand-orange/35 group-hover:shadow-brand-orange/10"
-              >
-                <OptionalServiceImage src={service.imageSrc} alt={service.imageAlt} />
-                <div className="w-12 h-12 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange group-hover:bg-brand-orange/10 transition-colors">
-                  {service.icon}
-                </div>
-                <div className="flex flex-col flex-1 gap-2">
-                  <h3 className="font-display text-xl font-bold text-brand-navy">{service.title}</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">{service.desc}</p>
-                </div>
-                <span className="inline-flex items-center gap-2 text-sm font-semibold text-brand-navy group-hover:text-brand-orange transition-colors pt-1 border-t border-slate-100">
-                  View Service
-                  <ArrowRight size={16} className="text-brand-orange transition-transform group-hover:translate-x-0.5" />
-                </span>
-              </motion.div>
-            </Link>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {audiences.map((item, i) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.04 }}
+              whileHover={{ y: -4 }}
+              className="bg-white p-5 rounded-2xl shadow-lg shadow-slate-200/40 border border-slate-100 flex flex-col gap-3 h-full"
+            >
+              <div className="w-10 h-10 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange shrink-0">
+                {item.icon}
+              </div>
+              <div>
+                <h3 className="font-display text-lg font-bold text-brand-navy mb-1.5">{item.title}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            </motion.div>
           ))}
         </div>
-
-        <section className="py-20 pt-14">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="font-display text-3xl lg:text-4xl font-bold text-brand-navy mb-4">
-                Additional Services
-              </h2>
-              <p className="text-slate-600 max-w-2xl mx-auto text-base">
-                Additional services that support property transitions, renovations, and specialized cleanup projects.
-              </p>
-            </div>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              <motion.div
-                whileHover={{ y: -10 }}
-                className="bg-slate-50 p-6 rounded-3xl shadow-lg shadow-slate-200/40 border border-slate-200/70 flex flex-col gap-5"
-              >
-                <div className="w-10 h-10 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
-                  <Warehouse />
-                </div>
-                <div>
-                  <h3 className="font-display text-lg font-bold text-brand-navy mb-2">Storage Unit Cleanouts</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">
-                    Storage units cleared for abandoned contents, overflow, and bulky debris.
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ y: -10 }}
-                className="bg-slate-50 p-6 rounded-3xl shadow-lg shadow-slate-200/40 border border-slate-200/70 flex flex-col gap-5"
-              >
-                <div className="w-10 h-10 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
-                  <Truck />
-                </div>
-                <div>
-                  <h3 className="font-display text-lg font-bold text-brand-navy mb-2">Appliance &amp; Furniture Removal</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">
-                    Heavy items removed as part of estate, turnover, and full-property cleanout work.
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Mixed household load-outs - linked */}
-              <Link to="/junk-removal-goodlettsville" className="group block h-full">
-                <motion.div
-                  whileHover={{ y: -10 }}
-                  className="bg-slate-50 p-6 rounded-3xl shadow-lg shadow-slate-200/40 border border-slate-200/70 flex flex-col gap-5 h-full transition-colors group-hover:border-brand-orange/30"
-                >
-                  <div className="w-10 h-10 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
-                    <Trash2 />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-display text-lg font-bold text-brand-navy mb-2">Mixed Household Load-Outs</h3>
-                    <p className="text-slate-500 text-sm leading-relaxed">
-                      Attics, basements, and mixed household debris when the scope goes beyond a single room.
-                    </p>
-                  </div>
-                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-brand-navy group-hover:text-brand-orange transition-colors">
-                    Learn More
-                    <ArrowRight size={14} className="text-brand-orange" />
-                  </span>
-                </motion.div>
-              </Link>
-
-              {/* Property Preparation */}
-              <motion.div
-                whileHover={{ y: -10 }}
-                className="bg-slate-50 p-6 rounded-3xl shadow-lg shadow-slate-200/40 border border-slate-200/70 flex flex-col gap-5"
-              >
-                <div className="w-10 h-10 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
-                  <Warehouse />
-                </div>
-                <div>
-                  <h3 className="font-display text-lg font-bold text-brand-navy mb-2">Listing &amp; Seller Prep</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">
-                    Cleared and ready for photos, contractors, or the next occupant.
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Interior Demolition */}
-              <Link to="/interior-demolition" className="group block h-full">
-                <motion.div
-                  whileHover={{ y: -10 }}
-                  className="bg-slate-50 p-6 rounded-3xl shadow-lg shadow-slate-200/40 border border-slate-200/70 flex flex-col gap-5 h-full transition-colors group-hover:border-brand-orange/30"
-                >
-                  <div className="w-10 h-10 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
-                    <Truck />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-display text-lg font-bold text-brand-navy mb-2">Interior Demolition</h3>
-                    <p className="text-slate-500 text-sm leading-relaxed">
-                      Drywall removal, selective tear-outs, shed/deck demo, and cleanup before renovation or repair work.
-                    </p>
-                  </div>
-                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-brand-navy group-hover:text-brand-orange transition-colors">
-                    Learn More
-                    <ArrowRight size={14} className="text-brand-orange" />
-                  </span>
-                </motion.div>
-              </Link>
-
-              {/* Hot Tub Removal */}
-              <motion.div
-                whileHover={{ y: -10 }}
-                className="bg-slate-50 p-6 rounded-3xl shadow-lg shadow-slate-200/40 border border-slate-200/70 flex flex-col gap-5"
-              >
-                <div className="w-10 h-10 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
-                  <Zap />
-                </div>
-                <div>
-                  <h3 className="font-display text-lg font-bold text-brand-navy mb-2">Hot Tub Removal</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">
-                    Safe removal and disposal of old hot tubs and spa equipment.
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Yard Debris Removal */}
-              <motion.div
-                whileHover={{ y: -10 }}
-                className="bg-slate-50 p-6 rounded-3xl shadow-lg shadow-slate-200/40 border border-slate-200/70 flex flex-col gap-5"
-              >
-                <div className="w-10 h-10 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
-                  <Trash2 />
-                </div>
-                <div>
-                  <h3 className="font-display text-lg font-bold text-brand-navy mb-2">Yard Debris Removal</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">
-                    Brush, branches, and outdoor debris cleared from your yard or lot.
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Piano Removal */}
-              <motion.div
-                whileHover={{ y: -10 }}
-                className="bg-slate-50 p-6 rounded-3xl shadow-lg shadow-slate-200/40 border border-slate-200/70 flex flex-col gap-5"
-              >
-                <div className="w-10 h-10 bg-brand-navy/5 rounded-xl flex items-center justify-center text-brand-orange">
-                  <Music />
-                </div>
-                <div>
-                  <h3 className="font-display text-lg font-bold text-brand-navy mb-2">Piano Removal</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">
-                    Removal of upright pianos, baby grands, and other heavy specialty items as part of scheduled
-                    hauling and cleanout projects.
-                  </p>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
       </div>
     </section>
   );
@@ -1944,8 +1990,8 @@ const HomePage = () => {
       <ValueProps />
       <RecentCleanoutProjects />
       <Testimonials />
-      <WhoWeHelp />
       <Services />
+      <WhoWeWorkWith />
       <HeroSteps />
       <BeforeAfterSlider />
       <AreasWeServe />
