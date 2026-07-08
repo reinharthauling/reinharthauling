@@ -1,6 +1,13 @@
+import { RESIDENTIAL_NAV_CATEGORIES, RESIDENTIAL_HUB_LINK } from './residentialNavigation.ts';
+
 export type ServiceNavLink = {
   label: string;
   to: string;
+};
+
+export type ServiceNavCategory = {
+  title: string;
+  services: ServiceNavLink[];
 };
 
 export type ServiceNavColumn = {
@@ -8,27 +15,19 @@ export type ServiceNavColumn = {
   title: string;
   hubLink: string;
   viewAllLabel: string;
-  /** Top-priority services shown in the mega menu (8–10 per division). Full lists live on hub pages. */
-  services: ServiceNavLink[];
+  /** Flat list for divisions without subcategories. */
+  services?: ServiceNavLink[];
+  /** Grouped lists for residential Property Services and Removal Services. */
+  categories?: ServiceNavCategory[];
 };
 
 export const SERVICES_NAV_COLUMNS: ServiceNavColumn[] = [
   {
     id: 'residential',
-    title: 'Residential & Property Services',
-    hubLink: '/residential-property-services',
-    viewAllLabel: 'View All Residential & Property Services',
-    services: [
-      { label: 'Property Cleanup', to: '/property-cleanup' },
-      { label: 'Junk Removal', to: '/junk-removal' },
-      { label: 'Estate Cleanouts', to: '/estate-cleanouts' },
-      { label: 'Hoarder Cleanouts', to: '/hoarder-cleanouts' },
-      { label: 'Garage Cleanouts', to: '/garage-cleanouts' },
-      { label: 'Eviction Cleanouts', to: '/eviction-cleanouts' },
-      { label: 'Foreclosure Cleanouts', to: '/foreclosure-cleanouts' },
-      { label: 'Storage Unit Cleanouts', to: '/storage-unit-cleanouts' },
-      { label: 'Hot Tub Removal', to: '/junk-removal' },
-    ],
+    title: 'Residential Services',
+    hubLink: RESIDENTIAL_HUB_LINK,
+    viewAllLabel: 'View All Residential Services',
+    categories: RESIDENTIAL_NAV_CATEGORIES.map(({ title, services }) => ({ title, services })),
   },
   {
     id: 'commercial',

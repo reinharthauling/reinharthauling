@@ -43,6 +43,7 @@ import {
   SquareStack,
   Users,
   TrendingUp,
+  Zap,
 } from 'lucide-react';
 import EstateCleanouts from './pages/EstateCleanouts.tsx';
 import EvictionCleanouts from './pages/EvictionCleanouts.tsx';
@@ -54,6 +55,8 @@ import PropertyCleanup from './pages/PropertyCleanup.tsx';
 import ResidentialPropertyServices from './pages/ResidentialPropertyServices.tsx';
 import CommercialServicesHub from './pages/CommercialServicesHub.tsx';
 import ContractorProjectSupport from './pages/ContractorProjectSupport.tsx';
+import ResidentialServicePage from './components/ResidentialServicePage.tsx';
+import { RESIDENTIAL_SERVICE_PAGES } from './data/residentialServicePages.ts';
 import DemolitionServices from './pages/DemolitionServices.tsx';
 import About from './pages/About.tsx';
 import Projects from './pages/Projects.tsx';
@@ -559,67 +562,49 @@ type ServiceCategory = {
 const serviceCategories: ServiceCategory[] = [
   {
     id: 'residential-property',
-    pill: 'Residential & Property',
-    title: 'Residential & Property Services',
+    pill: 'Property Services',
+    title: 'Property Services',
     description:
-      'Cleanouts and property cleanup for homeowners, families, landlords, investors, and real estate transitions.',
+      'Cleanouts and property preparation for homeowners, families, landlords, investors, and real estate transitions.',
     hubLink: '/residential-property-services',
-    hubCtaLabel: 'View Residential & Property Services',
+    hubCtaLabel: 'View All Residential Services',
     services: [
-      {
-        icon: <Trash2 />,
-        title: 'Junk Removal',
-        desc: 'General junk removal for furniture, clutter, appliances, and unwanted items.',
-        to: '/junk-removal',
-      },
-      {
-        icon: <Home />,
-        title: 'Estate Cleanouts',
-        desc: 'Respectful cleanouts after inheritance, downsizing, estate sales, or family transitions.',
-        to: '/estate-cleanouts',
-      },
-      {
-        icon: <Warehouse />,
-        title: 'Hoarder Cleanouts',
-        desc: 'Large-scale cleanouts handled with structure, discretion, and steady progress.',
-        to: '/hoarder-cleanouts',
-      },
-      {
-        icon: <Warehouse />,
-        title: 'Garage Cleanouts',
-        desc: 'Clear years of accumulated items and restore usable garage space.',
-        to: '/garage-cleanouts',
-      },
-      {
-        icon: <Trash2 />,
-        title: 'Eviction Cleanouts',
-        desc: 'Fast rental cleanouts to help owners regain control and prepare the unit.',
-        to: '/eviction-cleanouts',
-      },
-      {
-        icon: <Home />,
-        title: 'Landlord & Rental Cleanouts',
-        desc: 'Turnover cleanouts for rental homes, apartments, and problem properties.',
-        to: '/landlord-rental-cleanouts',
-      },
-      {
-        icon: <KeyRound />,
-        title: 'Foreclosure Cleanouts',
-        desc: 'Property cleanup after foreclosure, abandonment, or bank-owned transitions.',
-        to: '/foreclosure-cleanouts',
-      },
-      {
-        icon: <Package />,
-        title: 'Storage Unit Cleanouts',
-        desc: 'Removal of abandoned, overflow, or bulky contents from storage units.',
-        to: '/storage-unit-cleanouts',
-      },
-      {
-        icon: <Home />,
-        title: 'Property Cleanup',
-        desc: 'Whole-property cleanup for renovation, sale, occupancy, or next steps.',
-        to: '/property-cleanouts',
-      },
+      { icon: <Home />, title: 'Property Cleanup', desc: 'Whole-property cleanup for renovation, sale, occupancy, or next steps.', to: '/property-cleanup' },
+      { icon: <Users />, title: 'Estate Cleanouts', desc: 'Respectful cleanouts after inheritance, downsizing, and family transitions.', to: '/estate-cleanouts' },
+      { icon: <Warehouse />, title: 'Hoarder Cleanouts', desc: 'Large-scale cleanouts with structure, discretion, and steady progress.', to: '/hoarder-cleanouts' },
+      { icon: <Warehouse />, title: 'Garage Cleanouts', desc: 'Clear accumulated items and restore usable garage space.', to: '/garage-cleanouts' },
+      { icon: <Package />, title: 'Storage Unit Cleanouts', desc: 'Abandoned and overflow contents removed from storage units.', to: '/storage-unit-cleanouts' },
+      { icon: <Trash2 />, title: 'Eviction Cleanouts', desc: 'Fast rental cleanouts to help owners regain control and prepare the unit.', to: '/eviction-cleanouts' },
+      { icon: <KeyRound />, title: 'Foreclosure Cleanouts', desc: 'Cleanup after foreclosure, abandonment, or bank-owned transitions.', to: '/foreclosure-cleanouts' },
+      { icon: <Home />, title: 'Rental Property Cleanouts', desc: 'Turnover cleanouts for rental homes, apartments, and problem properties.', to: '/rental-property-cleanouts' },
+      { icon: <Truck />, title: 'Move-Out Cleanouts', desc: 'Left-behind contents cleared for turnover and re-listing.', to: '/move-out-cleanouts' },
+      { icon: <TrendingUp />, title: 'Property Preparation', desc: 'Organized clearing that opens properties for sale, renovation, or occupancy.', to: '/property-preparation' },
+      { icon: <Trees />, title: 'Yard Debris Cleanup', desc: 'Brush, exterior clutter, and outdoor materials cleared from the property.', to: '/yard-debris-cleanup' },
+      { icon: <Zap />, title: 'Storm Cleanup', desc: 'Wind, tree, and exterior debris cleared after severe weather.', to: '/storm-cleanup' },
+    ],
+  },
+  {
+    id: 'residential-removal',
+    pill: 'Removal Services',
+    title: 'Removal Services',
+    description:
+      'Targeted removal of furniture, appliances, debris, and outdoor structures throughout Middle Tennessee.',
+    hubLink: '/residential-property-services',
+    hubCtaLabel: 'View All Residential Services',
+    services: [
+      { icon: <Trash2 />, title: 'Junk Removal', desc: 'Furniture, clutter, appliances, and unwanted household items removed.', to: '/junk-removal' },
+      { icon: <Home />, title: 'Furniture Removal', desc: 'Couches, beds, dressers, and bulky furniture haul-away.', to: '/furniture-removal' },
+      { icon: <Package />, title: 'Appliance Removal', desc: 'Refrigerators, washers, dryers, and stoves removed and hauled away.', to: '/appliance-removal' },
+      { icon: <Zap />, title: 'Hot Tub Removal', desc: 'Hot tubs removed from decks, patios, and tight access areas.', to: '/hot-tub-removal' },
+      { icon: <Users />, title: 'Piano Removal', desc: 'Upright and console pianos evaluated for stairs and safe removal.', to: '/piano-removal' },
+      { icon: <Briefcase />, title: 'Office Furniture Removal', desc: 'Office furniture removed during decommissioning and relocation.', to: '/office-furniture-removal' },
+      { icon: <HardHat />, title: 'Construction Debris Removal', desc: 'Renovation debris, packaging, and leftover materials removed.', to: '/construction-cleanup' },
+      { icon: <PanelTop />, title: 'Fence Removal', desc: 'Old fencing, posts, and panels removed from the property.', to: '/fence-removal' },
+      { icon: <Trees />, title: 'Deck Removal', desc: 'Deck boards, framing, railings, and related debris removed.', to: '/deck-removal' },
+      { icon: <Box />, title: 'Shed Demolition', desc: 'Small sheds and outdoor structures taken down and hauled away.', to: '/shed-demolition' },
+      { icon: <Archive />, title: 'Cabinet Removal', desc: 'Kitchen, bathroom, and built-in cabinets removed cleanly.', to: '/cabinet-removal' },
+      { icon: <Layers />, title: 'Flooring Removal', desc: 'Carpet, laminate, vinyl, tile, and other flooring removed.', to: '/flooring-removal' },
+      { icon: <Hammer />, title: 'Playset Removal', desc: 'Backyard playsets and swing sets taken down and hauled away.', to: '/playset-removal' },
     ],
   },
   {
@@ -2232,6 +2217,18 @@ export default function App() {
             }
           />
         ))}
+        {RESIDENTIAL_SERVICE_PAGES.map((config) => (
+          <Route
+            key={config.canonicalPath}
+            path={config.canonicalPath}
+            element={
+              <SiteLayout>
+                <ResidentialServicePage config={config} />
+              </SiteLayout>
+            }
+          />
+        ))}
+        <Route path="/rental-property-cleanouts" element={<Navigate to="/landlord-rental-cleanouts" replace />} />
         <Route path="/office-cleanouts" element={<Navigate to="/office-load-outs" replace />} />
         <Route path="/office-furniture-removal" element={<Navigate to="/office-load-outs" replace />} />
         <Route path="/commercial-junk-removal" element={<Navigate to="/commercial-cleanouts" replace />} />

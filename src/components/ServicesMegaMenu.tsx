@@ -34,19 +34,42 @@ const MegaMenuColumn = ({ column, onNavigate, columnIndex }: MegaMenuColumnProps
       {column.title}
     </Link>
 
-    <ul className="space-y-0.5" role="list">
-      {column.services.map((service) => (
-        <li key={service.to + service.label}>
-          <Link to={service.to} className={serviceLinkClassName} onClick={onNavigate}>
-            <span
-              className="mt-[0.45rem] h-1 w-1 shrink-0 rounded-full bg-slate-300 transition-colors group-hover:bg-brand-orange"
-              aria-hidden="true"
-            />
-            <span>{service.label}</span>
-          </Link>
-        </li>
-      ))}
-    </ul>
+    {column.categories ? (
+      <div className="space-y-5">
+        {column.categories.map((category) => (
+          <div key={category.title}>
+            <p className="mb-2 px-2 text-[11px] font-bold uppercase tracking-widest text-slate-400">{category.title}</p>
+            <ul className="space-y-0.5" role="list">
+              {category.services.map((service) => (
+                <li key={service.to + service.label}>
+                  <Link to={service.to} className={serviceLinkClassName} onClick={onNavigate}>
+                    <span
+                      className="mt-[0.45rem] h-1 w-1 shrink-0 rounded-full bg-slate-300 transition-colors group-hover:bg-brand-orange"
+                      aria-hidden="true"
+                    />
+                    <span>{service.label}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    ) : (
+      <ul className="space-y-0.5" role="list">
+        {(column.services ?? []).map((service) => (
+          <li key={service.to + service.label}>
+            <Link to={service.to} className={serviceLinkClassName} onClick={onNavigate}>
+              <span
+                className="mt-[0.45rem] h-1 w-1 shrink-0 rounded-full bg-slate-300 transition-colors group-hover:bg-brand-orange"
+                aria-hidden="true"
+              />
+              <span>{service.label}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    )}
 
     <Link to={column.hubLink} className={viewAllLinkClassName} onClick={onNavigate}>
       ({column.viewAllLabel})
@@ -144,23 +167,46 @@ export const ServicesMobileAccordions = ({ onNavigate }: ServicesMobileAccordion
                 role="region"
                 aria-label={column.title}
               >
-                <ul className="flex flex-col gap-0.5" role="list">
-                  {column.services.map((service) => (
-                    <li key={service.to + service.label}>
-                      <Link
-                        to={service.to}
-                        className="flex items-start gap-2.5 rounded-lg px-2 py-2.5 text-sm text-slate-600 transition-colors hover:bg-white hover:text-brand-orange focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30"
-                        onClick={onNavigate}
-                      >
-                        <span
-                          className="mt-2 h-1 w-1 shrink-0 rounded-full bg-slate-300"
-                          aria-hidden="true"
-                        />
-                        {service.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+                {column.categories ? (
+                  <div className="space-y-4">
+                    {column.categories.map((category) => (
+                      <div key={category.title}>
+                        <p className="mb-2 px-2 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+                          {category.title}
+                        </p>
+                        <ul className="flex flex-col gap-0.5" role="list">
+                          {category.services.map((service) => (
+                            <li key={service.to + service.label}>
+                              <Link
+                                to={service.to}
+                                className="flex items-start gap-2.5 rounded-lg px-2 py-2.5 text-sm text-slate-600 transition-colors hover:bg-white hover:text-brand-orange focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30"
+                                onClick={onNavigate}
+                              >
+                                <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-slate-300" aria-hidden="true" />
+                                {service.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <ul className="flex flex-col gap-0.5" role="list">
+                    {(column.services ?? []).map((service) => (
+                      <li key={service.to + service.label}>
+                        <Link
+                          to={service.to}
+                          className="flex items-start gap-2.5 rounded-lg px-2 py-2.5 text-sm text-slate-600 transition-colors hover:bg-white hover:text-brand-orange focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30"
+                          onClick={onNavigate}
+                        >
+                          <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-slate-300" aria-hidden="true" />
+                          {service.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
 
                 <Link
                   to={column.hubLink}

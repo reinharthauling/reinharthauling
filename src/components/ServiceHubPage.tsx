@@ -61,7 +61,8 @@ export type HubConfig = {
   commonProjects: { icon: LucideIcon; title: string; description: string }[];
   servicesTitle: string;
   servicesSubtitle?: string;
-  services: HubService[];
+  services?: HubService[];
+  serviceCategories?: { title: string; subtitle?: string; services: HubService[] }[];
   processTitle: string;
   processSubtitle?: string;
   processSteps: HubProcessStep[];
@@ -280,11 +281,29 @@ export default function ServiceHubPage({ config }: { config: HubConfig }) {
             <h2 className="mb-4 font-display text-4xl font-bold text-brand-navy lg:text-5xl">{config.servicesTitle}</h2>
             {config.servicesSubtitle && <p className="text-lg leading-relaxed text-slate-600">{config.servicesSubtitle}</p>}
           </div>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {config.services.map((service, index) => (
-              <HubServiceCard key={service.to} service={service} index={index} />
-            ))}
-          </div>
+          {config.serviceCategories ? (
+            <div className="space-y-16">
+              {config.serviceCategories.map((category) => (
+                <div key={category.title}>
+                  <div className="mb-8 max-w-3xl">
+                    <h3 className="mb-2 font-display text-2xl font-bold text-brand-navy lg:text-3xl">{category.title}</h3>
+                    {category.subtitle && <p className="text-base leading-relaxed text-slate-600">{category.subtitle}</p>}
+                  </div>
+                  <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                    {category.services.map((service, index) => (
+                      <HubServiceCard key={service.to} service={service} index={index} />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {(config.services ?? []).map((service, index) => (
+                <HubServiceCard key={service.to} service={service} index={index} />
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
