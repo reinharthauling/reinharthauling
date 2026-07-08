@@ -14,6 +14,7 @@ import {
   Warehouse,
 } from 'lucide-react';
 import { projectImages } from '../data/projectImages';
+import { COMMERCIAL_RELATED_BACKBONE } from '../data/commercialNavigation.ts';
 
 const COMMERCIAL_BASE = '/images/projects/2026%20Projects/2026-06_Commercial-Office-Cleanout_Nashville';
 
@@ -154,12 +155,6 @@ const commercialHubConfig: HubConfig = {
       to: '/commercial-property-turnovers',
     },
     {
-      icon: Store,
-      title: 'Retail Decommissioning',
-      description: 'Fixture, inventory, and store contents removed during retail closures and transitions.',
-      to: '/retail-decommissioning',
-    },
-    {
       icon: Hammer,
       title: 'Commercial Interior Strip-Outs',
       description:
@@ -167,16 +162,28 @@ const commercialHubConfig: HubConfig = {
       to: '/commercial-interior-strip-outs',
     },
     {
-      icon: KeyRound,
-      title: 'Lease Surrender Preparation',
-      description: 'Load-out support aligned with lease-end deadlines and surrender expectations.',
-      to: '/lease-surrender-preparation',
+      icon: Building2,
+      title: 'Tenant Improvement (TI) Demo',
+      description: 'Prior build-out removal before office, retail, and commercial tenant improvement work.',
+      to: '/tenant-improvement-demolition',
+    },
+    {
+      icon: Store,
+      title: 'Retail Decommissioning',
+      description: 'Fixture, inventory, and store contents removed during retail closures and transitions.',
+      to: '/retail-decommissioning',
     },
     {
       icon: Archive,
       title: 'White Box Preparation',
       description: 'Clear tenant-specific contents so spaces present cleanly for marketing or build-out.',
       to: '/white-box-preparation',
+    },
+    {
+      icon: KeyRound,
+      title: 'Lease Surrender Preparation',
+      description: 'Load-out support aligned with lease-end deadlines and surrender expectations.',
+      to: '/lease-surrender-preparation',
     },
     {
       icon: Briefcase,
@@ -191,28 +198,28 @@ const commercialHubConfig: HubConfig = {
       to: '/retail-store-cleanouts',
     },
     {
-      icon: Warehouse,
-      title: 'Warehouse Cleanouts',
-      description: 'Bulk contents, racking, pallets, equipment, and abandoned materials cleared.',
-      to: '/warehouse-cleanouts',
-    },
-    {
       icon: Building2,
       title: 'Property Management Cleanouts',
       description: 'Recurring cleanout support for managers handling units, turnovers, and problem spaces.',
       to: '/property-management-cleanouts',
     },
     {
-      icon: Building2,
-      title: 'Commercial Cleanouts',
-      description: 'Full commercial cleanouts for offices, businesses, facilities, and property transitions.',
-      to: '/commercial-cleanouts',
+      icon: Warehouse,
+      title: 'Warehouse Cleanouts',
+      description: 'Bulk contents, racking, pallets, equipment, and abandoned materials cleared.',
+      to: '/warehouse-cleanouts',
     },
     {
       icon: HardHat,
       title: 'Construction Cleanup',
       description: 'Jobsite debris, renovation debris, packaging, and leftover materials removed.',
       to: '/construction-cleanup',
+    },
+    {
+      icon: Building2,
+      title: 'Commercial Cleanouts',
+      description: 'Full commercial cleanouts for offices, businesses, facilities, and property transitions.',
+      to: '/commercial-cleanouts',
     },
   ],
   processTitle: 'How Commercial Projects Work',
@@ -296,14 +303,10 @@ const commercialHubConfig: HubConfig = {
   serviceAreas: MIDDLE_TN_AREAS,
   areasNote:
     'Commercial cleanouts and load-outs throughout Middle Tennessee for offices, warehouses, retail spaces, churches, schools, and managed properties.',
-  relatedTitle: 'Individual Commercial Services',
-  relatedServices: [
-    { label: 'Office Load-Outs', to: '/office-load-outs' },
-    { label: 'Lease Surrender Preparation', to: '/lease-surrender-preparation' },
-    { label: 'Property Management Cleanouts', to: '/property-management-cleanouts' },
-    { label: 'Construction Cleanup', to: '/construction-cleanup' },
-  ],
+  relatedTitle: 'Related Commercial Services',
+  relatedServices: COMMERCIAL_RELATED_BACKBONE,
   relatedHubs: [
+    { label: 'Industries We Serve', to: '/industries' },
     { label: 'Residential & Property Services', to: '/residential-property-services' },
     { label: 'Demolition Services', to: '/demolition-services' },
   ],

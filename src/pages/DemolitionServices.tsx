@@ -150,7 +150,7 @@ const demolitionHubConfig: HubConfig = {
     },
     {
       icon: Building2,
-      title: 'Tenant Improvement (TI) Demolition',
+      title: 'Tenant Improvement (TI) Demo',
       description: 'Prior build-out removal before office, retail, and commercial tenant improvement work.',
       to: '/tenant-improvement-demolition',
       cta: 'Learn More',
@@ -172,12 +172,6 @@ const demolitionHubConfig: HubConfig = {
       title: 'Bathroom Demolition',
       description: 'Vanities, tile, flooring, fixtures, drywall, and bathroom materials removed.',
       to: '/bathroom-demolition',
-    },
-    {
-      icon: Hammer,
-      title: 'Commercial Interior Strip-Outs',
-      description: 'Commercial strip-out support for TI, lease transitions, and renovation prep.',
-      to: '/commercial-interior-strip-outs',
     },
     {
       icon: Layers,
@@ -303,12 +297,13 @@ const demolitionHubConfig: HubConfig = {
     'Selective demolition and debris removal throughout Middle Tennessee for residential and commercial renovation prep projects.',
   relatedTitle: 'Related Demolition & Property Services',
   relatedServices: [
-    { label: 'Tenant Improvement (TI) Demolition', to: '/tenant-improvement-demolition' },
+    { label: 'Tenant Improvement (TI) Demo', to: '/tenant-improvement-demolition' },
     { label: 'Selective Demolition', to: '/selective-demolition' },
     { label: 'Commercial Interior Strip-Outs', to: '/commercial-interior-strip-outs' },
     { label: 'Construction Cleanup', to: '/construction-cleanup' },
   ],
   relatedHubs: [
+    { label: 'Industries We Serve', to: '/industries' },
     { label: 'Residential & Property Services', to: '/residential-property-services' },
     { label: 'Commercial Services', to: '/commercial-services' },
   ],

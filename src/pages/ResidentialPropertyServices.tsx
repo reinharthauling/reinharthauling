@@ -411,8 +411,8 @@ const residentialHubConfig: HubConfig = {
     { label: 'Garage Cleanouts', to: '/garage-cleanouts' },
   ],
   relatedHubs: [
+    { label: 'Industries We Serve', to: '/industries' },
     { label: 'Commercial Services', to: '/commercial-services' },
-    { label: 'Demolition Services', to: '/demolition-services' },
   ],
   faqs: [
     {

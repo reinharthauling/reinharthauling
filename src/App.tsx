@@ -57,6 +57,9 @@ import CommercialServicesHub from './pages/CommercialServicesHub.tsx';
 import ContractorProjectSupport from './pages/ContractorProjectSupport.tsx';
 import ResidentialServicePage from './components/ResidentialServicePage.tsx';
 import { RESIDENTIAL_SERVICE_PAGES } from './data/residentialServicePages.ts';
+import IndustriesHub from './pages/IndustriesHub.tsx';
+import IndustryPage from './components/IndustryPage.tsx';
+import { INDUSTRY_PAGES } from './data/industryPages.ts';
 import DemolitionServices from './pages/DemolitionServices.tsx';
 import About from './pages/About.tsx';
 import Projects from './pages/Projects.tsx';
@@ -229,6 +232,13 @@ const Navbar = () => {
           </div>
 
           <Link
+            to="/industries"
+            className="text-sm font-medium hover:text-brand-orange transition-colors"
+          >
+            Industries
+          </Link>
+
+          <Link
             to="/#reviews"
             className="text-sm font-medium hover:text-brand-orange transition-colors"
             onClick={(event) => navigateToHomeSection(event, 'reviews')}
@@ -311,6 +321,14 @@ const Navbar = () => {
                   <ServicesMobileAccordions onNavigate={closeMobileMenu} />
                 </div>
               )}
+
+              <Link
+                to="/industries"
+                className="px-3 py-3 text-sm font-medium text-brand-navy hover:text-brand-orange transition-colors rounded-xl hover:bg-slate-50"
+                onClick={closeMobileMenu}
+              >
+                Industries
+              </Link>
 
               <Link
                 to="/#reviews"
@@ -629,28 +647,34 @@ const serviceCategories: ServiceCategory[] = [
         to: '/commercial-property-turnovers',
       },
       {
-        icon: <Store />,
-        title: 'Retail Decommissioning',
-        desc: 'Fixture, inventory, and store contents removed during retail closures and transitions.',
-        to: '/retail-decommissioning',
-      },
-      {
         icon: <Hammer />,
         title: 'Commercial Interior Strip-Outs',
         desc: 'Selective tear-out and fixture removal to prepare spaces for renovation or tenant improvement.',
         to: '/commercial-interior-strip-outs',
       },
       {
-        icon: <KeyRound />,
-        title: 'Lease Surrender Preparation',
-        desc: 'Load-out support aligned with lease-end deadlines and surrender requirements.',
-        to: '/lease-surrender-preparation',
+        icon: <Building2 />,
+        title: 'Tenant Improvement (TI) Demo',
+        desc: 'Prior build-out removal before office, retail, and commercial tenant improvement work.',
+        to: '/tenant-improvement-demolition',
+      },
+      {
+        icon: <Store />,
+        title: 'Retail Decommissioning',
+        desc: 'Fixture, inventory, and store contents removed during retail closures and transitions.',
+        to: '/retail-decommissioning',
       },
       {
         icon: <Archive />,
         title: 'White Box Preparation',
         desc: 'Clear tenant-specific contents so spaces present cleanly for marketing or build-out.',
         to: '/white-box-preparation',
+      },
+      {
+        icon: <KeyRound />,
+        title: 'Lease Surrender Preparation',
+        desc: 'Load-out support aligned with lease-end deadlines and surrender requirements.',
+        to: '/lease-surrender-preparation',
       },
       {
         icon: <Briefcase />,
@@ -665,28 +689,28 @@ const serviceCategories: ServiceCategory[] = [
         to: '/retail-store-cleanouts',
       },
       {
-        icon: <Warehouse />,
-        title: 'Warehouse Cleanouts',
-        desc: 'Bulk contents, racking, pallets, equipment, and abandoned materials cleared.',
-        to: '/warehouse-cleanouts',
-      },
-      {
         icon: <Building2 />,
         title: 'Property Management Cleanouts',
         desc: 'Recurring cleanout support for managers handling units, turnovers, and problem spaces.',
         to: '/property-management-cleanouts',
       },
       {
-        icon: <Building2 />,
-        title: 'Commercial Cleanouts',
-        desc: 'Cleanouts for offices, businesses, facilities, and commercial property transitions.',
-        to: '/commercial-cleanouts',
+        icon: <Warehouse />,
+        title: 'Warehouse Cleanouts',
+        desc: 'Bulk contents, racking, pallets, equipment, and abandoned materials cleared.',
+        to: '/warehouse-cleanouts',
       },
       {
         icon: <HardHat />,
         title: 'Construction Cleanup',
         desc: 'Jobsite debris, renovation debris, packaging, and leftover materials removed.',
         to: '/construction-cleanup',
+      },
+      {
+        icon: <Building2 />,
+        title: 'Commercial Cleanouts',
+        desc: 'Cleanouts for offices, businesses, facilities, and commercial property transitions.',
+        to: '/commercial-cleanouts',
       },
     ],
   },
@@ -707,7 +731,7 @@ const serviceCategories: ServiceCategory[] = [
       },
       {
         icon: <Building2 />,
-        title: 'Tenant Improvement (TI) Demolition',
+        title: 'Tenant Improvement (TI) Demo',
         desc: 'Selective demo before office, retail, and commercial tenant improvement work.',
         to: '/tenant-improvement-demolition',
       },
@@ -2195,6 +2219,25 @@ export default function App() {
             </SiteLayout>
           }
         />
+        <Route
+          path="/industries"
+          element={
+            <SiteLayout>
+              <IndustriesHub />
+            </SiteLayout>
+          }
+        />
+        {INDUSTRY_PAGES.map((config) => (
+          <Route
+            key={config.canonicalPath}
+            path={config.canonicalPath}
+            element={
+              <SiteLayout>
+                <IndustryPage config={config} />
+              </SiteLayout>
+            }
+          />
+        ))}
         {COMMERCIAL_SERVICE_PAGES.map((config) => (
           <Route
             key={config.canonicalPath}

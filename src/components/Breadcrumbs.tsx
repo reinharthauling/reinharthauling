@@ -1,0 +1,51 @@
+import { Link } from 'react-router-dom';
+
+const SITE_URL = 'https://www.reinharthauling.com';
+
+export type BreadcrumbItem = {
+  label: string;
+  to?: string;
+};
+
+type BreadcrumbsProps = {
+  items: BreadcrumbItem[];
+};
+
+export function buildBreadcrumbSchema(items: BreadcrumbItem[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.label,
+      ...(item.to ? { item: `${SITE_URL}${item.to}` } : {}),
+    })),
+  };
+}
+
+export default function Breadcrumbs({ items }: BreadcrumbsProps) {
+  return (
+    <nav className="mb-8 flex flex-wrap items-center gap-2 text-sm font-semibold text-slate-500" aria-label="Breadcrumb">
+      {items.map((item, index) => {
+        const isLast = index === items.length - 1;
+        return (
+          <span key={`${item.label}-${index}`} className="inline-flex items-center gap-2">
+            {index > 0 && (
+              <span className="text-slate-300" aria-hidden="true">
+                /
+              </span>
+            )}
+            {item.to && !isLast ? (
+              <Link to={item.to} className="transition-colors hover:text-brand-orange">
+                {item.label}
+              </Link>
+            ) : (
+              <span className={isLast ? 'text-brand-navy' : undefined}>{item.label}</span>
+            )}
+          </span>
+        );
+      })}
+    </nav>
+  );
+}

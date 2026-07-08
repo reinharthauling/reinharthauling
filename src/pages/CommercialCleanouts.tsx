@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { CheckCircle2, ChevronDown, ClipboardCheck, MessageSquare, Phone, Truck } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { getCommercialRelatedServices } from '../data/commercialNavigation.ts';
 import CleanoutProcess from '../components/CleanoutProcess.tsx';
 import { projectImages } from '../data/projectImages';
 
@@ -175,12 +176,7 @@ const SERVICE_AREAS = [
   'East Nashville',
 ];
 
-const RELATED_SERVICES = [
-  { label: 'Estate Cleanouts', to: '/estate-cleanouts' },
-  { label: 'Property Cleanouts', to: '/property-cleanouts' },
-  { label: 'Eviction Cleanouts', to: '/eviction-cleanouts' },
-  { label: 'Garage Cleanouts', to: '/garage-cleanouts' },
-];
+const RELATED_SERVICES = getCommercialRelatedServices('/commercial-cleanouts');
 
 export default function CommercialCleanouts() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);

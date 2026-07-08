@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import EmailContactMenu from '../components/EmailContactMenu.tsx';
+import { getCommercialRelatedServices } from '../data/commercialNavigation.ts';
 
 const SITE_URL = 'https://www.reinharthauling.com';
 const CANONICAL_PATH = '/contractor-project-support';
@@ -171,14 +172,7 @@ const WHY_CONTRACTORS = [
   { title: 'Locally owned', description: 'Middle Tennessee commercial support with regional project experience.' },
 ];
 
-const RELATED_SERVICES = [
-  { label: 'Commercial Interior Strip-Outs', to: '/commercial-interior-strip-outs' },
-  { label: 'Tenant Improvement Demolition', to: '/tenant-improvement-demolition' },
-  { label: 'Commercial Property Turnovers', to: '/commercial-property-turnovers' },
-  { label: 'Construction Cleanup', to: '/construction-cleanup' },
-  { label: 'Retail Decommissioning', to: '/retail-decommissioning' },
-  { label: 'White Box Preparation', to: '/white-box-preparation' },
-];
+const relatedServices = getCommercialRelatedServices(CANONICAL_PATH);
 
 const FAQS = [
   {
@@ -521,7 +515,7 @@ export default function ContractorProjectSupport() {
             </p>
           </div>
           <div className="flex flex-wrap justify-center gap-3">
-            {RELATED_SERVICES.map((service) => (
+            {relatedServices.map((service) => (
               <Link
                 key={service.to}
                 to={service.to}

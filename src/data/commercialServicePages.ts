@@ -1,5 +1,7 @@
 import { projectImages } from './projectImages.ts';
 
+import { getCommercialRelatedServices } from './commercialNavigation.ts';
+
 export type CommercialProjectType = {
   title: string;
   description: string;
@@ -27,18 +29,8 @@ export type CommercialServicePageConfig = {
   smsBody?: string;
 };
 
-export const PRIORITY_RELATED_COMMERCIAL = [
-  { label: 'Commercial Property Turnovers', to: '/commercial-property-turnovers' },
-  { label: 'Commercial Interior Strip-Outs', to: '/commercial-interior-strip-outs' },
-  { label: 'Retail Decommissioning', to: '/retail-decommissioning' },
-  { label: 'White Box Preparation', to: '/white-box-preparation' },
-  { label: 'Office Load-Outs', to: '/office-load-outs' },
-  { label: 'Commercial Cleanouts', to: '/commercial-cleanouts' },
-  { label: 'Construction Cleanup', to: '/construction-cleanup' },
-] as const;
-
 export function getRelatedCommercialServices(currentPath: string) {
-  return PRIORITY_RELATED_COMMERCIAL.filter((service) => service.to !== currentPath);
+  return getCommercialRelatedServices(currentPath);
 }
 
 const COMMERCIAL_HERO =
