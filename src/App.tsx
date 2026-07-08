@@ -57,7 +57,6 @@ import DemolitionServices from './pages/DemolitionServices.tsx';
 import About from './pages/About.tsx';
 import Projects from './pages/Projects.tsx';
 import ProjectDetail from './pages/ProjectDetail.tsx';
-import InteriorDemolition from './pages/InteriorDemolition.tsx';
 import HoarderPropertyCleanupJoelton from './pages/HoarderPropertyCleanupJoelton.tsx';
 import InvestorPropertyCleanupGallatin from './pages/InvestorPropertyCleanupGallatin.tsx';
 import InteriorDemoPortland from './pages/InteriorDemoPortland.tsx';
@@ -69,6 +68,8 @@ import ScrollToTop from './ScrollToTop.tsx';
 import CleanoutProcess from './components/CleanoutProcess.tsx';
 import { ServicesMegaMenuPanel, ServicesMobileAccordions } from './components/ServicesMegaMenu.tsx';
 import EmailContactMenu from './components/EmailContactMenu.tsx';
+import DemolitionServicePage from './components/DemolitionServicePage.tsx';
+import { DEMOLITION_SERVICE_PAGES } from './data/demolitionServicePages.ts';
 import CommercialServicePage from './components/CommercialServicePage.tsx';
 import { COMMERCIAL_SERVICE_PAGES } from './data/commercialServicePages.ts';
 import { scrollToSection } from './utils/scrollToSection.ts';
@@ -709,9 +710,20 @@ const serviceCategories: ServiceCategory[] = [
       {
         icon: <Hammer />,
         title: 'Interior Demolition',
-        desc: 'Selective tear-outs for renovation, repair, and property preparation.',
+        desc: 'Selective interior tear-out that prepares spaces for renovation—not structural demolition.',
         to: '/interior-demolition',
-        cta: 'Learn More',
+      },
+      {
+        icon: <Building2 />,
+        title: 'Tenant Improvement (TI) Demolition',
+        desc: 'Selective demo before office, retail, and commercial tenant improvement work.',
+        to: '/tenant-improvement-demolition',
+      },
+      {
+        icon: <Layers />,
+        title: 'Selective Demolition',
+        desc: 'Targeted tear-out of scheduled materials while protecting the rest of the property.',
+        to: '/selective-demolition',
       },
       {
         icon: <UtensilsCrossed />,
@@ -736,6 +748,12 @@ const serviceCategories: ServiceCategory[] = [
         title: 'Cabinet Removal',
         desc: 'Kitchen, bathroom, office, and built-in cabinets removed cleanly.',
         to: '/cabinet-removal',
+      },
+      {
+        icon: <PanelTop />,
+        title: 'Ceiling Grid Removal',
+        desc: 'Drop ceiling grids and tiles removed for renovation and TI projects.',
+        to: '/ceiling-grid-removal',
       },
       {
         icon: <SquareStack />,
@@ -2188,6 +2206,17 @@ export default function App() {
             }
           />
         ))}
+        {DEMOLITION_SERVICE_PAGES.map((config) => (
+          <Route
+            key={config.canonicalPath}
+            path={config.canonicalPath}
+            element={
+              <SiteLayout>
+                <DemolitionServicePage config={config} />
+              </SiteLayout>
+            }
+          />
+        ))}
         <Route path="/office-cleanouts" element={<Navigate to="/office-load-outs" replace />} />
         <Route path="/office-furniture-removal" element={<Navigate to="/office-load-outs" replace />} />
         <Route path="/commercial-junk-removal" element={<Navigate to="/commercial-cleanouts" replace />} />
@@ -2252,14 +2281,6 @@ export default function App() {
           element={
             <SiteLayout>
               <ProjectDetail />
-            </SiteLayout>
-          }
-        />
-        <Route
-          path="/interior-demolition"
-          element={
-            <SiteLayout>
-              <InteriorDemolition />
             </SiteLayout>
           }
         />

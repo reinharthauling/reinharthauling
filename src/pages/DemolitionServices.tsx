@@ -4,6 +4,7 @@ import {
   Archive,
   Bath,
   Box,
+  Building2,
   ClipboardCheck,
   Hammer,
   Layers,
@@ -38,12 +39,12 @@ const demolitionHubConfig: HubConfig = {
   metaTitle: 'Demolition Services | Reinhart Hauling & Cleanouts',
   metaDescription:
     'Selective demolition, interior demolition, kitchen and bathroom tear-outs, flooring removal, fence removal, deck removal, shed demolition, and debris haul-away in Middle Tennessee.',
-  heroEyebrow: 'DEMOLITION DIVISION',
-  heroHeadline: 'Demolition Services',
+  heroEyebrow: 'SELECTIVE DEMOLITION',
+  heroHeadline: 'Selective Demolition Services',
   heroSubheadline:
-    'Selective demolition, tear-out, and haul-away support that prepares properties for renovation, repair, and the next trade.',
+    'Interior demolition, tenant improvement demo, and renovation prep—not structural building demolition.',
   heroCopy:
-    'Reinhart provides practical demolition support—not full structural wrecking. We remove finishes, fixtures, fencing, decks, sheds, and interior materials, then haul debris so contractors, investors, and property owners can move into the next phase of the project.',
+    'Reinhart prepares commercial and residential spaces for renovation, tenant improvement, and the next project phase. We perform selective interior demolition, TI tear-out, and debris removal—supporting contractors, property managers, and owners without performing structural or building demolition.',
   heroImage: `${DEMO_BASE}/04_Hero/hero-insulation-during-01.jpeg`,
   heroImageAlt: 'Interior demolition and tear-out project in Portland TN',
   primaryCta: {
@@ -54,11 +55,11 @@ const demolitionHubConfig: HubConfig = {
     label: 'Text Project Photos',
     href: 'sms:6152000064?body=Hi%2C%20I%27d%20like%20to%20text%20photos%20for%20a%20demolition%20project',
   },
-  positioningTitle: 'Selective Demolition for Renovation Prep',
+  positioningTitle: 'Selective Demolition for Property Preparation',
   positioningParagraphs: [
-    'Demolition at Reinhart means controlled tear-out and debris removal—not bringing down entire structures. We help open kitchens, bathrooms, rooms, and exterior features so renovation, repair, or inspection work can begin.',
-    'That includes removing cabinets, flooring, drywall, fences, decks, and small sheds, then loading and hauling the debris. Contractors call us when they need an extra crew for tear-out. Investors call us when a property needs opened up before a flip. Homeowners call us when a remodel is stuck behind old finishes and accumulated debris.',
-    'We are clear about scope: this division supports selective demolition and haul-away. Full house demolition and large commercial wrecking require licensed structural demolition contractors.',
+    'Demolition at Reinhart means controlled, selective tear-out that opens spaces for renovation—not bringing down buildings. We help contractors and property teams remove finishes, fixtures, ceilings, flooring, and interior build-out so the next trade can begin.',
+    'That includes tenant improvement demolition, kitchen and bathroom tear-outs, ceiling grid removal, and exterior features like fences, decks, and small sheds. For commercial strip-outs and lease transitions, our Commercial Services division handles larger commercial property preparation.',
+    'We are clear about scope: this division supports selective interior and exterior demolition for renovation prep. Full structural demolition and building wrecking require licensed structural demolition contractors.',
   ],
   whoTitle: 'Who This Division Is For',
   whoSubtitle:
@@ -136,16 +137,29 @@ const demolitionHubConfig: HubConfig = {
         'Small sheds and outdoor structures taken down and hauled for yard or property reset.',
     },
   ],
-  servicesTitle: 'Demolition & Removal Services',
+  servicesTitle: 'Selective Demolition Services',
   servicesSubtitle:
-    'Each service below is selective demolition and haul-away support—not full structural demolition.',
+    'Each service below is selective demolition and renovation prep—not full structural or building demolition.',
   services: [
     {
       icon: Hammer,
       title: 'Interior Demolition',
-      description: 'Selective interior tear-outs for renovation, repair, and property preparation.',
+      description: 'Selective interior tear-out for renovation, tenant improvement, and property preparation.',
       to: '/interior-demolition',
       cta: 'Learn More',
+    },
+    {
+      icon: Building2,
+      title: 'Tenant Improvement (TI) Demolition',
+      description: 'Prior build-out removal before office, retail, and commercial tenant improvement work.',
+      to: '/tenant-improvement-demolition',
+      cta: 'Learn More',
+    },
+    {
+      icon: Hammer,
+      title: 'Selective Demolition',
+      description: 'Targeted removal of scheduled materials while protecting the rest of the property.',
+      to: '/selective-demolition',
     },
     {
       icon: UtensilsCrossed,
@@ -160,6 +174,12 @@ const demolitionHubConfig: HubConfig = {
       to: '/bathroom-demolition',
     },
     {
+      icon: Hammer,
+      title: 'Commercial Interior Strip-Outs',
+      description: 'Commercial strip-out support for TI, lease transitions, and renovation prep.',
+      to: '/commercial-interior-strip-outs',
+    },
+    {
       icon: Layers,
       title: 'Flooring Removal',
       description: 'Carpet, laminate, vinyl, tile, and other flooring removed and hauled away.',
@@ -170,6 +190,12 @@ const demolitionHubConfig: HubConfig = {
       title: 'Cabinet Removal',
       description: 'Kitchen, bathroom, office, and built-in cabinets removed cleanly.',
       to: '/cabinet-removal',
+    },
+    {
+      icon: PanelTop,
+      title: 'Ceiling Grid & Ceiling Tile Removal',
+      description: 'Drop ceiling grids and tiles removed for renovation and TI projects.',
+      to: '/ceiling-grid-removal',
     },
     {
       icon: SquareStack,
@@ -275,11 +301,11 @@ const demolitionHubConfig: HubConfig = {
   serviceAreas: MIDDLE_TN_AREAS,
   areasNote:
     'Selective demolition and debris removal throughout Middle Tennessee for residential and commercial renovation prep projects.',
-  relatedTitle: 'Individual Demolition Services',
+  relatedTitle: 'Related Demolition & Property Services',
   relatedServices: [
-    { label: 'Interior Demolition', to: '/interior-demolition' },
-    { label: 'Kitchen Demolition', to: '/kitchen-demolition' },
-    { label: 'Drywall Removal', to: '/drywall-removal' },
+    { label: 'Tenant Improvement (TI) Demolition', to: '/tenant-improvement-demolition' },
+    { label: 'Selective Demolition', to: '/selective-demolition' },
+    { label: 'Commercial Interior Strip-Outs', to: '/commercial-interior-strip-outs' },
     { label: 'Construction Cleanup', to: '/construction-cleanup' },
   ],
   relatedHubs: [
