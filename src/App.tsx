@@ -70,6 +70,8 @@ import ScrollToTop from './ScrollToTop.tsx';
 import CleanoutProcess from './components/CleanoutProcess.tsx';
 import { ServicesMegaMenuPanel, ServicesMobileAccordions } from './components/ServicesMegaMenu.tsx';
 import EmailContactMenu from './components/EmailContactMenu.tsx';
+import CommercialServicePage from './components/CommercialServicePage.tsx';
+import { COMMERCIAL_SERVICE_PAGES } from './data/commercialServicePages.ts';
 import { scrollToSection } from './utils/scrollToSection.ts';
 import { projectImages } from './data/projectImages';
 
@@ -630,27 +632,21 @@ const serviceCategories: ServiceCategory[] = [
     services: [
       {
         icon: <Building2 />,
-        title: 'Commercial Cleanouts',
-        desc: 'Cleanouts for offices, businesses, facilities, and commercial property transitions.',
-        to: '/commercial-cleanouts',
+        title: 'Commercial Property Turnovers',
+        desc: 'Turnover cleanouts for commercial units between tenants, renovation, or sale.',
+        to: '/commercial-property-turnovers',
+      },
+      {
+        icon: <KeyRound />,
+        title: 'Lease Surrender Preparation',
+        desc: 'Load-out support aligned with lease-end deadlines and surrender requirements.',
+        to: '/lease-surrender-preparation',
       },
       {
         icon: <Briefcase />,
-        title: 'Office Cleanouts',
-        desc: 'Office furniture, files, cubicles, equipment, and general contents removed.',
-        to: '/office-cleanouts',
-      },
-      {
-        icon: <Archive />,
-        title: 'Office Furniture Removal',
-        desc: 'Desks, chairs, cabinets, conference tables, and workstations removed.',
-        to: '/office-furniture-removal',
-      },
-      {
-        icon: <Warehouse />,
-        title: 'Warehouse Cleanouts',
-        desc: 'Bulk contents, racking, pallets, equipment, and abandoned materials cleared.',
-        to: '/warehouse-cleanouts',
+        title: 'Office Load-Outs',
+        desc: 'Cubicles, furniture, files, and office contents removed during decommissioning.',
+        to: '/office-load-outs',
       },
       {
         icon: <Store />,
@@ -659,22 +655,28 @@ const serviceCategories: ServiceCategory[] = [
         to: '/retail-store-cleanouts',
       },
       {
+        icon: <Warehouse />,
+        title: 'Warehouse Cleanouts',
+        desc: 'Bulk contents, racking, pallets, equipment, and abandoned materials cleared.',
+        to: '/warehouse-cleanouts',
+      },
+      {
         icon: <Building2 />,
         title: 'Property Management Cleanouts',
         desc: 'Recurring cleanout support for managers handling units, turnovers, and problem spaces.',
         to: '/property-management-cleanouts',
       },
       {
+        icon: <Building2 />,
+        title: 'Commercial Cleanouts',
+        desc: 'Cleanouts for offices, businesses, facilities, and commercial property transitions.',
+        to: '/commercial-cleanouts',
+      },
+      {
         icon: <HardHat />,
         title: 'Construction Cleanup',
         desc: 'Jobsite debris, renovation debris, packaging, and leftover materials removed.',
         to: '/construction-cleanup',
-      },
-      {
-        icon: <Truck />,
-        title: 'Commercial Junk Removal',
-        desc: 'Reliable removal for bulky items, business clutter, and commercial debris.',
-        to: '/commercial-junk-removal',
       },
     ],
   },
@@ -2166,6 +2168,20 @@ export default function App() {
             </SiteLayout>
           }
         />
+        {COMMERCIAL_SERVICE_PAGES.map((config) => (
+          <Route
+            key={config.canonicalPath}
+            path={config.canonicalPath}
+            element={
+              <SiteLayout>
+                <CommercialServicePage config={config} />
+              </SiteLayout>
+            }
+          />
+        ))}
+        <Route path="/office-cleanouts" element={<Navigate to="/office-load-outs" replace />} />
+        <Route path="/office-furniture-removal" element={<Navigate to="/office-load-outs" replace />} />
+        <Route path="/commercial-junk-removal" element={<Navigate to="/commercial-cleanouts" replace />} />
         <Route
           path="/projects"
           element={
