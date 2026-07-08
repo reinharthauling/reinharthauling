@@ -4,17 +4,17 @@ import { ChevronDown } from 'lucide-react';
 import { SERVICES_NAV_COLUMNS, type ServiceNavColumn } from '../data/servicesNavigation.ts';
 
 const serviceLinkClassName =
-  'group flex items-start gap-2.5 rounded-lg px-2 py-2 text-[13px] leading-snug text-slate-600 transition-colors hover:bg-brand-orange/5 hover:text-brand-orange focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-offset-1';
+  'group flex items-start gap-2.5 rounded-lg px-2 py-1.5 text-[13px] leading-snug text-slate-600 transition-colors hover:bg-brand-orange/5 hover:text-brand-orange focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-offset-1';
 
 const hubHeadingClassName =
-  'group mb-5 block rounded-xl px-2 py-2 -mx-2 text-base font-bold leading-snug text-brand-navy transition-colors hover:bg-brand-orange/5 hover:text-brand-orange focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-offset-1';
+  'group mb-4 block rounded-xl px-2 py-1.5 -mx-2 text-base font-bold leading-snug text-brand-navy transition-colors hover:bg-brand-orange/5 hover:text-brand-orange focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-offset-1';
 
 const viewAllLinkClassName =
-  'group mt-5 inline-flex rounded-lg px-2 py-1.5 -mx-2 text-xs font-semibold text-brand-orange transition-colors hover:bg-brand-orange/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-offset-1';
+  'group mt-4 inline-flex rounded-lg px-2 py-1.5 -mx-2 text-xs font-semibold text-brand-orange transition-colors hover:bg-brand-orange/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-offset-1';
 
 const columnDividerClass = (columnIndex: number) =>
   [
-    'px-7 py-7',
+    'px-6 py-5',
     columnIndex === 0 ? 'md:border-r md:border-slate-100' : '',
     columnIndex === 1 ? 'lg:border-r lg:border-slate-100' : '',
     columnIndex === 2 ? 'md:col-span-2 lg:col-span-1 md:border-t md:border-slate-100 lg:border-t-0' : '',
@@ -35,10 +35,10 @@ const MegaMenuColumn = ({ column, onNavigate, columnIndex }: MegaMenuColumnProps
     </Link>
 
     {column.categories ? (
-      <div className="space-y-5">
+      <div className="space-y-3.5">
         {column.categories.map((category) => (
           <div key={category.title}>
-            <p className="mb-2 px-2 text-[11px] font-bold uppercase tracking-widest text-slate-400">{category.title}</p>
+            <p className="mb-1.5 px-2 text-[11px] font-bold uppercase tracking-widest text-slate-400">{category.title}</p>
             <ul className="space-y-0.5" role="list">
               {category.services.map((service) => (
                 <li key={service.to + service.label}>
@@ -114,9 +114,9 @@ export const ServicesMegaMenuPanel = ({ id, onNavigate }: ServicesMegaMenuPanelP
       ref={panelRef}
       role="navigation"
       aria-label="Services menu"
-      className="absolute top-full z-50 w-[min(980px,calc(100vw-2rem))] pt-3 right-0 xl:left-1/2 xl:right-auto xl:-translate-x-1/2"
+      className="absolute top-full z-[60] w-[min(980px,calc(100vw-2rem))] pt-3 right-0 xl:left-1/2 xl:right-auto xl:-translate-x-1/2"
     >
-      <div className="overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-xl shadow-slate-200/60 ring-1 ring-slate-900/5">
+      <div className="max-h-[calc(100vh-120px)] overflow-y-auto overscroll-contain rounded-2xl border border-slate-100 bg-white shadow-xl shadow-slate-200/60 ring-1 ring-slate-900/5 scrollbar-subtle">
         <div className="grid md:grid-cols-2 lg:grid-cols-3">
           {SERVICES_NAV_COLUMNS.map((column, index) => (
             <MegaMenuColumn key={column.id} column={column} columnIndex={index} onNavigate={onNavigate} />
@@ -163,15 +163,15 @@ export const ServicesMobileAccordions = ({ onNavigate }: ServicesMobileAccordion
             {isOpen && (
               <div
                 id={`mobile-services-${column.id}`}
-                className="border-t border-slate-100 px-3 pb-3 pt-2"
+                className="max-h-[min(50vh,360px)] overflow-y-auto overscroll-contain border-t border-slate-100 px-3 pb-3 pt-2 scrollbar-subtle"
                 role="region"
                 aria-label={column.title}
               >
                 {column.categories ? (
-                  <div className="space-y-4">
+                  <div className="space-y-3.5">
                     {column.categories.map((category) => (
                       <div key={category.title}>
-                        <p className="mb-2 px-2 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+                        <p className="mb-1.5 px-2 text-[11px] font-bold uppercase tracking-widest text-slate-400">
                           {category.title}
                         </p>
                         <ul className="flex flex-col gap-0.5" role="list">

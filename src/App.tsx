@@ -292,7 +292,8 @@ const Navbar = () => {
             transition={{ duration: 0.2 }}
             className="md:hidden overflow-hidden border-t border-slate-100 bg-white"
           >
-            <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
+            <div className="max-h-[calc(100vh-88px)] overflow-y-auto overscroll-contain scrollbar-subtle">
+              <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
               <Link
                 to="/#how-it-works"
                 className="px-3 py-3 text-sm font-medium text-brand-navy hover:text-brand-orange transition-colors rounded-xl hover:bg-slate-50"
@@ -366,6 +367,7 @@ const Navbar = () => {
                 <Phone size={16} />
                 615-200-0064
               </a>
+              </div>
             </div>
           </motion.div>
         )}
@@ -1430,7 +1432,7 @@ const ServiceAreas = () => {
   );
 };
 
-const HOME_SERVICE_AREAS = [
+const PRIMARY_SERVICE_AREAS = [
   'Goodlettsville',
   'Hendersonville',
   'Gallatin',
@@ -1443,49 +1445,93 @@ const HOME_SERVICE_AREAS = [
   'East Nashville',
   'North Nashville',
   'Downtown Nashville',
-  'Belle Meade',
-  'Brentwood',
+  'Old Hickory',
+  'Hermitage',
+  'Donelson',
   'Mt. Juliet',
-  'Millersville',
+  'Brentwood',
+  'Belle Meade',
+  'Franklin',
   'Ridgetop',
+  'Millersville',
 ];
+
+const REGIONAL_PROJECT_COVERAGE = [
+  'Lebanon',
+  'Clarksville',
+  'Dickson',
+  'Murfreesboro',
+  'Smyrna',
+  'La Vergne',
+  'Ashland City',
+  'Pleasant View',
+  'Columbia',
+  'Spring Hill',
+  'Cookeville',
+  'Bowling Green',
+  'Middle Tennessee',
+];
+
+const areaCardClassName =
+  'rounded-xl border border-slate-200 bg-slate-50/80 px-3 py-2 text-center text-sm font-semibold text-brand-navy';
 
 const AreasWeServe = () => {
   return (
     <section
       id="service-areas"
-      className="py-20 md:py-24 bg-white border-t border-slate-100"
+      className="py-16 md:py-20 bg-white border-t border-slate-100"
       aria-labelledby="areas-we-serve-heading"
     >
       <div className="max-w-7xl mx-auto px-6">
         <h2 id="areas-we-serve-heading" className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-4">
           Areas We Serve Across Middle Tennessee
         </h2>
-        <p className="text-slate-600 max-w-3xl text-base md:text-lg leading-relaxed mb-8 md:mb-10">
-          Reinhart Hauling &amp; Cleanouts proudly serves homeowners, investors, property managers, businesses,
-          contractors, and commercial clients throughout Middle Tennessee.
-          <br />
-          <br />
-          Most projects are completed within approximately 45 minutes of Goodlettsville, but we regularly travel
-          farther for larger cleanouts, demolition projects, and commercial work.
+        <p className="text-slate-600 max-w-3xl text-base md:text-lg leading-relaxed mb-5 md:mb-6">
+          Reinhart Hauling &amp; Cleanouts serves homeowners, investors, property managers, contractors, and businesses
+          throughout the Greater Nashville area and across Middle Tennessee.
+        </p>
+        <p className="text-slate-600 max-w-3xl text-base md:text-lg leading-relaxed mb-8 md:mb-9">
+          We routinely complete cleanouts, property turnovers, demolition support, and commercial projects throughout
+          Nashville and surrounding communities. For larger commercial cleanouts, retail decommissioning, tenant
+          improvement demo, property turnovers, and disaster-related projects, we can mobilize farther when the scope
+          makes sense.
         </p>
 
-        <ul
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-3 md:gap-4 mb-8 md:mb-10"
-          role="list"
-        >
-          {HOME_SERVICE_AREAS.map((area) => (
-            <li
-              key={area}
-              className="rounded-2xl border border-slate-200 bg-slate-50/80 px-3 py-3 sm:px-4 sm:py-3.5 text-center text-sm font-semibold text-brand-navy"
-            >
-              {area}
-            </li>
-          ))}
-        </ul>
+        <div className="space-y-7 md:space-y-8">
+          <div>
+            <h3 className="mb-3 text-xs font-bold uppercase tracking-widest text-brand-orange">Primary Service Area</h3>
+            <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-2.5" role="list">
+              {PRIMARY_SERVICE_AREAS.map((area) => (
+                <li key={area} className={areaCardClassName}>
+                  {area}
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        <p className="text-slate-500 text-sm md:text-base leading-relaxed max-w-2xl">
-          If your property isn&apos;t listed, send us the address—we&apos;re happy to review the project.
+          <div>
+            <h3 className="mb-3 text-xs font-bold uppercase tracking-widest text-slate-400">
+              Regional Project Coverage
+            </h3>
+            <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-2.5" role="list">
+              {REGIONAL_PROJECT_COVERAGE.map((area) => (
+                <li key={area} className={areaCardClassName}>
+                  {area}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <p className="mt-7 md:mt-8 text-slate-500 text-sm md:text-base leading-relaxed max-w-3xl">
+          Not sure if we serve your area?{' '}
+          <a
+            href="tel:6152000064"
+            className="font-bold text-brand-orange transition-colors hover:text-brand-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-offset-2 rounded-sm"
+          >
+            Contact us
+          </a>{' '}
+          with the property address and project details.
         </p>
       </div>
     </section>
@@ -1812,25 +1858,30 @@ const CTA = () => {
 
 const Footer = () => {
   const footerServices = [
-    { label: 'Estate Cleanouts', to: '/estate-cleanouts' },
     { label: 'Property Cleanouts', to: '/property-cleanouts' },
+    { label: 'Estate Cleanouts', to: '/estate-cleanouts' },
+    { label: 'Commercial Property Turnovers', to: '/commercial-property-turnovers' },
     { label: 'Commercial Cleanouts', to: '/commercial-cleanouts' },
-    { label: 'Garage Cleanouts', to: '/garage-cleanouts' },
-    { label: 'Rental Turnovers', to: '/landlord-rental-cleanouts' },
+    { label: 'Contractor Project Support', to: '/contractor-project-support' },
+    { label: 'Retail Decommissioning', to: '/retail-decommissioning' },
     { label: 'Interior Demolition', to: '/interior-demolition' },
-    { label: 'Yard Debris Removal', to: '/junk-removal-goodlettsville' },
+    { label: 'Tenant Improvement Demo', to: '/tenant-improvement-demolition' },
+    { label: 'Construction Cleanup', to: '/construction-cleanup' },
   ];
 
   const footerAreas = [
-    'Gallatin',
     'Goodlettsville',
-    'Greenbrier',
     'Hendersonville',
-    'Joelton',
-    'Madison',
     'Nashville',
-    'Springfield',
+    'East Nashville',
+    'Downtown Nashville',
+    'Gallatin',
+    'Mt. Juliet',
+    'Brentwood',
+    'Franklin',
     'White House',
+    'Springfield',
+    'Lebanon',
   ];
 
   const socialLinks = [
@@ -1854,8 +1905,8 @@ const Footer = () => {
             />
             <h2 className="font-display text-xl font-bold mb-3">Reinhart Hauling &amp; Cleanouts</h2>
             <p className="text-slate-300 text-sm leading-relaxed">
-              Helping homeowners, investors, landlords, estate representatives, and businesses move difficult property
-              projects forward throughout Middle Tennessee.
+              Helping homeowners, investors, property managers, contractors, and businesses move property projects
+              forward throughout Middle Tennessee.
             </p>
             <div className="flex gap-3 mt-6">
               {socialLinks.map((link) => (
@@ -1888,6 +1939,12 @@ const Footer = () => {
                   {service.label}
                 </Link>
               ))}
+              <Link
+                to="/industries"
+                className="block pt-2 text-sm font-semibold text-brand-orange hover:text-brand-orange-light transition-colors"
+              >
+                Industries We Serve
+              </Link>
             </nav>
           </div>
 
