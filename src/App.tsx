@@ -53,6 +53,7 @@ import PropertyCleanouts from './pages/PropertyCleanouts.tsx';
 import PropertyCleanup from './pages/PropertyCleanup.tsx';
 import ResidentialPropertyServices from './pages/ResidentialPropertyServices.tsx';
 import CommercialServicesHub from './pages/CommercialServicesHub.tsx';
+import ContractorProjectSupport from './pages/ContractorProjectSupport.tsx';
 import DemolitionServices from './pages/DemolitionServices.tsx';
 import About from './pages/About.tsx';
 import Projects from './pages/Projects.tsx';
@@ -630,6 +631,12 @@ const serviceCategories: ServiceCategory[] = [
     hubLink: '/commercial-services',
     hubCtaLabel: 'View Commercial Services',
     services: [
+      {
+        icon: <HardHat />,
+        title: 'Contractor Project Support',
+        desc: 'Dependable labor and project support for commercial renovations, TI work, and property transitions.',
+        to: '/contractor-project-support',
+      },
       {
         icon: <Building2 />,
         title: 'Commercial Property Turnovers',
@@ -2192,6 +2199,14 @@ export default function App() {
           element={
             <SiteLayout>
               <PropertyCleanup />
+            </SiteLayout>
+          }
+        />
+        <Route
+          path="/contractor-project-support"
+          element={
+            <SiteLayout>
+              <ContractorProjectSupport />
             </SiteLayout>
           }
         />

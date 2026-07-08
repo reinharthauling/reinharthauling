@@ -36,6 +36,7 @@ export const SERVICES_NAV_COLUMNS: ServiceNavColumn[] = [
     hubLink: '/commercial-services',
     viewAllLabel: 'View All Commercial Services',
     services: [
+      { label: 'Contractor Project Support', to: '/contractor-project-support' },
       { label: 'Commercial Property Turnovers', to: '/commercial-property-turnovers' },
       { label: 'Retail Decommissioning', to: '/retail-decommissioning' },
       { label: 'Commercial Interior Strip-Outs', to: '/commercial-interior-strip-outs' },

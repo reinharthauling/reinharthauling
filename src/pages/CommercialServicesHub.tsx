@@ -140,6 +140,14 @@ const commercialHubConfig: HubConfig = {
     'Defined commercial services for offices, warehouses, retail spaces, and managed properties.',
   services: [
     {
+      icon: HardHat,
+      title: 'Contractor Project Support',
+      description:
+        'Dependable labor and project support for commercial renovations, tenant improvements, and property transitions.',
+      to: '/contractor-project-support',
+      cta: 'Learn More',
+    },
+    {
       icon: Building2,
       title: 'Commercial Property Turnovers',
       description: 'Turnover cleanouts that help commercial units move from one tenant phase to the next.',
