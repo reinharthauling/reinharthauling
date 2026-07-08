@@ -54,7 +54,6 @@ import PropertyCleanup from './pages/PropertyCleanup.tsx';
 import ResidentialPropertyServices from './pages/ResidentialPropertyServices.tsx';
 import CommercialServicesHub from './pages/CommercialServicesHub.tsx';
 import DemolitionServices from './pages/DemolitionServices.tsx';
-import CommercialCleanouts from './pages/CommercialCleanouts.tsx';
 import About from './pages/About.tsx';
 import Projects from './pages/Projects.tsx';
 import ProjectDetail from './pages/ProjectDetail.tsx';
@@ -637,10 +636,28 @@ const serviceCategories: ServiceCategory[] = [
         to: '/commercial-property-turnovers',
       },
       {
+        icon: <Store />,
+        title: 'Retail Decommissioning',
+        desc: 'Fixture, inventory, and store contents removed during retail closures and transitions.',
+        to: '/retail-decommissioning',
+      },
+      {
+        icon: <Hammer />,
+        title: 'Commercial Interior Strip-Outs',
+        desc: 'Selective tear-out and fixture removal to prepare spaces for renovation or tenant improvement.',
+        to: '/commercial-interior-strip-outs',
+      },
+      {
         icon: <KeyRound />,
         title: 'Lease Surrender Preparation',
         desc: 'Load-out support aligned with lease-end deadlines and surrender requirements.',
         to: '/lease-surrender-preparation',
+      },
+      {
+        icon: <Archive />,
+        title: 'White Box Preparation',
+        desc: 'Clear tenant-specific contents so spaces present cleanly for marketing or build-out.',
+        to: '/white-box-preparation',
       },
       {
         icon: <Briefcase />,
@@ -2157,14 +2174,6 @@ export default function App() {
           element={
             <SiteLayout>
               <PropertyCleanup />
-            </SiteLayout>
-          }
-        />
-        <Route
-          path="/commercial-cleanouts"
-          element={
-            <SiteLayout>
-              <CommercialCleanouts />
             </SiteLayout>
           }
         />

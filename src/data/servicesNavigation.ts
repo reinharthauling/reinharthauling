@@ -38,10 +38,11 @@ export const SERVICES_NAV_COLUMNS: ServiceNavColumn[] = [
     services: [
       { label: 'Commercial Property Turnovers', to: '/commercial-property-turnovers' },
       { label: 'Retail Decommissioning', to: '/retail-decommissioning' },
+      { label: 'Commercial Interior Strip-Outs', to: '/commercial-interior-strip-outs' },
       { label: 'Lease Surrender Preparation', to: '/lease-surrender-preparation' },
       { label: 'White Box Preparation', to: '/white-box-preparation' },
-      { label: 'Retail Store Cleanouts', to: '/retail-store-cleanouts' },
       { label: 'Office Load-Outs', to: '/office-load-outs' },
+      { label: 'Retail Store Cleanouts', to: '/retail-store-cleanouts' },
       { label: 'Warehouse Cleanouts', to: '/warehouse-cleanouts' },
       { label: 'Property Management Cleanouts', to: '/property-management-cleanouts' },
       { label: 'Commercial Cleanouts', to: '/commercial-cleanouts' },

@@ -2,6 +2,7 @@ import ServiceHubPage from '../components/ServiceHubPage.tsx';
 import type { HubConfig } from '../components/ServiceHubPage.tsx';
 import {
   Archive,
+  Hammer,
   Briefcase,
   Building2,
   ClipboardCheck,
@@ -151,6 +152,13 @@ const commercialHubConfig: HubConfig = {
       to: '/retail-decommissioning',
     },
     {
+      icon: Hammer,
+      title: 'Commercial Interior Strip-Outs',
+      description:
+        'Selective interior tear-out, fixture removal, and debris haul-away for renovation and tenant improvement.',
+      to: '/commercial-interior-strip-outs',
+    },
+    {
       icon: KeyRound,
       title: 'Lease Surrender Preparation',
       description: 'Load-out support aligned with lease-end deadlines and surrender expectations.',
@@ -163,16 +171,16 @@ const commercialHubConfig: HubConfig = {
       to: '/white-box-preparation',
     },
     {
-      icon: Store,
-      title: 'Retail Store Cleanouts',
-      description: 'Fixtures, displays, shelving, backroom contents, and store cleanout support.',
-      to: '/retail-store-cleanouts',
-    },
-    {
       icon: Briefcase,
       title: 'Office Load-Outs',
       description: 'Cubicles, furniture, files, and office contents removed during decommissioning.',
       to: '/office-load-outs',
+    },
+    {
+      icon: Store,
+      title: 'Retail Store Cleanouts',
+      description: 'Fixtures, displays, shelving, backroom contents, and store cleanout support.',
+      to: '/retail-store-cleanouts',
     },
     {
       icon: Warehouse,
