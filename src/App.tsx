@@ -74,6 +74,7 @@ import TermsOfService from './pages/TermsOfService';
 import ScrollToTop from './ScrollToTop.tsx';
 import CleanoutProcess from './components/CleanoutProcess.tsx';
 import { ServicesMegaMenuPanel, ServicesMobileAccordions } from './components/ServicesMegaMenu.tsx';
+import ServiceAreaInquiryModal from './components/ServiceAreaInquiryModal.tsx';
 import EmailContactMenu from './components/EmailContactMenu.tsx';
 import DemolitionServicePage from './components/DemolitionServicePage.tsx';
 import { DEMOLITION_SERVICE_PAGES } from './data/demolitionServicePages.ts';
@@ -1475,13 +1476,19 @@ const REGIONAL_PROJECT_COVERAGE = [
 const areaCardClassName =
   'rounded-xl border border-slate-200 bg-slate-50/80 px-3 py-2 text-center text-sm font-semibold text-brand-navy';
 
+const linkClassName =
+  'font-bold text-brand-orange transition-colors hover:text-brand-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-offset-2 rounded-sm';
+
 const AreasWeServe = () => {
+  const [inquiryOpen, setInquiryOpen] = useState(false);
+
   return (
-    <section
-      id="service-areas"
-      className="py-16 md:py-20 bg-white border-t border-slate-100"
-      aria-labelledby="areas-we-serve-heading"
-    >
+    <>
+      <section
+        id="service-areas"
+        className="py-16 md:py-20 bg-white border-t border-slate-100"
+        aria-labelledby="areas-we-serve-heading"
+      >
       <div className="max-w-7xl mx-auto px-6">
         <h2 id="areas-we-serve-heading" className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-4">
           Areas We Serve Across Middle Tennessee
@@ -1525,16 +1532,20 @@ const AreasWeServe = () => {
 
         <p className="mt-7 md:mt-8 text-slate-500 text-sm md:text-base leading-relaxed max-w-3xl">
           Not sure if we serve your area?{' '}
-          <a
-            href="tel:6152000064"
-            className="font-bold text-brand-orange transition-colors hover:text-brand-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-offset-2 rounded-sm"
-          >
-            Contact us
+          <a href="tel:6152000064" className={linkClassName}>
+            Call us
           </a>{' '}
+          or{' '}
+          <button type="button" onClick={() => setInquiryOpen(true)} className={linkClassName}>
+            Email us
+          </button>{' '}
           with the property address and project details.
         </p>
       </div>
     </section>
+
+      <ServiceAreaInquiryModal isOpen={inquiryOpen} onClose={() => setInquiryOpen(false)} />
+    </>
   );
 };
 

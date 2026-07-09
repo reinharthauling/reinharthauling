@@ -51,6 +51,47 @@ async function startServer() {
     }
   });
 
+  app.post("/api/service-area-inquiry", async (req, res) => {
+    const { name, email, phone, propertyAddress, projectDetails } = req.body;
+
+    if (!name || !email || !phone || !propertyAddress || !projectDetails) {
+      return res.status(400).json({ success: false, error: 'Missing required fields' });
+    }
+
+    if (!resend) {
+      console.warn("RESEND_API_KEY is not set. Email will not be sent.");
+      return res.status(200).json({ success: true, message: "Inquiry received (Email not sent - API key missing)" });
+    }
+
+    try {
+      const { data, error } = await resend.emails.send({
+        from: 'Reinhart Hauling & Cleanouts <onboarding@resend.dev>',
+        to: ['office@reinharthauling.com'],
+        replyTo: email,
+        subject: `Service Area Inquiry from ${name}`,
+        html: `
+          <h1>Service Area Inquiry</h1>
+          <p><strong>Full Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Phone:</strong> ${phone}</p>
+          <p><strong>Property Address:</strong> ${propertyAddress}</p>
+          <p><strong>Project Details:</strong></p>
+          <p>${projectDetails}</p>
+        `,
+      });
+
+      if (error) {
+        console.error("Resend Error:", error);
+        return res.status(500).json({ success: false, error: error.message });
+      }
+
+      res.status(200).json({ success: true, data });
+    } catch (err) {
+      console.error("Server Error:", err);
+      res.status(500).json({ success: false, error: "Internal server error" });
+    }
+  });
+
   // Vite middleware for development
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
