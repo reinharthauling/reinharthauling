@@ -64,6 +64,13 @@ export default function PrivacyPolicy() {
                   If you have privacy questions, contact Reinhart Hauling &amp; Cleanouts at{' '}
                   <a href="tel:6152000064" className="text-brand-orange hover:text-brand-orange-light transition-colors">
                     615-200-0064
+                  </a>{' '}
+                  or{' '}
+                  <a
+                    href="mailto:office@reinharthauling.com"
+                    className="text-brand-orange hover:text-brand-orange-light transition-colors"
+                  >
+                    office@reinharthauling.com
                   </a>
                   .
                 </p>

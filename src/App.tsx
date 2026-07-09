@@ -1977,15 +1977,18 @@ const Footer = () => {
             <h3 className="font-display text-lg font-bold mb-4">Contact</h3>
             <div className="space-y-4 text-sm text-slate-300">
               <p>
-                <span className="block text-white font-semibold">Phone</span>
-                <a href="tel:6152000064" className="hover:text-brand-orange transition-colors">
+                Call or text{' '}
+                <a href="tel:6152000064" className="font-semibold text-white hover:text-brand-orange transition-colors">
                   615-200-0064
                 </a>
               </p>
               <p>
-                <span className="block text-white font-semibold">Text Photos</span>
-                <a href="sms:6152000064" className="hover:text-brand-orange transition-colors">
-                  Fastest way to get a quote
+                Email{' '}
+                <a
+                  href="mailto:office@reinharthauling.com"
+                  className="font-semibold text-white hover:text-brand-orange transition-colors"
+                >
+                  office@reinharthauling.com
                 </a>
               </p>
               <p>

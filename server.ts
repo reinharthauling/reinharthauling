@@ -26,7 +26,7 @@ async function startServer() {
     try {
       const { data, error } = await resend.emails.send({
         from: 'Reinhart Hauling & Cleanouts <onboarding@resend.dev>',
-        to: ['reinharthauling@gmail.com'],
+        to: ['office@reinharthauling.com'],
         subject: `New Quote Request: ${jobType} from ${name}`,
         html: `
           <h1>New Quote Request</h1>
