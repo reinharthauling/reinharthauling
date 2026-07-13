@@ -1,10 +1,10 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
-import { ArrowRight, MessageSquare, Phone } from 'lucide-react';
+import { ArrowRight, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
 import Breadcrumbs, { buildBreadcrumbSchema } from '../components/Breadcrumbs.tsx';
-import EmailContactMenu from '../components/EmailContactMenu.tsx';
 import { INDUSTRIES_NAV_LINKS, INDUSTRIES_HUB_PATH } from '../data/industriesNavigation.ts';
 
 const SITE_URL = 'https://www.reinharthauling.com';
@@ -17,8 +17,6 @@ const META_DESCRIPTION =
 const HERO_IMAGE =
   '/images/projects/2026%20Projects/2026-06_Commercial-Office-Cleanout_Nashville/01_Before/cubicle-office-before-01.jpeg';
 
-const SMS_HREF =
-  'sms:6152000064?body=Hi%2C%20I%27d%20like%20to%20discuss%20commercial%20property%20support%20for%20our%20project.';
 
 export default function IndustriesHub() {
   const canonicalUrl = `${SITE_URL}${INDUSTRIES_HUB_PATH}`;
@@ -156,52 +154,7 @@ export default function IndustriesHub() {
         </div>
       </section>
 
-      <section className="scroll-mt-32 bg-white py-24" data-hide-sticky-cta>
-        <div className="mx-auto max-w-7xl px-6 text-center">
-          <div className="mx-auto max-w-4xl">
-            <h2 className="mb-6 font-display text-4xl font-bold leading-tight text-brand-navy lg:text-5xl">
-              Need dependable commercial property support?
-            </h2>
-            <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-slate-600">
-              Text project photos, call to discuss scope, or explore our commercial services for your next property
-              transition.
-            </p>
-
-            <div className="flex flex-col justify-center gap-6 sm:flex-row">
-              <a
-                href={SMS_HREF}
-                className="flex items-center justify-center gap-3 rounded-2xl bg-brand-navy px-10 py-5 text-xl font-bold text-white shadow-2xl shadow-brand-navy/30 transition-all hover:scale-105 hover:bg-brand-orange"
-              >
-                <MessageSquare className="text-brand-orange" />
-                Text Photos for a Fast Quote
-              </a>
-              <Link
-                to="/commercial-services"
-                className="flex items-center justify-center gap-3 rounded-2xl border-2 border-slate-200 bg-white px-10 py-5 text-xl font-bold text-brand-navy transition-all hover:scale-105 hover:border-brand-orange"
-              >
-                View Commercial Services
-                <ArrowRight size={18} className="text-brand-orange" />
-              </Link>
-            </div>
-
-            <div className="mt-6 flex flex-col items-center gap-1">
-              <span className="text-sm font-semibold text-brand-navy">Prefer to talk through scope first?</span>
-              <span className="inline-flex items-center gap-2 text-sm font-semibold">
-                <a
-                  href="tel:6152000064"
-                  className="rounded-md text-brand-orange transition-colors hover:text-brand-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-offset-2"
-                >
-                  Call Us
-                </a>
-                <span className="text-slate-300" aria-hidden="true">
-                  •
-                </span>
-                <EmailContactMenu />
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceBottomCTA variant="light" sectionClassName="scroll-mt-32 bg-white py-24" showContactExtras />
     </>
   );
 }

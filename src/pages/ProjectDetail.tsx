@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useParams } from 'react-router-dom';
-import { ArrowLeft, CheckCircle2, MapPin, MessageSquare, Phone } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, MapPin } from 'lucide-react';
 import { motion } from 'motion/react';
+import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
 import { getProjectBySlug } from '../data/projects';
 
 type ManagedImageProps = {
@@ -220,30 +221,7 @@ export default function ProjectDetail() {
         </div>
       </section>
 
-      <section data-hide-sticky-cta className="bg-brand-navy py-20 text-white">
-        <div className="mx-auto max-w-5xl px-6 text-center">
-          <h2 className="mb-5 font-display text-4xl font-bold lg:text-5xl">Need help with a similar project?</h2>
-          <p className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-slate-300">
-            Text photos for a fast quote or call now to talk through the property, access, timing, and scope.
-          </p>
-          <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <a
-              href="sms:6152000064?body=Hi%2C%20I%27d%20like%20a%20fast%20quote%20for%20a%20similar%20project"
-              className="inline-flex items-center justify-center gap-3 rounded-2xl bg-brand-orange px-8 py-4 text-lg font-bold text-white shadow-2xl shadow-brand-orange/25"
-            >
-              <MessageSquare />
-              Text Photos for a Fast Quote
-            </a>
-            <a
-              href="tel:6152000064"
-              className="inline-flex items-center justify-center gap-3 rounded-2xl border-2 border-white/20 bg-white px-8 py-4 text-lg font-bold text-brand-navy transition-colors hover:border-brand-orange"
-            >
-              <Phone />
-              Call Now
-            </a>
-          </div>
-        </div>
-      </section>
+      <ServiceBottomCTA variant="dark" />
     </>
   );
 }

@@ -13,7 +13,8 @@ import {
   Truck,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import EmailContactMenu from '../components/EmailContactMenu.tsx';
+import PageCTAs from '../components/PageCTAs.tsx';
+import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
 import { getCommercialRelatedServices } from '../data/commercialNavigation.ts';
 
 const SITE_URL = 'https://www.reinharthauling.com';
@@ -27,10 +28,6 @@ const META_DESCRIPTION =
 const HERO_IMAGE =
   '/images/projects/2026%20Projects/2026-06_Commercial-Office-Cleanout_Nashville/01_Before/cubicle-office-before-01.jpeg';
 
-const SMS_PROJECT_SUPPORT =
-  'sms:6152000064?body=Hi%2C%20I%20need%20contractor%20project%20support%20for%20a%20commercial%20project.';
-const SMS_PHOTOS =
-  'sms:6152000064?body=Hi%2C%20I%27d%20like%20to%20text%20photos%20for%20commercial%20project%20support.';
 
 const WHO_WE_WORK_WITH = [
   'General Contractors',
@@ -278,26 +275,7 @@ export default function ContractorProjectSupport() {
                   removal, and project cleanup throughout Middle Tennessee.
                 </p>
 
-                <div className="flex flex-col gap-4 sm:flex-row">
-                  <motion.a
-                    href={SMS_PROJECT_SUPPORT}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="group flex items-center justify-center gap-3 rounded-2xl bg-brand-navy px-8 py-4 text-lg font-bold text-white shadow-2xl shadow-brand-navy/30 transition-all hover:bg-brand-orange"
-                  >
-                    <MessageSquare className="text-brand-orange" />
-                    Request Project Support
-                  </motion.a>
-                  <motion.a
-                    href={SMS_PHOTOS}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="flex items-center justify-center gap-3 rounded-2xl border-2 border-slate-200 bg-white px-8 py-4 text-lg font-bold text-brand-navy transition-colors hover:border-brand-orange"
-                  >
-                    <MessageSquare />
-                    Text Project Photos
-                  </motion.a>
-                </div>
+                <PageCTAs layout="hero" />
               </motion.div>
             </div>
 
@@ -534,52 +512,7 @@ export default function ContractorProjectSupport() {
         </div>
       </section>
 
-      <section className="scroll-mt-32 bg-slate-50 py-24" data-hide-sticky-cta>
-        <div className="mx-auto max-w-7xl px-6 text-center">
-          <div className="mx-auto max-w-4xl">
-            <h2 className="mb-6 font-display text-4xl font-bold leading-tight text-brand-navy lg:text-5xl">
-              Need dependable project support?
-            </h2>
-            <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-slate-600">
-              Let&apos;s discuss your project. Text photos, call to review scope, or request a walkthrough for larger
-              commercial renovation and TI work.
-            </p>
-
-            <div className="flex flex-col justify-center gap-6 sm:flex-row">
-              <a
-                href={SMS_PHOTOS}
-                className="flex items-center justify-center gap-3 rounded-2xl bg-brand-navy px-10 py-5 text-xl font-bold text-white shadow-2xl shadow-brand-navy/30 transition-all hover:scale-105 hover:bg-brand-orange"
-              >
-                <MessageSquare className="text-brand-orange" />
-                Text Photos
-              </a>
-              <a
-                href="tel:6152000064"
-                className="flex items-center justify-center gap-3 rounded-2xl border-2 border-slate-200 bg-white px-10 py-5 text-xl font-bold text-brand-navy transition-all hover:scale-105 hover:border-brand-orange"
-              >
-                <Phone />
-                Call Now
-              </a>
-            </div>
-
-            <div className="mt-6 flex flex-col items-center gap-1">
-              <span className="text-sm font-semibold text-brand-navy">Need an on-site walkthrough?</span>
-              <span className="inline-flex items-center gap-2 text-sm font-semibold">
-                <a
-                  href="tel:6152000064"
-                  className="rounded-md text-brand-orange transition-colors hover:text-brand-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-offset-2"
-                >
-                  Call Us
-                </a>
-                <span className="text-slate-300" aria-hidden="true">
-                  •
-                </span>
-                <EmailContactMenu />
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceBottomCTA variant="light" showContactExtras />
     </>
   );
 }

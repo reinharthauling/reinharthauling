@@ -2,13 +2,12 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
+import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
 import {
   ArrowRight,
   Building2,
   Hammer,
   Home,
-  MessageSquare,
-  Phone,
   ShieldCheck,
 } from 'lucide-react';
 
@@ -240,32 +239,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="scroll-mt-32 bg-white py-24" data-hide-sticky-cta>
-        <div className="mx-auto max-w-7xl px-6 text-center">
-          <div className="mx-auto max-w-4xl">
-            <h2 className="mb-8 font-display text-5xl font-bold leading-tight text-brand-navy lg:text-6xl">
-              Need help moving a property forward?
-            </h2>
-
-            <div className="flex flex-col justify-center gap-6 sm:flex-row">
-              <a
-                href="sms:6152000064?body=Hi%2C%20I%20need%20help%20moving%20a%20property%20project%20forward"
-                className="flex items-center justify-center gap-3 rounded-2xl bg-brand-navy px-10 py-5 text-xl font-bold text-white shadow-2xl shadow-brand-navy/30 transition-all hover:scale-105 hover:bg-brand-orange"
-              >
-                <MessageSquare className="text-brand-orange" />
-                Text Photos for a Fast Quote
-              </a>
-              <a
-                href="tel:6152000064"
-                className="flex items-center justify-center gap-3 rounded-2xl border-2 border-slate-200 bg-white px-10 py-5 text-xl font-bold text-brand-navy transition-all hover:scale-105 hover:border-brand-orange"
-              >
-                <Phone />
-                Call Now
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceBottomCTA variant="light" sectionClassName="scroll-mt-32 bg-white py-24" showContactExtras />
     </>
   );
 }

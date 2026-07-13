@@ -12,6 +12,8 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import EmailContactMenu from './EmailContactMenu.tsx';
+import PageCTAs from './PageCTAs.tsx';
+import ServiceBottomCTA from './ServiceBottomCTA.tsx';
 import {
   getRelatedResidentialServices,
   type ResidentialServicePageConfig,
@@ -24,9 +26,9 @@ const PROCESS_STEPS = [
   {
     number: '01',
     icon: MessageSquare,
-    title: 'Text Photos or Schedule a Walkthrough',
+    title: 'Request an Estimate or Schedule a Walkthrough',
     description:
-      'Share photos for smaller scopes, or schedule a walkthrough when volume, access, or project complexity requires it.',
+      'Share project details for an estimate, or schedule a walkthrough when volume, access, or project complexity requires it.',
   },
   {
     number: '02',
@@ -56,9 +58,6 @@ type ResidentialServicePageProps = {
 
 export default function ResidentialServicePage({ config }: ResidentialServicePageProps) {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
-  const smsHref =
-    config.smsBody ??
-    `sms:6152000064?body=${encodeURIComponent(`Hi, I need help with ${config.heroHeadline.toLowerCase()}.`)}`;
   const canonicalUrl = `${SITE_URL}${config.canonicalPath}`;
   const ogTitle = config.ogTitle ?? config.pageTitle;
   const relatedServices = getRelatedResidentialServices(config.canonicalPath, config.category);
@@ -128,26 +127,7 @@ export default function ResidentialServicePage({ config }: ResidentialServicePag
                 </h1>
                 <p className="mb-6 max-w-2xl text-lg leading-relaxed text-slate-600 lg:text-xl">{config.heroIntro}</p>
 
-                <div className="flex flex-col gap-4 sm:flex-row">
-                  <motion.a
-                    href={smsHref}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="group flex items-center justify-center gap-3 rounded-2xl bg-brand-navy px-8 py-4 text-lg font-bold text-white shadow-2xl shadow-brand-navy/30 transition-all hover:bg-brand-orange"
-                  >
-                    <MessageSquare className="text-brand-orange" />
-                    Text Photos for a Fast Quote
-                  </motion.a>
-                  <motion.a
-                    href="tel:6152000064"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="flex items-center justify-center gap-3 rounded-2xl border-2 border-slate-200 bg-white px-8 py-4 text-lg font-bold text-brand-navy transition-colors hover:border-brand-orange"
-                  >
-                    <Phone />
-                    Call Now
-                  </motion.a>
-                </div>
+                <PageCTAs layout="hero" />
               </motion.div>
             </div>
 
@@ -314,51 +294,7 @@ export default function ResidentialServicePage({ config }: ResidentialServicePag
         </div>
       </section>
 
-      <section className="scroll-mt-32 bg-slate-50 py-24" data-hide-sticky-cta>
-        <div className="mx-auto max-w-7xl px-6 text-center">
-          <div className="mx-auto max-w-4xl">
-            <h2 className="mb-6 font-display text-4xl font-bold leading-tight text-brand-navy lg:text-5xl">
-              Ready to move your property project forward?
-            </h2>
-            <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-slate-600">
-              Text photos for a fast quote, call to discuss scope, or request a walkthrough for larger property projects.
-            </p>
-
-            <div className="flex flex-col justify-center gap-6 sm:flex-row">
-              <a
-                href={smsHref}
-                className="flex items-center justify-center gap-3 rounded-2xl bg-brand-navy px-10 py-5 text-xl font-bold text-white shadow-2xl shadow-brand-navy/30 transition-all hover:scale-105 hover:bg-brand-orange"
-              >
-                <MessageSquare className="text-brand-orange" />
-                Text Photos for a Fast Quote
-              </a>
-              <a
-                href="tel:6152000064"
-                className="flex items-center justify-center gap-3 rounded-2xl border-2 border-slate-200 bg-white px-10 py-5 text-xl font-bold text-brand-navy transition-all hover:scale-105 hover:border-brand-orange"
-              >
-                <Phone />
-                Call Now
-              </a>
-            </div>
-
-            <div className="mt-6 flex flex-col items-center gap-1">
-              <span className="text-sm font-semibold text-brand-navy">Need an on-site walkthrough?</span>
-              <span className="inline-flex items-center gap-2 text-sm font-semibold">
-                <a
-                  href="tel:6152000064"
-                  className="rounded-md text-brand-orange transition-colors hover:text-brand-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-offset-2"
-                >
-                  Call Us
-                </a>
-                <span className="text-slate-300" aria-hidden="true">
-                  •
-                </span>
-                <EmailContactMenu />
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceBottomCTA variant="light" showContactExtras />
     </>
   );
 }

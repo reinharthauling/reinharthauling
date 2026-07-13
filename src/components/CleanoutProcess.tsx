@@ -1,22 +1,23 @@
 import React from 'react';
-import { Calendar, CheckCircle2, MessageSquare, Truck, type LucideIcon } from 'lucide-react';
+import { Calendar, CheckCircle2, ClipboardList, Truck, type LucideIcon } from 'lucide-react';
+import { useEstimateRequest } from '../context/EstimateRequestContext.tsx';
 
 type ProcessStep = {
   number: string;
   icon: LucideIcon;
   title: string;
   description: string;
-  cta?: { href: string; label: string };
+  cta?: { href?: string; label: string; estimate?: boolean };
 };
 
 const DEFAULT_PROCESS_STEPS: ProcessStep[] = [
   {
     number: '01',
-    icon: MessageSquare,
-    title: 'Send Photos or Project Details',
+    icon: ClipboardList,
+    title: 'Request an Estimate',
     description:
-      'Share photos, project details, access notes, and timing needs so we can understand the problem and respond clearly.',
-    cta: { href: 'sms:6152000064', label: 'Text Photos \u2192' },
+      'Share project details, property information, access notes, and timing needs so we can understand the scope and respond clearly.',
+    cta: { label: 'Request an Estimate →', estimate: true },
   },
   {
     number: '02',
@@ -24,10 +25,7 @@ const DEFAULT_PROCESS_STEPS: ProcessStep[] = [
     title: 'Clear Scope & Pricing',
     description:
       'We review labor, access, volume, disposal needs, and scheduling, then provide straightforward recommendations and pricing.',
-    cta: {
-      href: 'sms:6152000064?body=Hi%20I%20need%20pricing%20for%20a%20cleanout',
-      label: 'Get Pricing \u2192',
-    },
+    cta: { href: 'tel:6152000064', label: 'Call Now →' },
   },
   {
     number: '03',
@@ -35,7 +33,7 @@ const DEFAULT_PROCESS_STEPS: ProcessStep[] = [
     title: 'Efficient Execution & Completion',
     description:
       'Our crew arrives prepared, completes the work efficiently, communicates throughout the project, and leaves the property ready for what is next.',
-    cta: { href: 'tel:6152000064', label: 'Call Now \u2192' },
+    cta: { href: 'tel:6152000064', label: 'Call Now →' },
   },
 ];
 
@@ -56,6 +54,7 @@ export default function CleanoutProcess({
   steps = DEFAULT_PROCESS_STEPS,
   showEyebrow = true,
 }: CleanoutProcessProps) {
+  const { openEstimateRequest } = useEstimateRequest();
   const gridClass =
     steps.length === 4
       ? 'grid gap-8 md:gap-10 sm:grid-cols-2 lg:grid-cols-4'
@@ -88,14 +87,23 @@ export default function CleanoutProcess({
                 </div>
                 <h3 className="font-display text-2xl font-bold text-brand-navy mb-3">{step.title}</h3>
                 <p className="text-slate-600 leading-relaxed flex-1">{step.description}</p>
-                {step.cta && (
-                  <a
-                    href={step.cta.href}
-                    className="mt-6 inline-flex items-center text-sm font-semibold text-brand-navy hover:text-brand-orange transition-colors"
-                  >
-                    {step.cta.label}
-                  </a>
-                )}
+                {step.cta &&
+                  (step.cta.estimate ? (
+                    <button
+                      type="button"
+                      onClick={openEstimateRequest}
+                      className="mt-6 inline-flex items-center text-sm font-semibold text-brand-navy hover:text-brand-orange transition-colors"
+                    >
+                      {step.cta.label}
+                    </button>
+                  ) : (
+                    <a
+                      href={step.cta.href}
+                      className="mt-6 inline-flex items-center text-sm font-semibold text-brand-navy hover:text-brand-orange transition-colors"
+                    >
+                      {step.cta.label}
+                    </a>
+                  ))}
               </div>
             );
           })}

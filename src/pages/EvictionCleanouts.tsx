@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { CalendarClock, CheckCircle2, ChevronDown, ClipboardCheck, MapPin, MessageSquare, Phone, Truck } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import PageCTAs from '../components/PageCTAs.tsx';
 import CleanoutProcess from '../components/CleanoutProcess.tsx';
 
 const WHO_WE_HELP = [
@@ -71,10 +72,10 @@ const EVICTION_PROCESS_STEPS = [
   {
     number: '01',
     icon: MessageSquare,
-    title: 'Text Photos or Request Walkthrough',
+    title: 'Request an Estimate or Schedule a Walkthrough',
     description:
-      'Smaller turnovers can often be quoted from photos. For larger or more complex jobs, we can schedule a walkthrough first.',
-    cta: { href: 'sms:6152000064', label: 'Text Photos ->' },
+      'Submit project details for smaller turnovers. For larger or more complex jobs, we can schedule a walkthrough first.',
+    cta: { label: 'Request an Estimate →', estimate: true },
   },
   {
     number: '02',
@@ -82,7 +83,7 @@ const EVICTION_PROCESS_STEPS = [
     title: 'Scope Review & Scheduling Plan',
     description:
       'We review access, labor, debris volume, disposal needs, and scheduling so expectations are clear before work begins.',
-    cta: { href: 'sms:6152000064?body=Hi%20I%20need%20an%20eviction%20cleanout%20quote', label: 'Get Scope & Pricing ->' },
+    cta: { href: 'tel:6152000064', label: 'Call Now →' },
   },
   {
     number: '03',
@@ -98,7 +99,7 @@ const EVICTION_FAQS = [
   {
     question: 'How quickly can you schedule an eviction cleanout?',
     answer:
-      'We prioritize turnover timelines and can often schedule quickly depending on scope and calendar availability. Text photos first and we can usually give you a clear next-step timeline right away.',
+      'We prioritize turnover timelines and can often schedule quickly depending on scope and calendar availability. Request an estimate and we can usually give you a clear next-step timeline right away.',
   },
   {
     question: 'Do you work with property managers?',
@@ -179,7 +180,7 @@ export default function EvictionCleanouts() {
                 </p>
 
                 <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 max-w-2xl">
-                  Smaller jobs can often be quoted from texted photos. Larger turnovers and more complex properties
+                  Smaller jobs can often be quoted from submitted project details. Larger turnovers and more complex properties
                   can be reviewed through an on-site walkthrough so scope, access, and scheduling are clear upfront.
                 </p>
 
@@ -209,26 +210,7 @@ export default function EvictionCleanouts() {
                   .
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <motion.a
-                    href="sms:6152000064?body=Hi%2C%20I%20need%20an%20eviction%20cleanout%20quote"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="bg-brand-navy text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-brand-navy/30 flex items-center justify-center gap-3 group hover:bg-brand-orange transition-all"
-                  >
-                    <MessageSquare className="text-brand-orange" />
-                    Text Photos for a Fast Quote
-                  </motion.a>
-                  <motion.a
-                    href="tel:6152000064"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="bg-white border-2 border-slate-200 text-brand-navy px-8 py-4 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 hover:border-brand-orange transition-colors"
-                  >
-                    <Phone />
-                    Call Now
-                  </motion.a>
-                </div>
+                <PageCTAs layout="hero" />
               </motion.div>
             </div>
           </div>

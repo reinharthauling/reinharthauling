@@ -5,12 +5,12 @@ const FAQ_ITEMS = [
   {
     question: 'How does an estate cleanout work?',
     answer:
-      'You reach out with photos or a brief description of the property. We review scope, discuss whether a walkthrough makes sense, confirm pricing, schedule the job, and handle the cleanout from load-out through final sweep-through.',
+      'You reach out with project details or a brief description of the property. We review scope, discuss whether a walkthrough makes sense, confirm pricing, schedule the job, and handle the cleanout from load-out through final sweep-through.',
   },
   {
-    question: 'Can I text photos for a quote?',
+    question: 'How do I request an estimate?',
     answer:
-      'Yes. Photos are often the fastest way to get started—especially for smaller or straightforward jobs. Text what you can, and we will tell you if we need more detail or an on-site look.',
+      'Submit project details through our estimate request form, call us at 615-200-0064, text, or email. We review scope, access, and timing, then provide clear pricing and next steps.',
   },
   {
     question: 'Do larger projects require a walkthrough?',

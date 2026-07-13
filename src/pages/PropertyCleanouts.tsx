@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { Calendar, CheckCircle2, ChevronDown, ClipboardCheck, MessageSquare, Truck } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import PageCTAs from '../components/PageCTAs.tsx';
 import CleanoutProcess from '../components/CleanoutProcess.tsx';
 import { projectImages } from '../data/projectImages';
 
@@ -103,10 +104,10 @@ const PROPERTY_PROCESS_STEPS = [
   {
     number: '01',
     icon: MessageSquare,
-    title: 'Text Photos or Request Walkthrough',
+    title: 'Request an Estimate or Schedule a Walkthrough',
     description:
-      'Smaller scopes can often start from photos. Larger or more involved properties usually benefit from a walkthrough for accurate quoting and planning.',
-    cta: { href: 'sms:6152000064', label: 'Text Photos \u2192' },
+      'Submit project details for smaller scopes. Larger or more involved properties usually benefit from a walkthrough for accurate quoting and planning.',
+    cta: { label: 'Request an Estimate →', estimate: true },
   },
   {
     number: '02',
@@ -114,10 +115,7 @@ const PROPERTY_PROCESS_STEPS = [
     title: 'Scope Review & Scheduling Plan',
     description:
       'We review property access, debris volume, labor needs, disposal requirements, and scheduling so expectations are clear before the crew arrives.',
-    cta: {
-      href: 'sms:6152000064?body=Hi%2C%20I%27d%20like%20to%20schedule%20a%20walkthrough%20for%20a%20property%20cleanout',
-      label: 'Schedule Walkthrough \u2192',
-    },
+    cta: { href: 'tel:6152000064', label: 'Call Now →' },
   },
   {
     number: '03',
@@ -154,12 +152,12 @@ const PROPERTY_FAQS = [
   {
     question: 'What types of properties do you clean out?',
     answer:
-      'Single-family homes, inherited properties, rentals, apartments, and properties with garages, basements, sheds, and storage areas. If you are unsure whether your situation fits, text photos and we can tell you quickly.',
+      'Single-family homes, inherited properties, rentals, apartments, and properties with garages, basements, sheds, and storage areas. If you are unsure whether your situation fits, request an estimate and we can tell you quickly.',
   },
   {
-    question: 'Can I text photos for a quote?',
+    question: 'How do I request an estimate?',
     answer:
-      'Yes. Photos are often the fastest way to get started—especially for smaller or more straightforward scopes. We will let you know if a walkthrough makes more sense.',
+      'Submit project details through our estimate request form, call us at 615-200-0064, text, or email. We review scope, access, and timing, then provide clear pricing and next steps.',
   },
   {
     question: 'Do larger projects require a walkthrough?',
@@ -276,26 +274,7 @@ export default function PropertyCleanouts() {
                 .
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <motion.a
-                  href="sms:6152000064?body=Hi%2C%20I%20need%20a%20property%20cleanout%20quote"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="bg-brand-navy text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-brand-navy/30 flex items-center justify-center gap-3 group hover:bg-brand-orange transition-all"
-                >
-                  <MessageSquare className="text-brand-orange" />
-                  Text Photos for a Fast Quote
-                </motion.a>
-                <motion.a
-                  href="sms:6152000064?body=Hi%2C%20I%27d%20like%20to%20schedule%20a%20walkthrough%20for%20a%20property%20cleanout"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="bg-white border-2 border-slate-200 text-brand-navy px-8 py-4 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 hover:border-brand-orange transition-colors"
-                >
-                  <Calendar className="text-brand-orange" />
-                  Schedule a Walkthrough
-                </motion.a>
-              </div>
+              <PageCTAs layout="hero" />
             </motion.div>
           </div>
         </div>

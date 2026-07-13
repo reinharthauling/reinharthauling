@@ -48,12 +48,12 @@ const demolitionHubConfig: HubConfig = {
   heroImage: `${DEMO_BASE}/04_Hero/hero-insulation-during-01.jpeg`,
   heroImageAlt: 'Interior demolition and tear-out project in Portland TN',
   primaryCta: {
-    label: 'Request Demo Quote',
-    href: 'sms:6152000064?body=Hi%2C%20I%20need%20a%20quote%20for%20demolition%20services',
+    label: 'Request an Estimate',
+    href: 'tel:6152000064',
   },
   secondaryCta: {
-    label: 'Text Project Photos',
-    href: 'sms:6152000064?body=Hi%2C%20I%27d%20like%20to%20text%20photos%20for%20a%20demolition%20project',
+    label: 'Call Now',
+    href: 'tel:6152000064',
   },
   positioningTitle: 'Selective Demolition for Property Preparation',
   positioningParagraphs: [
@@ -223,10 +223,10 @@ const demolitionHubConfig: HubConfig = {
     {
       number: '01',
       icon: MessageSquare,
-      title: 'Send Photos or Schedule a Walkthrough',
+      title: 'Request an Estimate or Schedule a Walkthrough',
       description:
-        'Share photos of the tear-out area or walk the space so we can understand materials, access, debris volume, and renovation goals.',
-      cta: { href: 'sms:6152000064?body=Hi%2C%20I%20need%20demolition%20help', label: 'Text Photos →' },
+        'Submit project details or walk the space so we can understand materials, access, debris volume, and renovation goals.',
+      cta: { label: 'Request an Estimate →', estimate: true },
     },
     {
       number: '02',
@@ -234,7 +234,7 @@ const demolitionHubConfig: HubConfig = {
       title: 'Confirm Scope, Access & Safety',
       description:
         'We review what stays, what goes, parking, entry points, debris staging, and timing before tear-out begins.',
-      cta: { href: 'sms:6152000064?body=Hi%2C%20I%27d%20like%20a%20demo%20quote', label: 'Get Pricing →' },
+      cta: { href: 'tel:6152000064', label: 'Call Now →' },
     },
     {
       number: '03',
@@ -336,18 +336,9 @@ const demolitionHubConfig: HubConfig = {
     {
       question: 'How is demo pricing determined?',
       answer:
-        'Pricing depends on materials, access, labor, debris volume, and disposal needs. Texting photos is the fastest way to receive an upfront quote.',
+        'Pricing depends on materials, access, labor, debris volume, and disposal needs. Requesting an estimate with project details is the best way to receive upfront pricing.',
     },
   ],
-  bottomCta: {
-    headline: 'Need Selective Demolition Support?',
-    copy: 'Text project photos for a demo quote or call to discuss tear-out scope, debris removal, and timing.',
-    primary: {
-      label: 'Request Demo Quote',
-      href: 'sms:6152000064?body=Hi%2C%20I%20need%20a%20quote%20for%20demolition%20services',
-    },
-    secondary: { label: 'Call Now', href: 'tel:6152000064' },
-  },
 };
 
 export default function DemolitionServices() {

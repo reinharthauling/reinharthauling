@@ -1,7 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { motion } from 'motion/react';
+import PageCTAs from '../components/PageCTAs.tsx';
+import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
 import {
   ArrowRight,
   CalendarDays,
@@ -9,8 +10,6 @@ import {
   ClipboardCheck,
   Home,
   MapPin,
-  MessageSquare,
-  Phone,
   Recycle,
   ShieldCheck,
   Sparkles,
@@ -171,28 +170,7 @@ const videos = [
   },
 ];
 
-const CTAButtons = () => (
-  <div className="flex flex-col gap-4 sm:flex-row">
-    <motion.a
-      href="sms:6152000064?body=Hi%2C%20I%27d%20like%20a%20fast%20quote%20for%20a%20property%20cleanup"
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      className="inline-flex items-center justify-center gap-3 rounded-2xl bg-brand-navy px-8 py-4 text-lg font-bold text-white shadow-2xl shadow-brand-navy/25 transition-colors hover:bg-brand-orange"
-    >
-      <MessageSquare className="text-brand-orange" />
-      Text Photos for a Fast Quote
-    </motion.a>
-    <motion.a
-      href="tel:6152000064"
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      className="inline-flex items-center justify-center gap-3 rounded-2xl border-2 border-slate-200 bg-white px-8 py-4 text-lg font-bold text-brand-navy transition-colors hover:border-brand-orange"
-    >
-      <Phone />
-      Call Now
-    </motion.a>
-  </div>
-);
+const CTAButtons = () => <PageCTAs layout="hero" />;
 
 export default function HoarderPropertyCleanupJoelton() {
   return (
@@ -477,31 +455,7 @@ export default function HoarderPropertyCleanupJoelton() {
         </div>
       </section>
 
-      <section data-hide-sticky-cta className="bg-brand-navy py-24 text-white">
-        <div className="mx-auto max-w-5xl px-6 text-center">
-          <h2 className="mb-6 font-display text-4xl font-bold lg:text-5xl">Need help clearing a difficult property?</h2>
-          <p className="mx-auto mb-8 max-w-3xl text-lg leading-relaxed text-slate-300">
-            Whether you&apos;re dealing with a hoarder property, estate, rental turnover, or investment property,
-            Reinhart provides professional property cleanup services throughout Middle Tennessee.
-          </p>
-          <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <a
-              href="sms:6152000064?body=Hi%2C%20I%27d%20like%20a%20fast%20quote%20for%20a%20property%20cleanup"
-              className="inline-flex items-center justify-center gap-3 rounded-2xl bg-brand-orange px-8 py-4 text-lg font-bold text-white shadow-2xl shadow-brand-orange/25 transition-transform hover:scale-[1.02]"
-            >
-              <MessageSquare />
-              Text Photos for a Fast Quote
-            </a>
-            <a
-              href="tel:6152000064"
-              className="inline-flex items-center justify-center gap-3 rounded-2xl border-2 border-white/20 bg-white px-8 py-4 text-lg font-bold text-brand-navy transition-colors hover:border-brand-orange"
-            >
-              <Phone />
-              Call Now
-            </a>
-          </div>
-        </div>
-      </section>
+      <ServiceBottomCTA variant="dark" />
     </>
   );
 }

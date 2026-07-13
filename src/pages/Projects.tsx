@@ -1,7 +1,8 @@
 import React, { useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
-import { MessageSquare, Phone, ShieldCheck } from 'lucide-react';
+import PageCTAs from '../components/PageCTAs.tsx';
+import { ShieldCheck } from 'lucide-react';
 import ProjectCard from '../components/ProjectCard';
 import { PROJECT_FILTERS, projects, type ProjectFilter } from '../data/projects';
 
@@ -46,26 +47,7 @@ export default function Projects() {
                 difficult property projects forward throughout Middle Tennessee.
               </p>
 
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <motion.a
-                  href="sms:6152000064?body=Hi%2C%20I%27d%20like%20a%20fast%20quote%20for%20a%20similar%20project"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center justify-center gap-3 rounded-2xl bg-brand-navy px-8 py-4 text-lg font-bold text-white shadow-2xl shadow-brand-navy/25"
-                >
-                  <MessageSquare className="text-brand-orange" />
-                  Text Photos for a Fast Quote
-                </motion.a>
-                <motion.a
-                  href="tel:6152000064"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center justify-center gap-3 rounded-2xl border-2 border-slate-200 bg-white px-8 py-4 text-lg font-bold text-brand-navy transition-colors hover:border-brand-orange"
-                >
-                  <Phone />
-                  Call Now
-                </motion.a>
-              </div>
+              <PageCTAs layout="hero" />
 
               <p className="mt-5 flex items-center gap-2 text-sm font-semibold text-slate-500">
                 <ShieldCheck size={17} className="text-brand-orange" />

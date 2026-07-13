@@ -56,12 +56,12 @@ const residentialHubConfig: HubConfig = {
   heroImage: `${INVESTOR_BASE}/04_Hero/hero-general-property-after-01%20copy.jpeg`,
   heroImageAlt: 'Residential property cleanup completed in Gallatin TN',
   primaryCta: {
-    label: 'Get a Quote',
-    href: 'sms:6152000064?body=Hi%2C%20I%20need%20a%20quote%20for%20residential%20property%20services',
+    label: 'Request an Estimate',
+    href: 'tel:6152000064',
   },
   secondaryCta: {
-    label: 'Text Photos',
-    href: 'sms:6152000064?body=Hi%2C%20I%27d%20like%20to%20text%20photos%20for%20property%20services',
+    label: 'Call Now',
+    href: 'tel:6152000064',
   },
   positioningTitle: 'A Property Cleanup Division Built for Real Projects',
   positioningParagraphs: [
@@ -314,15 +314,15 @@ const residentialHubConfig: HubConfig = {
   ],
   processTitle: 'How Residential Property Projects Work',
   processSubtitle:
-    'Photos work well for smaller scopes. Walkthroughs help on larger properties so labor, access, and disposal planning stay accurate.',
+    'Estimate requests work well for smaller scopes. Walkthroughs help on larger properties so labor, access, and disposal planning stay accurate.',
   processSteps: [
     {
       number: '01',
       icon: MessageSquare,
-      title: 'Share Photos or Request a Walkthrough',
+      title: 'Request an Estimate or Schedule a Walkthrough',
       description:
-        'Text photos for smaller cleanouts, or schedule a walkthrough when the property is heavily involved, hard to access, or needs a closer volume assessment.',
-      cta: { href: 'sms:6152000064?body=Hi%2C%20I%27d%20like%20to%20text%20photos%20for%20a%20property%20cleanout', label: 'Text Photos →' },
+        'Submit project details for smaller cleanouts, or schedule a walkthrough when the property is heavily involved, hard to access, or needs a closer volume assessment.',
+      cta: { label: 'Request an Estimate →', estimate: true },
     },
     {
       number: '02',
@@ -330,10 +330,7 @@ const residentialHubConfig: HubConfig = {
       title: 'Review Scope, Access & Scheduling',
       description:
         'We confirm what stays, what goes, labor needs, disposal requirements, and timing so there are no surprises when the crew arrives.',
-      cta: {
-        href: 'sms:6152000064?body=Hi%2C%20I%27d%20like%20to%20schedule%20a%20walkthrough%20for%20property%20cleanup',
-        label: 'Schedule Walkthrough →',
-      },
+      cta: { href: 'tel:6152000064', label: 'Call Now →' },
     },
     {
       number: '03',
@@ -431,9 +428,9 @@ const residentialHubConfig: HubConfig = {
         'Not always. Many property projects can be completed with remote coordination as long as access, scope, and disposal expectations are confirmed in advance.',
     },
     {
-      question: 'Can I start with photos instead of a walkthrough?',
+      question: 'How do I request an estimate?',
       answer:
-        'Yes. Smaller or more straightforward scopes often start from texted photos. Larger estates, hoarder situations, and heavily involved properties usually benefit from a walkthrough first.',
+        'Submit project details through our estimate request form, call us at 615-200-0064, text, or email. We review scope, access, and timing, then provide clear pricing and next steps.',
     },
     {
       question: 'Do you work with property managers and investors?',
@@ -443,18 +440,9 @@ const residentialHubConfig: HubConfig = {
     {
       question: 'How is pricing determined?',
       answer:
-        'Pricing is based on volume, labor, access, item weight, disposal needs, and project complexity. Texting photos is usually the fastest way to receive an upfront quote.',
+        'Pricing is based on volume, labor, access, item weight, disposal needs, and project complexity. Requesting an estimate with project details is the best way to receive upfront pricing.',
     },
   ],
-  bottomCta: {
-    headline: 'Need a Property Cleared?',
-    copy: 'Whether you are preparing for sale, renovation, occupancy, or turnover, Reinhart is ready to help move your property project forward.',
-    primary: {
-      label: 'Get a Quote',
-      href: 'sms:6152000064?body=Hi%2C%20I%20need%20a%20quote%20for%20residential%20property%20services',
-    },
-    secondary: { label: 'Call Now', href: 'tel:6152000064' },
-  },
 };
 
 export default function ResidentialPropertyServices() {

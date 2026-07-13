@@ -81,9 +81,9 @@ const BASE_FAQS: DemolitionFaq[] = [
       'We serve Nashville, Goodlettsville, Hendersonville, Gallatin, Madison, Springfield, White House, and surrounding Middle Tennessee communities.',
   },
   {
-    question: 'Can I text photos for a quote?',
+    question: 'How do I request an estimate?',
     answer:
-      'Yes. Photos are often the fastest way to start—especially for straightforward tear-out scopes. We will tell you if a walkthrough is needed.',
+      'Submit project details through our estimate request form, call us at 615-200-0064, text, or email. We review scope, access, and timing, then provide clear pricing and next steps.',
   },
   {
     question: 'Do you haul away demolition debris?',

@@ -47,12 +47,12 @@ const commercialHubConfig: HubConfig = {
   heroImage: `${COMMERCIAL_BASE}/01_Before/cubicle-office-before-01.jpeg`,
   heroImageAlt: 'Commercial office cleanout in downtown Nashville',
   primaryCta: {
-    label: 'Request Commercial Quote',
-    href: 'sms:6152000064?body=Hi%2C%20I%20need%20a%20commercial%20cleanout%20quote',
+    label: 'Request an Estimate',
+    href: 'tel:6152000064',
   },
   secondaryCta: {
-    label: 'Text Project Photos',
-    href: 'sms:6152000064?body=Hi%2C%20I%27d%20like%20to%20text%20photos%20for%20a%20commercial%20project',
+    label: 'Call Now',
+    href: 'tel:6152000064',
   },
   positioningTitle: 'Commercial Property Support That Keeps Timelines Moving',
   positioningParagraphs: [
@@ -224,15 +224,15 @@ const commercialHubConfig: HubConfig = {
   ],
   processTitle: 'How Commercial Projects Work',
   processSubtitle:
-    'Commercial scopes move faster when photos, access details, and timeline expectations are clear upfront.',
+    'Commercial scopes move faster when project details, access information, and timeline expectations are clear upfront.',
   processSteps: [
     {
       number: '01',
       icon: MessageSquare,
-      title: 'Send Photos or Describe the Project',
+      title: 'Request an Estimate',
       description:
-        'Text photos of the space, call to describe the scope, or share floor plans and access notes so we can understand volume and timing.',
-      cta: { href: 'sms:6152000064?body=Hi%2C%20I%20need%20a%20commercial%20cleanout%20quote', label: 'Text Photos →' },
+        'Share project details, property information, access notes, and timing needs so we can understand volume and scheduling.',
+      cta: { label: 'Request an Estimate →', estimate: true },
     },
     {
       number: '02',
@@ -240,7 +240,7 @@ const commercialHubConfig: HubConfig = {
       title: 'Confirm Scope, Access & Quote',
       description:
         'We review labor, parking, elevators, disassembly needs, disposal requirements, and scheduling before work begins.',
-      cta: { href: 'sms:6152000064?body=Hi%2C%20I%20need%20commercial%20pricing', label: 'Get Pricing →' },
+      cta: { href: 'tel:6152000064', label: 'Call Now →' },
     },
     {
       number: '03',
@@ -339,18 +339,9 @@ const commercialHubConfig: HubConfig = {
     {
       question: 'How is commercial pricing determined?',
       answer:
-        'Pricing depends on volume, labor, access, disassembly needs, item weight, and disposal requirements. Texting photos is usually the fastest way to receive an estimate.',
+        'Pricing depends on volume, labor, access, disassembly needs, item weight, and disposal requirements. Requesting an estimate with project details is the best way to receive upfront pricing.',
     },
   ],
-  bottomCta: {
-    headline: 'Need Commercial Cleanout Support?',
-    copy: 'From office load-outs to warehouse cleanup, Reinhart helps businesses and property professionals clear spaces and move projects forward.',
-    primary: {
-      label: 'Request Commercial Quote',
-      href: 'sms:6152000064?body=Hi%2C%20I%20need%20a%20commercial%20cleanout%20quote',
-    },
-    secondary: { label: 'Call Now', href: 'tel:6152000064' },
-  },
 };
 
 export default function CommercialServicesHub() {

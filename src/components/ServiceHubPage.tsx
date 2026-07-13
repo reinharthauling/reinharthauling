@@ -5,14 +5,14 @@ import {
   ArrowRight,
   CheckCircle2,
   ChevronDown,
-  MessageSquare,
-  Phone,
   ShieldCheck,
   Star,
   type LucideIcon,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import CleanoutProcess from './CleanoutProcess.tsx';
+import PageCTAs from './PageCTAs.tsx';
+import ServiceBottomCTA from './ServiceBottomCTA.tsx';
 
 export type HubService = {
   icon: LucideIcon;
@@ -35,7 +35,7 @@ export type HubProcessStep = {
   icon: LucideIcon;
   title: string;
   description: string;
-  cta?: { href: string; label: string };
+  cta?: { href?: string; label: string; estimate?: boolean };
 };
 
 export type HubConfig = {
@@ -79,12 +79,6 @@ export type HubConfig = {
   relatedServices: { label: string; to: string }[];
   relatedHubs?: { label: string; to: string }[];
   faqs: { question: string; answer: string }[];
-  bottomCta: {
-    headline: string;
-    copy: string;
-    primary: { label: string; href: string };
-    secondary: { label: string; href: string };
-  };
 };
 
 const HubServiceCard = ({ service, index }: { service: HubService; index: number }) => {
@@ -149,25 +143,8 @@ export default function ServiceHubPage({ config }: { config: HubConfig }) {
                   {config.heroSubheadline}
                 </p>
                 <p className="mb-8 max-w-2xl text-lg leading-relaxed text-slate-600">{config.heroCopy}</p>
-                <div className="mb-7 flex flex-col gap-4 sm:flex-row">
-                  <motion.a
-                    href={config.primaryCta.href}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="flex items-center justify-center gap-3 rounded-2xl bg-brand-navy px-8 py-4 text-lg font-bold text-white shadow-2xl shadow-brand-navy/30 transition-all hover:bg-brand-orange"
-                  >
-                    <MessageSquare className="text-brand-orange" />
-                    {config.primaryCta.label}
-                  </motion.a>
-                  <motion.a
-                    href={config.secondaryCta.href}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="flex items-center justify-center gap-3 rounded-2xl border-2 border-slate-200 bg-white px-8 py-4 text-lg font-bold text-brand-navy transition-colors hover:border-brand-orange"
-                  >
-                    <MessageSquare className="text-brand-orange" />
-                    {config.secondaryCta.label}
-                  </motion.a>
+                <div className="mb-7">
+                  <PageCTAs layout="hero" />
                 </div>
                 <div className="flex flex-wrap gap-3 text-sm font-bold text-brand-navy">
                   {['Licensed & Insured', 'Upfront Pricing', 'Fast Scheduling', 'Real Project Photos'].map((item) => (
@@ -503,29 +480,7 @@ export default function ServiceHubPage({ config }: { config: HubConfig }) {
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section data-hide-sticky-cta className="bg-brand-navy py-24 text-white">
-        <div className="mx-auto max-w-5xl px-6 text-center">
-          <h2 className="mb-6 font-display text-4xl font-bold lg:text-5xl">{config.bottomCta.headline}</h2>
-          <p className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-slate-300">{config.bottomCta.copy}</p>
-          <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <a
-              href={config.bottomCta.primary.href}
-              className="inline-flex items-center justify-center gap-3 rounded-2xl bg-brand-orange px-8 py-4 text-lg font-bold text-white shadow-2xl shadow-brand-orange/25"
-            >
-              <MessageSquare />
-              {config.bottomCta.primary.label}
-            </a>
-            <a
-              href={config.bottomCta.secondary.href}
-              className="inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-8 py-4 text-lg font-bold text-brand-navy transition-colors hover:border-brand-orange"
-            >
-              <Phone />
-              {config.bottomCta.secondary.label}
-            </a>
-          </div>
-        </div>
-      </section>
+      <ServiceBottomCTA variant="dark" />
     </>
   );
 }

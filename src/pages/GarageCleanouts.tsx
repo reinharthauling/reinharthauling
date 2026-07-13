@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { CheckCircle2, MessageSquare, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import PageCTAs from '../components/PageCTAs.tsx';
 import CleanoutProcess from '../components/CleanoutProcess.tsx';
 import { projectImages } from '../data/projectImages';
 
@@ -29,7 +30,7 @@ export default function GarageCleanouts() {
         <title>Garage Cleanouts in Nashville | Reinhart Hauling &amp; Cleanouts</title>
   <meta
     name="description"
-    content="Garage cleanout services in Nashville. Remove clutter, furniture, tools, and junk. Fast quotes by text."
+    content="Garage cleanout services in Nashville. Remove clutter, furniture, tools, and junk. Request an estimate with project details."
   />
 </Helmet>
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32">
@@ -53,30 +54,11 @@ export default function GarageCleanouts() {
               </p>
 
               <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-6 max-w-2xl">
-                Text photos for a fast quote on smaller jobs, or request a walkthrough when access and volume need a
-                closer look before scheduling.
+                Request an estimate with project details for smaller jobs, or schedule a walkthrough when access and
+                volume need a closer look before scheduling.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <motion.a
-                  href="sms:6152000064?body=Hi%2C%20I%20need%20a%20garage%20cleanout%20quote"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="bg-brand-navy text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-brand-navy/30 flex items-center justify-center gap-3 group hover:bg-brand-orange transition-all"
-                >
-                  <MessageSquare className="text-brand-orange" />
-                  Text Photos for a Fast Quote
-                </motion.a>
-                <motion.a
-                  href="tel:6152000064"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="bg-white border-2 border-slate-200 text-brand-navy px-8 py-4 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 hover:border-brand-orange transition-colors"
-                >
-                  <Phone />
-                  Call Now
-                </motion.a>
-              </div>
+              <PageCTAs layout="hero" />
             </motion.div>
           </div>
         </div>

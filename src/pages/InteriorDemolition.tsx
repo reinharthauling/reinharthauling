@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
-import { CheckCircle2, ChevronDown, ClipboardCheck, Hammer, MessageSquare, Phone, Truck } from 'lucide-react';
+import { CheckCircle2, ChevronDown, ClipboardCheck, Hammer, MessageSquare, Truck } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import PageCTAs from '../components/PageCTAs.tsx';
+import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
 import CleanoutProcess from '../components/CleanoutProcess.tsx';
 
 const ITEMS_REMOVED = [
@@ -26,10 +28,10 @@ const DEMO_PROCESS_STEPS = [
   {
     number: '01',
     icon: MessageSquare,
-    title: 'Send Photos or Schedule a Walkthrough',
+    title: 'Request an Estimate or Schedule a Walkthrough',
     description:
-      'Text photos of the space or schedule a walkthrough so we can understand materials, access, and the renovation goal.',
-    cta: { href: 'sms:6152000064?body=Hi%2C%20I%20need%20interior%20demolition%20help', label: 'Text Photos →' },
+      'Submit project details or schedule a walkthrough so we can understand materials, access, and the renovation goal.',
+    cta: { label: 'Request an Estimate →', estimate: true },
   },
   {
     number: '02',
@@ -37,10 +39,7 @@ const DEMO_PROCESS_STEPS = [
     title: 'Confirm Scope & Access',
     description:
       'We review what is being removed, what stays, debris volume, parking, entry points, and timing before work begins.',
-    cta: {
-      href: 'sms:6152000064?body=Hi%2C%20I%27d%20like%20a%20quote%20for%20interior%20demo',
-      label: 'Get Pricing →',
-    },
+    cta: { href: 'tel:6152000064', label: 'Call Now →' },
   },
   {
     number: '03',
@@ -56,7 +55,7 @@ const DEMO_PROCESS_STEPS = [
     title: 'Ready for the Next Phase',
     description:
       'The space is left clearer and ready for the next trade, inspection, repair work, or renovation phase.',
-    cta: { href: 'sms:6152000064?body=Hi%2C%20I%20need%20renovation%20prep%20cleanup', label: 'Start Project →' },
+    cta: { href: 'tel:6152000064', label: 'Call Now →' },
   },
 ];
 
@@ -126,26 +125,7 @@ export default function InteriorDemolition() {
                   transitions, and repair work—not full structural demolition.
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <motion.a
-                    href="sms:6152000064?body=Hi%2C%20I%20need%20a%20fast%20quote%20for%20interior%20demolition"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="bg-brand-navy text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-brand-navy/30 flex items-center justify-center gap-3 group hover:bg-brand-orange transition-all"
-                  >
-                    <MessageSquare className="text-brand-orange" />
-                    Text Photos for a Fast Quote
-                  </motion.a>
-                  <motion.a
-                    href="tel:6152000064"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="bg-white border-2 border-slate-200 text-brand-navy px-8 py-4 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 hover:border-brand-orange transition-colors"
-                  >
-                    <Phone />
-                    Call 615-200-0064
-                  </motion.a>
-                </div>
+                <PageCTAs layout="hero" />
               </motion.div>
             </div>
 
@@ -323,30 +303,7 @@ export default function InteriorDemolition() {
         </div>
       </section>
 
-      <section data-hide-sticky-cta className="py-24 bg-brand-navy text-white">
-        <div className="max-w-5xl mx-auto px-6 text-center">
-          <h2 className="font-display text-4xl lg:text-5xl font-bold mb-6">Need interior demo help?</h2>
-          <p className="text-slate-300 text-lg leading-relaxed max-w-2xl mx-auto mb-8">
-            Text photos for a fast quote or call now to talk through the scope, access, debris, and timeline.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a
-              href="sms:6152000064?body=Hi%2C%20I%20need%20a%20fast%20quote%20for%20interior%20demolition"
-              className="inline-flex items-center justify-center gap-3 bg-brand-orange text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-brand-orange/25"
-            >
-              <MessageSquare />
-              Text Photos for a Fast Quote
-            </a>
-            <a
-              href="tel:6152000064"
-              className="inline-flex items-center justify-center gap-3 bg-white text-brand-navy px-8 py-4 rounded-2xl font-bold text-lg hover:border-brand-orange transition-colors"
-            >
-              <Phone />
-              Call 615-200-0064
-            </a>
-          </div>
-        </div>
-      </section>
+      <ServiceBottomCTA variant="dark" />
     </>
   );
 }

@@ -12,7 +12,6 @@ import {
   KeyRound,
   MessageSquare,
   Package,
-  Phone,
   ShieldCheck,
   Star,
   TrendingUp,
@@ -22,6 +21,8 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import CleanoutProcess from '../components/CleanoutProcess.tsx';
+import PageCTAs from '../components/PageCTAs.tsx';
+import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
 
 const PROJECT_BASE = '/images/projects/2026%20Projects/2026-06_Investor-Property-Cleanup_Gallatin';
 
@@ -104,10 +105,10 @@ const PROCESS_STEPS = [
   {
     number: '01',
     icon: MessageSquare,
-    title: 'Text Photos or Request Walkthrough',
+    title: 'Request an Estimate or Schedule a Walkthrough',
     description:
-      'Smaller property cleanup scopes often start from photos. Larger or more involved properties benefit from a walkthrough for accurate planning.',
-    cta: { href: 'sms:6152000064?body=Hi%2C%20I%20need%20a%20property%20cleanup%20quote', label: 'Text Photos →' },
+      'Submit project details for smaller property cleanup scopes. Larger or more involved properties benefit from a walkthrough for accurate planning.',
+    cta: { label: 'Request an Estimate →', estimate: true },
   },
   {
     number: '02',
@@ -115,10 +116,7 @@ const PROCESS_STEPS = [
     title: 'Scope Review & Scheduling Plan',
     description:
       'We review property access, debris volume, labor needs, disposal requirements, and timing so expectations are clear before work begins.',
-    cta: {
-      href: 'sms:6152000064?body=Hi%2C%20I%27d%20like%20to%20schedule%20a%20walkthrough%20for%20property%20cleanup',
-      label: 'Schedule Walkthrough →',
-    },
+    cta: { href: 'tel:6152000064', label: 'Call Now →' },
   },
   {
     number: '03',
@@ -167,7 +165,7 @@ const FAQS = [
   {
     question: 'What is included in property cleanup?',
     answer:
-      'Property cleanup typically includes removing unwanted contents, debris, bulky items, yard clutter, construction materials, and general property debris. Scope depends on the property—text photos or schedule a walkthrough and we will outline exactly what is included.',
+      'Property cleanup typically includes removing unwanted contents, debris, bulky items, yard clutter, construction materials, and general property debris. Scope depends on the property—request an estimate or schedule a walkthrough and we will outline exactly what is included.',
   },
   {
     question: 'Do you clean entire properties?',
@@ -197,7 +195,7 @@ const FAQS = [
   {
     question: 'How is pricing determined?',
     answer:
-      'Pricing is based on volume, labor, access, item weight, disposal needs, and project complexity. Texting photos is usually the fastest way to receive an upfront quote.',
+      'Pricing is based on volume, labor, access, item weight, disposal needs, and project complexity. Requesting an estimate with project details is the best way to receive upfront pricing.',
   },
   {
     question: 'Do I need to be present?',
@@ -274,26 +272,7 @@ export default function PropertyCleanup() {
                   Tennessee. From scattered debris to full-property cleanouts, we help move projects forward.
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-4 mb-7">
-                  <motion.a
-                    href="sms:6152000064?body=Hi%2C%20I%20need%20a%20property%20cleanup%20quote"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="bg-brand-navy text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-brand-navy/30 flex items-center justify-center gap-3 hover:bg-brand-orange transition-all"
-                  >
-                    <MessageSquare className="text-brand-orange" />
-                    Get a Quote
-                  </motion.a>
-                  <motion.a
-                    href="sms:6152000064?body=Hi%2C%20I%27d%20like%20to%20text%20photos%20for%20property%20cleanup"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="bg-white border-2 border-slate-200 text-brand-navy px-8 py-4 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 hover:border-brand-orange transition-colors"
-                  >
-                    <MessageSquare className="text-brand-orange" />
-                    Text Photos
-                  </motion.a>
-                </div>
+                <PageCTAs layout="hero" className="mb-7" />
 
                 <div className="flex flex-wrap gap-3 text-sm font-bold text-brand-navy">
                   {['Licensed & Insured', 'Upfront Pricing', 'Fast Scheduling', 'Real Project Photos'].map((item) => (
@@ -660,31 +639,7 @@ export default function PropertyCleanup() {
         </div>
       </section>
 
-      <section data-hide-sticky-cta className="py-24 bg-brand-navy text-white">
-        <div className="max-w-5xl mx-auto px-6 text-center">
-          <h2 className="font-display text-4xl lg:text-5xl font-bold mb-6">Need A Property Cleared?</h2>
-          <p className="text-slate-300 text-lg leading-relaxed max-w-2xl mx-auto mb-8">
-            Whether you&apos;re preparing for renovation, sale, occupancy, or demolition, Reinhart is ready to help move
-            your project forward.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a
-              href="sms:6152000064?body=Hi%2C%20I%20need%20a%20property%20cleanup%20quote"
-              className="inline-flex items-center justify-center gap-3 bg-brand-orange text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-brand-orange/25"
-            >
-              <MessageSquare />
-              Get Quote
-            </a>
-            <a
-              href="tel:6152000064"
-              className="inline-flex items-center justify-center gap-3 bg-white text-brand-navy px-8 py-4 rounded-2xl font-bold text-lg hover:border-brand-orange transition-colors"
-            >
-              <Phone />
-              Call Now
-            </a>
-          </div>
-        </div>
-      </section>
+      <ServiceBottomCTA variant="dark" />
     </>
   );
 }

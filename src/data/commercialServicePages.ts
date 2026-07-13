@@ -45,9 +45,9 @@ const BASE_FAQS: CommercialFaq[] = [
       'We serve Nashville, Goodlettsville, Hendersonville, Gallatin, Madison, Springfield, White House, and surrounding Middle Tennessee communities.',
   },
   {
-    question: 'Can I text photos for a quote?',
+    question: 'How do I request an estimate?',
     answer:
-      'Yes. Photos are often the fastest way to start—especially for straightforward commercial scopes. We will tell you if a walkthrough is needed.',
+      'Submit project details through our estimate request form, call us at 615-200-0064, text, or email. We review scope, access, and timing, then provide clear pricing and next steps.',
   },
   {
     question: 'Do you work with property managers and contractors?',
@@ -281,7 +281,6 @@ export const COMMERCIAL_SERVICE_PAGES: CommercialServicePageConfig[] = [
       { title: 'Downsizing Load-Outs', description: 'Removing excess furniture during footprint reduction.' },
       { title: 'Tenant Transition Clearing', description: 'Preparing office suites between occupancy phases.' },
     ],
-    smsBody: 'sms:6152000064?body=Hi%2C%20I%20need%20help%20with%20an%20office%20load-out.',
     faqs: faqs(
       {
         question: 'Do you remove cubicles and workstations?',

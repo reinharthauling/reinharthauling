@@ -2,8 +2,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
-import { CheckCircle2, MapPin, MessageSquare, Phone } from 'lucide-react';
+import { CheckCircle2, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import PageCTAs from '../components/PageCTAs.tsx';
 
 export default function JunkRemovalGoodlettsville() {
   
@@ -20,7 +21,7 @@ export default function JunkRemovalGoodlettsville() {
         <title>Junk Removal in Goodlettsville TN | Reinhart Hauling &amp; Cleanouts</title>
   <meta
     name="description"
-    content="Local junk removal in Goodlettsville. Furniture, appliances, garage cleanouts, and more. Text photos for a fast quote."
+    content="Local junk removal in Goodlettsville. Furniture, appliances, garage cleanouts, and more. Request an estimate with project details."
   />
 </Helmet>
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
@@ -38,7 +39,7 @@ export default function JunkRemovalGoodlettsville() {
                   Junk Removal in Goodlettsville, TN
                 </h1>
                 <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl">
-                  Reinhart Hauling &amp; Cleanouts provides fast junk removal in Goodlettsville for furniture, appliances, garage cleanouts, yard debris, and general household clutter. Text photos for a fast quote and quick scheduling.
+                  Reinhart Hauling &amp; Cleanouts provides fast junk removal in Goodlettsville for furniture, appliances, garage cleanouts, yard debris, and general household clutter. Request an estimate with project details for quick scheduling.
                 </p>
                 <p className="text-base text-slate-600 leading-relaxed mb-8 max-w-2xl">
                   Need a bigger scope? We also handle{' '}
@@ -63,28 +64,8 @@ export default function JunkRemovalGoodlettsville() {
                   .
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <motion.a
-                    href="sms:6152000064?body=Hi%20I%20need%20a%20junk%20removal%20quote"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="bg-brand-navy text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-brand-navy/30 flex items-center justify-center gap-3 group hover:bg-brand-orange transition-all"
-                  >
-                    <MessageSquare className="text-brand-orange" />
-                    Text Photos for Fast Quote
-                  </motion.a>
-                  <motion.a
-                    href="tel:6152000064"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="bg-white border-2 border-slate-200 text-brand-navy px-8 py-4 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 hover:border-brand-orange transition-colors"
-                  >
-                    <Phone />
-                    Call 615-200-0064
-                  </motion.a>
-                </div>
+                <PageCTAs layout="hero" />
                 <div className="mt-3 text-sm text-slate-500 text-center">
-                  <p>⚡ Text photos — most quotes in 5 minutes</p>
                   <p className="text-slate-400">Call or Text: 615-200-0064</p>
                 </div>
               </motion.div>

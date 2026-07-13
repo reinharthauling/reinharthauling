@@ -54,9 +54,9 @@ const BASE_FAQS: ResidentialFaq[] = [
       'We serve Nashville, Goodlettsville, Hendersonville, Gallatin, Madison, Springfield, White House, and surrounding Middle Tennessee communities.',
   },
   {
-    question: 'Can I text photos for a quote?',
+    question: 'How do I request an estimate?',
     answer:
-      'Yes. Photos are often the fastest way to start—especially for straightforward scopes. We will tell you if a walkthrough is needed.',
+      'Submit project details through our estimate request form, call us at 615-200-0064, text, or email. We review scope, access, and timing, then provide clear pricing and next steps.',
   },
   {
     question: 'Do you haul away removed items and debris?',
@@ -299,7 +299,7 @@ export const RESIDENTIAL_SERVICE_PAGES: ResidentialServicePageConfig[] = [
     category: 'removal-services',
     pageTitle: 'Junk Removal | Reinhart Hauling & Cleanouts',
     metaDescription:
-      'Junk removal in Middle Tennessee for furniture, clutter, appliances, and unwanted household items. Text photos for a fast quote.',
+      'Junk removal in Middle Tennessee for furniture, clutter, appliances, and unwanted household items. Request an estimate with project details.',
     heroEyebrow: 'REMOVAL SERVICES',
     heroHeadline: 'Junk Removal',
     heroIntro:

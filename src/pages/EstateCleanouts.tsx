@@ -12,6 +12,7 @@ import {
   Truck,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import PageCTAs from '../components/PageCTAs.tsx';
 import CleanoutProcess from '../components/CleanoutProcess.tsx';
 import OptionalServiceImage from '../components/OptionalServiceImage.tsx';
 import EstateFaq from '../components/EstateFaq.tsx';
@@ -20,21 +21,18 @@ const ESTATE_PROCESS_STEPS = [
   {
     number: '01',
     icon: MessageSquare,
-    title: 'Send Photos or Project Details',
+    title: 'Request an Estimate',
     description:
-      'Text photos, explain the situation, or share property details so we can understand the scope—rooms involved, garage or storage areas, and any family items that need to stay.',
-    cta: { href: 'sms:6152000064', label: 'Text Photos \u2192' },
+      'Share project details and property information so we can understand the scope—rooms involved, garage or storage areas, and any family items that need to stay.',
+    cta: { label: 'Request an Estimate →', estimate: true },
   },
   {
     number: '02',
     icon: CheckCircle2,
     title: 'Walkthrough & Clear Scope',
     description:
-      'Smaller jobs can often be quoted from photos. Larger estate or full-property cleanouts usually benefit from an on-site walkthrough to assess volume, access, labor, disposal needs, and timing—so scope and pricing stay clear.',
-    cta: {
-      href: 'sms:6152000064?body=Hi%20I%20need%20pricing%20for%20an%20estate%20cleanout',
-      label: 'Get Pricing \u2192',
-    },
+      'Smaller jobs can often be quoted from project details. Larger estate or full-property cleanouts usually benefit from an on-site walkthrough to assess volume, access, labor, disposal needs, and timing—so scope and pricing stay clear.',
+    cta: { href: 'tel:6152000064', label: 'Call Now →' },
   },
   {
     number: '03',
@@ -194,26 +192,7 @@ export default function EstateCleanouts() {
                 for landlords and property managers.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <motion.a
-                  href="sms:6152000064?body=Hi%2C%20I%20need%20an%20estate%20cleanout%20quote"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="bg-brand-navy text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-brand-navy/30 flex items-center justify-center gap-3 group hover:bg-brand-orange transition-all"
-                >
-                  <MessageSquare className="text-brand-orange" />
-                  Text Photos for Fast Quote
-                </motion.a>
-                <motion.a
-                  href="tel:6152000064"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="bg-white border-2 border-slate-200 text-brand-navy px-8 py-4 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 hover:border-brand-orange transition-colors"
-                >
-                  <Phone />
-                  Call 615-200-0064
-                </motion.a>
-              </div>
+              <PageCTAs layout="hero" />
             </motion.div>
           </div>
         </div>

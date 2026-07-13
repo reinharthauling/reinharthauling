@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation } from 'react-router-dom';
+import EstimateRequestButton from '../components/EstimateRequestButton.tsx';
+import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
 import { scrollToSection, scrollToSectionWhenReady } from '../utils/scrollToSection.ts';
 import { motion } from 'motion/react';
 import {
@@ -10,8 +12,6 @@ import {
   ChevronDown,
   Clock,
   Home,
-  MessageSquare,
-  Phone,
   ShieldCheck,
   Star,
   Truck,
@@ -501,7 +501,7 @@ const takeSections: TakeSection[] = [
     id: 'tires-rubber',
     title: 'Tires & Rubber',
     intro:
-      'Tires and rubber materials may require special disposal, so text photos first and we will confirm the scope.',
+      'Tires and rubber materials may require special disposal, so request an estimate first and we will confirm the scope.',
     groups: [
       {
         title: 'Tires & Rubber Materials',
@@ -767,15 +767,7 @@ export default function WhatWeTake() {
             </div>
 
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-              <motion.a
-                href="sms:6152000064?body=Hi%2C%20I%27d%20like%20to%20text%20photos%20for%20a%20quote"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center justify-center gap-3 rounded-2xl bg-brand-navy px-8 py-4 text-lg font-bold text-white shadow-2xl shadow-brand-navy/25 transition-colors hover:bg-brand-orange"
-              >
-                <MessageSquare className="text-brand-orange" />
-                Text Photos For A Quote
-              </motion.a>
+              <EstimateRequestButton />
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 <Link
                   to="/services"
@@ -809,7 +801,7 @@ export default function WhatWeTake() {
               Find the type of item you need removed
             </h2>
             <p className="text-lg leading-relaxed text-slate-600">
-              Tap any category to jump to a detailed list. If you do not see your exact item listed, text photos and we
+              Tap any category to jump to a detailed list. If you do not see your exact item listed, request an estimate and we
               will quickly tell you whether it fits our removal scope.
             </p>
           </div>
@@ -1036,31 +1028,7 @@ export default function WhatWeTake() {
         </div>
       </section>
 
-      <section data-hide-sticky-cta className="bg-brand-navy py-24 text-white">
-        <div className="mx-auto max-w-5xl px-6 text-center">
-          <h2 className="mb-6 font-display text-4xl font-bold lg:text-5xl">Not Sure If We Can Take It?</h2>
-          <p className="mx-auto mb-8 max-w-3xl text-lg leading-relaxed text-slate-300">
-            If it&apos;s non-hazardous, there&apos;s a very good chance we can remove it. Send us a few photos and
-            we&apos;ll quickly let you know, provide an upfront quote, and answer any questions.
-          </p>
-          <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <a
-              href="sms:6152000064?body=Hi%2C%20can%20I%20text%20photos%20to%20see%20if%20you%20can%20take%20this%3F"
-              className="inline-flex items-center justify-center gap-3 rounded-2xl bg-brand-orange px-8 py-4 text-lg font-bold text-white shadow-2xl shadow-brand-orange/25"
-            >
-              <MessageSquare />
-              Text Photos
-            </a>
-            <a
-              href="tel:6152000064"
-              className="inline-flex items-center justify-center gap-3 rounded-2xl border-2 border-white/20 bg-white px-8 py-4 text-lg font-bold text-brand-navy transition-colors hover:border-brand-orange"
-            >
-              <Phone />
-              Call Now
-            </a>
-          </div>
-        </div>
-      </section>
+      <ServiceBottomCTA variant="dark" />
     </>
   );
 }

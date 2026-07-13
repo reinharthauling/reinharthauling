@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { CheckCircle2, ChevronDown, ClipboardCheck, MessageSquare, Phone, Truck } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import PageCTAs from '../components/PageCTAs.tsx';
 import { getCommercialRelatedServices } from '../data/commercialNavigation.ts';
 import CleanoutProcess from '../components/CleanoutProcess.tsx';
 import { projectImages } from '../data/projectImages';
@@ -92,19 +93,16 @@ const COMMERCIAL_PROCESS_STEPS = [
   {
     number: '01',
     icon: MessageSquare,
-    title: 'Send Photos or Call',
-    description: 'Text photos of the items or call to describe the project.',
-    cta: { href: 'sms:6152000064', label: 'Text Photos →' },
+    title: 'Request an Estimate',
+    description: 'Share project details or call to describe the scope so we can understand volume and timing.',
+    cta: { label: 'Request an Estimate →', estimate: true },
   },
   {
     number: '02',
     icon: ClipboardCheck,
     title: 'Get A Clear Quote',
     description: 'We provide straightforward pricing based on volume, labor, access, and disposal needs.',
-    cta: {
-      href: 'sms:6152000064?body=Hi%2C%20I%20need%20a%20commercial%20cleanout%20quote',
-      label: 'Get Pricing →',
-    },
+    cta: { href: 'tel:6152000064', label: 'Call Now →' },
   },
   {
     number: '03',
@@ -154,7 +152,7 @@ const COMMERCIAL_FAQS = [
   {
     question: 'How much does a commercial cleanout cost?',
     answer:
-      'Pricing depends on the amount of material, labor required, access, item weight, and disposal needs. Texting photos is usually the fastest way to receive an estimate.',
+      'Pricing depends on the amount of material, labor required, access, item weight, and disposal needs. Requesting an estimate with project details is the best way to receive upfront pricing.',
   },
   {
     question: 'What areas do you serve?',
@@ -213,26 +211,7 @@ export default function CommercialCleanouts() {
                   projects.
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <motion.a
-                    href="sms:6152000064?body=Hi%2C%20I%20need%20a%20commercial%20cleanout%20quote"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="bg-brand-navy text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-brand-navy/30 flex items-center justify-center gap-3 group hover:bg-brand-orange transition-all"
-                  >
-                    <MessageSquare className="text-brand-orange" />
-                    Text Photos For A Fast Quote
-                  </motion.a>
-                  <motion.a
-                    href="tel:6152000064"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="bg-white border-2 border-slate-200 text-brand-navy px-8 py-4 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 hover:border-brand-orange transition-colors"
-                  >
-                    <Phone />
-                    Call 615-200-0064
-                  </motion.a>
-                </div>
+                <PageCTAs layout="hero" />
               </motion.div>
             </div>
 

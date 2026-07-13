@@ -76,6 +76,10 @@ import CleanoutProcess from './components/CleanoutProcess.tsx';
 import { ServicesMegaMenuPanel, ServicesMobileAccordions } from './components/ServicesMegaMenu.tsx';
 import ServiceAreaInquiryModal from './components/ServiceAreaInquiryModal.tsx';
 import EmailContactMenu from './components/EmailContactMenu.tsx';
+import { EstimateRequestProvider } from './context/EstimateRequestContext.tsx';
+import PageCTAs from './components/PageCTAs.tsx';
+import ServiceBottomCTA from './components/ServiceBottomCTA.tsx';
+import { useEstimateRequest } from './context/EstimateRequestContext.tsx';
 import DemolitionServicePage from './components/DemolitionServicePage.tsx';
 import { DEMOLITION_SERVICE_PAGES } from './data/demolitionServicePages.ts';
 import CommercialServicePage from './components/CommercialServicePage.tsx';
@@ -412,33 +416,7 @@ const Hero = () => {
               Reinhart helps prepare properties for sale, renovation, occupancy, and whatever comes next.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 sm:items-start">
-              <div className="flex flex-col items-stretch sm:items-start">
-                <motion.a
-                  href="sms:6152000064?body=Hi%2C%20I%27d%20like%20a%20fast%20quote%20for%20a%20cleanout"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="bg-brand-navy text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-brand-navy/30 flex items-center justify-center gap-3 group"
-                >
-                  <MessageSquare className="text-brand-orange" />
-                  Text Photos for a Fast Quote
-                </motion.a>
-                <p className="mt-2 text-xs leading-relaxed text-slate-500 max-w-[16rem] text-center sm:text-left">
-                  Fastest option.
-                  <br />
-                  Most photo quotes are returned during business hours.
-                </p>
-              </div>
-              <motion.a
-                href="tel:6152000064"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="bg-white border-2 border-slate-200 text-brand-navy px-8 py-4 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 hover:border-brand-orange transition-colors"
-              >
-                <Phone />
-                Call Now
-              </motion.a>
-            </div>
+            <PageCTAs layout="hero" />
 
             <div className="mt-5 flex flex-col gap-0.5">
               <span className="text-sm font-semibold text-brand-navy">Need an on-site estimate?</span>
@@ -1651,222 +1629,6 @@ const MeetTheOwner = () => {
   );
 };
 
-const QuoteForm = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    jobType: 'Cleanout / Junk Removal',
-    address: '',
-    description: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    try {
-      const response = await fetch('/api/quote', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setIsSubmitted(true);
-      } else {
-        const errorData = await response.json();
-        console.error('Failed to send request:', errorData.error);
-        alert('There was an error sending your request. Please try again or call us directly.');
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('There was an error sending your request. Please try again or call us directly.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  if (isSubmitted) {
-    return (
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl border border-brand-orange/20 text-center max-w-2xl mx-auto"
-      >
-        <div className="w-20 h-20 bg-brand-orange/10 rounded-full flex items-center justify-center mx-auto mb-6">
-          <CheckCircle2 className="text-brand-orange w-10 h-10" />
-        </div>
-        <h3 className="text-3xl font-bold text-brand-navy mb-4">Request Received!</h3>
-        <p className="text-slate-600 text-lg mb-8">Thanks for reaching out! Jeremiah or one of the team will get back to you shortly with your free quote.</p>
-        <button 
-          onClick={() => setIsSubmitted(false)}
-          className="bg-brand-navy text-white px-8 py-3 rounded-xl font-bold hover:bg-brand-orange transition-colors"
-        >
-          Send Another Request
-        </button>
-      </motion.div>
-    );
-  }
-
-  return (
-    <div className="max-w-3xl mx-auto mt-20">
-      <div className="text-center mb-10">
-        <h3 className="text-3xl font-bold text-brand-navy mb-4">Request a Quote</h3>
-        <p className="text-slate-600">Fill out the form below and we'll get back to you with a fair, upfront price.</p>
-      </div>
-
-      <div className="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl border border-slate-100 relative text-left">
-        <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-brand-orange text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg whitespace-nowrap">
-          Fast Response Guaranteed
-        </div>
-        
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="space-y-2">
-              <label className="text-sm font-bold text-brand-navy ml-1">Name *</label>
-              <input
-                required
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="John Doe"
-                className="w-full px-6 py-4 rounded-2xl bg-slate-50 border-2 border-transparent focus:border-brand-orange focus:bg-white outline-none transition-all text-brand-navy"
-              />
-            </div>
-            <div className="space-y-2">
-              <label className="text-sm font-bold text-brand-navy ml-1">Phone *</label>
-              <input
-                required
-                type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                placeholder="(615) 555-0000"
-                className="w-full px-6 py-4 rounded-2xl bg-slate-50 border-2 border-transparent focus:border-brand-orange focus:bg-white outline-none transition-all text-brand-navy"
-              />
-            </div>
-          </div>
-
-          <div className="space-y-2">
-            <label className="text-sm font-bold text-brand-navy ml-1">Job Type</label>
-            <div className="relative">
-              <select
-                name="jobType"
-                value={formData.jobType}
-                onChange={handleChange}
-                className="w-full px-6 py-4 rounded-2xl bg-slate-50 border-2 border-transparent focus:border-brand-orange focus:bg-white outline-none transition-all text-brand-navy appearance-none cursor-pointer"
-              >
-                <option>Cleanout / Junk Removal</option>
-                <option>Estate Cleanout</option>
-                <option>Eviction Cleanout</option>
-                <option>Garage Cleanout</option>
-                <option>Landlord / Rental Cleanout</option>
-                <option>Appliance & Furniture Removal</option>
-              </select>
-              <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
-                <ChevronRight className="rotate-90" size={20} />
-              </div>
-            </div>
-          </div>
-
-          <div className="space-y-2">
-            <label className="text-sm font-bold text-brand-navy ml-1">Address / City *</label>
-            <input
-              required
-              type="text"
-              name="address"
-              value={formData.address}
-              onChange={handleChange}
-              placeholder="Nashville, TN"
-              className="w-full px-6 py-4 rounded-2xl bg-slate-50 border-2 border-transparent focus:border-brand-orange focus:bg-white outline-none transition-all text-brand-navy"
-            />
-          </div>
-
-          <div className="space-y-2">
-            <label className="text-sm font-bold text-brand-navy ml-1">Description of Junk *</label>
-            <textarea
-              required
-              name="description"
-              value={formData.description}
-              onChange={handleChange}
-              placeholder="Old couch and garage boxes..."
-              rows={4}
-              className="w-full px-6 py-4 rounded-2xl bg-slate-50 border-2 border-transparent focus:border-brand-orange focus:bg-white outline-none transition-all text-brand-navy resize-none"
-            />
-          </div>
-
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="w-full bg-brand-navy text-white py-5 rounded-2xl font-bold text-xl shadow-xl shadow-brand-navy/20 hover:bg-brand-orange transition-all active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-3"
-          >
-            {isSubmitting ? (
-              <>
-                <div className="w-6 h-6 border-4 border-white/30 border-t-white rounded-full animate-spin" />
-                Processing...
-              </>
-            ) : (
-              'SUBMIT REQUEST'
-            )}
-          </button>
-        </form>
-      </div>
-    </div>
-  );
-};
-
-const CTA = () => {
-  return (
-    <section className="py-24 relative overflow-hidden" data-hide-sticky-cta>
-      <div className="max-w-7xl mx-auto px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="max-w-4xl mx-auto"
-        >
-          <h2 className="font-display text-5xl lg:text-7xl font-bold text-brand-navy mb-8 leading-tight">
-            Have a Property Problem?
-          </h2>
-          <p className="text-xl text-slate-600 mb-12 max-w-2xl mx-auto">
-            Whether you&apos;re preparing a property for sale, managing an estate, coordinating a renovation, clearing
-            a commercial facility, or facing a difficult cleanup, Reinhart removes obstacles so your project can move
-            forward. Send photos for a straightforward assessment. We&apos;ll review the scope, explain your options,
-            and recommend the best path forward.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <a 
-              href="sms:6152000064?body=Hi%2C%20I%20need%20help%20with%20an%20estate%20or%20rental%20turnover%20quote" 
-              className="bg-brand-navy text-white px-10 py-5 rounded-2xl font-bold text-xl shadow-2xl shadow-brand-navy/30 flex items-center justify-center gap-3 hover:bg-brand-orange transition-all hover:scale-105"
-            >
-              <MessageSquare className="text-brand-orange" />
-              Text Photos for a Fast Quote
-            </a>
-            <a 
-              href="tel:6152000064" 
-              className="bg-white border-2 border-slate-200 text-brand-navy px-10 py-5 rounded-2xl font-bold text-xl flex items-center justify-center gap-3 hover:border-brand-orange transition-all hover:scale-105"
-            >
-              <Phone />
-              Call Now
-            </a>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
-};
-
 const Footer = () => {
   const footerServices = [
     { label: 'Property Cleanouts', to: '/property-cleanouts' },
@@ -2029,6 +1791,7 @@ const Footer = () => {
 
 const StickyActionFooter = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { openEstimateRequest } = useEstimateRequest();
 
   useEffect(() => {
     const updateVisibility = () => {
@@ -2093,19 +1856,19 @@ const StickyActionFooter = () => {
               </div>
 
               <div className="flex items-center gap-2 w-full md:w-auto">
-                <a 
-                  href="sms:6152000064"
-                  className="flex-1 md:flex-none bg-white text-brand-navy px-5 py-3 md:py-2 rounded-2xl md:rounded-full font-bold text-sm flex items-center justify-center gap-2 hover:bg-brand-orange hover:text-white transition-all active:scale-95 group"
+                <button
+                  type="button"
+                  onClick={openEstimateRequest}
+                  className="flex-1 md:flex-none bg-white text-brand-navy px-5 py-3 md:py-2 rounded-2xl md:rounded-full font-bold text-sm flex items-center justify-center gap-2 hover:bg-brand-orange hover:text-white transition-all active:scale-95"
                 >
-                  <MessageSquare size={18} className="text-brand-orange group-hover:text-white transition-colors" />
-                  <span className="whitespace-nowrap">Text photos for quote</span>
-                </a>
+                  Request an Estimate
+                </button>
                 <a 
                   href="tel:6152000064"
                   className="flex-1 md:flex-none bg-brand-orange text-white px-5 py-3 md:py-2 rounded-2xl md:rounded-full font-bold text-sm flex items-center justify-center gap-2 hover:bg-brand-orange-light transition-all active:scale-95 shadow-lg shadow-brand-orange/20"
                 >
                   <Phone size={18} />
-                  <span className="whitespace-nowrap">Call Us</span>
+                  <span className="whitespace-nowrap">Call Now</span>
                 </a>
               </div>
             </div>
@@ -2120,6 +1883,7 @@ const StickyActionFooter = () => {
 
 const SiteLayout = ({ children }: { children: React.ReactNode }) => {
   return (
+    <EstimateRequestProvider>
     <div
       className="min-h-screen selection:bg-brand-orange selection:text-white pb-[calc(152px+env(safe-area-inset-bottom))] md:pb-[calc(136px+env(safe-area-inset-bottom))]"
     >
@@ -2133,6 +1897,7 @@ const SiteLayout = ({ children }: { children: React.ReactNode }) => {
       <Footer />
       <StickyActionFooter />
     </div>
+    </EstimateRequestProvider>
   );
 };
 
@@ -2180,7 +1945,7 @@ const HomePage = () => {
       <BeforeAfterSlider />
       <AreasWeServe />
       <MeetTheOwner />
-      <CTA />
+      <ServiceBottomCTA variant="home" />
     </SiteLayout>
     </>
   );

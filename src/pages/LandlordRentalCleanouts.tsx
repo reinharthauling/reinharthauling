@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { CheckCircle2, ChevronDown, ClipboardCheck, MessageSquare, Phone, Truck } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import PageCTAs from '../components/PageCTAs.tsx';
 import CleanoutProcess from '../components/CleanoutProcess.tsx';
 
 const WHO_WE_HELP = [
@@ -71,10 +72,10 @@ const RENTAL_PROCESS_STEPS = [
   {
     number: '01',
     icon: MessageSquare,
-    title: 'Text Photos or Schedule a Walkthrough',
+    title: 'Request an Estimate or Schedule a Walkthrough',
     description:
-      'Smaller turnovers can often be quoted from photos. Larger turnovers and multi-unit projects usually benefit from a walkthrough first.',
-    cta: { href: 'sms:6152000064', label: 'Text Photos \u2192' },
+      'Submit project details for smaller turnovers. Larger turnovers and multi-unit projects usually benefit from a walkthrough first.',
+    cta: { label: 'Request an Estimate →', estimate: true },
   },
   {
     number: '02',
@@ -82,10 +83,7 @@ const RENTAL_PROCESS_STEPS = [
     title: 'Scope Review & Scheduling Plan',
     description:
       'We review access, debris volume, labor requirements, disposal needs, and scheduling so scope and expectations are clear before work begins.',
-    cta: {
-      href: 'sms:6152000064?body=Hi%2C%20I%20need%20a%20rental%20cleanout%20quote',
-      label: 'Get Scope & Pricing \u2192',
-    },
+    cta: { href: 'tel:6152000064', label: 'Call Now →' },
   },
   {
     number: '03',
@@ -101,7 +99,7 @@ const RENTAL_FAQS = [
   {
     question: 'How quickly can you schedule rental cleanouts?',
     answer:
-      'We work around turnover timelines and can often schedule quickly depending on scope and availability. Text photos first and we can usually confirm next steps and timing right away.',
+      'We work around turnover timelines and can often schedule quickly depending on scope and availability. Request an estimate and we can usually confirm next steps and timing right away.',
   },
   {
     question: 'Do you work with property managers and landlords?',
@@ -216,26 +214,7 @@ export default function LandlordRentalCleanouts() {
                 .
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <motion.a
-                  href="sms:6152000064?body=Hi%2C%20I%20need%20a%20rental%20cleanout%20quote"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="bg-brand-navy text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl shadow-brand-navy/30 flex items-center justify-center gap-3 group hover:bg-brand-orange transition-all"
-                >
-                  <MessageSquare className="text-brand-orange" />
-                  Text Photos for a Fast Quote
-                </motion.a>
-                <motion.a
-                  href="tel:6152000064"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="bg-white border-2 border-slate-200 text-brand-navy px-8 py-4 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 hover:border-brand-orange transition-colors"
-                >
-                  <Phone />
-                  Call Now
-                </motion.a>
-              </div>
+              <PageCTAs layout="hero" />
             </motion.div>
           </div>
         </div>
