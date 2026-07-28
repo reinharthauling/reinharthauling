@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import {
   Calendar,
@@ -17,6 +16,7 @@ import { Link } from 'react-router-dom';
 import EmailContactMenu from './EmailContactMenu.tsx';
 import PageCTAs from './PageCTAs.tsx';
 import ServiceBottomCTA from './ServiceBottomCTA.tsx';
+import PageMeta from './PageMeta.tsx';
 import {
   getRelatedCommercialServices,
   type CommercialServicePageConfig,
@@ -24,8 +24,6 @@ import {
 
 import { SITE_URL } from '../data/business.ts';
 import { buildFAQPageSchema, buildServiceSchema } from '../utils/schema.ts';
-
-const OG_IMAGE = `${SITE_URL}/og/reinhart-cleanouts-og-v2.jpg?v=3`;
 
 const DEFAULT_IDEAL_CUSTOMERS = [
   'Commercial Property Managers',
@@ -113,22 +111,13 @@ export default function CommercialServicePage({ config }: CommercialServicePageP
 
   return (
     <>
-      <Helmet>
-        <title>{config.pageTitle}</title>
-        <meta name="description" content={config.metaDescription} />
-        <link rel="canonical" href={canonicalUrl} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:title" content={ogTitle} />
-        <meta property="og:description" content={config.metaDescription} />
-        <meta property="og:image" content={OG_IMAGE} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={ogTitle} />
-        <meta name="twitter:description" content={config.metaDescription} />
-        <meta name="twitter:image" content={OG_IMAGE} />
-        <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-      </Helmet>
+      <PageMeta
+        title={config.pageTitle}
+        description={config.metaDescription}
+        path={config.canonicalPath}
+        ogTitle={ogTitle}
+        jsonLd={[serviceSchema, faqSchema]}
+      />
 
       <section className="relative scroll-mt-32 overflow-hidden pt-32 pb-16 lg:pt-48 lg:pb-24">
         <div className="mx-auto max-w-7xl px-6">

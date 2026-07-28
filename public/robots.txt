@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.reinharthauling.com/sitemap.xml
+# Public CSS, JS, images, and branding assets are crawlable (not blocked).
+# Client-side app API helpers (if any) should not be treated as content pages.
+Disallow: /api/
 
+Sitemap: https://www.reinharthauling.com/sitemap.xml

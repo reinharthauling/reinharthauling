@@ -1,9 +1,9 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, CheckCircle2, ClipboardCheck, MapPin, Truck } from 'lucide-react';
 import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
 import { motion } from 'motion/react';
+import PageMeta from '../components/PageMeta.tsx';
 
 const PROJECT_BASE = '/images/projects/2026%20Projects/2026-06_Investor-Property-Cleanup_Gallatin';
 
@@ -66,14 +66,12 @@ const photoGroups = [
 export default function InvestorPropertyCleanupGallatin() {
   return (
     <>
-      <Helmet>
-        <title>Investor Property Cleanup in Gallatin, TN | Reinhart Hauling &amp; Cleanouts</title>
-        <meta
-          name="description"
-          content="Documented investor property cleanup in Gallatin, TN including debris removal, fence demolition, bulky item cleanup, and transfer station disposal."
-        />
-        <link rel="canonical" href="https://www.reinharthauling.com/projects/investor-property-cleanup-gallatin" />
-      </Helmet>
+      <PageMeta
+        title={`Investor Property Cleanup in Gallatin, TN | Reinhart Hauling & Cleanouts`}
+        description={`Documented investor property cleanup in Gallatin, TN including debris removal, fence demolition, bulky item cleanup, and transfer station disposal.`}
+        path={`/projects/investor-property-cleanup-gallatin`}
+        ogImage={heroImage}
+      />
 
       <section className="relative overflow-hidden pt-32 pb-20 lg:pt-48 lg:pb-28">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a0a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a0a_1px,transparent_1px)] bg-[size:42px_42px]" />

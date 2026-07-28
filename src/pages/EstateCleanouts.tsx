@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING } from '../data/business.ts';
 import { motion } from 'motion/react';
 import {
@@ -17,6 +16,7 @@ import PageCTAs from '../components/PageCTAs.tsx';
 import CleanoutProcess from '../components/CleanoutProcess.tsx';
 import OptionalServiceImage from '../components/OptionalServiceImage.tsx';
 import EstateFaq from '../components/EstateFaq.tsx';
+import PageMeta from '../components/PageMeta.tsx';
 
 const ESTATE_PROCESS_STEPS = [
   {
@@ -33,7 +33,7 @@ const ESTATE_PROCESS_STEPS = [
     title: 'Walkthrough & Clear Scope',
     description:
       'Smaller jobs can often be quoted from project details. Larger estate or full-property cleanouts usually benefit from an on-site walkthrough to assess volume, access, labor, disposal needs, and timing—so scope and pricing stay clear.',
-    cta: { href: 'tel:6152000064', label: 'Call Now →' },
+    cta: { href: 'tel:+16152000064', label: 'Call Now →' },
   },
   {
     number: '03',
@@ -41,7 +41,7 @@ const ESTATE_PROCESS_STEPS = [
     title: 'Schedule the Cleanout',
     description:
       'We confirm the date, coordinate access, and align on what stays, what goes, and how the day will run—so everyone knows what to expect before we arrive.',
-    cta: { href: 'tel:6152000064', label: 'Call to Schedule \u2192' },
+    cta: { href: 'tel:+16152000064', label: 'Call to Schedule \u2192' },
   },
   {
     number: '04',
@@ -49,7 +49,7 @@ const ESTATE_PROCESS_STEPS = [
     title: 'Clear, Haul, and Final Sweep',
     description:
       'Our crew works through the property with organized execution—clearing rooms, hauling debris, handling disposal, and finishing with a final sweep-through before we close out the job.',
-    cta: { href: 'tel:6152000064', label: 'Call Now \u2192' },
+    cta: { href: 'tel:+16152000064', label: 'Call Now \u2192' },
   },
 ];
 
@@ -127,14 +127,11 @@ export default function EstateCleanouts() {
 
   return (
     <>
-      <Helmet>
-        <title>Estate Cleanouts in Nashville | Full Property Cleanouts</title>
-        <meta
-          name="description"
-          content="Full estate cleanout services for homes and inherited properties. Serving Nashville and surrounding areas."
-        />
-        <link rel="canonical" href="https://www.reinharthauling.com/estate-cleanouts" />
-      </Helmet>
+      <PageMeta
+        title={`Estate Cleanouts in Nashville | Full Property Cleanouts`}
+        description={`Full estate cleanout services for homes and inherited properties. Serving Nashville and surrounding areas.`}
+        path={`/estate-cleanouts`}
+      />
 
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">

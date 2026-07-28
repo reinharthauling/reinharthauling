@@ -14,8 +14,12 @@ export default function OptionalServiceImage({ src, alt = '', className = '' }: 
     <div className={`aspect-[16/10] overflow-hidden rounded-2xl bg-slate-100 ${className}`}>
       <img
         src={src}
-        alt={alt}
+        alt={alt || 'Reinhart Hauling & Cleanouts project photo'}
         className="h-full w-full object-cover object-center"
+        width={1200}
+        height={750}
+        loading="lazy"
+        decoding="async"
         referrerPolicy="no-referrer"
       />
     </div>

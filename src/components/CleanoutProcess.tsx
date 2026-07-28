@@ -25,7 +25,7 @@ const DEFAULT_PROCESS_STEPS: ProcessStep[] = [
     title: 'Clear Scope & Pricing',
     description:
       'We review labor, access, volume, disposal needs, and scheduling, then provide straightforward recommendations and pricing.',
-    cta: { href: 'tel:6152000064', label: 'Call Now →' },
+    cta: { href: 'tel:+16152000064', label: 'Call Now →' },
   },
   {
     number: '03',
@@ -33,7 +33,7 @@ const DEFAULT_PROCESS_STEPS: ProcessStep[] = [
     title: 'Efficient Execution & Completion',
     description:
       'Our crew arrives prepared, completes the work efficiently, communicates throughout the project, and leaves the property ready for what is next.',
-    cta: { href: 'tel:6152000064', label: 'Call Now →' },
+    cta: { href: 'tel:+16152000064', label: 'Call Now →' },
   },
 ];
 

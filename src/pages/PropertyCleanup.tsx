@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING } from '../data/business.ts';
 import { buildFAQPageSchema } from '../utils/schema.ts';
 import { motion } from 'motion/react';
@@ -25,6 +24,7 @@ import { Link } from 'react-router-dom';
 import CleanoutProcess from '../components/CleanoutProcess.tsx';
 import PageCTAs from '../components/PageCTAs.tsx';
 import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
+import PageMeta from '../components/PageMeta.tsx';
 
 const PROJECT_BASE = '/images/projects/2026%20Projects/2026-06_Investor-Property-Cleanup_Gallatin';
 
@@ -118,7 +118,7 @@ const PROCESS_STEPS = [
     title: 'Scope Review & Scheduling Plan',
     description:
       'We review property access, debris volume, labor needs, disposal requirements, and timing so expectations are clear before work begins.',
-    cta: { href: 'tel:6152000064', label: 'Call Now →' },
+    cta: { href: 'tel:+16152000064', label: 'Call Now →' },
   },
   {
     number: '03',
@@ -126,7 +126,7 @@ const PROCESS_STEPS = [
     title: 'Property Cleanup & Next-Phase Readiness',
     description:
       'Our crew clears the property, hauls debris, handles disposal, and leaves the space ready for renovation, sale, occupancy, or demolition prep.',
-    cta: { href: 'tel:6152000064', label: 'Call Now →' },
+    cta: { href: 'tel:+16152000064', label: 'Call Now →' },
   },
 ];
 
@@ -234,20 +234,12 @@ export default function PropertyCleanup() {
 
   return (
     <>
-      <Helmet>
-        <title>Property Cleanup | Investor &amp; Renovation Property Reset | Middle Tennessee</title>
-        <meta
-          name="description"
-          content="Property cleanup for investors, landlords, abandoned properties, renovation preparation, property sales, and substantial debris cleanup across Middle Tennessee. Call 615-200-0064."
-        />
-        <meta property="og:title" content="Property Cleanup | Investor & Renovation Property Reset | Middle Tennessee" />
-        <meta
-          property="og:description"
-          content="Property cleanup for investors, landlords, abandoned properties, renovation preparation, property sales, and substantial debris cleanup across Middle Tennessee. Call 615-200-0064."
-        />
-        <link rel="canonical" href="https://www.reinharthauling.com/property-cleanup" />
-        <script type="application/ld+json">{JSON.stringify(buildFAQPageSchema(FAQS))}</script>
-      </Helmet>
+      <PageMeta
+        title="Property Cleanup | Investor & Renovation Property Reset | Middle Tennessee"
+        description="Property cleanup for investors, landlords, abandoned properties, renovation preparation, property sales, and substantial debris cleanup across Middle Tennessee. Call 615-200-0064."
+        path="/property-cleanup"
+        jsonLd={buildFAQPageSchema(FAQS)}
+      />
 
       <section className="relative scroll-mt-32 pt-32 pb-16 lg:pt-48 lg:pb-24 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">

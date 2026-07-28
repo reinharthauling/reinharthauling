@@ -1,16 +1,13 @@
-import { Helmet } from 'react-helmet-async';
+import PageMeta from '../components/PageMeta.tsx';
 
 export default function PrivacyPolicy() {
   return (
     <>
-      <Helmet>
-        <title>Privacy Policy | Reinhart Hauling & Cleanouts</title>
-        <meta
-          name="description"
-          content="Privacy policy for Reinhart Hauling & Cleanouts including form submissions, phone/text communication, and analytics."
-        />
-        <link rel="canonical" href="https://www.reinharthauling.com/privacy-policy" />
-      </Helmet>
+      <PageMeta
+        title={`Privacy Policy | Reinhart Hauling & Cleanouts`}
+        description={`Privacy policy for Reinhart Hauling & Cleanouts including form submissions, phone/text communication, and analytics.`}
+        path={`/privacy-policy`}
+      />
 
       <section className="pt-36 pb-20">
         <div className="max-w-4xl mx-auto px-6">
@@ -63,7 +60,7 @@ export default function PrivacyPolicy() {
                 <h2 className="font-display text-2xl font-bold text-brand-navy mb-2">Contact</h2>
                 <p>
                   If you have privacy questions, contact Reinhart Hauling &amp; Cleanouts at{' '}
-                  <a href="tel:6152000064" className="text-brand-orange hover:text-brand-orange-light transition-colors">
+                  <a href="tel:+16152000064" className="text-brand-orange hover:text-brand-orange-light transition-colors">
                     615-200-0064
                   </a>{' '}
                   or{' '}

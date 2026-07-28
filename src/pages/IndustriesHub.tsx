@@ -1,16 +1,14 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
 import PageCTAs from '../components/PageCTAs.tsx';
+import PageMeta from '../components/PageMeta.tsx';
 import Breadcrumbs, { buildBreadcrumbSchema } from '../components/Breadcrumbs.tsx';
 import { INDUSTRIES_NAV_LINKS, INDUSTRIES_HUB_PATH } from '../data/industriesNavigation.ts';
 import { SITE_URL } from '../data/business.ts';
 import { buildProviderRef } from '../utils/schema.ts';
-
-const OG_IMAGE = `${SITE_URL}/og/reinhart-cleanouts-og-v2.jpg?v=3`;
 
 const PAGE_TITLE = 'Industries We Serve | Reinhart Hauling & Cleanouts';
 const META_DESCRIPTION =
@@ -21,7 +19,6 @@ const HERO_IMAGE =
 
 
 export default function IndustriesHub() {
-  const canonicalUrl = `${SITE_URL}${INDUSTRIES_HUB_PATH}`;
   const breadcrumbItems = [{ label: 'Home', to: '/' }, { label: 'Industries We Serve' }];
 
   const collectionSchema = {
@@ -29,28 +26,18 @@ export default function IndustriesHub() {
     '@type': 'CollectionPage',
     name: 'Industries We Serve',
     description: META_DESCRIPTION,
-    url: canonicalUrl,
+    url: `${SITE_URL}${INDUSTRIES_HUB_PATH}`,
     provider: buildProviderRef(),
   };
 
   return (
     <>
-      <Helmet>
-        <title>{PAGE_TITLE}</title>
-        <meta name="description" content={META_DESCRIPTION} />
-        <link rel="canonical" href={canonicalUrl} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:title" content={PAGE_TITLE} />
-        <meta property="og:description" content={META_DESCRIPTION} />
-        <meta property="og:image" content={OG_IMAGE} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={PAGE_TITLE} />
-        <meta name="twitter:description" content={META_DESCRIPTION} />
-        <meta name="twitter:image" content={OG_IMAGE} />
-        <script type="application/ld+json">{JSON.stringify(collectionSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(buildBreadcrumbSchema(breadcrumbItems))}</script>
-      </Helmet>
+      <PageMeta
+        title={PAGE_TITLE}
+        description={META_DESCRIPTION}
+        path={INDUSTRIES_HUB_PATH}
+        jsonLd={[collectionSchema, buildBreadcrumbSchema(breadcrumbItems)]}
+      />
 
       <section className="relative scroll-mt-32 overflow-hidden pt-32 pb-16 lg:pt-48 lg:pb-24">
         <div className="mx-auto max-w-7xl px-6">

@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Link, useLocation } from 'react-router-dom';
 import EstimateRequestButton from '../components/EstimateRequestButton.tsx';
 import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
+import PageMeta from '../components/PageMeta.tsx';
 import { scrollToSection, scrollToSectionWhenReady } from '../utils/scrollToSection.ts';
 import { motion } from 'motion/react';
 import {
@@ -714,16 +714,12 @@ export default function WhatWeTake() {
 
   return (
     <>
-      <Helmet>
-        <title>Items We Remove | Junk Removal, Cleanouts &amp; Debris Removal in Middle Tennessee</title>
-        <meta
-          name="description"
-          content="See what Reinhart Hauling & Cleanouts removes: furniture, appliances, office furniture, garage items, construction debris, yard debris, hot tubs, storage units, estate contents, and more across Middle Tennessee."
-        />
-        <link rel="canonical" href="https://www.reinharthauling.com/what-we-take" />
-        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-      </Helmet>
+      <PageMeta
+        title={`Items We Remove | Junk Removal, Cleanouts & Debris Removal in Middle Tennessee`}
+        description={`See what Reinhart Hauling & Cleanouts removes: furniture, appliances, office furniture, garage items, construction debris, yard debris, hot tubs, storage units, estate contents, and more across Middle Tennessee.`}
+        path={`/what-we-take`}
+        jsonLd={[breadcrumbSchema, faqSchema]}
+      />
 
       <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-white pt-32 pb-20 lg:pt-48 lg:pb-28">
         <div
@@ -770,7 +766,7 @@ export default function WhatWeTake() {
               <EstimateRequestButton />
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 <Link
-                  to="/services"
+                  to="/#services"
                   className="inline-flex items-center justify-center gap-3 rounded-2xl border-2 border-slate-200 bg-white px-8 py-4 text-lg font-bold text-brand-navy transition-colors hover:border-brand-orange"
                 >
                   View Services

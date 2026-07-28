@@ -51,7 +51,7 @@ const BASE_FAQS: ResidentialFaq[] = [
   {
     question: 'What areas do you serve?',
     answer:
-      'We serve Goodlettsville, Hendersonville, Gallatin, White House, Greenbrier, Ridgetop, Springfield, Nashville (including East Nashville, Downtown Nashville, Old Hickory, and Joelton), Belle Meade, Brentwood, Franklin, Mt. Juliet, Lebanon, Portland, and surrounding Middle Tennessee communities.',
+      'We serve Goodlettsville, Hendersonville, Gallatin, White House, Greenbrier, Ridgetop, Springfield, Nashville (including East Nashville, Downtown Nashville, Old Hickory, Joelton, Madison, and Hermitage), Belle Meade, Brentwood, Franklin, Mt. Juliet, Lebanon, Portland, and surrounding Middle Tennessee communities.',
   },
   {
     question: 'How do I request an estimate?',
@@ -73,7 +73,7 @@ const PROPERTY_RELATED = [
   { label: 'Estate Cleanouts', to: '/estate-cleanouts' },
   { label: 'Eviction Cleanouts', to: '/eviction-cleanouts' },
   { label: 'Foreclosure Cleanouts', to: '/foreclosure-cleanouts' },
-  { label: 'Rental Property Cleanouts', to: '/rental-property-cleanouts' },
+  { label: 'Rental Property Cleanouts', to: '/landlord-rental-cleanouts' },
   { label: 'Move-Out Cleanouts', to: '/move-out-cleanouts' },
 ];
 

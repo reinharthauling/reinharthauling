@@ -1,10 +1,10 @@
 import React, { useMemo, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import PageCTAs from '../components/PageCTAs.tsx';
 import { ShieldCheck } from 'lucide-react';
 import ProjectCard from '../components/ProjectCard';
 import { PROJECT_FILTERS, projects, type ProjectFilter } from '../data/projects';
+import PageMeta from '../components/PageMeta.tsx';
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState<ProjectFilter>('All');
@@ -16,14 +16,11 @@ export default function Projects() {
 
   return (
     <>
-      <Helmet>
-        <title>Projects | Reinhart Hauling &amp; Cleanouts</title>
-        <meta
-          name="description"
-          content="See real cleanout, property cleanup, demolition, and investor property projects completed by Reinhart Hauling & Cleanouts throughout Middle Tennessee."
-        />
-        <link rel="canonical" href="https://www.reinharthauling.com/projects" />
-      </Helmet>
+      <PageMeta
+        title={`Projects | Reinhart Hauling & Cleanouts`}
+        description={`See real cleanout, property cleanup, demolition, and investor property projects completed by Reinhart Hauling & Cleanouts throughout Middle Tennessee.`}
+        path={`/projects`}
+      />
 
       <section className="relative overflow-hidden pt-32 pb-20 lg:pt-48 lg:pb-28">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a0a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a0a_1px,transparent_1px)] bg-[size:42px_42px]" />

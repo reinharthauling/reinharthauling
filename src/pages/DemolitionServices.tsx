@@ -38,11 +38,11 @@ const demolitionHubConfig: HubConfig = {
   heroImageAlt: 'Interior demolition and tear-out project in Portland TN',
   primaryCta: {
     label: 'Request an Estimate',
-    href: 'tel:6152000064',
+    href: 'tel:+16152000064',
   },
   secondaryCta: {
     label: 'Call Now',
-    href: 'tel:6152000064',
+    href: 'tel:+16152000064',
   },
   positioningTitle: 'Selective Demolition for Property Preparation',
   positioningParagraphs: [
@@ -223,7 +223,7 @@ const demolitionHubConfig: HubConfig = {
       title: 'Confirm Scope, Access & Safety',
       description:
         'We review what stays, what goes, parking, entry points, debris staging, and timing before tear-out begins.',
-      cta: { href: 'tel:6152000064', label: 'Call Now →' },
+      cta: { href: 'tel:+16152000064', label: 'Call Now →' },
     },
     {
       number: '03',
@@ -231,7 +231,7 @@ const demolitionHubConfig: HubConfig = {
       title: 'Tear-Out, Loading & Haul-Away',
       description:
         'Our crew completes the selective demolition, loads debris, hauls it away, and leaves the area ready for the next trade.',
-      cta: { href: 'tel:6152000064', label: 'Call Now →' },
+      cta: { href: 'tel:+16152000064', label: 'Call Now →' },
     },
   ],
   featuredTitle: 'Recent Demolition Projects',

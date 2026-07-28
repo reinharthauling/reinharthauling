@@ -1,11 +1,11 @@
 
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { CheckCircle2, MapPin, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PageCTAs from '../components/PageCTAs.tsx';
 import { buildFAQPageSchema, buildServiceSchema } from '../utils/schema.ts';
+import PageMeta from '../components/PageMeta.tsx';
 
 const LOCAL_FAQS = [
   {
@@ -45,16 +45,12 @@ export default function JunkRemovalGoodlettsville() {
 
   return (
     <>
-    <Helmet>
-        <title>Junk Removal in Goodlettsville TN | Reinhart Hauling &amp; Cleanouts</title>
-  <meta
-    name="description"
-    content="Local junk removal and property cleanup support in Goodlettsville, TN. Furniture, appliances, garage cleanouts, and more. Request an estimate. Call 615-200-0064."
-  />
-  <link rel="canonical" href="https://www.reinharthauling.com/junk-removal-goodlettsville" />
-  <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
-  <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-</Helmet>
+    <PageMeta
+        title={`Junk Removal in Goodlettsville TN | Reinhart Hauling & Cleanouts`}
+        description={`Local junk removal and property cleanup support in Goodlettsville, TN. Furniture, appliances, garage cleanouts, and more. Request an estimate. Call 615-200-0064.`}
+        path={`/junk-removal-goodlettsville`}
+        jsonLd={[serviceSchema, faqSchema]}
+      />
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
           <div className="max-w-7xl mx-auto px-6">
             <div className="max-w-3xl">
@@ -259,7 +255,7 @@ export default function JunkRemovalGoodlettsville() {
 
                 <div className="mt-10 flex flex-col sm:flex-row gap-4">
                   <a
-                    href="tel:6152000064"
+                    href="tel:+16152000064"
                     className="bg-brand-navy text-white px-10 py-5 rounded-2xl font-bold text-xl shadow-2xl shadow-brand-navy/30 flex items-center justify-center gap-3 hover:bg-brand-orange transition-all hover:scale-105"
                   >
                     <Phone />

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { buildFAQPageSchema } from '../utils/schema.ts';
 import { motion } from 'motion/react';
 import { CheckCircle2, ChevronDown, ClipboardCheck, Hammer, MessageSquare, Truck } from 'lucide-react';
@@ -7,6 +6,7 @@ import { Link } from 'react-router-dom';
 import PageCTAs from '../components/PageCTAs.tsx';
 import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
 import CleanoutProcess from '../components/CleanoutProcess.tsx';
+import PageMeta from '../components/PageMeta.tsx';
 
 const ITEMS_REMOVED = [
   'Drywall and paneling',
@@ -40,7 +40,7 @@ const DEMO_PROCESS_STEPS = [
     title: 'Confirm Scope & Access',
     description:
       'We review what is being removed, what stays, debris volume, parking, entry points, and timing before work begins.',
-    cta: { href: 'tel:6152000064', label: 'Call Now →' },
+    cta: { href: 'tel:+16152000064', label: 'Call Now →' },
   },
   {
     number: '03',
@@ -48,7 +48,7 @@ const DEMO_PROCESS_STEPS = [
     title: 'Tear-Out, Loading & Cleanup',
     description:
       'Our crew completes the selective tear-out, loads debris, hauls it away, and keeps the work area organized.',
-    cta: { href: 'tel:6152000064', label: 'Call Now →' },
+    cta: { href: 'tel:+16152000064', label: 'Call Now →' },
   },
   {
     number: '04',
@@ -56,7 +56,7 @@ const DEMO_PROCESS_STEPS = [
     title: 'Ready for the Next Phase',
     description:
       'The space is left clearer and ready for the next trade, inspection, repair work, or renovation phase.',
-    cta: { href: 'tel:6152000064', label: 'Call Now →' },
+    cta: { href: 'tel:+16152000064', label: 'Call Now →' },
   },
 ];
 
@@ -94,15 +94,12 @@ export default function InteriorDemolition() {
 
   return (
     <>
-      <Helmet>
-        <title>Interior Demolition in Middle Tennessee | Reinhart Hauling &amp; Cleanouts</title>
-        <meta
-          name="description"
-          content="Interior demolition in Middle Tennessee for drywall removal, selective tear-outs, debris loading, hauling, and cleanup before repair or renovation work."
-        />
-        <link rel="canonical" href="https://www.reinharthauling.com/interior-demolition" />
-        <script type="application/ld+json">{JSON.stringify(buildFAQPageSchema(DEMO_FAQS))}</script>
-      </Helmet>
+      <PageMeta
+        title={`Interior Demolition in Middle Tennessee | Reinhart Hauling & Cleanouts`}
+        description={`Interior demolition in Middle Tennessee for drywall removal, selective tear-outs, debris loading, hauling, and cleanup before repair or renovation work.`}
+        path={`/interior-demolition`}
+        jsonLd={buildFAQPageSchema(DEMO_FAQS)}
+      />
 
       <section className="relative scroll-mt-32 pt-32 pb-16 lg:pt-48 lg:pb-24 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">

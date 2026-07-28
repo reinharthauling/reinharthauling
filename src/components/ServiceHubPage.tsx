@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import {
   ArrowRight,
@@ -13,7 +12,7 @@ import { Link } from 'react-router-dom';
 import CleanoutProcess from './CleanoutProcess.tsx';
 import PageCTAs from './PageCTAs.tsx';
 import ServiceBottomCTA from './ServiceBottomCTA.tsx';
-import { SITE_URL } from '../data/business.ts';
+import PageMeta from './PageMeta.tsx';
 import { buildFAQPageSchema } from '../utils/schema.ts';
 
 export type HubService = {
@@ -115,18 +114,16 @@ const HubServiceCard = ({ service, index }: { service: HubService; index: number
 export default function ServiceHubPage({ config }: { config: HubConfig }) {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const faqSchema = buildFAQPageSchema(config.faqs);
-  const canonicalUrl = `${SITE_URL}${config.canonicalPath}`;
 
   return (
     <>
-      <Helmet>
-        <title>{config.pageTitle}</title>
-        <meta name="description" content={config.metaDescription} />
-        <meta property="og:title" content={config.metaTitle} />
-        <meta property="og:description" content={config.metaDescription} />
-        <link rel="canonical" href={canonicalUrl} />
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-      </Helmet>
+      <PageMeta
+        title={config.pageTitle}
+        description={config.metaDescription}
+        path={config.canonicalPath}
+        ogTitle={config.metaTitle}
+        jsonLd={faqSchema}
+      />
 
       {/* Hero */}
       <section className="relative scroll-mt-32 overflow-hidden pt-32 pb-16 lg:pt-48 lg:pb-24">
@@ -330,13 +327,29 @@ export default function ServiceHubPage({ config }: { config: HubConfig }) {
                   </div>
                   <div className="grid grid-cols-2 gap-3">
                     <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-slate-200 bg-slate-100">
-                      <img src={project.beforeSrc} alt={`${project.title} before`} className="h-full w-full object-cover" />
+                      <img
+                        src={project.beforeSrc}
+                        alt={`${project.title} before`}
+                        className="h-full w-full object-cover"
+                        width={800}
+                        height={600}
+                        loading="lazy"
+                        decoding="async"
+                      />
                       <div className="absolute bottom-2 left-2 rounded-full bg-brand-orange px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
                         Before
                       </div>
                     </div>
                     <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-slate-200 bg-slate-100">
-                      <img src={project.afterSrc} alt={`${project.title} after`} className="h-full w-full object-cover" />
+                      <img
+                        src={project.afterSrc}
+                        alt={`${project.title} after`}
+                        className="h-full w-full object-cover"
+                        width={800}
+                        height={600}
+                        loading="lazy"
+                        decoding="async"
+                      />
                       <div className="absolute bottom-2 right-2 rounded-full bg-white px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-brand-navy">
                         After
                       </div>

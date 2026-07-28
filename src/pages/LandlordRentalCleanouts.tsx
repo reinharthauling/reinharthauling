@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING, SERVICE_AREAS_FAQ_ANSWER } from '../data/business.ts';
 import { buildFAQPageSchema } from '../utils/schema.ts';
 import { motion } from 'motion/react';
@@ -7,6 +6,7 @@ import { CheckCircle2, ChevronDown, ClipboardCheck, MessageSquare, Phone, Truck 
 import { Link } from 'react-router-dom';
 import PageCTAs from '../components/PageCTAs.tsx';
 import CleanoutProcess from '../components/CleanoutProcess.tsx';
+import PageMeta from '../components/PageMeta.tsx';
 
 const WHO_WE_HELP = [
   {
@@ -85,7 +85,7 @@ const RENTAL_PROCESS_STEPS = [
     title: 'Scope Review & Scheduling Plan',
     description:
       'We review access, debris volume, labor requirements, disposal needs, and scheduling so scope and expectations are clear before work begins.',
-    cta: { href: 'tel:6152000064', label: 'Call Now →' },
+    cta: { href: 'tel:+16152000064', label: 'Call Now →' },
   },
   {
     number: '03',
@@ -93,7 +93,7 @@ const RENTAL_PROCESS_STEPS = [
     title: 'Clear-Out & Turnover Readiness',
     description:
       'Our crew arrives on schedule, clears the property, hauls debris, and leaves the space ready for maintenance, cleaning, or the next tenant.',
-    cta: { href: 'tel:6152000064', label: 'Call Now \u2192' },
+    cta: { href: 'tel:+16152000064', label: 'Call Now \u2192' },
   },
 ];
 
@@ -148,15 +148,12 @@ export default function LandlordRentalCleanouts() {
 
   return (
     <>
-      <Helmet>
-        <title>Landlord &amp; Rental Cleanout Services in Nashville &amp; Middle Tennessee</title>
-        <meta
-          name="description"
-          content="Landlord and rental cleanout services for move-outs, turnovers, and property resets across Nashville and Middle Tennessee. Responsive scheduling and dependable turnover support."
-        />
-        <link rel="canonical" href="https://www.reinharthauling.com/landlord-rental-cleanouts" />
-        <script type="application/ld+json">{JSON.stringify(buildFAQPageSchema(RENTAL_FAQS))}</script>
-      </Helmet>
+      <PageMeta
+        title={`Landlord & Rental Cleanout Services in Nashville & Middle Tennessee`}
+        description={`Landlord and rental cleanout services for move-outs, turnovers, and property resets across Nashville and Middle Tennessee. Responsive scheduling and dependable turnover support.`}
+        path={`/landlord-rental-cleanouts`}
+        jsonLd={buildFAQPageSchema(RENTAL_FAQS)}
+      />
 
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">

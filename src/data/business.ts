@@ -8,7 +8,7 @@ export const BUSINESS = {
   name: 'Reinhart Hauling & Cleanouts',
   url: SITE_URL,
   phoneDisplay: '615-200-0064',
-  phoneTel: 'tel:6152000064',
+  phoneTel: 'tel:+16152000064',
   /** Schema.org telephone format */
   phoneSchema: '+1-615-200-0064',
   email: 'office@reinharthauling.com',
@@ -31,6 +31,9 @@ export const BUSINESS = {
   logo: `${SITE_URL}/branding/Reinhart-hauling-cleanouts-nashville.png`,
   image: `${SITE_URL}/og/reinhart-hauling-cleanouts-social-preview.jpg?v=2`,
 } as const;
+
+/** Preferred default Open Graph / social preview image (absolute URL). */
+export const DEFAULT_OG_IMAGE = BUSINESS.image;
 
 /** Mon–Fri and Saturday only in schema. Sunday is Closed (no OpeningHoursSpecification entry). */
 export const OPENING_HOURS = [
@@ -60,8 +63,8 @@ export const BUSINESS_HOURS_DISPLAY = {
 export type ServiceCity = {
   name: string;
   /**
-   * When true, emit as Place (neighborhood / unincorporated area), not City.
-   * Used for East Nashville, Downtown Nashville, Old Hickory, and Joelton.
+   * When true, emit as Place (neighborhood / community), not City.
+   * Used for Nashville-area communities — not separate office locations.
    */
   isPlace?: boolean;
   containedInCity?: string;
@@ -69,7 +72,10 @@ export type ServiceCity = {
 
 /**
  * Approved service areas (owner-approved list).
- * East Nashville, Downtown Nashville, Old Hickory, and Joelton are Places — not incorporated cities in schema.
+ * Primary markets are listed first as City entries.
+ * Nashville-area communities (East Nashville, Downtown Nashville, Old Hickory, Joelton,
+ * Madison, Hermitage) are Places contained in Nashville — not separate business locations.
+ * Do not create dedicated Madison/Hermitage landing pages without owner approval.
  */
 export const SERVICE_CITIES: ServiceCity[] = [
   { name: 'Goodlettsville' },
@@ -90,28 +96,24 @@ export const SERVICE_CITIES: ServiceCity[] = [
   { name: 'Downtown Nashville', isPlace: true, containedInCity: 'Nashville' },
   { name: 'Old Hickory', isPlace: true, containedInCity: 'Nashville' },
   { name: 'Joelton', isPlace: true, containedInCity: 'Nashville' },
+  { name: 'Madison', isPlace: true, containedInCity: 'Nashville' },
+  { name: 'Hermitage', isPlace: true, containedInCity: 'Nashville' },
 ];
-
-/**
- * Present on older page lists; keep for now and flag for owner review.
- * Do not treat as schema City entries until confirmed.
- */
-export const SERVICE_AREAS_PENDING_OWNER_REVIEW = ['Madison', 'Hermitage'] as const;
 
 /** Display names for UI grids (approved areas in listed order). */
 export const SERVICE_AREA_DISPLAY_NAMES = SERVICE_CITIES.map((c) => c.name);
 
-/** Display names including pending-review areas (for pages that already listed them). */
-export const SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING = [
-  ...SERVICE_AREA_DISPLAY_NAMES,
-  ...SERVICE_AREAS_PENDING_OWNER_REVIEW,
-];
+/**
+ * @deprecated Alias of SERVICE_AREA_DISPLAY_NAMES (pending-review list resolved).
+ * Prefer SERVICE_AREA_DISPLAY_NAMES for new code.
+ */
+export const SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING = SERVICE_AREA_DISPLAY_NAMES;
 
 /** Incorporated city names only (for schema City nodes). */
 export const INCORPORATED_CITY_NAMES = SERVICE_CITIES.filter((c) => !c.isPlace).map((c) => c.name);
 
 export const SERVICE_AREAS_FAQ_ANSWER =
-  'We serve Goodlettsville, Hendersonville, Gallatin, White House, Greenbrier, Ridgetop, Springfield, Nashville (including East Nashville, Downtown Nashville, Old Hickory, and Joelton), Belle Meade, Brentwood, Franklin, Mt. Juliet, Lebanon, Portland, and surrounding Middle Tennessee communities.';
+  'We serve Goodlettsville, Hendersonville, Gallatin, White House, Greenbrier, Ridgetop, Springfield, Nashville (including East Nashville, Downtown Nashville, Old Hickory, Joelton, Madison, and Hermitage), Belle Meade, Brentwood, Franklin, Mt. Juliet, Lebanon, Portland, and surrounding Middle Tennessee communities.';
 
 /** Primary services for offer catalog / schema emphasis. */
 export const PRIMARY_SERVICES = [

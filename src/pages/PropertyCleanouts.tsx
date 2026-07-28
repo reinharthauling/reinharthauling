@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING, SERVICE_AREAS_FAQ_ANSWER } from '../data/business.ts';
 import { buildFAQPageSchema } from '../utils/schema.ts';
 import { motion } from 'motion/react';
@@ -8,6 +7,7 @@ import { Link } from 'react-router-dom';
 import PageCTAs from '../components/PageCTAs.tsx';
 import CleanoutProcess from '../components/CleanoutProcess.tsx';
 import { projectImages } from '../data/projectImages';
+import PageMeta from '../components/PageMeta.tsx';
 
 const WHO_WE_HELP = [
   {
@@ -117,7 +117,7 @@ const PROPERTY_PROCESS_STEPS = [
     title: 'Scope Review & Scheduling Plan',
     description:
       'We review property access, debris volume, labor needs, disposal requirements, and scheduling so expectations are clear before the crew arrives.',
-    cta: { href: 'tel:6152000064', label: 'Call Now →' },
+    cta: { href: 'tel:+16152000064', label: 'Call Now →' },
   },
   {
     number: '03',
@@ -125,7 +125,7 @@ const PROPERTY_PROCESS_STEPS = [
     title: 'Property Clear-Out & Next-Phase Readiness',
     description:
       'Our crew clears the property efficiently, hauls debris, handles disposal, and leaves the space opened up and ready for cleaning, repairs, listing, or turnover.',
-    cta: { href: 'tel:6152000064', label: 'Call Now \u2192' },
+    cta: { href: 'tel:+16152000064', label: 'Call Now \u2192' },
   },
 ];
 
@@ -216,15 +216,12 @@ export default function PropertyCleanouts() {
 
   return (
     <>
-      <Helmet>
-        <title>Property Cleanouts | Contents Removal in Middle Tennessee</title>
-        <meta
-          name="description"
-          content="Property cleanouts for homes, estates, rentals, garages, and hoarded properties across Middle Tennessee. We remove unwanted contents and leave the structure ready for the next step. Call 615-200-0064."
-        />
-        <link rel="canonical" href="https://www.reinharthauling.com/property-cleanouts" />
-        <script type="application/ld+json">{JSON.stringify(buildFAQPageSchema(PROPERTY_FAQS))}</script>
-      </Helmet>
+      <PageMeta
+        title="Property Cleanouts | Contents Removal in Middle Tennessee"
+        description="Property cleanouts for homes, estates, rentals, garages, and hoarded properties across Middle Tennessee. We remove unwanted contents and leave the structure ready for the next step. Call 615-200-0064."
+        path="/property-cleanouts"
+        jsonLd={buildFAQPageSchema(PROPERTY_FAQS)}
+      />
 
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
@@ -402,6 +399,10 @@ export default function PropertyCleanouts() {
                       src={project.beforeSrc}
                       alt={`${project.title} — before`}
                       className="w-full h-full object-cover object-center"
+                      width={800}
+                      height={600}
+                      loading="lazy"
+                      decoding="async"
                       referrerPolicy="no-referrer"
                     />
                     <div className="absolute bottom-2 left-2 bg-brand-orange text-white px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-sm">
@@ -413,6 +414,10 @@ export default function PropertyCleanouts() {
                       src={project.afterSrc}
                       alt={`${project.title} — after`}
                       className="w-full h-full object-cover object-center"
+                      width={800}
+                      height={600}
+                      loading="lazy"
+                      decoding="async"
                       referrerPolicy="no-referrer"
                     />
                     <div className="absolute bottom-2 right-2 bg-white text-brand-navy px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-sm">

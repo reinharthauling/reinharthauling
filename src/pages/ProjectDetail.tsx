@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft, CheckCircle2, MapPin } from 'lucide-react';
 import { motion } from 'motion/react';
 import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
+import PageMeta from '../components/PageMeta.tsx';
 import { getProjectBySlug } from '../data/projects';
+
+/** Project detail routes with empty image folders — keep routes, do not index. */
+const THIN_PROJECT_SLUGS = new Set([
+  'project-refresh',
+  'fence-demo',
+  'dumpster-cleanup',
+  'large-item-pickups',
+]);
 
 type ManagedImageProps = {
   src: string;
@@ -35,6 +43,8 @@ const ManagedImage = ({ src, alt, className, fallback = 'hide', onUnavailable }:
       src={src}
       alt={alt}
       className={className}
+      width={1200}
+      height={800}
       loading="lazy"
       decoding="async"
       onError={() => {
@@ -87,13 +97,12 @@ export default function ProjectDetail() {
   if (!project) {
     return (
       <>
-        <Helmet>
-          <title>Project Not Found | Reinhart Hauling &amp; Cleanouts</title>
-          <meta
-            name="description"
-            content="The Reinhart Hauling & Cleanouts project you are looking for could not be found."
-          />
-        </Helmet>
+        <PageMeta
+          title="Project Not Found | Reinhart Hauling & Cleanouts"
+          description="The Reinhart Hauling & Cleanouts project you are looking for could not be found."
+          path="/projects"
+          noindex
+        />
 
         <section className="pt-32 pb-24 lg:pt-48">
           <div className="mx-auto max-w-3xl px-6 text-center">
@@ -120,11 +129,13 @@ export default function ProjectDetail() {
 
   return (
     <>
-      <Helmet>
-        <title>{project.seoTitle}</title>
-        <meta name="description" content={project.seoDescription} />
-        <link rel="canonical" href={`https://www.reinharthauling.com/projects/${project.slug}`} />
-      </Helmet>
+      <PageMeta
+        title={project.seoTitle}
+        description={project.seoDescription}
+        path={`/projects/${project.slug}`}
+        ogImage={THIN_PROJECT_SLUGS.has(project.slug) ? undefined : project.featuredImage}
+        noindex={THIN_PROJECT_SLUGS.has(project.slug)}
+      />
 
       <section className="relative overflow-hidden pt-32 pb-20 lg:pt-48 lg:pb-28">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a0a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a0a_1px,transparent_1px)] bg-[size:42px_42px]" />

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING } from '../data/business.ts';
 import { motion } from 'motion/react';
 import { CheckCircle2, MessageSquare, Phone } from 'lucide-react';
@@ -7,6 +6,7 @@ import { Link } from 'react-router-dom';
 import PageCTAs from '../components/PageCTAs.tsx';
 import CleanoutProcess from '../components/CleanoutProcess.tsx';
 import { projectImages } from '../data/projectImages';
+import PageMeta from '../components/PageMeta.tsx';
 
 const GARAGE_SHOWCASE = {
   beforeSrc: projectImages.garageCleanouts.gallatin.before,
@@ -18,14 +18,11 @@ const SERVICE_AREAS = SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING;
 export default function GarageCleanouts() {
   return (
     <>
-   <Helmet>
-        <title>Garage Cleanouts in Nashville | Reinhart Hauling &amp; Cleanouts</title>
-  <meta
-    name="description"
-    content="Garage cleanout services in Nashville. Remove clutter, furniture, tools, and junk. Request an estimate with project details."
-  />
-        <link rel="canonical" href="https://www.reinharthauling.com/garage-cleanouts" />
-</Helmet>
+   <PageMeta
+        title={`Garage Cleanouts in Nashville | Reinhart Hauling & Cleanouts`}
+        description={`Garage cleanout services in Nashville. Remove clutter, furniture, tools, and junk. Request an estimate with project details.`}
+        path={`/garage-cleanouts`}
+      />
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-3xl lg:max-w-4xl">
@@ -80,6 +77,10 @@ export default function GarageCleanouts() {
                   src={GARAGE_SHOWCASE.beforeSrc}
                   alt="Garage cleanout in Gallatin — before, packed with furniture and storage"
                   className="w-full h-full object-cover object-center"
+                  width={1000}
+                  height={800}
+                  loading="lazy"
+                  decoding="async"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute bottom-4 left-4 bg-brand-orange text-white px-3 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest shadow-sm">
@@ -91,6 +92,10 @@ export default function GarageCleanouts() {
                   src={GARAGE_SHOWCASE.afterSrc}
                   alt="Garage cleanout in Gallatin — after, cleared and swept clean"
                   className="w-full h-full object-cover object-center"
+                  width={1000}
+                  height={800}
+                  loading="lazy"
+                  decoding="async"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute bottom-4 right-4 bg-white text-brand-navy px-3 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest shadow-sm">

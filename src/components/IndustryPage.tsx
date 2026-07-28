@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import {
   CheckCircle2,
@@ -15,12 +14,11 @@ import Breadcrumbs, { buildBreadcrumbSchema } from './Breadcrumbs.tsx';
 import EmailContactMenu from './EmailContactMenu.tsx';
 import PageCTAs from './PageCTAs.tsx';
 import ServiceBottomCTA from './ServiceBottomCTA.tsx';
+import PageMeta from './PageMeta.tsx';
 import { INDUSTRIES_HUB_PATH } from '../data/industriesNavigation.ts';
 import type { IndustryPageConfig } from '../data/industryPages.ts';
 import { SITE_URL } from '../data/business.ts';
 import { buildFAQPageSchema, buildServiceSchema } from '../utils/schema.ts';
-
-const OG_IMAGE = `${SITE_URL}/og/reinhart-cleanouts-og-v2.jpg?v=3`;
 
 const WHY_REINHART = [
   {
@@ -81,23 +79,13 @@ export default function IndustryPage({ config }: IndustryPageProps) {
 
   return (
     <>
-      <Helmet>
-        <title>{config.pageTitle}</title>
-        <meta name="description" content={config.metaDescription} />
-        <link rel="canonical" href={canonicalUrl} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:title" content={ogTitle} />
-        <meta property="og:description" content={config.metaDescription} />
-        <meta property="og:image" content={OG_IMAGE} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={ogTitle} />
-        <meta name="twitter:description" content={config.metaDescription} />
-        <meta name="twitter:image" content={OG_IMAGE} />
-        <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(buildBreadcrumbSchema(breadcrumbItems))}</script>
-      </Helmet>
+      <PageMeta
+        title={config.pageTitle}
+        description={config.metaDescription}
+        path={config.canonicalPath}
+        ogTitle={ogTitle}
+        jsonLd={[serviceSchema, faqSchema, buildBreadcrumbSchema(breadcrumbItems)]}
+      />
 
       <section className="relative scroll-mt-32 overflow-hidden pt-32 pb-16 lg:pt-48 lg:pb-24">
         <div className="mx-auto max-w-7xl px-6">

@@ -4,8 +4,7 @@
  */
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Helmet } from 'react-helmet-async';
-import { Routes, Route, Link, Navigate, useLocation } from 'react-router-dom';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
 import { 
   Truck, 
@@ -73,6 +72,8 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import ScrollToTop from './ScrollToTop.tsx';
 import CleanoutProcess from './components/CleanoutProcess.tsx';
+import PageMeta from './components/PageMeta.tsx';
+import SeoRedirect from './components/SeoRedirect.tsx';
 import { ServicesMegaMenuPanel, ServicesMobileAccordions } from './components/ServicesMegaMenu.tsx';
 import ServiceAreaInquiryModal from './components/ServiceAreaInquiryModal.tsx';
 import EmailContactMenu from './components/EmailContactMenu.tsx';
@@ -274,7 +275,7 @@ const Navbar = () => {
             About
           </Link>
           <a
-            href="tel:6152000064"
+            href="tel:+16152000064"
             className="bg-brand-navy text-white px-4 py-2 rounded-full text-sm font-medium shadow-xl shadow-brand-navy/20 hover:bg-brand-orange transition-all hover:scale-105 active:scale-95 flex items-center gap-2"
           >
             <Phone size={16} />
@@ -370,7 +371,7 @@ const Navbar = () => {
                 About
               </Link>
               <a
-                href="tel:6152000064"
+                href="tel:+16152000064"
                 className="mt-2 bg-brand-navy text-white px-4 py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 hover:bg-brand-orange transition-colors"
                 onClick={closeMobileMenu}
               >
@@ -427,7 +428,7 @@ const Hero = () => {
               <span className="text-sm font-semibold text-brand-navy">Need an on-site estimate?</span>
               <span className="inline-flex items-center gap-2 text-sm font-semibold">
                 <a
-                  href="tel:6152000064"
+                  href="tel:+16152000064"
                   className="text-brand-orange transition-colors hover:text-brand-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-offset-2 rounded-md"
                 >
                   Call Us
@@ -534,7 +535,7 @@ const ValueProps = () => {
                 {prop.icon}
               </div>
               <div>
-                <h3 className="font-display text-xl font-bold text-brand-navy mb-2">{prop.title}</h3>
+                <p className="font-display text-xl font-bold text-brand-navy mb-2">{prop.title}</p>
                 <p className="text-slate-500 text-sm leading-relaxed">{prop.desc}</p>
               </div>
             </motion.div>
@@ -580,7 +581,7 @@ const serviceCategories: ServiceCategory[] = [
       { icon: <Package />, title: 'Storage Unit Cleanouts', desc: 'Abandoned and overflow contents removed from storage units.', to: '/storage-unit-cleanouts' },
       { icon: <Trash2 />, title: 'Eviction Cleanouts', desc: 'Fast rental cleanouts to help owners regain control and prepare the unit.', to: '/eviction-cleanouts' },
       { icon: <KeyRound />, title: 'Foreclosure Cleanouts', desc: 'Cleanup after foreclosure, abandonment, or bank-owned transitions.', to: '/foreclosure-cleanouts' },
-      { icon: <Home />, title: 'Rental Property Cleanouts', desc: 'Turnover cleanouts for rental homes, apartments, and problem properties.', to: '/rental-property-cleanouts' },
+      { icon: <Home />, title: 'Rental Property Cleanouts', desc: 'Turnover cleanouts for rental homes, apartments, and problem properties.', to: '/landlord-rental-cleanouts' },
       { icon: <Truck />, title: 'Move-Out Cleanouts', desc: 'Left-behind contents cleared for turnover and re-listing.', to: '/move-out-cleanouts' },
       { icon: <TrendingUp />, title: 'Property Preparation', desc: 'Organized clearing that opens properties for sale, renovation, or occupancy.', to: '/property-preparation' },
       { icon: <Trees />, title: 'Yard Debris Cleanup', desc: 'Brush, exterior clutter, and outdoor materials cleared from the property.', to: '/yard-debris-cleanup' },
@@ -601,7 +602,7 @@ const serviceCategories: ServiceCategory[] = [
       { icon: <Package />, title: 'Appliance Removal', desc: 'Refrigerators, washers, dryers, and stoves removed and hauled away.', to: '/appliance-removal' },
       { icon: <Zap />, title: 'Hot Tub Removal', desc: 'Hot tubs removed from decks, patios, and tight access areas.', to: '/hot-tub-removal' },
       { icon: <Users />, title: 'Piano Removal', desc: 'Upright and console pianos evaluated for stairs and safe removal.', to: '/piano-removal' },
-      { icon: <Briefcase />, title: 'Office Furniture Removal', desc: 'Office furniture removed during decommissioning and relocation.', to: '/office-furniture-removal' },
+      { icon: <Briefcase />, title: 'Office Furniture Removal', desc: 'Office furniture removed during decommissioning and relocation.', to: '/office-load-outs' },
       { icon: <HardHat />, title: 'Construction Debris Removal', desc: 'Renovation debris, packaging, and leftover materials removed.', to: '/construction-cleanup' },
       { icon: <PanelTop />, title: 'Fence Removal', desc: 'Old fencing, posts, and panels removed from the property.', to: '/fence-removal' },
       { icon: <Trees />, title: 'Deck Removal', desc: 'Deck boards, framing, railings, and related debris removed.', to: '/deck-removal' },
@@ -1486,7 +1487,7 @@ const AreasWeServe = () => {
 
         <p className="mt-7 md:mt-8 text-slate-500 text-sm md:text-base leading-relaxed max-w-3xl">
           Not sure if we serve your area?{' '}
-          <a href="tel:6152000064" className={linkClassName}>
+          <a href="tel:+16152000064" className={linkClassName}>
             Call us
           </a>{' '}
           or{' '}
@@ -1716,7 +1717,7 @@ const Footer = () => {
             <div className="space-y-4 text-sm text-slate-300">
               <p>
                 Call or text{' '}
-                <a href="tel:6152000064" className="font-semibold text-white hover:text-brand-orange transition-colors">
+                <a href="tel:+16152000064" className="font-semibold text-white hover:text-brand-orange transition-colors">
                   615-200-0064
                 </a>
               </p>
@@ -1833,7 +1834,7 @@ const StickyActionFooter = () => {
                 </div>
                 <div className="text-center md:text-left">
                   <div className="text-[10px] md:text-[11px] font-bold text-brand-orange uppercase tracking-widest leading-none mb-1">Direct Line</div>
-                  <a href="tel:6152000064" className="text-lg md:text-lg font-bold text-white hover:text-brand-orange transition-colors">
+                  <a href="tel:+16152000064" className="text-lg md:text-lg font-bold text-white hover:text-brand-orange transition-colors">
                     615-200-0064
                   </a>
                 </div>
@@ -1848,7 +1849,7 @@ const StickyActionFooter = () => {
                   Request an Estimate
                 </button>
                 <a 
-                  href="tel:6152000064"
+                  href="tel:+16152000064"
                   className="flex-1 md:flex-none bg-brand-orange text-white px-5 py-3 md:py-2 rounded-2xl md:rounded-full font-bold text-sm flex items-center justify-center gap-2 hover:bg-brand-orange-light transition-all active:scale-95 shadow-lg shadow-brand-orange/20"
                 >
                   <Phone size={18} />
@@ -1885,7 +1886,6 @@ const SiteLayout = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-const OG_IMAGE_HOME = 'https://www.reinharthauling.com/og/reinhart-hauling-cleanouts-social-preview.jpg?v=2';
 const HOME_TITLE =
   'Reinhart Hauling & Cleanouts | Property Cleanup & Commercial Cleanouts in Middle Tennessee';
 const HOME_DESCRIPTION =
@@ -1894,26 +1894,12 @@ const HOME_DESCRIPTION =
 const HomePage = () => {
   return (
     <>
-      <Helmet>
-        <title>{HOME_TITLE}</title>
-        <meta name="description" content={HOME_DESCRIPTION} />
-        <link rel="canonical" href="https://www.reinharthauling.com/" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.reinharthauling.com/" />
-        <meta property="og:title" content={HOME_TITLE} />
-        <meta property="og:description" content={HOME_DESCRIPTION} />
-        <meta property="og:image" content={OG_IMAGE_HOME} />
-        <meta property="og:image:secure_url" content={OG_IMAGE_HOME} />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:site_name" content="Reinhart Hauling & Cleanouts" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={HOME_TITLE} />
-        <meta name="twitter:description" content={HOME_DESCRIPTION} />
-        <meta name="twitter:image" content={OG_IMAGE_HOME} />
-        <script type="application/ld+json">{JSON.stringify(buildLocalBusinessSchema())}</script>
-      </Helmet>
+      <PageMeta
+        title={HOME_TITLE}
+        description={HOME_DESCRIPTION}
+        path="/"
+        jsonLd={buildLocalBusinessSchema()}
+      />
     <SiteLayout>
       <Hero />
       <HeroTrustStrip />
@@ -1938,7 +1924,7 @@ export default function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/services" element={<Navigate to="/#services" replace />} />
+        <Route path="/services" element={<SeoRedirect to="/#services" canonicalPath="/" />} />
         <Route
           path="/residential-property-services"
           element={
@@ -1963,7 +1949,7 @@ export default function App() {
             </SiteLayout>
           }
         />
-        <Route path="/demolition" element={<Navigate to="/demolition-services" replace />} />
+        <Route path="/demolition" element={<SeoRedirect to="/demolition-services" />} />
         <Route
           path="/estate-cleanouts"
           element={
@@ -1996,14 +1982,7 @@ export default function App() {
             </SiteLayout>
           }
         />
-        <Route
-          path="/landlordrentalcleanouts"
-          element={
-            <SiteLayout>
-              <LandlordRentalCleanouts />
-            </SiteLayout>
-          }
-        />
+        <Route path="/landlordrentalcleanouts" element={<SeoRedirect to="/landlord-rental-cleanouts" />} />
         <Route
           path="/garage-cleanouts"
           element={
@@ -2088,10 +2067,10 @@ export default function App() {
             }
           />
         ))}
-        <Route path="/rental-property-cleanouts" element={<Navigate to="/landlord-rental-cleanouts" replace />} />
-        <Route path="/office-cleanouts" element={<Navigate to="/office-load-outs" replace />} />
-        <Route path="/office-furniture-removal" element={<Navigate to="/office-load-outs" replace />} />
-        <Route path="/commercial-junk-removal" element={<Navigate to="/commercial-cleanouts" replace />} />
+        <Route path="/rental-property-cleanouts" element={<SeoRedirect to="/landlord-rental-cleanouts" />} />
+        <Route path="/office-cleanouts" element={<SeoRedirect to="/office-load-outs" />} />
+        <Route path="/office-furniture-removal" element={<SeoRedirect to="/office-load-outs" />} />
+        <Route path="/commercial-junk-removal" element={<SeoRedirect to="/commercial-cleanouts" />} />
         <Route
           path="/projects"
           element={
@@ -2102,11 +2081,7 @@ export default function App() {
         />
         <Route
           path="/projects/hoarder-property-cleanup"
-          element={
-            <SiteLayout>
-              <HoarderPropertyCleanupJoelton />
-            </SiteLayout>
-          }
+          element={<SeoRedirect to="/projects/hoarder-property-cleanup-joelton" />}
         />
         <Route
           path="/projects/hoarder-property-cleanup-joelton"

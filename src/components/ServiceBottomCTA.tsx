@@ -68,7 +68,7 @@ export default function ServiceBottomCTA({
           Request an Estimate
         </motion.button>
         <a
-          href="tel:6152000064"
+          href="tel:+16152000064"
           className="inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-8 py-4 text-lg font-bold text-brand-navy transition-colors hover:border-brand-orange"
         >
           <Phone />
@@ -89,7 +89,7 @@ export default function ServiceBottomCTA({
           <span className="text-sm font-semibold text-brand-navy">Need an on-site walkthrough?</span>
           <span className="inline-flex items-center gap-2 text-sm font-semibold">
             <a
-              href="tel:6152000064"
+              href="tel:+16152000064"
               className="rounded-md text-brand-orange transition-colors hover:text-brand-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-offset-2"
             >
               Call Us

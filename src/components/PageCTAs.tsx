@@ -16,7 +16,7 @@ export default function PageCTAs({ layout = 'hero', className = '' }: PageCTAsPr
     >
       <EstimateRequestButton size={isBottom ? 'large' : 'default'} />
       <motion.a
-        href="tel:6152000064"
+        href="tel:+16152000064"
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         className={

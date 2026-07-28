@@ -1,9 +1,9 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, CheckCircle2, ClipboardCheck, Hammer, MapPin } from 'lucide-react';
 import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
 import { motion } from 'motion/react';
+import PageMeta from '../components/PageMeta.tsx';
 
 const PROJECT_BASE = '/images/projects/2026%20Projects/2026-06_Interior-Demo-Portland';
 
@@ -69,14 +69,12 @@ const photoGroups = [
 export default function InteriorDemoPortland() {
   return (
     <>
-      <Helmet>
-        <title>Interior Demo in Portland, TN | Reinhart Hauling &amp; Cleanouts</title>
-        <meta
-          name="description"
-          content="Documented interior demolition project in Portland, TN for a real estate investor evaluating renovation versus a larger demo decision."
-        />
-        <link rel="canonical" href="https://www.reinharthauling.com/projects/interior-demo-portland" />
-      </Helmet>
+      <PageMeta
+        title={`Interior Demo in Portland, TN | Reinhart Hauling & Cleanouts`}
+        description={`Documented interior demolition project in Portland, TN for a real estate investor evaluating renovation versus a larger demo decision.`}
+        path={`/projects/interior-demo-portland`}
+        ogImage={heroImage}
+      />
 
       <section className="relative overflow-hidden pt-32 pb-20 lg:pt-48 lg:pb-28">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a0a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a0a_1px,transparent_1px)] bg-[size:42px_42px]" />

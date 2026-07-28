@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING, SERVICE_AREAS_FAQ_ANSWER } from '../data/business.ts';
 import { buildFAQPageSchema } from '../utils/schema.ts';
 import { motion } from 'motion/react';
@@ -9,6 +8,7 @@ import PageCTAs from '../components/PageCTAs.tsx';
 import { getCommercialRelatedServices } from '../data/commercialNavigation.ts';
 import CleanoutProcess from '../components/CleanoutProcess.tsx';
 import { projectImages } from '../data/projectImages';
+import PageMeta from '../components/PageMeta.tsx';
 
 const COMMERCIAL_SERVICES = [
   {
@@ -104,14 +104,14 @@ const COMMERCIAL_PROCESS_STEPS = [
     icon: ClipboardCheck,
     title: 'Get A Clear Quote',
     description: 'We provide straightforward pricing based on volume, labor, access, and disposal needs.',
-    cta: { href: 'tel:6152000064', label: 'Call Now →' },
+    cta: { href: 'tel:+16152000064', label: 'Call Now →' },
   },
   {
     number: '03',
     icon: Truck,
     title: 'We Handle The Cleanout',
     description: 'Our crew loads, hauls, sorts, donates, recycles, and disposes of the unwanted items.',
-    cta: { href: 'tel:6152000064', label: 'Call Now →' },
+    cta: { href: 'tel:+16152000064', label: 'Call Now →' },
   },
 ];
 
@@ -171,15 +171,12 @@ export default function CommercialCleanouts() {
 
   return (
     <>
-      <Helmet>
-        <title>Commercial Cleanouts Nashville TN | Reinhart Hauling &amp; Cleanouts</title>
-        <meta
-          name="description"
-          content="Commercial cleanout services in Nashville and Middle Tennessee. We remove office furniture, cubicles, shelving, retail fixtures, warehouse items, storage room contents, and unwanted commercial debris."
-        />
-        <link rel="canonical" href="https://www.reinharthauling.com/commercial-cleanouts" />
-        <script type="application/ld+json">{JSON.stringify(buildFAQPageSchema(COMMERCIAL_FAQS))}</script>
-      </Helmet>
+      <PageMeta
+        title={`Commercial Cleanouts Nashville TN | Reinhart Hauling & Cleanouts`}
+        description={`Commercial cleanout services in Nashville and Middle Tennessee. We remove office furniture, cubicles, shelving, retail fixtures, warehouse items, storage room contents, and unwanted commercial debris.`}
+        path={`/commercial-cleanouts`}
+        jsonLd={buildFAQPageSchema(COMMERCIAL_FAQS)}
+      />
 
       <section className="relative scroll-mt-32 pt-32 pb-16 lg:pt-48 lg:pb-24 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">

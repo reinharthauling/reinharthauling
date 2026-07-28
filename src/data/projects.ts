@@ -37,7 +37,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: 'project-2026-04-hoarder-property-cleanup-joelton',
-    slug: 'hoarder-property-cleanup',
+    slug: 'hoarder-property-cleanup-joelton',
     title: 'Hoarder Property Cleanup',
     category: 'Property Cleanup',
     city: 'Joelton',

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import {
   CheckCircle2,
@@ -15,12 +14,12 @@ import {
 import { Link } from 'react-router-dom';
 import PageCTAs from '../components/PageCTAs.tsx';
 import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
+import PageMeta from '../components/PageMeta.tsx';
 import { getCommercialRelatedServices } from '../data/commercialNavigation.ts';
 import { SITE_URL } from '../data/business.ts';
 import { buildFAQPageSchema, buildServiceSchema } from '../utils/schema.ts';
 
 const CANONICAL_PATH = '/contractor-project-support';
-const OG_IMAGE = `${SITE_URL}/og/reinhart-cleanouts-og-v2.jpg?v=3`;
 
 const PAGE_TITLE = 'Contractor Project Support | Commercial Construction Support | Middle Tennessee';
 const META_DESCRIPTION =
@@ -215,22 +214,12 @@ export default function ContractorProjectSupport() {
 
   return (
     <>
-      <Helmet>
-        <title>{PAGE_TITLE}</title>
-        <meta name="description" content={META_DESCRIPTION} />
-        <link rel="canonical" href={canonicalUrl} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:title" content={PAGE_TITLE} />
-        <meta property="og:description" content={META_DESCRIPTION} />
-        <meta property="og:image" content={OG_IMAGE} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={PAGE_TITLE} />
-        <meta name="twitter:description" content={META_DESCRIPTION} />
-        <meta name="twitter:image" content={OG_IMAGE} />
-        <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-      </Helmet>
+      <PageMeta
+        title={PAGE_TITLE}
+        description={META_DESCRIPTION}
+        path={CANONICAL_PATH}
+        jsonLd={[serviceSchema, faqSchema]}
+      />
 
       <section className="relative scroll-mt-32 overflow-hidden pt-32 pb-16 lg:pt-48 lg:pb-24">
         <div className="mx-auto max-w-7xl px-6">

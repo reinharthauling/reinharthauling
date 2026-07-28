@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
@@ -12,6 +11,7 @@ import {
 } from 'lucide-react';
 import { BUSINESS } from '../data/business.ts';
 import { buildAboutPageSchema, buildLocalBusinessSchema, buildPersonSchema } from '../utils/schema.ts';
+import PageMeta from '../components/PageMeta.tsx';
 
 const WHY_CLIENTS_CHOOSE = [
   {
@@ -75,17 +75,16 @@ const WHO_WE_WORK_WITH = [
 export default function About() {
   return (
     <>
-      <Helmet>
-        <title>About Reinhart Hauling &amp; Cleanouts | Moving Properties Forward</title>
-        <meta
-          name="description"
-          content="Reinhart Hauling & Cleanouts is owned by Jeremiah Reinhart and helps property managers, investors, contractors, and homeowners move projects forward through property cleanup, commercial cleanouts, and selective demolition across Middle Tennessee."
-        />
-        <link rel="canonical" href="https://www.reinharthauling.com/about" />
-        <script type="application/ld+json">{JSON.stringify(buildAboutPageSchema())}</script>
-        <script type="application/ld+json">{JSON.stringify(buildLocalBusinessSchema({ includeOffers: false }))}</script>
-        <script type="application/ld+json">{JSON.stringify({ '@context': 'https://schema.org', ...buildPersonSchema() })}</script>
-      </Helmet>
+      <PageMeta
+        title="About Reinhart Hauling & Cleanouts | Moving Properties Forward"
+        description="Reinhart Hauling & Cleanouts is owned by Jeremiah Reinhart and helps property managers, investors, contractors, and homeowners move projects forward through property cleanup, commercial cleanouts, and selective demolition across Middle Tennessee."
+        path="/about"
+        jsonLd={[
+          buildAboutPageSchema(),
+          buildLocalBusinessSchema({ includeOffers: false }),
+          { '@context': 'https://schema.org', ...buildPersonSchema() },
+        ]}
+      />
 
       <section className="relative overflow-hidden pt-32 pb-20 lg:pt-48 lg:pb-32">
         <div className="mx-auto max-w-7xl px-6">

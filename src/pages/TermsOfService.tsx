@@ -1,16 +1,13 @@
-import { Helmet } from 'react-helmet-async';
+import PageMeta from '../components/PageMeta.tsx';
 
 export default function TermsOfService() {
   return (
     <>
-      <Helmet>
-        <title>Terms of Service | Reinhart Hauling & Cleanouts</title>
-        <meta
-          name="description"
-          content="Terms of service for Reinhart Hauling & Cleanouts covering estimates, pricing, materials, and payment terms."
-        />
-        <link rel="canonical" href="https://www.reinharthauling.com/terms-of-service" />
-      </Helmet>
+      <PageMeta
+        title={`Terms of Service | Reinhart Hauling & Cleanouts`}
+        description={`Terms of service for Reinhart Hauling & Cleanouts covering estimates, pricing, materials, and payment terms.`}
+        path={`/terms-of-service`}
+      />
 
       <section className="pt-36 pb-20">
         <div className="max-w-4xl mx-auto px-6">

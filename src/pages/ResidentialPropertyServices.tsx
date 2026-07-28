@@ -46,11 +46,11 @@ const residentialHubConfig: HubConfig = {
   heroImageAlt: 'Residential property cleanup completed in Gallatin TN',
   primaryCta: {
     label: 'Request an Estimate',
-    href: 'tel:6152000064',
+    href: 'tel:+16152000064',
   },
   secondaryCta: {
     label: 'Call Now',
-    href: 'tel:6152000064',
+    href: 'tel:+16152000064',
   },
   positioningTitle: 'A Property Cleanup Division Built for Real Projects',
   positioningParagraphs: [
@@ -188,7 +188,7 @@ const residentialHubConfig: HubConfig = {
           icon: Home,
           title: 'Rental Property Cleanouts',
           description: 'Turnover cleanouts for rental homes, apartments, and problem properties.',
-          to: '/rental-property-cleanouts',
+          to: '/landlord-rental-cleanouts',
         },
         {
           icon: Truck,
@@ -254,7 +254,7 @@ const residentialHubConfig: HubConfig = {
           icon: Briefcase,
           title: 'Office Furniture Removal',
           description: 'Office furniture and contents removed during decommissioning and relocation.',
-          to: '/office-furniture-removal',
+          to: '/office-load-outs',
         },
         {
           icon: HardHat,
@@ -319,7 +319,7 @@ const residentialHubConfig: HubConfig = {
       title: 'Review Scope, Access & Scheduling',
       description:
         'We confirm what stays, what goes, labor needs, disposal requirements, and timing so there are no surprises when the crew arrives.',
-      cta: { href: 'tel:6152000064', label: 'Call Now →' },
+      cta: { href: 'tel:+16152000064', label: 'Call Now →' },
     },
     {
       number: '03',
@@ -327,7 +327,7 @@ const residentialHubConfig: HubConfig = {
       title: 'Clear the Property & Move the Project Forward',
       description:
         'Our crew clears the property, hauls debris, handles disposal, and leaves the space opened up for cleaning, repairs, listing, or occupancy.',
-      cta: { href: 'tel:6152000064', label: 'Call Now →' },
+      cta: { href: 'tel:+16152000064', label: 'Call Now →' },
     },
   ],
   featuredTitle: 'Recent Residential & Property Projects',

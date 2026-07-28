@@ -1,9 +1,9 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, CheckCircle2, MapPin } from 'lucide-react';
 import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
 import { motion } from 'motion/react';
+import PageMeta from '../components/PageMeta.tsx';
 
 const PROJECT_BASE = '/images/projects/2026%20Projects/2026-06_Commercial-Office-Cleanout_Nashville';
 
@@ -63,14 +63,12 @@ const relatedServices = [
 export default function CommercialCleanoutDowntownNashville() {
   return (
     <>
-      <Helmet>
-        <title>Commercial Office Load-Out in Downtown Nashville | Reinhart Hauling &amp; Cleanouts</title>
-        <meta
-          name="description"
-          content="Documented commercial office load-out in Downtown Nashville with cubicle disassembly, office furniture removal, elevator logistics, and commercial hauling."
-        />
-        <link rel="canonical" href="https://www.reinharthauling.com/projects/commercial-cleanout-downtown-nashville" />
-      </Helmet>
+      <PageMeta
+        title={`Commercial Office Load-Out in Downtown Nashville | Reinhart Hauling & Cleanouts`}
+        description={`Documented commercial office load-out in Downtown Nashville with cubicle disassembly, office furniture removal, elevator logistics, and commercial hauling.`}
+        path={`/projects/commercial-cleanout-downtown-nashville`}
+        ogImage={heroImage}
+      />
 
       <section className="relative overflow-hidden pt-32 pb-20 lg:pt-48 lg:pb-28">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a0a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a0a_1px,transparent_1px)] bg-[size:42px_42px]" />

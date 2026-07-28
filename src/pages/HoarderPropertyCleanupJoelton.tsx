@@ -1,9 +1,9 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import PageCTAs from '../components/PageCTAs.tsx';
 import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
+import PageMeta from '../components/PageMeta.tsx';
 import {
   ArrowRight,
   CalendarDays,
@@ -176,14 +176,12 @@ const CTAButtons = () => <PageCTAs layout="hero" />;
 export default function HoarderPropertyCleanupJoelton() {
   return (
     <>
-      <Helmet>
-        <title>Hoarder Property Cleanup in Joelton, TN | Reinhart Hauling &amp; Cleanouts</title>
-        <meta
-          name="description"
-          content="Real Joelton, TN hoarder property cleanup project by Reinhart Hauling & Cleanouts involving heavy debris removal, sorting, scrap recycling, and responsible disposal."
-        />
-        <link rel="canonical" href="https://www.reinharthauling.com/projects/hoarder-property-cleanup-joelton" />
-      </Helmet>
+      <PageMeta
+        title={`Hoarder Property Cleanup in Joelton, TN | Reinhart Hauling & Cleanouts`}
+        description={`Real Joelton, TN hoarder property cleanup project by Reinhart Hauling & Cleanouts involving heavy debris removal, sorting, scrap recycling, and responsible disposal.`}
+        path={`/projects/hoarder-property-cleanup-joelton`}
+        ogImage={heroImage}
+      />
 
       <section className="relative overflow-hidden bg-brand-navy text-white">
         <div className="relative min-h-[760px] pt-36 lg:pt-48">

@@ -37,11 +37,11 @@ const commercialHubConfig: HubConfig = {
   heroImageAlt: 'Commercial office cleanout in downtown Nashville',
   primaryCta: {
     label: 'Request an Estimate',
-    href: 'tel:6152000064',
+    href: 'tel:+16152000064',
   },
   secondaryCta: {
     label: 'Call Now',
-    href: 'tel:6152000064',
+    href: 'tel:+16152000064',
   },
   positioningTitle: 'Commercial Property Support That Keeps Timelines Moving',
   positioningParagraphs: [
@@ -229,7 +229,7 @@ const commercialHubConfig: HubConfig = {
       title: 'Confirm Scope, Access & Quote',
       description:
         'We review labor, parking, elevators, disassembly needs, disposal requirements, and scheduling before work begins.',
-      cta: { href: 'tel:6152000064', label: 'Call Now →' },
+      cta: { href: 'tel:+16152000064', label: 'Call Now →' },
     },
     {
       number: '03',
@@ -237,7 +237,7 @@ const commercialHubConfig: HubConfig = {
       title: 'Execute the Commercial Load-Out',
       description:
         'Our crew loads, hauls, sorts, and disposes of unwanted contents—keeping the client informed throughout the project.',
-      cta: { href: 'tel:6152000064', label: 'Call Now →' },
+      cta: { href: 'tel:+16152000064', label: 'Call Now →' },
     },
   ],
   featuredTitle: 'Recent Commercial Projects',

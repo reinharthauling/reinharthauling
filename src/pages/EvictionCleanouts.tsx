@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING, SERVICE_AREAS_FAQ_ANSWER } from '../data/business.ts';
 import { buildFAQPageSchema } from '../utils/schema.ts';
 import { motion } from 'motion/react';
@@ -7,6 +6,7 @@ import { CalendarClock, CheckCircle2, ChevronDown, ClipboardCheck, MapPin, Messa
 import { Link } from 'react-router-dom';
 import PageCTAs from '../components/PageCTAs.tsx';
 import CleanoutProcess from '../components/CleanoutProcess.tsx';
+import PageMeta from '../components/PageMeta.tsx';
 
 const WHO_WE_HELP = [
   {
@@ -85,7 +85,7 @@ const EVICTION_PROCESS_STEPS = [
     title: 'Scope Review & Scheduling Plan',
     description:
       'We review access, labor, debris volume, disposal needs, and scheduling so expectations are clear before work begins.',
-    cta: { href: 'tel:6152000064', label: 'Call Now →' },
+    cta: { href: 'tel:+16152000064', label: 'Call Now →' },
   },
   {
     number: '03',
@@ -93,7 +93,7 @@ const EVICTION_PROCESS_STEPS = [
     title: 'Property Clear-Out & Final Readiness',
     description:
       'Our crew arrives on schedule, clears the unit, hauls debris, and leaves the space ready for cleaning, repairs, or listing prep.',
-    cta: { href: 'tel:6152000064', label: 'Call Now ->' },
+    cta: { href: 'tel:+16152000064', label: 'Call Now ->' },
   },
 ];
 
@@ -141,15 +141,12 @@ export default function EvictionCleanouts() {
 
   return (
     <>
-      <Helmet>
-        <title>Eviction Cleanout Services in Nashville &amp; Middle Tennessee</title>
-        <meta
-          name="description"
-          content="Eviction cleanout services for landlords and property managers across Nashville and Middle Tennessee. Fast turnover support, clear scheduling, and reliable property clearing."
-        />
-        <link rel="canonical" href="https://www.reinharthauling.com/eviction-cleanouts" />
-        <script type="application/ld+json">{JSON.stringify(buildFAQPageSchema(EVICTION_FAQS))}</script>
-      </Helmet>
+      <PageMeta
+        title={`Eviction Cleanout Services in Nashville & Middle Tennessee`}
+        description={`Eviction cleanout services for landlords and property managers across Nashville and Middle Tennessee. Fast turnover support, clear scheduling, and reliable property clearing.`}
+        path={`/eviction-cleanouts`}
+        jsonLd={buildFAQPageSchema(EVICTION_FAQS)}
+      />
     
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
           <div className="max-w-7xl mx-auto px-6">
