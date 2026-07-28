@@ -1,12 +1,15 @@
 /**
  * Build-time prerender: crawl sitemap routes against the Vite SPA shell,
  * capture fully rendered HTML (Helmet head + #root body), write to dist.
+ *
+ * Browser strategy:
+ * - Vercel / CI Linux without system Chrome libs → puppeteer-core + @sparticuz/chromium
+ * - Local macOS/dev → Playwright Chromium
  */
 import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { chromium } from 'playwright';
 import { getPrerenderRoutes, distHtmlPathForRoute } from './prerender-routes.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -14,6 +17,13 @@ const ROOT = path.resolve(__dirname, '..');
 const DIST = path.join(ROOT, 'dist');
 const PORT = Number(process.env.PRERENDER_PORT || 4179);
 const ORIGIN = `http://127.0.0.1:${PORT}`;
+const USER_AGENT =
+  'Mozilla/5.0 (compatible; ReinhartHaulingPrerender/1.0; +https://www.reinharthauling.com)';
+
+const useSparticuz =
+  process.env.PRERENDER_ENGINE === 'sparticuz' ||
+  Boolean(process.env.VERCEL) ||
+  Boolean(process.env.AWS_LAMBDA_FUNCTION_NAME);
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -39,6 +49,10 @@ function contentType(filePath) {
   return MIME[path.extname(filePath).toLowerCase()] || 'application/octet-stream';
 }
 
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 /**
  * Serve dist assets; always return the original SPA shell for HTML navigations
  * so React Router can render each route during capture.
@@ -53,7 +67,6 @@ function createSpaShellServer(shellHtml) {
         pathname = pathname.slice(0, -1);
       }
 
-      // Asset / static file lookup
       const candidate = path.normalize(path.join(DIST, pathname === '/' ? '' : pathname));
       if (!candidate.startsWith(DIST)) {
         res.writeHead(403).end('Forbidden');
@@ -66,7 +79,6 @@ function createSpaShellServer(shellHtml) {
         return;
       }
 
-      // SPA shell for all HTML navigations during prerender
       res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
       res.end(shellHtml);
     } catch (err) {
@@ -79,11 +91,88 @@ function expectedCanonicalPath(route) {
   return route === '/' ? 'https://www.reinharthauling.com/' : `https://www.reinharthauling.com${route}`;
 }
 
+/** Unified page helpers for Playwright vs Puppeteer API differences. */
+function wrapPage(page, engine) {
+  return {
+    async goto(url) {
+      if (engine === 'puppeteer') {
+        await page.goto(url, { waitUntil: 'networkidle0', timeout: 90_000 });
+      } else {
+        await page.goto(url, { waitUntil: 'networkidle', timeout: 90_000 });
+      }
+    },
+    waitForSelector(selector, options) {
+      return page.waitForSelector(selector, options);
+    },
+    waitForFunction(fn, arg, options = {}) {
+      if (engine === 'puppeteer') {
+        return page.waitForFunction(fn, options, arg);
+      }
+      return page.waitForFunction(fn, arg, options);
+    },
+    evaluate(fn, arg) {
+      return arg === undefined ? page.evaluate(fn) : page.evaluate(fn, arg);
+    },
+    content() {
+      return page.content();
+    },
+    on(event, handler) {
+      page.on(event, handler);
+    },
+  };
+}
+
+async function launchBrowser() {
+  if (useSparticuz) {
+    console.log('Prerender browser: Playwright + @sparticuz/chromium (Vercel-compatible)');
+    const sparticuz = (await import('@sparticuz/chromium')).default;
+    const { chromium: pwChromium } = await import('playwright-core');
+
+    // Property setter (not a function) — disables WebGL / swiftshader extract
+    sparticuz.setGraphicsMode = false;
+
+    const browser = await pwChromium.launch({
+      args: sparticuz.args,
+      executablePath: await sparticuz.executablePath(),
+      headless: true,
+    });
+    const context = await browser.newContext({
+      viewport: { width: 1280, height: 720 },
+      userAgent: USER_AGENT,
+    });
+    const page = await context.newPage();
+    return {
+      browser,
+      page: wrapPage(page, 'playwright'),
+      engine: 'playwright',
+      closeExtra: () => context.close(),
+    };
+  }
+
+  console.log('Prerender browser: Playwright Chromium');
+  const { chromium } = await import('playwright');
+  const browser = await chromium.launch({
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+  });
+  const context = await browser.newContext({
+    viewport: { width: 1280, height: 720 },
+    userAgent: USER_AGENT,
+  });
+  const page = await context.newPage();
+  return {
+    browser,
+    page: wrapPage(page, 'playwright'),
+    engine: 'playwright',
+    closeExtra: () => context.close(),
+  };
+}
+
 async function captureRoute(page, route) {
   const url = `${ORIGIN}${route === '/' ? '/' : route}`;
   const expectedCanonical = expectedCanonicalPath(route);
 
-  await page.goto(url, { waitUntil: 'networkidle', timeout: 90_000 });
+  await page.goto(url);
 
   await page.waitForSelector('#root h1', { timeout: 45_000 });
 
@@ -93,7 +182,6 @@ async function captureRoute(page, route) {
       if (!link) return false;
       const href = (link.getAttribute('href') || '').replace(/\/$/, '') || '/';
       const expected = canonical.replace(/\/$/, '') || '/';
-      // Homepage canonical may end with or without trailing slash
       if (canonical.endsWith('reinharthauling.com/')) {
         return href === 'https://www.reinharthauling.com' || href === 'https://www.reinharthauling.com/';
       }
@@ -113,7 +201,6 @@ async function captureRoute(page, route) {
     const titleEl = document.querySelector('title');
     if (!og || !titleEl) return false;
     const ogTitle = og.getAttribute('content') || '';
-    // Prefer aligning the title element to Helmet's og:title when they drift
     if (ogTitle && titleEl.textContent !== ogTitle) {
       titleEl.textContent = ogTitle;
       document.title = ogTitle;
@@ -121,15 +208,13 @@ async function captureRoute(page, route) {
     return Boolean(ogTitle) && document.title === ogTitle;
   });
 
-  // Let Helmet / layout settle (Motion stays static under prerender UA)
-  await page.waitForTimeout(250);
+  await sleep(250);
 
-  // Normalize client-only transient UI before snapshot
   await page.evaluate(() => {
     window.scrollTo(0, 0);
     document.querySelectorAll('[data-prerender-strip]').forEach((el) => el.remove());
   });
-  await page.waitForTimeout(100);
+  await sleep(100);
 
   const html = await page.content();
 
@@ -147,14 +232,9 @@ function ensureDir(filePath) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
 }
 
-/**
- * Keep a single authoritative tag for SEO-critical head elements.
- * react-helmet-async usually replaces managed tags; this is a safety net for captures.
- */
 function dedupeHead(html) {
   let out = html;
 
-  // Keep the last <title>
   const titles = [...out.matchAll(/<title[^>]*>[\s\S]*?<\/title>/gi)];
   if (titles.length > 1) {
     for (const t of titles.slice(0, -1)) {
@@ -178,9 +258,6 @@ function dedupeHead(html) {
   dropAllButLast(/<meta[^>]+name=["']twitter:title["'][^>]*>/gi);
   dropAllButLast(/<meta[^>]+name=["']twitter:description["'][^>]*>/gi);
 
-  // Helmet may update document.title / og:title while leaving a shell <title> tag.
-  // Prefer og:title (route-specific) as the authoritative <title> text.
-  // Only rewrite a real <title> element — never match the string inside HTML comments.
   const ogTitle =
     out.match(/<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']+)["'][^>]*>/i)?.[1] ||
     out.match(/<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:title["'][^>]*>/i)?.[1];
@@ -213,22 +290,12 @@ async function main() {
     server.listen(PORT, '127.0.0.1', resolve);
   });
 
-  const browser = await chromium.launch({
-    headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
-  });
+  const { browser, page, closeExtra } = await launchBrowser();
 
   const captures = new Map();
   const failures = [];
 
   try {
-    const context = await browser.newContext({
-      viewport: { width: 1280, height: 720 },
-      userAgent:
-        'Mozilla/5.0 (compatible; ReinhartHaulingPrerender/1.0; +https://www.reinharthauling.com)',
-    });
-    const page = await context.newPage();
-
     page.on('pageerror', (err) => {
       console.warn(`  [pageerror] ${err.message}`);
     });
@@ -245,7 +312,7 @@ async function main() {
       }
     }
 
-    await context.close();
+    if (closeExtra) await closeExtra();
   } finally {
     await browser.close();
     await new Promise((resolve) => server.close(resolve));
@@ -262,7 +329,6 @@ async function main() {
   for (const [route, html] of captures) {
     let finalHtml = dedupeHead(html);
 
-    // Ensure the static LocalBusiness entity from the Vite shell survives capture.
     if (!/application\/ld\+json/i.test(finalHtml) || !/#business/.test(finalHtml)) {
       const lb = shellHtml.match(
         /<script type="application\/ld\+json">[\s\S]*?"@id":\s*"https:\/\/www\.reinharthauling\.com\/#business"[\s\S]*?<\/script>/i,

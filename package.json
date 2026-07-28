@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts",
-    "build": "vite build && playwright install chromium && node scripts/prerender.mjs && node scripts/validate-prerender.mjs",
+    "build": "vite build && node scripts/install-prerender-browser.mjs && node scripts/prerender.mjs && node scripts/validate-prerender.mjs",
     "build:vite": "vite build",
     "prerender": "node scripts/prerender.mjs",
     "validate:prerender": "node scripts/validate-prerender.mjs",
@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@google/genai": "^1.29.0",
+    "@sparticuz/chromium": "^138.0.2",
     "@tailwindcss/vite": "^4.1.14",
     "@vitejs/plugin-react": "^5.0.4",
     "better-sqlite3": "^12.4.1",
@@ -22,6 +23,7 @@
     "express": "^4.21.2",
     "lucide-react": "^0.546.0",
     "motion": "^12.23.24",
+    "playwright-core": "^1.54.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-helmet-async": "^3.0.0",
