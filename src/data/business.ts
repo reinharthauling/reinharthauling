@@ -12,7 +12,6 @@ export const BUSINESS = {
   /** Schema.org telephone format */
   phoneSchema: '+1-615-200-0064',
   email: 'office@reinharthauling.com',
-  priceRange: '$$',
   description:
     'Property cleanouts, commercial cleanouts, estate and rental turnovers, and selective demolition support throughout Middle Tennessee. Based in Goodlettsville and serving as a mobile, insured service-area business.',
   owner: {

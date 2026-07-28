@@ -77,7 +77,7 @@ export function buildProviderRef() {
 export function buildLocalBusinessSchema(options?: { includeOffers?: boolean; includeFaqs?: boolean }) {
   const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
-    '@type': ['LocalBusiness', 'HomeAndConstructionBusiness'],
+    '@type': 'LocalBusiness',
     '@id': `${SITE_URL}/#business`,
     name: BUSINESS.name,
     url: BUSINESS.url,
@@ -85,7 +85,6 @@ export function buildLocalBusinessSchema(options?: { includeOffers?: boolean; in
     logo: BUSINESS.logo,
     telephone: BUSINESS.phoneSchema,
     email: BUSINESS.email,
-    priceRange: BUSINESS.priceRange,
     description: BUSINESS.description,
     address: {
       '@type': 'PostalAddress',
