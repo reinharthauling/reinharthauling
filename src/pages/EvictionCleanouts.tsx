@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING, SERVICE_AREAS_FAQ_ANSWER } from '../data/business.ts';
 import { buildFAQPageSchema } from '../utils/schema.ts';
 import { motion } from 'motion/react';
 import { CalendarClock, CheckCircle2, ChevronDown, ClipboardCheck, MapPin, MessageSquare, Phone, Truck } from 'lucide-react';
@@ -119,8 +120,7 @@ const EVICTION_FAQS = [
   },
   {
     question: 'What areas do you service?',
-    answer:
-      'We serve Nashville, Goodlettsville, Hendersonville, Madison, Gallatin, Springfield, White House, Joelton, Greenbrier, and nearby Middle Tennessee communities.',
+    answer: SERVICE_AREAS_FAQ_ANSWER,
   },
   {
     question: 'Do you clean garages and storage areas too?',
@@ -134,17 +134,7 @@ const EVICTION_FAQS = [
   },
 ];
 
-const EVICTION_SERVICE_AREAS = [
-  'Nashville',
-  'Goodlettsville',
-  'Hendersonville',
-  'Madison',
-  'Gallatin',
-  'Springfield',
-  'White House',
-  'Joelton',
-  'Greenbrier',
-];
+const EVICTION_SERVICE_AREAS = SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING;
 
 export default function EvictionCleanouts() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
@@ -343,7 +333,7 @@ export default function EvictionCleanouts() {
             <div className="mb-12">
               <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">Areas We Serve</h2>
               <p className="text-slate-600 max-w-3xl leading-relaxed">
-                Eviction and turnover cleanouts across Nashville, Goodlettsville, Hendersonville, Madison, Gallatin,
+                Eviction and turnover cleanouts across Nashville, Goodlettsville, Hendersonville, Gallatin,
                 Springfield, White House, Joelton, Greenbrier, and surrounding Middle Tennessee communities.
               </p>
             </div>

@@ -123,6 +123,7 @@ export default function ProjectDetail() {
       <Helmet>
         <title>{project.seoTitle}</title>
         <meta name="description" content={project.seoDescription} />
+        <link rel="canonical" href={`https://www.reinharthauling.com/projects/${project.slug}`} />
       </Helmet>
 
       <section className="relative overflow-hidden pt-32 pb-20 lg:pt-48 lg:pb-28">

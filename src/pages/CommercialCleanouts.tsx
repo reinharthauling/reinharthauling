@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING, SERVICE_AREAS_FAQ_ANSWER } from '../data/business.ts';
 import { buildFAQPageSchema } from '../utils/schema.ts';
 import { motion } from 'motion/react';
 import { CheckCircle2, ChevronDown, ClipboardCheck, MessageSquare, Phone, Truck } from 'lucide-react';
@@ -157,23 +158,11 @@ const COMMERCIAL_FAQS = [
   },
   {
     question: 'What areas do you serve?',
-    answer:
-      'We serve Nashville, Goodlettsville, Hendersonville, Gallatin, Springfield, White House, Greenbrier, Portland, Madison, East Nashville, and surrounding Middle Tennessee areas.',
+    answer: SERVICE_AREAS_FAQ_ANSWER,
   },
 ];
 
-const SERVICE_AREAS = [
-  'Nashville',
-  'Goodlettsville',
-  'Hendersonville',
-  'Gallatin',
-  'Springfield',
-  'White House',
-  'Greenbrier',
-  'Portland',
-  'Madison',
-  'East Nashville',
-];
+const SERVICE_AREAS = SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING;
 
 const RELATED_SERVICES = getCommercialRelatedServices('/commercial-cleanouts');
 
@@ -410,7 +399,7 @@ export default function CommercialCleanouts() {
             <p className="text-slate-600 max-w-3xl leading-relaxed">
               We provide commercial cleanout services throughout Nashville and surrounding Middle Tennessee
               communities, including Goodlettsville, Hendersonville, Gallatin, Springfield, White House, Greenbrier,
-              Portland, Madison, East Nashville, and nearby areas.
+              Portland, East Nashville, and nearby areas.
             </p>
           </div>
 

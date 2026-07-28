@@ -69,6 +69,7 @@ export default function CommercialCleanoutDowntownNashville() {
           name="description"
           content="Documented commercial office load-out in Downtown Nashville with cubicle disassembly, office furniture removal, elevator logistics, and commercial hauling."
         />
+        <link rel="canonical" href="https://www.reinharthauling.com/projects/commercial-cleanout-downtown-nashville" />
       </Helmet>
 
       <section className="relative overflow-hidden pt-32 pb-20 lg:pt-48 lg:pb-28">

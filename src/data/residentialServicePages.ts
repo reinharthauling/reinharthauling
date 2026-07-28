@@ -51,7 +51,7 @@ const BASE_FAQS: ResidentialFaq[] = [
   {
     question: 'What areas do you serve?',
     answer:
-      'We serve Goodlettsville, Hendersonville, Gallatin, White House, Greenbrier, Ridgetop, Springfield, Joelton, Nashville (including East Nashville and Downtown Nashville), Old Hickory, Belle Meade, Brentwood, Franklin, Mt. Juliet, Lebanon, Portland, and surrounding Middle Tennessee communities.',
+      'We serve Goodlettsville, Hendersonville, Gallatin, White House, Greenbrier, Ridgetop, Springfield, Nashville (including East Nashville, Downtown Nashville, Old Hickory, and Joelton), Belle Meade, Brentwood, Franklin, Mt. Juliet, Lebanon, Portland, and surrounding Middle Tennessee communities.',
   },
   {
     question: 'How do I request an estimate?',

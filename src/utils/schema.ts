@@ -15,7 +15,7 @@ export type FaqItem = {
 
 export function buildAreaServedSchema(cities: ServiceCity[] = SERVICE_CITIES) {
   const items: Record<string, unknown>[] = cities.map((city) => {
-    if (city.isNeighborhood) {
+    if (city.isPlace) {
       return {
         '@type': 'Place',
         name: city.name,

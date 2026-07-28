@@ -22,6 +22,7 @@ export default function Projects() {
           name="description"
           content="See real cleanout, property cleanup, demolition, and investor property projects completed by Reinhart Hauling & Cleanouts throughout Middle Tennessee."
         />
+        <link rel="canonical" href="https://www.reinharthauling.com/projects" />
       </Helmet>
 
       <section className="relative overflow-hidden pt-32 pb-20 lg:pt-48 lg:pb-28">

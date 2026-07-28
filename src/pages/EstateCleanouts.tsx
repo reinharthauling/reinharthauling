@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING } from '../data/business.ts';
 import { motion } from 'motion/react';
 import {
   Calendar,
@@ -75,16 +76,7 @@ const WHY_CHOOSE_CARDS = [
   },
 ];
 
-const SERVICE_AREAS = [
-  'Goodlettsville',
-  'Nashville',
-  'Hendersonville',
-  'Madison',
-  'Joelton',
-  'White House',
-  'Gallatin',
-  'Springfield',
-];
+const SERVICE_AREAS = SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING;
 
 const RELATED_SERVICES = [
   { label: 'Eviction Cleanouts', to: '/eviction-cleanouts' },

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING, SERVICE_AREAS_FAQ_ANSWER } from '../data/business.ts';
 import { buildFAQPageSchema } from '../utils/schema.ts';
 import { motion } from 'motion/react';
 import { Calendar, CheckCircle2, ChevronDown, ClipboardCheck, MessageSquare, Truck } from 'lucide-react';
@@ -151,6 +152,16 @@ const PROPERTY_PROJECTS = [
 
 const PROPERTY_FAQS = [
   {
+    question: 'What is a property cleanout?',
+    answer:
+      'A property cleanout is the removal of unwanted contents from a home, estate, rental, garage, hoarded property, or similar structure—furniture, household goods, appliances, and accumulated belongings—so the building can be cleaned, repaired, listed, or reoccupied.',
+  },
+  {
+    question: 'How is a property cleanout different from property cleanup?',
+    answer:
+      'Property cleanouts focus on removing unwanted contents from inside structures. Property cleanup is broader reset work that may include exterior debris, renovation prep, abandoned-property clearing, and investor property preparation. See our Property Cleanup page for broader reset projects.',
+  },
+  {
     question: 'What types of properties do you clean out?',
     answer:
       'Single-family homes, inherited properties, rentals, apartments, and properties with garages, basements, sheds, and storage areas. If you are unsure whether your situation fits, request an estimate and we can tell you quickly.',
@@ -182,8 +193,7 @@ const PROPERTY_FAQS = [
   },
   {
     question: 'What areas do you service?',
-    answer:
-      'We serve Nashville, Goodlettsville, Hendersonville, Madison, Gallatin, White House, Springfield, Joelton, Greenbrier, Portland, and nearby Middle Tennessee communities.',
+    answer: SERVICE_AREAS_FAQ_ANSWER,
   },
   {
     question: 'Do you work with realtors or property managers?',
@@ -192,18 +202,7 @@ const PROPERTY_FAQS = [
   },
 ];
 
-const SERVICE_AREAS = [
-  'Nashville',
-  'Goodlettsville',
-  'Hendersonville',
-  'Madison',
-  'Gallatin',
-  'White House',
-  'Springfield',
-  'Joelton',
-  'Greenbrier',
-  'Portland',
-];
+const SERVICE_AREAS = SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING;
 
 const RELATED_SERVICES = [
   { label: 'Estate Cleanouts', to: '/estate-cleanouts' },
@@ -218,10 +217,10 @@ export default function PropertyCleanouts() {
   return (
     <>
       <Helmet>
-        <title>Property Cleanout Services in Nashville &amp; Middle Tennessee</title>
+        <title>Property Cleanouts | Contents Removal in Middle Tennessee</title>
         <meta
           name="description"
-          content="Professional property cleanout services for full-home, inherited, rental, and distressed properties across Nashville and Middle Tennessee. Walkthroughs available for larger projects."
+          content="Property cleanouts for homes, estates, rentals, garages, and hoarded properties across Middle Tennessee. We remove unwanted contents and leave the structure ready for the next step. Call 615-200-0064."
         />
         <link rel="canonical" href="https://www.reinharthauling.com/property-cleanouts" />
         <script type="application/ld+json">{JSON.stringify(buildFAQPageSchema(PROPERTY_FAQS))}</script>
@@ -236,22 +235,25 @@ export default function PropertyCleanouts() {
               transition={{ duration: 0.6 }}
             >
               <span className="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-bold uppercase tracking-widest mb-6">
-                FULL PROPERTY CLEANOUTS
+                PROPERTY CLEANOUTS
               </span>
               <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-8">
-                Property Cleanout Services in <br />
-                <span className="text-brand-orange">Nashville &amp; Middle Tennessee</span>
+                Property Cleanouts for <br />
+                <span className="text-brand-orange">Unwanted Contents Removal</span>
               </h1>
               <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 max-w-2xl">
-                Professional full-property cleanouts for overwhelming spaces, inherited homes, rental turnovers,
-                and difficult transitions—plus garages, basements, sheds, and storage areas when those are part of
-                the scope.
+                Property cleanouts focus on removing unwanted contents from homes, estates, rentals, garages, hoarded
+                properties, and other occupied or vacant structures—furniture, household goods, appliances, boxed
+                items, and accumulated belongings.
               </p>
 
               <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-6 max-w-2xl">
-                Larger or more involved projects can be scoped through an on-site walkthrough. Smaller jobs often
-                start from texted photos. Either way, you get organized cleanout support from planning through
-                final sweep-through.
+                If you need a broader interior and exterior property reset for investors, abandoned properties,
+                renovation prep, or substantial debris cleanup, see our{' '}
+                <Link to="/property-cleanup" className="text-brand-orange hover:text-brand-orange transition-colors">
+                  property cleanup
+                </Link>{' '}
+                services.
               </p>
 
               <p className="text-base text-slate-600 leading-relaxed mb-8 max-w-2xl">
@@ -472,8 +474,8 @@ export default function PropertyCleanouts() {
           <div className="mb-12">
             <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">Areas We Serve</h2>
             <p className="text-slate-600 max-w-3xl leading-relaxed">
-              Property cleanouts across Nashville, Goodlettsville, Hendersonville, Madison, Gallatin, White House,
-              Springfield, Joelton, Greenbrier, Portland, and surrounding Middle Tennessee communities.
+              Property cleanouts across Middle Tennessee, including Goodlettsville, Hendersonville, Gallatin, White
+              House, Nashville and nearby communities, and surrounding service areas.
             </p>
           </div>
 

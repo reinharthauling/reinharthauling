@@ -182,6 +182,7 @@ export default function HoarderPropertyCleanupJoelton() {
           name="description"
           content="Real Joelton, TN hoarder property cleanup project by Reinhart Hauling & Cleanouts involving heavy debris removal, sorting, scrap recycling, and responsible disposal."
         />
+        <link rel="canonical" href="https://www.reinharthauling.com/projects/hoarder-property-cleanup-joelton" />
       </Helmet>
 
       <section className="relative overflow-hidden bg-brand-navy text-white">

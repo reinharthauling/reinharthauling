@@ -59,14 +59,17 @@ export const BUSINESS_HOURS_DISPLAY = {
 
 export type ServiceCity = {
   name: string;
-  /** When true, emit as Place (neighborhood/area), not City. */
-  isNeighborhood?: boolean;
+  /**
+   * When true, emit as Place (neighborhood / unincorporated area), not City.
+   * Used for East Nashville, Downtown Nashville, Old Hickory, and Joelton.
+   */
+  isPlace?: boolean;
   containedInCity?: string;
 };
 
 /**
- * Primary service areas. East Nashville and Downtown Nashville are areas within
- * Nashville — not separate incorporated cities in structured data.
+ * Approved service areas (owner-approved list).
+ * East Nashville, Downtown Nashville, Old Hickory, and Joelton are Places — not incorporated cities in schema.
  */
 export const SERVICE_CITIES: ServiceCity[] = [
   { name: 'Goodlettsville' },
@@ -76,20 +79,39 @@ export const SERVICE_CITIES: ServiceCity[] = [
   { name: 'Greenbrier' },
   { name: 'Ridgetop' },
   { name: 'Springfield' },
-  { name: 'Joelton' },
   { name: 'Nashville' },
-  { name: 'East Nashville', isNeighborhood: true, containedInCity: 'Nashville' },
-  { name: 'Downtown Nashville', isNeighborhood: true, containedInCity: 'Nashville' },
-  { name: 'Old Hickory' },
   { name: 'Belle Meade' },
   { name: 'Brentwood' },
   { name: 'Franklin' },
   { name: 'Mt. Juliet' },
   { name: 'Lebanon' },
   { name: 'Portland' },
+  { name: 'East Nashville', isPlace: true, containedInCity: 'Nashville' },
+  { name: 'Downtown Nashville', isPlace: true, containedInCity: 'Nashville' },
+  { name: 'Old Hickory', isPlace: true, containedInCity: 'Nashville' },
+  { name: 'Joelton', isPlace: true, containedInCity: 'Nashville' },
 ];
 
-export const CITY_NAMES_FOR_COPY = SERVICE_CITIES.filter((c) => !c.isNeighborhood).map((c) => c.name);
+/**
+ * Present on older page lists; keep for now and flag for owner review.
+ * Do not treat as schema City entries until confirmed.
+ */
+export const SERVICE_AREAS_PENDING_OWNER_REVIEW = ['Madison', 'Hermitage'] as const;
+
+/** Display names for UI grids (approved areas in listed order). */
+export const SERVICE_AREA_DISPLAY_NAMES = SERVICE_CITIES.map((c) => c.name);
+
+/** Display names including pending-review areas (for pages that already listed them). */
+export const SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING = [
+  ...SERVICE_AREA_DISPLAY_NAMES,
+  ...SERVICE_AREAS_PENDING_OWNER_REVIEW,
+];
+
+/** Incorporated city names only (for schema City nodes). */
+export const INCORPORATED_CITY_NAMES = SERVICE_CITIES.filter((c) => !c.isPlace).map((c) => c.name);
+
+export const SERVICE_AREAS_FAQ_ANSWER =
+  'We serve Goodlettsville, Hendersonville, Gallatin, White House, Greenbrier, Ridgetop, Springfield, Nashville (including East Nashville, Downtown Nashville, Old Hickory, and Joelton), Belle Meade, Brentwood, Franklin, Mt. Juliet, Lebanon, Portland, and surrounding Middle Tennessee communities.';
 
 /** Primary services for offer catalog / schema emphasis. */
 export const PRIMARY_SERVICES = [
@@ -126,8 +148,7 @@ export const HOME_FAQS = [
   },
   {
     question: 'What areas does Reinhart serve?',
-    answer:
-      'Reinhart serves Goodlettsville, Hendersonville, Gallatin, White House, Greenbrier, Ridgetop, Springfield, Joelton, Nashville (including East Nashville and Downtown Nashville), Old Hickory, Belle Meade, Brentwood, Franklin, Mt. Juliet, Lebanon, Portland, and surrounding Middle Tennessee communities.',
+    answer: SERVICE_AREAS_FAQ_ANSWER.replace(/^We serve/, 'Reinhart serves'),
   },
   {
     question: 'Is Reinhart Hauling insured?',

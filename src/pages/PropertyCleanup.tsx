@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING } from '../data/business.ts';
 import { buildFAQPageSchema } from '../utils/schema.ts';
 import { motion } from 'motion/react';
 import {
@@ -164,9 +165,19 @@ const PROJECT_GALLERY = [
 
 const FAQS = [
   {
+    question: 'What is property cleanup?',
+    answer:
+      'Property cleanup is broader interior and exterior reset work for investors, landlords, abandoned properties, renovation preparation, property sales, and substantial debris cleanup—beyond contents removal alone.',
+  },
+  {
+    question: 'How is property cleanup different from a property cleanout?',
+    answer:
+      'Property cleanouts focus on removing unwanted contents from homes, estates, rentals, and similar structures. Property cleanup covers broader property-reset scopes such as exterior debris, renovation materials, vacant or abandoned properties, and investor preparation. For contents-focused cleanouts, see our Property Cleanouts page.',
+  },
+  {
     question: 'What is included in property cleanup?',
     answer:
-      'Property cleanup typically includes removing unwanted contents, debris, bulky items, yard clutter, construction materials, and general property debris. Scope depends on the property—request an estimate or schedule a walkthrough and we will outline exactly what is included.',
+      'Property cleanup typically includes unwanted debris, bulky items, yard clutter, construction materials, and general property debris as part of a broader reset. Scope depends on the property—request an estimate or schedule a walkthrough and we will outline exactly what is included.',
   },
   {
     question: 'Do you clean entire properties?',
@@ -205,19 +216,7 @@ const FAQS = [
   },
 ];
 
-const SERVICE_AREAS = [
-  'Goodlettsville',
-  'Hendersonville',
-  'Gallatin',
-  'White House',
-  'Springfield',
-  'Greenbrier',
-  'Madison',
-  'Old Hickory',
-  'Hermitage',
-  'Donelson',
-  'Nashville',
-];
+const SERVICE_AREAS = SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING;
 
 const RELATED_SERVICES = [
   { label: 'Estate Cleanouts', to: '/estate-cleanouts' },
@@ -236,15 +235,15 @@ export default function PropertyCleanup() {
   return (
     <>
       <Helmet>
-        <title>Property Cleanup Services | Reinhart Hauling &amp; Cleanouts</title>
+        <title>Property Cleanup | Investor &amp; Renovation Property Reset | Middle Tennessee</title>
         <meta
           name="description"
-          content="Professional property cleanup services for homeowners, landlords, investors, property managers, and businesses throughout Middle Tennessee. Cleanouts, debris removal, demolition prep, and project support."
+          content="Property cleanup for investors, landlords, abandoned properties, renovation preparation, property sales, and substantial debris cleanup across Middle Tennessee. Call 615-200-0064."
         />
-        <meta property="og:title" content="Property Cleanup Services | Middle Tennessee" />
+        <meta property="og:title" content="Property Cleanup | Investor & Renovation Property Reset | Middle Tennessee" />
         <meta
           property="og:description"
-          content="Professional property cleanup services for homeowners, landlords, investors, property managers, and businesses throughout Middle Tennessee. Cleanouts, debris removal, demolition prep, and project support."
+          content="Property cleanup for investors, landlords, abandoned properties, renovation preparation, property sales, and substantial debris cleanup across Middle Tennessee. Call 615-200-0064."
         />
         <link rel="canonical" href="https://www.reinharthauling.com/property-cleanup" />
         <script type="application/ld+json">{JSON.stringify(buildFAQPageSchema(FAQS))}</script>
@@ -263,15 +262,20 @@ export default function PropertyCleanup() {
                   PROPERTY CLEANUP
                 </span>
                 <h1 className="font-display text-[3.4rem] lg:text-[5rem] font-bold leading-[0.95] tracking-tighter text-brand-navy mb-6">
-                  Property Cleanup Services
+                  Property Cleanup for Investors &amp; Property Resets
                 </h1>
                 <p className="text-xl lg:text-2xl text-slate-700 leading-relaxed mb-5 max-w-2xl font-medium">
-                  Preparing homes, rentals, commercial spaces, and investment properties for whatever comes next.
+                  Broader interior and exterior property reset work for sales, renovations, abandoned properties, and
+                  substantial debris cleanup.
                 </p>
                 <p className="text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl">
-                  Whether you&apos;re preparing a property for sale, renovation, a new tenant, or simply clearing years of
-                  accumulated contents, Reinhart provides organized property cleanup services throughout Middle
-                  Tennessee. From scattered debris to full-property cleanouts, we help move projects forward.
+                  Property cleanup helps investors, landlords, and property teams reset properties for renovation, sale,
+                  or the next occupancy phase—including exterior debris, renovation materials, and difficult vacant
+                  properties. Need whole-house contents removal from a home, estate, or rental? See our{' '}
+                  <Link to="/property-cleanouts" className="text-brand-orange hover:text-brand-navy transition-colors">
+                    property cleanouts
+                  </Link>{' '}
+                  service.
                 </p>
 
                 <PageCTAs layout="hero" className="mb-7" />
@@ -323,9 +327,9 @@ export default function PropertyCleanup() {
               <p>
                 Rather than offering one-size-fits-all hauling, we assess the property, develop an organized plan, and
                 complete the work efficiently while leaving the space ready for its next phase. As a property cleanup
-                company serving Middle Tennessee, we handle rental property cleanup, commercial property cleanup,
-                investment property cleanup, and full property cleanout projects with the same practical, organized
-                approach.
+                company serving Middle Tennessee, we handle investor property cleanup, abandoned-property clearing,
+                renovation preparation, exterior debris cleanup, and substantial property resets—with contents-focused
+                cleanouts available through our property cleanouts service when that is the primary need.
               </p>
             </div>
           </div>

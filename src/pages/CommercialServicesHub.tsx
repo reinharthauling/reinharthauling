@@ -14,23 +14,12 @@ import {
   Warehouse,
 } from 'lucide-react';
 import { projectImages } from '../data/projectImages';
+import { SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING } from '../data/business.ts';
 import { COMMERCIAL_RELATED_BACKBONE } from '../data/commercialNavigation.ts';
 
 const COMMERCIAL_BASE = '/images/projects/2026%20Projects/2026-06_Commercial-Office-Cleanout_Nashville';
 
-const MIDDLE_TN_AREAS = [
-  'Goodlettsville',
-  'Hendersonville',
-  'Gallatin',
-  'White House',
-  'Springfield',
-  'Greenbrier',
-  'Madison',
-  'Old Hickory',
-  'Hermitage',
-  'Donelson',
-  'Nashville',
-];
+const MIDDLE_TN_AREAS = SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING;
 
 const commercialHubConfig: HubConfig = {
   canonicalPath: '/commercial-services',

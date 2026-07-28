@@ -75,6 +75,7 @@ export default function InteriorDemoPortland() {
           name="description"
           content="Documented interior demolition project in Portland, TN for a real estate investor evaluating renovation versus a larger demo decision."
         />
+        <link rel="canonical" href="https://www.reinharthauling.com/projects/interior-demo-portland" />
       </Helmet>
 
       <section className="relative overflow-hidden pt-32 pb-20 lg:pt-48 lg:pb-28">

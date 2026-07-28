@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING } from '../data/business.ts';
 import { motion } from 'motion/react';
 import { CheckCircle2, MessageSquare, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -12,16 +13,7 @@ const GARAGE_SHOWCASE = {
   afterSrc: projectImages.garageCleanouts.gallatin.after,
 };
 
-const SERVICE_AREAS = [
-  'Goodlettsville',
-  'Nashville',
-  'Hendersonville',
-  'Madison',
-  'Gallatin',
-  'White House',
-  'Springfield',
-  'Joelton',
-];
+const SERVICE_AREAS = SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING;
 
 export default function GarageCleanouts() {
   return (
@@ -32,6 +24,7 @@ export default function GarageCleanouts() {
     name="description"
     content="Garage cleanout services in Nashville. Remove clutter, furniture, tools, and junk. Request an estimate with project details."
   />
+        <link rel="canonical" href="https://www.reinharthauling.com/garage-cleanouts" />
 </Helmet>
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32">
         <div className="max-w-7xl mx-auto px-6">

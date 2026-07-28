@@ -86,8 +86,11 @@ import CommercialServicePage from './components/CommercialServicePage.tsx';
 import { COMMERCIAL_SERVICE_PAGES } from './data/commercialServicePages.ts';
 import { scrollToSection } from './utils/scrollToSection.ts';
 import { projectImages } from './data/projectImages';
-import { buildHomeFaqSchema, buildLocalBusinessSchema } from './utils/schema.ts';
-import { BUSINESS_HOURS_DISPLAY } from './data/business.ts';
+import { buildLocalBusinessSchema } from './utils/schema.ts';
+import {
+  BUSINESS_HOURS_DISPLAY,
+  SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING,
+} from './data/business.ts';
 
 // --- Components ---
 
@@ -1243,11 +1246,7 @@ const Testimonials = () => {
 };
 
 const ServiceAreas = () => {
-  const areas = [
-    "Goodlettsville", "White House", "Springfield", "Hendersonville", 
-    "Madison", "Gallatin", "Portland", "East Nashville", 
-    "Greenbrier", "Ridgetop", "Old Hickory", "Downtown Nashville"
-  ];
+  const areas = SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING;
 
   return (
     <section id="areas" className="py-24 bg-white">
@@ -1413,36 +1412,11 @@ const ServiceAreas = () => {
   );
 };
 
-const PRIMARY_SERVICE_AREAS = [
-  'Goodlettsville',
-  'Hendersonville',
-  'Gallatin',
-  'White House',
-  'Portland',
-  'Springfield',
-  'Greenbrier',
-  'Joelton',
-  'Madison',
-  'East Nashville',
-  'North Nashville',
-  'Downtown Nashville',
-  'Old Hickory',
-  'Hermitage',
-  'Donelson',
-  'Mt. Juliet',
-  'Brentwood',
-  'Belle Meade',
-  'Franklin',
-  'Ridgetop',
-  'Millersville',
-];
+const PRIMARY_SERVICE_AREAS = SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING;
 
 const REGIONAL_PROJECT_COVERAGE = [
-  'Lebanon',
   'Clarksville',
   'Dickson',
-  'Murfreesboro',
-  'Smyrna',
   'La Vergne',
   'Ashland City',
   'Pleasant View',
@@ -1939,7 +1913,6 @@ const HomePage = () => {
         <meta name="twitter:description" content={HOME_DESCRIPTION} />
         <meta name="twitter:image" content={OG_IMAGE_HOME} />
         <script type="application/ld+json">{JSON.stringify(buildLocalBusinessSchema())}</script>
-        <script type="application/ld+json">{JSON.stringify(buildHomeFaqSchema())}</script>
       </Helmet>
     <SiteLayout>
       <Hero />

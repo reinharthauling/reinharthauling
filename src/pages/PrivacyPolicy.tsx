@@ -9,6 +9,7 @@ export default function PrivacyPolicy() {
           name="description"
           content="Privacy policy for Reinhart Hauling & Cleanouts including form submissions, phone/text communication, and analytics."
         />
+        <link rel="canonical" href="https://www.reinharthauling.com/privacy-policy" />
       </Helmet>
 
       <section className="pt-36 pb-20">

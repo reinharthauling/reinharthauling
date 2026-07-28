@@ -23,23 +23,12 @@ import {
   Zap,
 } from 'lucide-react';
 import { projectImages } from '../data/projectImages';
+import { SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING } from '../data/business.ts';
 
 const INVESTOR_BASE = '/images/projects/2026%20Projects/2026-06_Investor-Property-Cleanup_Gallatin';
 const HOARDER_BASE = '/images/projects/2026%20Projects/2026-04_Hoarder-Property-Cleanout_Joelton';
 
-const MIDDLE_TN_AREAS = [
-  'Goodlettsville',
-  'Hendersonville',
-  'Gallatin',
-  'White House',
-  'Springfield',
-  'Greenbrier',
-  'Madison',
-  'Old Hickory',
-  'Hermitage',
-  'Donelson',
-  'Nashville',
-];
+const MIDDLE_TN_AREAS = SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING;
 
 const residentialHubConfig: HubConfig = {
   canonicalPath: '/residential-property-services',

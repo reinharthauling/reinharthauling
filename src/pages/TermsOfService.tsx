@@ -9,6 +9,7 @@ export default function TermsOfService() {
           name="description"
           content="Terms of service for Reinhart Hauling & Cleanouts covering estimates, pricing, materials, and payment terms."
         />
+        <link rel="canonical" href="https://www.reinharthauling.com/terms-of-service" />
       </Helmet>
 
       <section className="pt-36 pb-20">

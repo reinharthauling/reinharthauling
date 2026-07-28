@@ -72,6 +72,7 @@ export default function InvestorPropertyCleanupGallatin() {
           name="description"
           content="Documented investor property cleanup in Gallatin, TN including debris removal, fence demolition, bulky item cleanup, and transfer station disposal."
         />
+        <link rel="canonical" href="https://www.reinharthauling.com/projects/investor-property-cleanup-gallatin" />
       </Helmet>
 
       <section className="relative overflow-hidden pt-32 pb-20 lg:pt-48 lg:pb-28">
