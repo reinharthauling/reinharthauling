@@ -4,6 +4,11 @@ import EstimateRequestButton from '../components/EstimateRequestButton.tsx';
 import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
 import PageMeta from '../components/PageMeta.tsx';
 import { scrollToSection, scrollToSectionWhenReady } from '../utils/scrollToSection.ts';
+import {
+  buildBreadcrumbListSchema,
+  buildFAQPageSchema,
+  compactJsonLd,
+} from '../utils/schema.ts';
 import { motion } from 'motion/react';
 import {
   ArrowRight,
@@ -29,552 +34,275 @@ type TakeSection = {
   groups: ItemGroup[];
 };
 
+const PAGE_TITLE = 'Items We Remove | Reinhart Hauling & Cleanouts';
+const PAGE_DESCRIPTION =
+  'What Reinhart Hauling & Cleanouts removes: household items, property cleanout contents, commercial fixtures, demolition debris, and bulky items. See what needs prior review.';
+
 const quickCategories = [
-  ['Household Items', 'household-items'],
-  ['Furniture', 'furniture'],
-  ['Appliances', 'appliances'],
-  ['Electronics', 'electronics'],
-  ['Office Furniture', 'office-commercial'],
-  ['Commercial Equipment', 'office-commercial'],
-  ['Garage Items', 'garage-items'],
-  ['Construction & Interior Demo', 'construction-demo'],
-  ['Yard Debris', 'yard-outdoor'],
-  ['Outdoor Items', 'yard-outdoor'],
-  ['Pools', 'pools'],
-  ['Hot Tubs', 'hot-tubs'],
-  ['Mattresses', 'mattresses'],
-  ['Exercise Equipment', 'exercise-equipment'],
-  ['Recreation Equipment', 'recreation-equipment'],
-  ['Storage Units', 'storage-unit-cleanouts'],
-  ['Estate Cleanouts', 'estate-cleanouts'],
-  ['Pianos', 'pianos'],
-  ['Tires & Rubber', 'tires-rubber'],
+  ['Household', 'household'],
+  ['Property Cleanouts', 'property-cleanout-items'],
+  ['Commercial', 'commercial-items'],
+  ['Demolition & Bulky Items', 'demolition-bulky'],
+  ['Prior Approval', 'prior-approval'],
+  ['Not Accepted', 'not-accepted'],
+  ['Furniture', 'household'],
+  ['Appliances', 'household'],
+  ['Office Furniture', 'commercial-items'],
+  ['Construction Debris', 'demolition-bulky'],
+  ['Hot Tubs', 'demolition-bulky'],
+  ['Estate Contents', 'property-cleanout-items'],
 ] as const;
 
 const takeSections: TakeSection[] = [
   {
-    id: 'household-items',
-    title: 'Household Items',
-    intro:
-      'We remove everyday household contents from single rooms, packed closets, garages, apartments, rental homes, estates, and full-property cleanouts.',
-    groups: [
-      {
-        title: 'Living Room',
-        items: [
-          'Sectionals',
-          'Sofas',
-          'Loveseats',
-          'Recliners',
-          'Coffee tables',
-          'End tables',
-          'Entertainment centers',
-          'TV stands',
-          'Bookshelves',
-          'Decor',
-          'Pictures',
-          'Mirrors',
-          'Rugs',
-          'Curtains',
-          'Lamps',
-        ],
-      },
-      {
-        title: 'Dining Room',
-        items: ['Dining tables', 'Dining chairs', 'China cabinets', 'Buffets'],
-      },
-      {
-        title: 'Kitchen',
-        items: ['Cabinets', 'Pantries', 'Kitchen tables', 'Bar stools'],
-      },
-      {
-        title: 'Bedrooms',
-        items: ['Dressers', 'Nightstands', 'Beds', 'Bed frames', 'Headboards', 'Footboards', 'Armoires'],
-      },
-      {
-        title: 'Closets & General Contents',
-        items: [
-          'Boxes',
-          'Storage totes',
-          'Shoes',
-          'Clothing',
-          'Holiday decorations',
-          'General household clutter',
-        ],
-      },
-    ],
-  },
-  {
-    id: 'furniture',
-    title: 'Furniture',
-    intro:
-      'We remove single furniture pieces, full-room sets, and bulk furniture from homes, offices, restaurants, churches, schools, and commercial properties.',
-    groups: [
-      {
-        title: 'Residential Furniture',
-        items: ['Residential furniture', 'Outdoor furniture', 'Patio furniture', 'Bookcases', 'Cabinets', 'Shelving'],
-      },
-      {
-        title: 'Commercial Furniture',
-        items: [
-          'Office furniture',
-          'Restaurant furniture',
-          'Hotel furniture',
-          'Church furniture',
-          'School furniture',
-          'Waiting room furniture',
-          'Reception furniture',
-          'Conference tables',
-          'Executive desks',
-        ],
-      },
-      {
-        title: 'Systems & Fixtures',
-        items: ['Cubicles', 'Partitions', 'File cabinets', 'Display cases', 'Retail fixtures'],
-      },
-    ],
-  },
-  {
-    id: 'appliances',
-    title: 'Appliances',
-    intro:
-      'We remove heavy and awkward appliances from kitchens, laundry rooms, garages, basements, rentals, offices, and larger cleanout projects.',
-    groups: [
-      {
-        title: 'Major Appliances',
-        items: [
-          'Refrigerators',
-          'Freezers',
-          'Mini fridges',
-          'Dishwashers',
-          'Ranges',
-          'Wall ovens',
-          'Microwaves',
-          'Washers',
-          'Dryers',
-          'Water heaters',
-          'Ice makers',
-          'Trash compactors',
-        ],
-      },
-      {
-        title: 'Climate & Small Appliances',
-        items: ['Window AC units', 'Portable AC units', 'Humidifiers', 'Dehumidifiers', 'Small appliances'],
-      },
-    ],
-  },
-  {
-    id: 'electronics',
-    title: 'Electronics',
-    intro:
-      'We remove home and office electronics during cleanouts, commercial load-outs, storage unit cleanouts, turnovers, and property prep.',
-    groups: [
-      {
-        title: 'Home Electronics',
-        items: [
-          'TVs',
-          'Flat screens',
-          'DVD players',
-          'Gaming systems',
-          'Stereo equipment',
-          'Speakers',
-          'Projectors',
-        ],
-      },
-      {
-        title: 'Computer & Office Electronics',
-        items: [
-          'Monitors',
-          'Desktop computers',
-          'Laptops',
-          'Servers',
-          'Networking equipment',
-          'Printers',
-          'Scanners',
-          'Copiers',
-          'Office electronics',
-        ],
-      },
-    ],
-  },
-  {
-    id: 'office-commercial',
-    title: 'Office & Commercial Items',
+    id: 'household',
+    title: 'Household',
     intro: (
       <>
-        We remove office furniture, commercial contents, and business equipment during cleanouts, move-outs, and load-outs.
-        For larger projects, see our{' '}
-        <Link to="/commercial-cleanouts" className="font-bold text-brand-orange hover:text-brand-navy">
-          Commercial Cleanouts
-        </Link>{' '}
-        page.
-      </>
-    ),
-    groups: [
-      {
-        title: 'Office Contents',
-        items: [
-          'Cubicles',
-          'Office chairs',
-          'Conference tables',
-          'Reception furniture',
-          'File cabinets',
-          'Desks',
-          'Waiting room furniture',
-          'Medical office furniture',
-          'Dental office furniture',
-        ],
-      },
-      {
-        title: 'Commercial Property Items',
-        items: [
-          'Warehouse shelving',
-          'Retail displays',
-          'Store fixtures',
-          'Restaurant equipment',
-          'Commercial kitchen equipment',
-          'School furniture',
-          'Church furniture',
-          'Storage racking',
-          'Inventory removal',
-          'Office cleanouts',
-          'Commercial cleanouts',
-        ],
-      },
-    ],
-  },
-  {
-    id: 'garage-items',
-    title: 'Garage Items',
-    intro: (
-      <>
-        We remove tools, metal, bins, old equipment, and accumulated garage contents as standalone jobs or part of larger{' '}
-        <Link to="/garage-cleanouts" className="font-bold text-brand-orange hover:text-brand-navy">
-          Garage Cleanouts
+        Common household contents removed during room clearings, garage cleanouts, and full{' '}
+        <Link to="/property-cleanouts" className="font-bold text-brand-orange hover:text-brand-navy">
+          property cleanouts
         </Link>
         .
       </>
     ),
     groups: [
       {
-        title: 'Garage & Shop Contents',
+        title: 'Furniture',
         items: [
-          'Toolboxes',
-          'Workbench',
-          'Shelving',
-          'Cabinets',
-          'Generators',
-          'Pressure washers',
-          'Push mowers',
-          'Riding mowers',
-          'Snow blowers',
-          'Ladders',
-          'Scrap metal',
-          'Car parts',
-          'Storage bins',
+          'Sofas and sectionals',
+          'Recliners and chairs',
+          'Tables and desks',
+          'Dressers and nightstands',
+          'Beds and bed frames',
+          'Bookshelves and cabinets',
+          'Outdoor and patio furniture',
+        ],
+      },
+      {
+        title: 'Mattresses and Box Springs',
+        items: ['Twin, full, queen, and king mattresses', 'Box springs', 'Memory foam mattresses', 'Adjustable bases', 'Bed frames'],
+      },
+      {
+        title: 'Appliances',
+        items: [
+          'Washers and dryers',
+          'Ranges, ovens, and microwaves',
+          'Dishwashers',
+          'Water heaters',
+          'Small appliances',
+          'Window and portable AC units',
+        ],
+      },
+      {
+        title: 'Electronics',
+        items: [
+          'TVs and stereo equipment',
+          'Computers and monitors',
+          'Printers and office electronics',
+          'Gaming systems',
+          'Speakers and projectors',
+        ],
+      },
+      {
+        title: 'Household Clutter',
+        items: [
+          'Boxes and storage totes',
+          'Clothing and shoes',
+          'Holiday decorations',
+          'General household clutter',
+          'Closet contents',
+        ],
+      },
+      {
+        title: 'Garage Contents',
+        items: [
+          'Tools and toolboxes',
+          'Shelving and workbenches',
+          'Lawn equipment',
+          'Scrap metal and car parts',
           'General garage clutter',
         ],
       },
-    ],
-  },
-  {
-    id: 'exercise-equipment',
-    title: 'Exercise Equipment',
-    intro:
-      'We remove heavy fitness equipment from bonus rooms, garages, basements, home gyms, and commercial spaces.',
-    groups: [
       {
-        title: 'Fitness Equipment',
-        items: [
-          'Treadmills',
-          'Ellipticals',
-          'Exercise bikes',
-          'Home gyms',
-          'Weight benches',
-          'Power racks',
-          'Squat racks',
-          'Barbells',
-          'Weight plates',
-          'Dumbbells',
-          'Cable machines',
-        ],
+        title: 'Attic Contents',
+        items: ['Stored boxes and totes', 'Seasonal items', 'Old furniture and debris', 'Insulation debris when scheduled'],
       },
     ],
   },
   {
-    id: 'recreation-equipment',
-    title: 'Recreation Equipment',
-    intro:
-      'We remove indoor and outdoor recreation equipment, including large items that may require disassembly or access planning.',
-    groups: [
-      {
-        title: 'Indoor Recreation',
-        items: ['Pool tables', 'Foosball', 'Ping pong', 'Air hockey', 'Arcade machines'],
-      },
-      {
-        title: 'Outdoor Recreation',
-        items: [
-          'Basketball goals',
-          'Playsets',
-          'Swing sets',
-          'Tree houses',
-          'Trampolines',
-          'Kayaks',
-          'Paddleboards',
-          'Camping equipment',
-          'Fishing equipment',
-        ],
-      },
-    ],
-  },
-  {
-    id: 'yard-outdoor',
-    title: 'Yard & Outdoor Items',
+    id: 'property-cleanout-items',
+    title: 'Property Cleanouts',
     intro: (
       <>
-        We remove brush, storm debris, fencing, patio contents, small outdoor structures, and exterior clutter. For brush
-        and exterior cleanup support, see our{' '}
-        <Link to="/junk-removal-goodlettsville" className="font-bold text-brand-orange hover:text-brand-navy">
-          Yard Debris Removal
-        </Link>{' '}
-        service information.
-      </>
-    ),
-    groups: [
-      {
-        title: 'Yard Debris',
-        items: [
-          'Brush',
-          'Tree limbs',
-          'Shrubs',
-          'Bushes',
-          'Storm debris',
-          'Leaves',
-          'Firewood',
-          'Landscape timbers',
-          'Railroad ties',
-        ],
-      },
-      {
-        title: 'Outdoor Structures & Items',
-        items: [
-          'Fence panels',
-          'Fence posts',
-          'Pergolas',
-          'Gazebos',
-          'Planters',
-          'Outdoor storage',
-          'Patio items',
-        ],
-      },
-    ],
-  },
-  {
-    id: 'hot-tubs',
-    title: 'Hot Tubs',
-    intro:
-      'We disconnect, drain, cut apart when needed, and remove hot tubs from almost any location.',
-    groups: [
-      {
-        title: 'Hot Tub Locations',
-        items: ['Decks', 'Patios', 'Screened porches', 'Basements', 'Backyards', 'Tight access areas'],
-      },
-    ],
-  },
-  {
-    id: 'construction-demo',
-    title: 'Construction & Interior Demolition Debris',
-    intro: (
-      <>
-        We remove demolition debris after DIY projects, contractor work, remodels, insurance losses, rental turnovers,
-        and commercial renovations. For selective tear-outs, visit{' '}
-        <Link to="/interior-demolition" className="font-bold text-brand-orange hover:text-brand-navy">
-          Interior Demolition
+        Contents commonly cleared during{' '}
+        <Link to="/property-cleanouts" className="font-bold text-brand-orange hover:text-brand-navy">
+          property cleanouts
         </Link>
-        .
-      </>
-    ),
-    groups: [
-      {
-        title: 'Walls, Framing & Wood',
-        items: [
-          'Drywall',
-          'Plaster',
-          'Lath',
-          'Studs',
-          'Wood framing',
-          'Barn wood',
-          'Beams',
-          'Plywood',
-          'OSB',
-          'Subfloor',
-        ],
-      },
-      {
-        title: 'Interior Finish Materials',
-        items: [
-          'Cabinets',
-          'Countertops',
-          'Vanities',
-          'Windows',
-          'Window frames',
-          'Glass',
-          'Doors',
-          'Trim',
-          'Baseboards',
-          'Tile',
-          'Hardwood flooring',
-          'Laminate',
-          'LVP',
-          'Carpet',
-          'Padding',
-          'Drop ceilings',
-          'Ceiling grid',
-          'Insulation',
-        ],
-      },
-      {
-        title: 'Mechanical & Plumbing Debris',
-        items: ['PVC', 'Copper pipe', 'PEX', 'Cast iron pipe', 'Ductwork'],
-      },
-      {
-        title: 'Demo Project Types',
-        items: [
-          'Bathroom demolition',
-          'Kitchen demolition',
-          'Office demolition',
-          'Retail fixtures',
-          'General renovation debris',
-        ],
-      },
-      {
-        title: 'Exterior & Hard Materials',
-        items: [
-          'Brick',
-          'Concrete (small amounts)',
-          'Block',
-          'Stone',
-          'Deck lumber',
-          'Fence materials',
-          'Roofing',
-          'Siding',
-        ],
-      },
-    ],
-  },
-  {
-    id: 'pools',
-    title: 'Pools',
-    intro:
-      'We remove above-ground pools, related equipment, and pool debris when a yard needs to be cleaned up or reset.',
-    groups: [
-      {
-        title: 'Pool Items',
-        items: ['Above ground pools', 'Pool ladders', 'Pool pumps', 'Filters', 'Heaters', 'Pool deck removal', 'Pool debris'],
-      },
-    ],
-  },
-  {
-    id: 'pianos',
-    title: 'Pianos',
-    intro:
-      'We evaluate piano removal by type, weight, stairs, access, and whether disassembly or extra labor is needed.',
-    groups: [
-      {
-        title: 'Piano Types',
-        items: ['Upright', 'Console', 'Spinet', 'Digital', 'Player', 'Grand pianos by evaluation'],
-      },
-    ],
-  },
-  {
-    id: 'mattresses',
-    title: 'Mattresses',
-    intro:
-      'We remove mattresses, box springs, adjustable bases, and bed frames as single pickups or part of larger cleanouts.',
-    groups: [
-      {
-        title: 'Sleep Items',
-        items: ['Twin', 'Full', 'Queen', 'King', 'Memory foam', 'Adjustable bases', 'Box springs', 'Bed frames'],
-      },
-    ],
-  },
-  {
-    id: 'tires-rubber',
-    title: 'Tires & Rubber',
-    intro:
-      'Tires and rubber materials may require special disposal, so request an estimate first and we will confirm the scope.',
-    groups: [
-      {
-        title: 'Tires & Rubber Materials',
-        items: ['Passenger tires', 'Truck tires', 'Motorcycle tires', 'ATV tires', 'Rubber materials'],
-      },
-    ],
-  },
-  {
-    id: 'storage-unit-cleanouts',
-    title: 'Storage Unit Cleanouts',
-    intro:
-      'We clear entire abandoned storage units as long as the contents are safe to handle and allowed for disposal.',
-    groups: [
-      {
-        title: 'Storage Unit Contents',
-        items: [
-          'Furniture',
-          'Boxes',
-          'Storage totes',
-          'Appliances',
-          'Mattresses',
-          'Office contents',
-          'Household clutter',
-          'Mixed debris',
-        ],
-      },
-    ],
-  },
-  {
-    id: 'estate-cleanouts',
-    title: 'Estate Cleanouts',
-    intro: (
-      <>
-        We remove complete home contents, garage items, outbuilding contents, donation items, and disposal materials
-        during estate cleanouts. Learn more about{' '}
+        ,{' '}
         <Link to="/estate-cleanouts" className="font-bold text-brand-orange hover:text-brand-navy">
-          Estate Cleanouts
+          estate cleanouts
         </Link>
-        .
+        ,{' '}
+        <Link to="/hoarder-cleanouts" className="font-bold text-brand-orange hover:text-brand-navy">
+          hoarder cleanouts
+        </Link>
+        , and broader{' '}
+        <Link to="/property-cleanup" className="font-bold text-brand-orange hover:text-brand-navy">
+          property cleanup
+        </Link>{' '}
+        projects.
       </>
     ),
     groups: [
       {
         title: 'Estate Contents',
+        items: ['Full-home contents', 'Furniture and belongings', 'Garage and outbuilding contents', 'Donation and disposal materials'],
+      },
+      {
+        title: 'Hoarded Material',
+        items: ['Heavy accumulation', 'Room-by-room contents', 'Mixed household debris', 'Garage and overflow areas'],
+      },
+      {
+        title: 'Rental and Eviction Debris',
+        items: ['Left-behind furniture', 'Trash and bagged waste', 'Abandoned belongings', 'Unit turnover debris'],
+      },
+      {
+        title: 'Foreclosure Contents',
+        items: ['Abandoned contents', 'Bulky items and appliances', 'Interior debris', 'Exterior clutter'],
+      },
+      {
+        title: 'Investor-Property Contents',
+        items: ['Vacant-property contents', 'Renovation prep debris', 'Mixed cleanout materials', 'Exterior reset debris'],
+      },
+      {
+        title: 'Storage-Unit Contents',
+        items: ['Furniture and boxes', 'Appliances and mattresses', 'Office and household clutter', 'Mixed unit debris'],
+      },
+      {
+        title: 'Yard and Exterior Debris',
+        items: ['Brush and limbs', 'Storm debris', 'Outdoor clutter', 'Patio and fence-line debris'],
+      },
+    ],
+  },
+  {
+    id: 'commercial-items',
+    title: 'Commercial',
+    intro: (
+      <>
+        Commercial contents removed during{' '}
+        <Link to="/commercial-cleanouts" className="font-bold text-brand-orange hover:text-brand-navy">
+          commercial cleanouts
+        </Link>
+        ,{' '}
+        <Link to="/office-load-outs" className="font-bold text-brand-orange hover:text-brand-navy">
+          office load-outs
+        </Link>
+        , retail decommissioning, and warehouse transitions.
+      </>
+    ),
+    groups: [
+      {
+        title: 'Office Furniture & Cubicles',
+        items: ['Desks and chairs', 'Conference tables', 'Reception furniture', 'Cubicles and workstations', 'Partitions'],
+      },
+      {
+        title: 'File Cabinets & Office Contents',
+        items: ['File cabinets', 'Office electronics', 'Copiers and printers', 'Waiting-room furniture'],
+      },
+      {
+        title: 'Retail Fixtures & Displays',
+        items: ['Retail fixtures', 'Displays', 'Shelving', 'Store fixtures', 'Sales-floor contents'],
+      },
+      {
+        title: 'Warehouse Contents',
+        items: ['Racking', 'Pallets', 'Shelving systems', 'Equipment', 'Inventory and packaging', 'Warehouse debris'],
+      },
+      {
+        title: 'Tenant-Turnover Debris',
+        items: ['Abandoned tenant contents', 'Fixture leftovers', 'Office and retail debris', 'Suite clear-out materials'],
+      },
+    ],
+  },
+  {
+    id: 'demolition-bulky',
+    title: 'Demolition and Bulky Items',
+    intro: (
+      <>
+        Selective demolition debris and oversized items—including{' '}
+        <Link to="/hot-tub-removal" className="font-bold text-brand-orange hover:text-brand-navy">
+          hot tub removal
+        </Link>
+        ,{' '}
+        <Link to="/shed-demolition" className="font-bold text-brand-orange hover:text-brand-navy">
+          shed demolition
+        </Link>
+        , and{' '}
+        <Link to="/construction-cleanup" className="font-bold text-brand-orange hover:text-brand-navy">
+          construction cleanup
+        </Link>
+        . Scope depends on access, weight, disassembly, and disposal requirements.
+      </>
+    ),
+    groups: [
+      {
+        title: 'Hot Tubs & Small Sheds',
+        items: ['Hot tubs and spas', 'Small sheds', 'Outdoor storage structures', 'Related debris after tear-down'],
+      },
+      {
+        title: 'Cabinets, Flooring & Drywall',
+        items: ['Cabinets and vanities', 'Countertops', 'Carpet, laminate, vinyl, and tile', 'Drywall and plaster', 'Insulation when scheduled'],
+      },
+      {
+        title: 'Doors, Windows & Ceilings',
+        items: ['Doors and frames', 'Windows and glass', 'Ceiling grid', 'Ceiling tile', 'Trim and baseboards'],
+      },
+      {
+        title: 'Deck Material & Fencing',
+        items: ['Deck boards and railings', 'Deck framing within scope', 'Fence panels and posts', 'Related exterior debris'],
+      },
+      {
+        title: 'Construction Debris',
         items: [
-          'Complete home contents',
-          'Furniture',
-          'Personal belongings',
-          'Garage contents',
-          'Outbuildings',
-          'Donation sorting',
-          'Responsible disposal',
+          'Renovation debris',
+          'Jobsite packaging',
+          'Wood and framing leftovers',
+          'Selective interior demo debris',
+          'General construction haul-away',
         ],
       },
     ],
   },
 ];
 
-const sectionIds = new Set(takeSections.map((section) => section.id));
+const sectionIds = new Set([...takeSections.map((section) => section.id), 'prior-approval', 'not-accepted', 'faqs']);
 
-const restrictedItems = [
-  'Asbestos',
-  'Liquid paint',
-  'Oil',
-  'Gasoline',
+const priorApprovalItems = [
+  'Tires',
+  'Refrigerators',
+  'Freezers',
+  'Air-conditioning equipment',
+  'Televisions and e-waste',
+  'Extremely heavy equipment',
+  'Concrete',
+  'Dirt',
+  'Brick',
+  'Shingles',
+  'Dense construction debris',
+  'Paint',
+  'Propane tanks',
+];
+
+const notAcceptedItems = [
   'Hazardous chemicals',
+  'Fuel',
+  'Explosives',
   'Medical waste',
   'Biohazards',
-  'Explosives',
-  'Radioactive materials',
-  'Large quantities of contaminated soil',
-  'Large quantities of wet concrete',
-  'Illegal materials',
+  'Asbestos-containing material',
+  'Unknown drums',
+  'Unknown liquids',
+  'Legally restricted waste',
 ];
 
 const whyReinhart = [
@@ -611,67 +339,61 @@ const reviews = [
 
 const faqs = [
   {
-    question: 'What types of items does Reinhart Hauling & Cleanouts remove?',
+    question: 'What items does Reinhart Hauling & Cleanouts remove?',
     answer:
-      'We remove most non-hazardous household, furniture, appliance, office, garage, yard, construction, demolition, storage unit, estate, and commercial cleanout items throughout Middle Tennessee.',
+      'We remove household furniture, mattresses, appliances, electronics, garage and attic contents, estate and rental cleanout debris, office furniture, retail fixtures, warehouse contents, hot tubs, small sheds, cabinets, flooring, drywall, deck and fence material, and construction debris when the material is safe to handle and within agreed scope.',
   },
   {
-    question: 'Do you remove items from commercial properties?',
+    question: 'What items require prior approval?',
     answer:
-      'Yes. We remove office furniture, cubicles, shelving, retail fixtures, warehouse items, commercial contents, and business cleanout debris.',
+      'Acceptance may depend on weight, quantity, equipment needs, landfill requirements, and local regulations for items such as tires, refrigerators, freezers, air-conditioning equipment, televisions and e-waste, extremely heavy equipment, concrete, dirt, brick, shingles, dense construction debris, paint, and propane tanks. Tell us what you have and provide photos when helpful. Depending on the material, quantity, weight, access, and disposal requirements, we may need additional details or an on-site review before confirming acceptance.',
   },
   {
-    question: 'Do you remove construction and interior demolition debris?',
+    question: 'What items are not accepted?',
     answer:
-      'Yes. We remove drywall, flooring, trim, cabinets, ceiling material, insulation, small amounts of concrete, renovation debris, and selective interior demolition debris.',
+      'Hazardous chemicals, fuel, explosives, medical waste, biohazards, asbestos-containing material, unknown drums, unknown liquids, and legally restricted waste require prior review and are not routinely accepted. Special arrangement does not mean acceptance is available or guaranteed.',
   },
   {
-    question: 'What items do you not take?',
+    question: 'Can you remove heavy or oversized items?',
     answer:
-      'We do not take hazardous materials such as asbestos, gasoline, oil, hazardous chemicals, biohazards, medical waste, explosives, radioactive materials, or illegal materials.',
+      'Yes, when access, weight, disassembly, equipment, and disposal requirements can be confirmed. Tell us what you have and provide photos when helpful. Larger or unusually heavy items often need additional details or an on-site review before we confirm scope and pricing.',
   },
   {
-    question: 'How do I know if you can remove my item?',
+    question: 'Can you remove office furniture and retail fixtures?',
     answer:
-      'Text us photos of the item or area. If it is non-hazardous and safe to handle, there is a very good chance we can remove it or point you in the right direction.',
+      'Yes. Office furniture, cubicles, file cabinets, retail fixtures, displays, and shelving are common commercial cleanout and office load-out items.',
+  },
+  {
+    question: 'Can you remove warehouse contents?',
+    answer:
+      'Yes. Warehouse contents such as racking, pallets, shelving, equipment, packaging, and abandoned inventory can be removed when access and disposal requirements are confirmed.',
+  },
+  {
+    question: 'Can you remove construction debris?',
+    answer:
+      'Yes. Construction and renovation debris can be hauled as part of construction cleanup or selective demolition support when disposal requirements are confirmed.',
+  },
+  {
+    question: 'Can you remove hot tubs and small structures?',
+    answer:
+      'Yes. Hot tubs and small sheds are common bulky-item scopes. Access, weight, disassembly, and utility disconnection coordination affect pricing and scheduling. We do not perform electrical or plumbing work.',
+  },
+  {
+    question: 'How should customers prepare?',
+    answer:
+      'Tell us what you have and provide photos when helpful. Note access and parking, set aside items that should stay, and confirm any utility disconnection needs with the appropriate trade when required. Depending on the material, quantity, weight, access, and disposal requirements, we may need additional details or an on-site review before confirming acceptance. Clear pathways help the crew work efficiently.',
+  },
+  {
+    question: 'How is pricing determined?',
+    answer:
+      'Pricing is based on the amount and type of material, labor required, access, weight, disassembly, equipment needs, and disposal costs. Smaller pickups may be estimated from photos. Larger cleanouts and demolition projects are normally quoted after an on-site walkthrough. Customers receive the price before work begins.',
   },
 ];
 
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    {
-      '@type': 'ListItem',
-      position: 1,
-      name: 'Home',
-      item: 'https://www.reinharthauling.com/',
-    },
-    {
-      '@type': 'ListItem',
-      position: 2,
-      name: 'Items We Remove',
-      item: 'https://www.reinharthauling.com/what-we-take',
-    },
-  ],
-};
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map((faq) => ({
-    '@type': 'Question',
-    name: faq.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: faq.answer,
-    },
-  })),
-};
-
 export default function WhatWeTake() {
   const { hash } = useLocation();
-  const [openSection, setOpenSection] = useState<string>('household-items');
+  const [openSection, setOpenSection] = useState<string>('household');
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
   const scrollToAccordion = useCallback((sectionId: string) => {
     requestAnimationFrame(() => {
@@ -684,7 +406,9 @@ export default function WhatWeTake() {
   const handleCategoryClick = useCallback(
     (sectionId: string, event: React.MouseEvent<HTMLAnchorElement>) => {
       event.preventDefault();
-      setOpenSection(sectionId);
+      if (takeSections.some((section) => section.id === sectionId)) {
+        setOpenSection(sectionId);
+      }
       scrollToAccordion(sectionId);
       window.history.pushState(null, '', `#${sectionId}`);
     },
@@ -695,7 +419,9 @@ export default function WhatWeTake() {
     const sectionId = (hash || window.location.hash).replace(/^#/, '');
     if (!sectionId || !sectionIds.has(sectionId)) return;
 
-    setOpenSection(sectionId);
+    if (takeSections.some((section) => section.id === sectionId)) {
+      setOpenSection(sectionId);
+    }
     return scrollToSectionWhenReady(sectionId);
   }, [hash]);
 
@@ -703,7 +429,9 @@ export default function WhatWeTake() {
     const handlePopState = () => {
       const sectionId = window.location.hash.replace(/^#/, '');
       if (sectionId && sectionIds.has(sectionId)) {
-        setOpenSection(sectionId);
+        if (takeSections.some((section) => section.id === sectionId)) {
+          setOpenSection(sectionId);
+        }
         scrollToSectionWhenReady(sectionId);
       }
     };
@@ -715,10 +443,16 @@ export default function WhatWeTake() {
   return (
     <>
       <PageMeta
-        title={`Items We Remove | Junk Removal, Cleanouts & Debris Removal in Middle Tennessee`}
-        description={`See what Reinhart Hauling & Cleanouts removes: furniture, appliances, office furniture, garage items, construction debris, yard debris, hot tubs, storage units, estate contents, and more across Middle Tennessee.`}
-        path={`/what-we-take`}
-        jsonLd={[breadcrumbSchema, faqSchema]}
+        title={PAGE_TITLE}
+        description={PAGE_DESCRIPTION}
+        path="/what-we-take"
+        jsonLd={compactJsonLd([
+          buildBreadcrumbListSchema([
+            { label: 'Home', to: '/' },
+            { label: 'Items We Remove', to: '/what-we-take' },
+          ]),
+          buildFAQPageSchema(faqs),
+        ])}
       />
 
       <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-white pt-32 pb-20 lg:pt-48 lg:pb-28">
@@ -756,9 +490,49 @@ export default function WhatWeTake() {
             </h1>
             <div className="max-w-4xl space-y-5 text-lg leading-relaxed text-slate-600 lg:text-xl">
               <p>
-                From a single appliance to a full property cleanout, Reinhart Hauling &amp; Cleanouts removes almost
-                every type of non-hazardous item across Middle Tennessee. We handle the lifting, loading, hauling,
-                recycling, donation, and responsible disposal so you don&apos;t have to.
+                Reinhart Hauling &amp; Cleanouts removes household furniture, appliances, garage and estate contents,
+                office furniture, retail fixtures, warehouse materials, hot tubs, small sheds, and construction debris as
+                part of property cleanouts, commercial cleanouts, and selective demolition support. Some items need prior
+                review. Hazardous and legally restricted materials may not be accepted.
+              </p>
+              <p className="text-base lg:text-lg">
+                Related services:{' '}
+                <Link to="/property-cleanouts" className="font-bold text-brand-orange hover:text-brand-navy">
+                  Property Cleanouts
+                </Link>
+                ,{' '}
+                <Link to="/property-cleanup" className="font-bold text-brand-orange hover:text-brand-navy">
+                  Property Cleanup
+                </Link>
+                ,{' '}
+                <Link to="/commercial-cleanouts" className="font-bold text-brand-orange hover:text-brand-navy">
+                  Commercial Cleanouts
+                </Link>
+                ,{' '}
+                <Link to="/estate-cleanouts" className="font-bold text-brand-orange hover:text-brand-navy">
+                  Estate Cleanouts
+                </Link>
+                ,{' '}
+                <Link to="/hoarder-cleanouts" className="font-bold text-brand-orange hover:text-brand-navy">
+                  Hoarder Cleanouts
+                </Link>
+                ,{' '}
+                <Link to="/construction-cleanup" className="font-bold text-brand-orange hover:text-brand-navy">
+                  Construction Debris Removal
+                </Link>
+                ,{' '}
+                <Link to="/hot-tub-removal" className="font-bold text-brand-orange hover:text-brand-navy">
+                  Hot Tub Removal
+                </Link>
+                ,{' '}
+                <Link to="/shed-demolition" className="font-bold text-brand-orange hover:text-brand-navy">
+                  Shed Demolition
+                </Link>
+                , and{' '}
+                <Link to="/office-load-outs" className="font-bold text-brand-orange hover:text-brand-navy">
+                  Office Furniture Removal
+                </Link>
+                . Use the estimate button below to request pricing.
               </p>
             </div>
 
@@ -776,12 +550,17 @@ export default function WhatWeTake() {
             </div>
 
             <div className="mt-7 flex flex-wrap gap-3 text-sm font-bold text-brand-navy">
-              {['Fully Insured', 'Upfront Pricing', 'Fast Scheduling', 'We Do All The Heavy Lifting'].map((item) => (
-                <span key={item} className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 shadow-sm">
-                  <CheckCircle2 size={16} className="text-brand-orange" />
-                  {item}
-                </span>
-              ))}
+              {['Fully Insured', 'Clear Quote Before Work', 'Fast Scheduling', 'We Do All The Heavy Lifting'].map(
+                (item) => (
+                  <span
+                    key={item}
+                    className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 shadow-sm"
+                  >
+                    <CheckCircle2 size={16} className="text-brand-orange" />
+                    {item}
+                  </span>
+                ),
+              )}
             </div>
           </div>
         </div>
@@ -794,11 +573,12 @@ export default function WhatWeTake() {
               Quick Categories
             </span>
             <h2 className="mb-4 font-display text-4xl font-bold text-brand-navy lg:text-5xl">
-              Find the type of item you need removed
+              What items does Reinhart Hauling &amp; Cleanouts remove?
             </h2>
             <p className="text-lg leading-relaxed text-slate-600">
-              Tap any category to jump to a detailed list. If you do not see your exact item listed, request an estimate and we
-              will quickly tell you whether it fits our removal scope.
+              Jump to a category below. If you do not see your exact item, tell us what you have and provide photos when
+              helpful. Depending on the material, quantity, weight, access, and disposal requirements, we may need
+              additional details or an on-site review before confirming acceptance.
             </p>
           </div>
 
@@ -829,22 +609,23 @@ export default function WhatWeTake() {
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <span className="mb-4 inline-block text-xs font-bold uppercase tracking-widest text-brand-orange">
-              If It Is Non-Hazardous
+              Direct Answer
             </span>
             <h2 className="font-display text-4xl font-bold leading-tight text-brand-navy lg:text-5xl">
-              If It&apos;s Non-Hazardous, We Can Probably Remove It
+              Can you remove heavy, commercial, or demolition materials?
             </h2>
           </div>
           <div className="space-y-6 text-lg leading-relaxed text-slate-600 lg:col-span-7">
             <p>
-              People often ask if we remove unusual, oversized, or hard-to-handle items. The answer is usually yes.
+              Yes—when access, weight, equipment, and disposal requirements can be confirmed. That includes oversized
+              household items, office furniture and retail fixtures, warehouse contents, construction debris, hot tubs,
+              and small structures.
             </p>
             <p>
-              We work with homeowners, landlords, investors, contractors, businesses, churches, schools, storage
-              facilities, and property managers throughout Middle Tennessee.
-            </p>
-            <p>
-              If you&apos;re unsure, simply text us a few photos and we&apos;ll let you know.
+              Tell us what you have and provide photos when helpful. Depending on the material, quantity, weight,
+              access, and disposal requirements, we may need additional details or an on-site review before confirming
+              acceptance. Items are sorted for disposal, recycling, scrap recovery, or donation when practical and
+              appropriate.
             </p>
           </div>
         </div>
@@ -857,11 +638,11 @@ export default function WhatWeTake() {
               Detailed Removal List
             </span>
             <h2 className="mb-4 font-display text-4xl font-bold text-brand-navy lg:text-5xl">
-              Items and materials we commonly remove
+              Accepted-item categories
             </h2>
             <p className="text-lg leading-relaxed text-slate-600">
-              These accordion sections are organized by common project type. Only one section opens at a time so the page
-              stays easy to scan on mobile and desktop.
+              Organized by household, property cleanouts, commercial, and demolition or bulky items. One section opens at
+              a time for easier scanning.
             </p>
           </div>
 
@@ -870,7 +651,11 @@ export default function WhatWeTake() {
               const isOpen = openSection === section.id;
 
               return (
-                <section key={section.id} id={section.id} className="scroll-mt-32 rounded-3xl border border-slate-200 bg-white shadow-sm">
+                <section
+                  key={section.id}
+                  id={section.id}
+                  className="scroll-mt-32 rounded-3xl border border-slate-200 bg-white shadow-sm"
+                >
                   <button
                     type="button"
                     className="flex w-full items-center justify-between gap-5 px-6 py-5 text-left md:px-8"
@@ -911,23 +696,25 @@ export default function WhatWeTake() {
         </div>
       </section>
 
-      <section className="bg-slate-50 py-24">
+      <section id="prior-approval" className="scroll-mt-32 bg-slate-50 py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-12 max-w-3xl">
             <span className="mb-4 inline-block text-xs font-bold uppercase tracking-widest text-brand-orange">
-              What We Do Not Take
+              Prior Approval
             </span>
             <h2 className="mb-4 font-display text-4xl font-bold text-brand-navy lg:text-5xl">
-              Almost everything except hazardous materials.
+              What items require prior approval?
             </h2>
             <p className="text-lg leading-relaxed text-slate-600">
-              For safety and environmental reasons, we cannot remove certain hazardous materials. If you&apos;re unsure,
-              simply text us a photo and we&apos;ll let you know.
+              These materials are handled case by case. Acceptance may depend on weight, quantity, equipment needs,
+              landfill requirements, and local regulations. Tell us what you have and provide photos when helpful.
+              Depending on the material, quantity, weight, access, and disposal requirements, we may need additional
+              details or an on-site review before confirming acceptance.
             </p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {restrictedItems.map((item) => (
+            {priorApprovalItems.map((item) => (
               <div key={item} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
                 <p className="font-bold text-brand-navy">{item}</p>
               </div>
@@ -936,7 +723,33 @@ export default function WhatWeTake() {
         </div>
       </section>
 
-      <section className="bg-white py-24">
+      <section id="not-accepted" className="scroll-mt-32 bg-white py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mb-12 max-w-3xl">
+            <span className="mb-4 inline-block text-xs font-bold uppercase tracking-widest text-brand-orange">
+              Restricted Materials
+            </span>
+            <h2 className="mb-4 font-display text-4xl font-bold text-brand-navy lg:text-5xl">
+              What items are not accepted?
+            </h2>
+            <p className="text-lg leading-relaxed text-slate-600">
+              Hazardous chemicals, fuel, biohazards, asbestos-containing material, explosives, medical waste, unknown
+              drums, unknown liquids, and legally restricted waste are not routinely accepted. They require prior review
+              and may be declined. Special arrangement does not mean acceptance is available or guaranteed.
+            </p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {notAcceptedItems.map((item) => (
+              <div key={item} className="rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
+                <p className="font-bold text-brand-navy">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-slate-50 py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-14 max-w-3xl">
             <span className="mb-4 inline-block text-xs font-bold uppercase tracking-widest text-brand-orange">
@@ -946,8 +759,8 @@ export default function WhatWeTake() {
               Why Choose Reinhart Hauling &amp; Cleanouts?
             </h2>
             <p className="text-lg leading-relaxed text-slate-600">
-              Reliable, professional removal services for homeowners, landlords, investors, businesses, and property
-              managers across Middle Tennessee.
+              Reliable removal support for homeowners, landlords, investors, businesses, and property managers—backed by
+              clear pricing before work begins.
             </p>
           </div>
 
@@ -968,7 +781,7 @@ export default function WhatWeTake() {
         </div>
       </section>
 
-      <section className="bg-slate-50 py-24">
+      <section className="bg-white py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-16 text-center">
             <h2 className="mb-4 font-display text-4xl font-bold text-brand-navy">Trusted to Keep Projects Moving</h2>
@@ -978,8 +791,7 @@ export default function WhatWeTake() {
               ))}
             </div>
             <p className="text-slate-500">
-              Feedback from homeowners, investors, property managers, and businesses we&apos;ve helped across Middle
-              Tennessee.
+              Feedback from homeowners, investors, property managers, and businesses we&apos;ve helped.
             </p>
           </div>
 
@@ -1020,6 +832,45 @@ export default function WhatWeTake() {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="faqs" className="scroll-mt-32 bg-slate-50 py-24">
+        <div className="mx-auto max-w-3xl px-6">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 font-display text-4xl font-bold text-brand-navy">Frequently Asked Questions</h2>
+            <p className="leading-relaxed text-slate-600">
+              Direct answers about what we remove, what needs review, and how pricing works.
+            </p>
+          </div>
+          <div className="space-y-3">
+            {faqs.map((item, index) => {
+              const isOpen = openFaqIndex === index;
+              return (
+                <div key={item.question} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                  <button
+                    type="button"
+                    className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
+                    aria-expanded={isOpen}
+                    onClick={() => setOpenFaqIndex(isOpen ? null : index)}
+                  >
+                    <span className="font-display text-base font-bold leading-snug text-brand-navy md:text-lg">
+                      {item.question}
+                    </span>
+                    <ChevronDown
+                      size={20}
+                      className={`shrink-0 text-brand-orange transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+                    />
+                  </button>
+                  {isOpen && (
+                    <div className="px-5 pb-5 pt-0">
+                      <p className="text-sm leading-relaxed text-slate-600 md:text-base">{item.answer}</p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
