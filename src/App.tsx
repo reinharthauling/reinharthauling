@@ -80,11 +80,10 @@ import PageMeta from './components/PageMeta.tsx';
 import SeoRedirect from './components/SeoRedirect.tsx';
 import { ServicesMegaMenuPanel, ServicesMobileAccordions } from './components/ServicesMegaMenu.tsx';
 import {
+  PRIMARY_NAV_ITEMS,
   isPrimaryNavItemActive,
   isServicesNavActive,
-  PRIMARY_NAV_ITEMS,
 } from './data/primaryNavigation.ts';
-
 import ServiceAreaInquiryModal from './components/ServiceAreaInquiryModal.tsx';
 import EmailContactMenu from './components/EmailContactMenu.tsx';
 import { EstimateRequestProvider } from './context/EstimateRequestContext.tsx';

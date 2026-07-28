@@ -68,6 +68,19 @@ export const SERVICES_NAV_ACTIVE_PREFIXES = [
   '/ceiling-grid-removal',
   '/drywall-removal',
   '/property-cleanouts',
+  '/multifamily',
+  '/commercial-property-managers',
+  '/general-contractors',
+  '/commercial-real-estate',
+  '/retail',
+  '/office',
+  '/warehouse-industrial',
+  '/healthcare',
+  '/education',
+  '/hospitality',
+  '/religious-facilities',
+  '/financial-institutions',
+  '/restoration-contractors',
 ] as const;
 
 export function isServicesNavActive(pathname: string, hash = ''): boolean {

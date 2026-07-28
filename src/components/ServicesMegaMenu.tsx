@@ -15,12 +15,12 @@ const columnHeadingClassName =
 const viewAllLinkClassName =
   'group mt-4 inline-flex rounded-lg px-2 py-1.5 -mx-2 text-xs font-semibold text-brand-orange transition-colors hover:bg-brand-orange/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-offset-1';
 
-const columnDividerClass = (columnIndex: number) =>
+const columnDividerClass = (columnIndex: number, columnCount: number) =>
   [
-    'px-6 py-5',
+    'px-5 py-5',
+    columnIndex < columnCount - 1 ? 'lg:border-r lg:border-slate-100' : '',
     columnIndex === 0 ? 'md:border-r md:border-slate-100' : '',
-    columnIndex === 1 ? 'lg:border-r lg:border-slate-100' : '',
-    columnIndex === 2 ? 'md:col-span-2 lg:col-span-1 md:border-t md:border-slate-100 lg:border-t-0' : '',
+    columnIndex >= 2 ? 'md:border-t md:border-slate-100 lg:border-t-0' : '',
   ]
     .filter(Boolean)
     .join(' ');
@@ -29,10 +29,11 @@ type MegaMenuColumnProps = {
   column: ServiceNavColumn;
   onNavigate?: () => void;
   columnIndex: number;
+  columnCount: number;
 };
 
-const MegaMenuColumn = ({ column, onNavigate, columnIndex }: MegaMenuColumnProps) => (
-  <div className={columnDividerClass(columnIndex)}>
+const MegaMenuColumn = ({ column, onNavigate, columnIndex, columnCount }: MegaMenuColumnProps) => (
+  <div className={columnDividerClass(columnIndex, columnCount)}>
     {column.hubLink ? (
       <Link to={column.hubLink} className={hubHeadingClassName} onClick={onNavigate}>
         {column.title}
@@ -93,6 +94,7 @@ type ServicesMegaMenuPanelProps = {
 
 export const ServicesMegaMenuPanel = ({ id, onNavigate }: ServicesMegaMenuPanelProps) => {
   const panelRef = useRef<HTMLDivElement>(null);
+  const columnCount = SERVICES_NAV_COLUMNS.length;
 
   useEffect(() => {
     const panel = panelRef.current;
@@ -123,12 +125,18 @@ export const ServicesMegaMenuPanel = ({ id, onNavigate }: ServicesMegaMenuPanelP
       ref={panelRef}
       role="navigation"
       aria-label="Services menu"
-      className="absolute top-full z-[60] w-[min(980px,calc(100vw-2rem))] pt-3 right-0 xl:left-1/2 xl:right-auto xl:-translate-x-1/2"
+      className="absolute top-full z-[60] w-[min(1120px,calc(100vw-2rem))] pt-3 right-0 xl:left-1/2 xl:right-auto xl:-translate-x-1/2"
     >
       <div className="max-h-[calc(100vh-120px)] overflow-y-auto overscroll-contain rounded-2xl border border-slate-100 bg-white shadow-xl shadow-slate-200/60 ring-1 ring-slate-900/5 scrollbar-subtle">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid md:grid-cols-2 xl:grid-cols-4">
           {SERVICES_NAV_COLUMNS.map((column, index) => (
-            <MegaMenuColumn key={column.id} column={column} columnIndex={index} onNavigate={onNavigate} />
+            <MegaMenuColumn
+              key={column.id}
+              column={column}
+              columnIndex={index}
+              columnCount={columnCount}
+              onNavigate={onNavigate}
+            />
           ))}
         </div>
       </div>
