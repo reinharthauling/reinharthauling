@@ -5,7 +5,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
-import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
+import { motion, useScroll, useTransform, AnimatePresence, MotionConfig } from 'motion/react';
 import { 
   Truck, 
   Trash2, 
@@ -104,6 +104,14 @@ import {
 // --- Components ---
 
 const AnimatedBackground = () => {
+  // Deterministic, non-animated particles keep prerender HTML aligned with hydrateRoot.
+  const particles = [...Array(20)].map((_, i) => {
+    const x = ((i * 37) % 100);
+    const y = ((i * 53) % 100);
+    const opacity = 0.15 + ((i * 7) % 35) / 100;
+    return { x: `${x}%`, y: `${y}%`, opacity };
+  });
+
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
       {/* Soft Gradient */}
@@ -112,25 +120,15 @@ const AnimatedBackground = () => {
       {/* Grid Shimmer */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
       
-      {/* Particle Drift (Simplified) */}
       <div className="absolute inset-0">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
+        {particles.map((particle, i) => (
+          <div
             key={i}
             className="absolute h-1 w-1 rounded-full bg-brand-orange/20"
-            initial={{ 
-              x: Math.random() * 100 + "%", 
-              y: Math.random() * 100 + "%",
-              opacity: Math.random() * 0.5
-            }}
-            animate={{ 
-              y: [null, "-20%"],
-              opacity: [null, 0]
-            }}
-            transition={{ 
-              duration: Math.random() * 10 + 10, 
-              repeat: Infinity, 
-              ease: "linear" 
+            style={{
+              left: particle.x,
+              top: particle.y,
+              opacity: particle.opacity,
             }}
           />
         ))}
@@ -1923,7 +1921,9 @@ const Footer = () => {
         </div>
 
         <div className="mt-6 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-400">
-          <div>© {new Date().getFullYear()} Reinhart Hauling &amp; Cleanouts. All rights reserved.</div>
+          <div suppressHydrationWarning>
+            © {new Date().getFullYear()} Reinhart Hauling & Cleanouts. All rights reserved.
+          </div>
           <div className="flex items-center gap-3">
             <Link to="/privacy-policy" className="hover:text-brand-orange transition-colors">
               Privacy Policy
@@ -1985,6 +1985,7 @@ const StickyActionFooter = () => {
     <AnimatePresence>
       {isVisible && (
         <motion.div
+          data-prerender-strip
           initial={{ y: 80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 80, opacity: 0 }}
@@ -2091,8 +2092,19 @@ const HomePage = () => {
 };
 
 export default function App() {
+  // Keep Motion static while the prerender bot captures HTML so snapshots are stable.
+  const isPrerenderBot =
+    typeof navigator !== 'undefined' && /ReinhartHaulingPrerender/i.test(navigator.userAgent);
+
+  const [motionReady, setMotionReady] = useState(!isPrerenderBot);
+
+  useEffect(() => {
+    if (isPrerenderBot) return;
+    setMotionReady(true);
+  }, [isPrerenderBot]);
+
   return (
-    <>
+    <MotionConfig isStatic={!motionReady}>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -2344,6 +2356,6 @@ export default function App() {
           }
         />
       </Routes>
-    </>
+    </MotionConfig>
   );
 }
