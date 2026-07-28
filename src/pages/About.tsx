@@ -37,7 +37,7 @@ const WHY_CLIENTS_CHOOSE = [
   },
   {
     title: 'Fully Insured',
-    desc: 'Licensed and insured service for residential and commercial property projects.',
+    desc: 'Fully insured service for residential and commercial property projects.',
   },
   {
     title: 'Reliable Execution',

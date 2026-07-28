@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING, SERVICE_AREAS_FAQ_ANSWER } from '../data/business.ts';
 import { buildFAQPageSchema, buildBreadcrumbListSchema, buildServiceSchema, buildWebPageSchema, compactJsonLd } from '../utils/schema.ts';
 import { motion } from 'motion/react';
-import { CheckCircle2, ChevronDown, ClipboardCheck, MessageSquare, Phone, Truck } from 'lucide-react';
+import { CheckCircle2, ChevronDown, ClipboardCheck, MessageSquare, Truck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PageCTAs from '../components/PageCTAs.tsx';
 import CleanoutProcess from '../components/CleanoutProcess.tsx';
 import PageMeta from '../components/PageMeta.tsx';
+import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
 
 const WHO_WE_HELP = [
   {
@@ -74,17 +75,17 @@ const RENTAL_PROCESS_STEPS = [
   {
     number: '01',
     icon: MessageSquare,
-    title: 'Request an Estimate or Schedule a Walkthrough',
+    title: 'Request an Estimate',
     description:
-      'Submit project details for smaller turnovers. Larger turnovers and multi-unit projects usually benefit from a walkthrough first.',
+      'Share unit details, access notes, and timing so we understand the rental turnover scope and can respond clearly.',
     cta: { label: 'Request an Estimate →', estimate: true },
   },
   {
     number: '02',
     icon: ClipboardCheck,
-    title: 'Scope Review & Scheduling Plan',
+    title: 'Photos or Walkthrough & Clear Quote',
     description:
-      'We review access, debris volume, labor requirements, disposal needs, and scheduling so scope and expectations are clear before work begins.',
+      'Smaller turnovers can often be quoted from photos. Larger turnovers and multi-unit projects usually get a walkthrough—then you receive clear pricing before work begins.',
     cta: { href: 'tel:+16152000064', label: 'Call Now →' },
   },
   {
@@ -98,6 +99,11 @@ const RENTAL_PROCESS_STEPS = [
 ];
 
 const RENTAL_FAQS = [
+  {
+    question: 'What rental cleanout services do you provide for landlords?',
+    answer:
+      'We handle move-out cleanouts, apartment turnovers, and rental property resets—clearing furniture, trash, and left-behind belongings so vacant units can move toward cleaning, repairs, or the next tenant. For post-eviction clearing as the primary need, see our eviction cleanouts page.',
+  },
   {
     question: 'How quickly can you schedule rental cleanouts?',
     answer:
@@ -119,6 +125,16 @@ const RENTAL_FAQS = [
       'Yes. We remove abandoned furniture, bagged trash, loose debris, and mixed leftover contents from rentals, apartments, and single-family homes.',
   },
   {
+    question: 'How is pricing determined?',
+    answer:
+      'Pricing is based on the amount and type of material, labor required, access, weight, disassembly, equipment needs, and disposal costs. Smaller pickups may be estimated from photos. Larger cleanouts and demolition projects are normally quoted after an on-site walkthrough. Customers receive the price before work begins.',
+  },
+  {
+    question: 'Are there materials that require prior review?',
+    answer:
+      'Hazardous chemicals, fuel, biohazards, asbestos-containing material, explosives, medical waste, unknown liquids, and legally restricted waste require prior review and may not be accepted.',
+  },
+  {
     question: 'Do you offer walkthroughs before larger jobs?',
     answer:
       'Absolutely. Larger turnovers and multi-unit projects often benefit from a walkthrough so we can assess volume, access, labor, and timing before scheduling.',
@@ -138,10 +154,19 @@ const SERVICE_AREAS = SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING;
 
 const RELATED_SERVICES = [
   { label: 'Eviction Cleanouts', to: '/eviction-cleanouts' },
-  { label: 'Estate Cleanouts', to: '/estate-cleanouts' },
-  { label: 'Garage Cleanouts', to: '/garage-cleanouts' },
   { label: 'Property Cleanouts', to: '/property-cleanouts' },
+  { label: 'Property Cleanup', to: '/property-cleanup' },
+  { label: 'Estate Cleanouts', to: '/estate-cleanouts' },
+  { label: 'Foreclosure Cleanouts', to: '/foreclosure-cleanouts' },
+  { label: 'Hoarder Cleanouts', to: '/hoarder-cleanouts' },
+  { label: 'Commercial Cleanouts', to: '/commercial-cleanouts' },
+  { label: 'Items We Remove', to: '/what-we-take' },
+  { label: 'Projects', to: '/projects' },
 ];
+
+const PAGE_TITLE = 'Landlord & Rental Cleanouts in Middle Tennessee | Reinhart';
+const META_DESCRIPTION =
+  'Insured landlord and rental cleanouts in Middle Tennessee from Goodlettsville. Move-out and turnover clearing for vacant units with pricing before work begins. Call 615-200-0064.';
 
 export default function LandlordRentalCleanouts() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
@@ -149,21 +174,19 @@ export default function LandlordRentalCleanouts() {
   return (
     <>
       <PageMeta
-        title={`Landlord & Rental Cleanout Services in Nashville & Middle Tennessee`}
-        description={`Landlord and rental cleanout services for move-outs, turnovers, and property resets across Nashville and Middle Tennessee. Responsive scheduling and dependable turnover support.`}
+        title={PAGE_TITLE}
+        description={META_DESCRIPTION}
         path={`/landlord-rental-cleanouts`}
         jsonLd={compactJsonLd([
           buildWebPageSchema({
             path: '/landlord-rental-cleanouts',
-            name: 'Landlord & Rental Cleanout Services in Nashville & Middle Tennessee',
-            description:
-              'Landlord and rental cleanout services for move-outs, turnovers, and property resets across Nashville and Middle Tennessee. Responsive scheduling and dependable turnover support.',
+            name: PAGE_TITLE,
+            description: META_DESCRIPTION,
             mainEntityId: 'https://www.reinharthauling.com/landlord-rental-cleanouts#service',
           }),
           buildServiceSchema({
             name: 'Landlord & Rental Cleanouts',
-            description:
-              'Landlord and rental cleanout services for move-outs, turnovers, and property resets across Nashville and Middle Tennessee. Responsive scheduling and dependable turnover support.',
+            description: META_DESCRIPTION,
             path: '/landlord-rental-cleanouts',
             serviceType: 'Landlord & Rental Cleanouts',
           }),
@@ -188,29 +211,26 @@ export default function LandlordRentalCleanouts() {
                 RENTAL TURNOVER SUPPORT
               </span>
               <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-8">
-                Landlord &amp; Rental Cleanout Services in <br />
-                <span className="text-brand-orange">Nashville &amp; Middle Tennessee</span>
+                Landlord &amp; Rental Cleanouts in <br />
+                <span className="text-brand-orange">Middle Tennessee</span>
               </h1>
-              <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 max-w-2xl">
-                Dependable rental turnover support for landlords and property managers—move-out cleanouts,
-                abandoned belongings removal, and property reset prep so units can move toward the next tenant
-                without unnecessary delay.
+              <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-6 max-w-2xl">
+                Reinhart Hauling &amp; Cleanouts provides insured landlord and rental cleanouts from Goodlettsville
+                across Middle Tennessee. We handle move-out cleanouts, apartment turnovers, and property resets—clearing
+                furniture, trash, and left-behind belongings so vacant units can move toward cleaning, repairs, or the
+                next tenant. Smaller jobs may be estimated from photos; larger turnovers are usually quoted after a
+                walkthrough, with pricing confirmed before work begins.
               </p>
 
               <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-6 max-w-2xl">
-                Smaller jobs can often be quoted from texted photos. Larger turnovers and multi-unit projects can
-                be scoped through an on-site walkthrough so access, volume, and scheduling are clear upfront.
-              </p>
-
-              <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-6 max-w-2xl">
-                Related services include{' '}
+                Need post-eviction clearing as the primary focus? See{' '}
                 <Link
                   to="/eviction-cleanouts"
                   className="text-brand-orange hover:text-brand-orange transition-colors"
                 >
                   eviction cleanouts
                 </Link>
-                ,{' '}
+                . Related services also include{' '}
                 <Link to="/estate-cleanouts" className="text-brand-orange hover:text-brand-orange transition-colors">
                   estate cleanouts
                 </Link>
@@ -289,15 +309,16 @@ export default function LandlordRentalCleanouts() {
           <div className="mb-12">
             <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">How We Work</h2>
             <p className="text-slate-600 max-w-3xl leading-relaxed">
-              A straightforward workflow for rental turnovers and property resets—including walkthroughs when larger
-              scope or multi-unit work requires extra planning.
+              A straightforward workflow for rental turnovers and property resets—estimate, photos or walkthrough,
+              clear quote, then clear-out—including walkthroughs when larger scope or multi-unit work requires extra
+              planning.
             </p>
           </div>
         </div>
 
         <CleanoutProcess
           title="How Our Rental Cleanout Process Works"
-          subtitle="Smaller turnovers often start from photos. Larger jobs and multi-unit projects can be scoped through walkthroughs for accurate planning."
+          subtitle="Smaller turnovers often start from photos. Larger jobs and multi-unit projects can be scoped through walkthroughs so pricing and planning stay accurate."
           className="pt-0 pb-0 bg-white"
           steps={RENTAL_PROCESS_STEPS}
         />
@@ -378,7 +399,7 @@ export default function LandlordRentalCleanouts() {
           <div className="mb-10">
             <h2 className="font-display text-3xl font-bold text-brand-navy mb-3">Related Services</h2>
             <p className="text-slate-500 max-w-3xl">
-              Related cleanout services for evictions, estates, garages, and full-property transitions.
+              Related cleanout services for evictions, estates, full-property transitions, and commercial turnovers.
             </p>
           </div>
 
@@ -395,6 +416,8 @@ export default function LandlordRentalCleanouts() {
           </div>
         </div>
       </section>
+
+      <ServiceBottomCTA variant="light" showContactExtras />
     </>
   );
 }

@@ -8,7 +8,6 @@ import {
   MessageSquare,
   Phone,
   ShieldCheck,
-  Truck,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import EmailContactMenu from './EmailContactMenu.tsx';
@@ -41,33 +40,27 @@ const DEFAULT_WHO_WE_WORK_WITH = [
 const PROCESS_STEPS = [
   {
     number: '01',
-    icon: ClipboardCheck,
-    title: 'Walkthrough',
-    description: 'Share photos or walk the space so we understand scope, access, materials, and renovation goals.',
+    icon: MessageSquare,
+    title: 'Call, Text, or Request an Estimate',
+    description: 'Share photos, plans, access notes, and timing so we understand selective demolition scope.',
   },
   {
     number: '02',
-    icon: MessageSquare,
-    title: 'Planning',
-    description: 'We confirm what stays, what goes, debris staging, safety considerations, and project timing.',
+    icon: ClipboardCheck,
+    title: 'Photos or On-Site Walkthrough',
+    description: 'We review materials, protection needs, and staging, then provide a clear quote before work begins.',
   },
   {
     number: '03',
     icon: Hammer,
-    title: 'Selective Removal',
-    description: 'Our crew completes controlled tear-out of scheduled materials—not structural building demolition.',
+    title: 'Schedule & Complete Selective Removal',
+    description: 'We complete controlled tear-out of scheduled materials—not structural building demolition—and haul debris.',
   },
   {
     number: '04',
-    icon: Truck,
-    title: 'Debris Removal',
-    description: 'Demo debris is loaded, hauled, and disposed of so the work area stays organized.',
-  },
-  {
-    number: '05',
     icon: CheckCircle2,
     title: 'Ready For Next Trade',
-    description: 'The space is prepared for framing, MEP, drywall, flooring, finishes, or the next project phase.',
+    description: 'The space is left cleared to the agreed scope for framing, MEP, drywall, flooring, or finishes.',
   },
 ];
 
@@ -93,7 +86,7 @@ const SAFETY_POINTS = [
     description: 'Clear updates on scope, schedule, and handoff expectations for every project.',
   },
   {
-    title: 'Licensed & Insured',
+    title: 'Fully Insured',
     description: 'Selective demolition support backed by proper insurance and accountable execution.',
   },
 ];
@@ -262,7 +255,7 @@ export default function DemolitionServicePage({ config }: DemolitionServicePageP
               trade.
             </p>
           </div>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {PROCESS_STEPS.map((step) => {
               const Icon = step.icon;
               return (

@@ -78,7 +78,7 @@ const WHY_BUSINESSES_CHOOSE = [
     desc: 'We show up when scheduled and communicate clearly from quote to completion.',
   },
   {
-    title: 'Licensed & Insured',
+    title: 'Fully Insured',
     desc: 'Professional service for commercial properties, business owners, landlords, and property managers.',
   },
   {

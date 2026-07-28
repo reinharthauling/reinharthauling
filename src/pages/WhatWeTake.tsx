@@ -580,7 +580,7 @@ const restrictedItems = [
 const whyReinhart = [
   ['Locally Owned', Home],
   ['Professional Service', BriefcaseBusiness],
-  ['Licensed & Insured', ShieldCheck],
+  ['Fully Insured', ShieldCheck],
   ['Fast Scheduling', Clock],
   ['Transparent Pricing', CheckCircle2],
   ['No Heavy Lifting Required', Truck],
@@ -776,7 +776,7 @@ export default function WhatWeTake() {
             </div>
 
             <div className="mt-7 flex flex-wrap gap-3 text-sm font-bold text-brand-navy">
-              {['Licensed & Insured', 'Upfront Pricing', 'Fast Scheduling', 'We Do All The Heavy Lifting'].map((item) => (
+              {['Fully Insured', 'Upfront Pricing', 'Fast Scheduling', 'We Do All The Heavy Lifting'].map((item) => (
                 <span key={item} className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 shadow-sm">
                   <CheckCircle2 size={16} className="text-brand-orange" />
                   {item}

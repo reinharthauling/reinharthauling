@@ -26,14 +26,14 @@ export type DemolitionServicePageConfig = {
 };
 
 export const PRIORITY_RELATED_DEMO = [
+  { label: 'Interior Demolition', to: '/interior-demolition' },
+  { label: 'Selective Demolition', to: '/selective-demolition' },
+  { label: 'Tenant Improvement Demo', to: '/tenant-improvement-demolition' },
+  { label: 'Construction Cleanup', to: '/construction-cleanup' },
   { label: 'Commercial Interior Strip-Outs', to: '/commercial-interior-strip-outs' },
   { label: 'Commercial Property Turnovers', to: '/commercial-property-turnovers' },
-  { label: 'Construction Cleanup', to: '/construction-cleanup' },
-  { label: 'White Box Preparation', to: '/white-box-preparation' },
-  { label: 'Lease Surrender Preparation', to: '/lease-surrender-preparation' },
-  { label: 'Flooring Removal', to: '/flooring-removal' },
-  { label: 'Cabinet Removal', to: '/cabinet-removal' },
-  { label: 'Drywall Removal', to: '/drywall-removal' },
+  { label: 'Items We Remove', to: '/what-we-take' },
+  { label: 'Projects', to: '/projects' },
 ] as const;
 
 export function getRelatedDemolitionServices(currentPath: string) {
@@ -76,6 +76,16 @@ const BASE_FAQS: DemolitionFaq[] = [
       'No. Reinhart focuses on selective interior demolition and renovation prep—not full structural demolition or building wrecking.',
   },
   {
+    question: 'What affects demolition pricing?',
+    answer:
+      'Pricing is based on the amount and type of material, labor required, access, weight, disassembly, equipment needs, and disposal costs. Smaller pickups may be estimated from photos. Larger cleanouts and demolition projects are normally quoted after an on-site walkthrough. Customers receive the price before work begins.',
+  },
+  {
+    question: 'Are there materials that require prior review?',
+    answer:
+      'Hazardous chemicals, fuel, biohazards, asbestos-containing material, explosives, medical waste, unknown liquids, and legally restricted waste require prior review and may not be accepted.',
+  },
+  {
     question: 'What areas do you serve?',
     answer:
       'We serve Goodlettsville, Hendersonville, Gallatin, White House, Greenbrier, Ridgetop, Springfield, Nashville (including East Nashville, Downtown Nashville, Old Hickory, Joelton, Madison, and Hermitage), Belle Meade, Brentwood, Franklin, Mt. Juliet, Lebanon, Portland, and surrounding Middle Tennessee communities.',
@@ -99,15 +109,15 @@ function faqs(...items: DemolitionFaq[]): DemolitionFaq[] {
 export const DEMOLITION_SERVICE_PAGES: DemolitionServicePageConfig[] = [
   {
     canonicalPath: '/interior-demolition',
-    pageTitle: 'Interior Demolition | Reinhart Hauling & Cleanouts',
+    pageTitle: 'Interior Demolition in Middle Tennessee | Reinhart Hauling & Cleanouts',
     metaDescription:
-      'Selective interior demolition in Middle Tennessee. Reinhart prepares commercial and residential spaces for renovation—not structural building demolition.',
+      'Selective interior demolition in Middle Tennessee. Cabinets, flooring, drywall, and finishes removed for renovation—not structural demolition. Call 615-200-0064.',
     heroEyebrow: 'SELECTIVE DEMOLITION',
-    heroHeadline: 'Interior Demolition',
+    heroHeadline: 'Interior Demolition in Middle Tennessee',
     heroIntro:
-      'Interior demolition at Reinhart means controlled, selective tear-out that opens spaces for renovation, tenant improvement, and the next project phase—without structural building demolition.',
+      'Reinhart Hauling & Cleanouts provides selective interior demolition across Middle Tennessee from Goodlettsville. We remove cabinets, flooring, drywall, ceiling materials, and fixtures to prepare homes and commercial spaces for renovation—not structural building demolition. We are insured, and you receive a clear quote before work begins.',
     heroImage: HERO_INSULATION,
-    heroImageAlt: 'Selective interior demolition project in Middle Tennessee',
+    heroImageAlt: 'Selective interior demolition removing finishes for renovation in Middle Tennessee',
     servicesIncluded: [
       'Selective interior tear-out and finish removal',
       'Drywall, flooring, and ceiling finish removal',
@@ -131,16 +141,16 @@ export const DEMOLITION_SERVICE_PAGES: DemolitionServicePageConfig[] = [
   },
   {
     canonicalPath: '/tenant-improvement-demolition',
-    pageTitle: 'Tenant Improvement (TI) Demolition | Reinhart Hauling & Cleanouts',
+    pageTitle: 'Tenant Improvement (TI) Demolition in Middle Tennessee | Reinhart',
     metaDescription:
-      'Tenant improvement demolition in Middle Tennessee. Reinhart assists contractors and property owners with selective tear-out before office, retail, and commercial renovations.',
+      'Tenant improvement demolition in Middle Tennessee. Selective tear-out before office, retail, and commercial renovations for contractors and owners. Call 615-200-0064.',
     ogTitle: 'Tenant Improvement (TI) Demolition | Middle Tennessee',
     heroEyebrow: 'SELECTIVE DEMOLITION',
     heroHeadline: 'Tenant Improvement (TI) Demolition',
     heroIntro:
-      'Reinhart assists contractors and property owners with the selective demolition required before tenant improvements and commercial renovations. We remove prior build-out, haul debris, and prepare spaces for framing, electrical, plumbing, drywall, flooring, and finishes—not structural demolition.',
+      'Reinhart Hauling & Cleanouts assists contractors and property owners with tenant improvement demolition across Middle Tennessee. From Goodlettsville, we remove prior build-out, fixtures, flooring, drywall, and debris so spaces are ready for the next trade—not structural demolition. We are insured, and pricing is confirmed before work begins.',
     heroImage: HERO_KITCHEN,
-    heroImageAlt: 'Tenant improvement demolition project in Middle Tennessee',
+    heroImageAlt: 'Tenant improvement demolition preparing a commercial suite for renovation',
     servicesIncluded: [
       'Prior tenant build-out and finish removal',
       'Cabinet, counter, and fixture removal',
@@ -188,16 +198,16 @@ export const DEMOLITION_SERVICE_PAGES: DemolitionServicePageConfig[] = [
   },
   {
     canonicalPath: '/selective-demolition',
-    pageTitle: 'Selective Demolition | Reinhart Hauling & Cleanouts',
+    pageTitle: 'Selective Demolition in Middle Tennessee | Reinhart Hauling & Cleanouts',
     metaDescription:
-      'Selective demolition in Middle Tennessee. Reinhart removes only scheduled materials while protecting the rest of the property—preparing spaces for renovation and tenant transitions.',
+      'Selective demolition in Middle Tennessee. Remove only scheduled materials while protecting the rest of the property for renovation. Call 615-200-0064.',
     ogTitle: 'Selective Demolition | Middle Tennessee',
     heroEyebrow: 'SELECTIVE DEMOLITION',
-    heroHeadline: 'Selective Demolition',
+    heroHeadline: 'Selective Demolition in Middle Tennessee',
     heroIntro:
-      'Selective demolition removes only the materials scheduled for replacement while protecting the remainder of the property. Reinhart supports room-level, suite-level, and trade-specific tear-outs that prepare spaces for renovation—not heavy structural demolition.',
+      'Reinhart Hauling & Cleanouts provides selective demolition across Middle Tennessee from Goodlettsville. We remove only scheduled materials—cabinets, flooring, drywall, ceiling grid, doors, fencing, deck material, and related debris—while protecting the rest of the property. We are insured, and larger demo scopes are normally quoted after a walkthrough.',
     heroImage: HERO_INSULATION,
-    heroImageAlt: 'Selective demolition project preparing a space for renovation',
+    heroImageAlt: 'Selective demolition project preparing a space for renovation in Middle Tennessee',
     servicesIncluded: [
       'Targeted removal of scheduled finishes and fixtures',
       'Protection of areas outside the demo scope',

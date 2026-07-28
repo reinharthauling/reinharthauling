@@ -7,7 +7,6 @@ import {
   HandHeart,
   MapPin,
   MessageSquare,
-  Phone,
   ShieldCheck,
   Truck,
 } from 'lucide-react';
@@ -17,6 +16,7 @@ import CleanoutProcess from '../components/CleanoutProcess.tsx';
 import OptionalServiceImage from '../components/OptionalServiceImage.tsx';
 import EstateFaq from '../components/EstateFaq.tsx';
 import PageMeta from '../components/PageMeta.tsx';
+import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
 import {
   buildBreadcrumbListSchema,
   buildServiceSchema,
@@ -36,17 +36,17 @@ const ESTATE_PROCESS_STEPS = [
   {
     number: '02',
     icon: CheckCircle2,
-    title: 'Walkthrough & Clear Scope',
+    title: 'Photos or On-Site Walkthrough',
     description:
-      'Smaller jobs can often be quoted from project details. Larger estate or full-property cleanouts usually benefit from an on-site walkthrough to assess volume, access, labor, disposal needs, and timing—so scope and pricing stay clear.',
+      'Smaller jobs can often be reviewed from photos. Larger estate or full-property cleanouts usually benefit from an on-site walkthrough so volume, access, labor, and disposal needs are assessed properly.',
     cta: { href: 'tel:+16152000064', label: 'Call Now →' },
   },
   {
     number: '03',
     icon: Calendar,
-    title: 'Schedule the Cleanout',
+    title: 'Clear Quote & Schedule',
     description:
-      'We confirm the date, coordinate access, and align on what stays, what goes, and how the day will run—so everyone knows what to expect before we arrive.',
+      'You receive clear pricing before work begins. We confirm the date, coordinate access, and align on what stays, what goes, and how the day will run.',
     cta: { href: 'tel:+16152000064', label: 'Call to Schedule \u2192' },
   },
   {
@@ -85,11 +85,19 @@ const WHY_CHOOSE_CARDS = [
 const SERVICE_AREAS = SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING;
 
 const RELATED_SERVICES = [
-  { label: 'Eviction Cleanouts', to: '/eviction-cleanouts' },
-  { label: 'Garage Cleanouts', to: '/garage-cleanouts' },
-  { label: 'Landlord & Rental Cleanouts', to: '/landlord-rental-cleanouts' },
   { label: 'Property Cleanouts', to: '/property-cleanouts' },
+  { label: 'Property Cleanup', to: '/property-cleanup' },
+  { label: 'Hoarder Cleanouts', to: '/hoarder-cleanouts' },
+  { label: 'Eviction Cleanouts', to: '/eviction-cleanouts' },
+  { label: 'Landlord & Rental Cleanouts', to: '/landlord-rental-cleanouts' },
+  { label: 'Foreclosure Cleanouts', to: '/foreclosure-cleanouts' },
+  { label: 'Items We Remove', to: '/what-we-take' },
+  { label: 'Projects', to: '/projects' },
 ];
+
+const PAGE_TITLE = 'Estate Cleanouts in Middle Tennessee | Inherited Homes | Reinhart';
+const META_DESCRIPTION =
+  'Insured estate cleanouts in Middle Tennessee from Goodlettsville. Clear inherited homes and family transition properties with pricing confirmed before work begins. Call 615-200-0064.';
 
 export default function EstateCleanouts() {
   const serviceTiles = [
@@ -134,21 +142,19 @@ export default function EstateCleanouts() {
   return (
     <>
       <PageMeta
-        title={`Estate Cleanouts in Nashville | Full Property Cleanouts`}
-        description={`Full estate cleanout services for homes and inherited properties. Serving Nashville and surrounding areas.`}
+        title={PAGE_TITLE}
+        description={META_DESCRIPTION}
         path={`/estate-cleanouts`}
         jsonLd={compactJsonLd([
           buildWebPageSchema({
             path: '/estate-cleanouts',
-            name: 'Estate Cleanouts in Nashville | Full Property Cleanouts',
-            description:
-              'Full estate cleanout services for homes and inherited properties. Serving Nashville and surrounding areas.',
+            name: PAGE_TITLE,
+            description: META_DESCRIPTION,
             mainEntityId: 'https://www.reinharthauling.com/estate-cleanouts#service',
           }),
           buildServiceSchema({
             name: 'Estate Cleanouts',
-            description:
-              'Full estate cleanout services for homes and inherited properties. Serving Nashville and surrounding areas.',
+            description: META_DESCRIPTION,
             path: '/estate-cleanouts',
             serviceType: 'Estate Cleanouts',
           }),
@@ -173,22 +179,13 @@ export default function EstateCleanouts() {
               </span>
               <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-8">
                 Estate Cleanouts in <br />
-                <span className="text-brand-orange">Nashville &amp; Middle Tennessee</span>
+                <span className="text-brand-orange">Middle Tennessee</span>
               </h1>
-              <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 max-w-2xl">
-                Full-service estate cleanout services for homes, inherited properties, and family transitions. We
-                handle everything—furniture, belongings, and debris—so you don&apos;t have to.
-              </p>
-
               <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-6 max-w-2xl">
-                Looking for a reliable estate cleanout company in Goodlettsville or North Nashville? We
-                specialize in full estate cleanout services, including house cleanouts after death, inherited
-                property cleanouts, and complete property cleanouts. Whether you&apos;re preparing a home for sale or
-                clearing out years of belongings, we handle the entire process from start to finish.
-              </p>
-
-              <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-3 max-w-2xl">
-                We handle everything from start to finish so you can focus on what matters most.
+                Reinhart Hauling &amp; Cleanouts provides insured estate cleanouts from Goodlettsville across Middle
+                Tennessee. We clear inherited homes and family transition properties—furniture, belongings, garage
+                contents, and household debris—so you can focus on what matters. Smaller jobs may be estimated from
+                photos; larger estates are usually quoted after a walkthrough, with clear pricing before work begins.
               </p>
 
               <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-6 max-w-2xl">
@@ -278,7 +275,7 @@ export default function EstateCleanouts() {
 
       <CleanoutProcess
         title="How Our Estate Cleanout Service Works"
-        subtitle="Smaller jobs can often start from photos. Larger estate and full-property cleanouts usually benefit from a walkthrough so scope, access, and timing are clear before we schedule."
+        subtitle="Smaller jobs can often start from photos. Larger estate and full-property cleanouts usually benefit from a walkthrough so scope, access, and pricing are clear before we schedule."
         className="py-24 bg-white"
         steps={ESTATE_PROCESS_STEPS}
       />
@@ -336,6 +333,8 @@ export default function EstateCleanouts() {
           </div>
         </div>
       </section>
+
+      <ServiceBottomCTA variant="light" showContactExtras />
     </>
   );
 }

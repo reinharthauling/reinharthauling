@@ -40,6 +40,16 @@ const DEMO_HERO =
 
 const BASE_FAQS: CommercialFaq[] = [
   {
+    question: 'How is pricing determined?',
+    answer:
+      'Pricing is based on the amount and type of material, labor required, access, weight, disassembly, equipment needs, and disposal costs. Smaller pickups may be estimated from photos. Larger cleanouts and demolition projects are normally quoted after an on-site walkthrough. Customers receive the price before work begins.',
+  },
+  {
+    question: 'Are there materials that require prior review?',
+    answer:
+      'Hazardous chemicals, fuel, biohazards, asbestos-containing material, explosives, medical waste, unknown liquids, and legally restricted waste require prior review and may not be accepted.',
+  },
+  {
     question: 'What areas do you serve?',
     answer:
       'We serve Goodlettsville, Hendersonville, Gallatin, White House, Greenbrier, Ridgetop, Springfield, Nashville (including East Nashville, Downtown Nashville, Old Hickory, Joelton, Madison, and Hermitage), Belle Meade, Brentwood, Franklin, Mt. Juliet, Lebanon, Portland, and surrounding Middle Tennessee communities.',
@@ -63,21 +73,21 @@ function faqs(...items: CommercialFaq[]): CommercialFaq[] {
 export const COMMERCIAL_SERVICE_PAGES: CommercialServicePageConfig[] = [
   {
     canonicalPath: '/commercial-property-turnovers',
-    pageTitle: 'Commercial Property Turnovers | Reinhart Hauling & Cleanouts',
+    pageTitle: 'Commercial Property Turnovers in Middle Tennessee | Reinhart Hauling',
     metaDescription:
-      'Commercial property turnover support in Middle Tennessee. Reinhart helps property managers and owners prepare units between tenants, renovation, or sale.',
+      'Commercial property turnovers in Middle Tennessee for offices, retail, and managed units. Clear leftover contents between tenants, renovation, or sale. Call 615-200-0064.',
     heroEyebrow: 'COMMERCIAL SERVICES',
-    heroHeadline: 'Commercial Property Turnovers',
+    heroHeadline: 'Commercial Property Turnovers in Middle Tennessee',
     heroIntro:
-      'When a commercial unit changes hands, Reinhart helps property teams clear leftover contents and debris so the space can move toward re-leasing, renovation, or sale.',
+      'Reinhart Hauling & Cleanouts supports commercial property turnovers across Middle Tennessee from Goodlettsville. We clear leftover tenant contents, office furniture, retail fixtures, and debris so property managers and owners can re-lease, renovate, or sell. We are insured, and you receive a clear quote before work begins.',
     heroImage: COMMERCIAL_HERO,
-    heroImageAlt: 'Commercial property turnover project in Nashville',
+    heroImageAlt: 'Commercial property turnover cleanout clearing leftover tenant contents in Nashville',
     servicesIncluded: [
       'Abandoned tenant contents and fixture removal',
-      'Office, retail, and warehouse turnover clearing',
-      'Debris haul-away and disposal coordination',
-      'Scope planning aligned with turnover deadlines',
-      'Portfolio and multi-unit transition support',
+      'Office furniture, cubicles, and file cabinet haul-away',
+      'Retail fixture, display, and shelving removal',
+      'Warehouse and storage-area turnover clearing',
+      'Debris haul-away aligned with turnover deadlines',
     ],
     typicalProjects: [
       { title: 'Tenant Move-Out Load-Outs', description: 'Clearing contents left behind after commercial tenant departure.' },
@@ -86,33 +96,28 @@ export const COMMERCIAL_SERVICE_PAGES: CommercialServicePageConfig[] = [
     ],
     faqs: faqs(
       {
-        question: 'What is a commercial property turnover?',
+        question: 'What is included in a commercial property turnover?',
         answer:
-          'A turnover is the transition period when one tenant leaves and a property is prepared for the next occupancy, sale, or renovation phase.',
+          'Typical turnover scope includes leftover furniture, fixtures, shelving, displays, trash, and mixed debris so the unit can move toward re-leasing, renovation, or sale. Exact inclusions are confirmed in the quote.',
       },
       {
         question: 'Can you handle multi-unit turnovers?',
         answer:
           'Yes. We support property managers and ownership groups with scheduled turnover work across portfolios when scope and timing are defined upfront.',
       },
-      {
-        question: 'How is turnover pricing determined?',
-        answer:
-          'Pricing depends on volume, access, labor, disposal needs, and schedule. Texting photos is usually the fastest way to receive an estimate.',
-      },
     ),
   },
   {
     canonicalPath: '/retail-decommissioning',
-    pageTitle: 'Retail Decommissioning | Reinhart Hauling & Cleanouts',
+    pageTitle: 'Retail Decommissioning in Middle Tennessee | Reinhart Hauling',
     metaDescription:
-      'Retail decommissioning and fixture removal in Middle Tennessee for store closures, lease surrender, and commercial property transitions.',
+      'Retail decommissioning and fixture removal in Middle Tennessee for store closures and lease surrender. Displays, shelving, and inventory cleared. Call 615-200-0064.',
     heroEyebrow: 'COMMERCIAL SERVICES',
-    heroHeadline: 'Retail Decommissioning',
+    heroHeadline: 'Retail Decommissioning in Middle Tennessee',
     heroIntro:
-      'Store closures leave fixtures, inventory, and backroom contents behind. Reinhart provides organized decommissioning support so retail spaces can be surrendered, re-leased, or prepared for redevelopment.',
+      'Reinhart Hauling & Cleanouts provides retail decommissioning across Middle Tennessee. From our Goodlettsville base, we remove fixtures, displays, shelving, inventory, and backroom contents so stores can be surrendered, re-leased, or prepared for redevelopment. We are insured, and pricing is confirmed before work begins.',
     heroImage: projectImages.commercialCleanouts.downtownNashville.executiveFurniture,
-    heroImageAlt: 'Retail decommissioning project in Middle Tennessee',
+    heroImageAlt: 'Retail decommissioning with fixture and display removal in Middle Tennessee',
     servicesIncluded: [
       'Fixture, shelving, and display removal',
       'Backroom inventory and packaging haul-away',
@@ -126,6 +131,11 @@ export const COMMERCIAL_SERVICE_PAGES: CommercialServicePageConfig[] = [
       { title: 'Pre-Redevelopment Clearing', description: 'Removing store build-out before renovation or repositioning.' },
     ],
     faqs: faqs(
+      {
+        question: 'Can you remove retail fixtures and office furniture?',
+        answer:
+          'Yes. Retail fixtures, displays, shelving, and related store furnishings are core decommissioning scope. Office furniture removal is available for mixed-use and commercial suites as well.',
+      },
       {
         question: 'What does retail decommissioning include?',
         answer:
@@ -260,15 +270,15 @@ export const COMMERCIAL_SERVICE_PAGES: CommercialServicePageConfig[] = [
   },
   {
     canonicalPath: '/office-load-outs',
-    pageTitle: 'Office Load-Outs | Reinhart Hauling & Cleanouts',
+    pageTitle: 'Office Load-Outs in Middle Tennessee | Reinhart Hauling & Cleanouts',
     metaDescription:
-      'Office load-outs and decommissioning in Middle Tennessee. Cubicles, furniture, and office contents removed for relocation and tenant transitions.',
+      'Office load-outs in Middle Tennessee. Cubicles, office furniture, file cabinets, and contents removed for closures and tenant transitions. Call 615-200-0064.',
     heroEyebrow: 'COMMERCIAL SERVICES',
-    heroHeadline: 'Office Load-Outs',
+    heroHeadline: 'Office Load-Outs in Middle Tennessee',
     heroIntro:
-      'Office closures and relocations need organized load-out support. Reinhart removes cubicles, furniture, files, and office contents so spaces can be surrendered, re-leased, or renovated.',
+      'Reinhart Hauling & Cleanouts handles office load-outs across Middle Tennessee from Goodlettsville. We remove cubicles, office furniture, file cabinets, and office contents so suites can be surrendered, re-leased, or renovated. We are insured, and you receive clear pricing before work begins.',
     heroImage: projectImages.commercialCleanouts.downtownNashville.cubicles,
-    heroImageAlt: 'Office load-out and cubicle removal',
+    heroImageAlt: 'Office load-out with cubicle and furniture removal in Middle Tennessee',
     servicesIncluded: [
       'Cubicle and workstation removal',
       'Office furniture and filing contents clearing',
@@ -282,6 +292,11 @@ export const COMMERCIAL_SERVICE_PAGES: CommercialServicePageConfig[] = [
       { title: 'Tenant Transition Clearing', description: 'Preparing office suites between occupancy phases.' },
     ],
     faqs: faqs(
+      {
+        question: 'Can you remove retail fixtures and office furniture?',
+        answer:
+          'Yes. Cubicles, desks, chairs, file cabinets, and related office furniture are core office load-out scope. Retail fixture removal is available on related commercial projects.',
+      },
       {
         question: 'Do you remove cubicles and workstations?',
         answer: 'Yes. Cubicle disassembly and removal can be included when needed for access and loading.',
@@ -325,15 +340,15 @@ export const COMMERCIAL_SERVICE_PAGES: CommercialServicePageConfig[] = [
   },
   {
     canonicalPath: '/warehouse-cleanouts',
-    pageTitle: 'Warehouse Cleanouts | Reinhart Hauling & Cleanouts',
+    pageTitle: 'Warehouse Cleanouts in Middle Tennessee | Reinhart Hauling & Cleanouts',
     metaDescription:
-      'Warehouse cleanouts in Middle Tennessee. Inventory, racking, pallets, and industrial debris removed for facility transitions.',
+      'Warehouse cleanouts in Middle Tennessee. Pallets, racking, inventory, equipment, and industrial debris removed for facility transitions. Call 615-200-0064.',
     heroEyebrow: 'COMMERCIAL SERVICES',
-    heroHeadline: 'Warehouse Cleanouts',
+    heroHeadline: 'Warehouse Cleanouts in Middle Tennessee',
     heroIntro:
-      'Warehouse and industrial spaces often hold abandoned inventory, racking, and materials that block turnover. Reinhart provides organized cleanout support for facility resets and property transitions.',
+      'Reinhart Hauling & Cleanouts provides warehouse cleanouts across Middle Tennessee. From Goodlettsville, we clear pallets, racking, abandoned inventory, packaging, and equipment so facilities can turn over, renovate, or reset. We are insured, and larger warehouse volumes are normally quoted after photos or an on-site walkthrough.',
     heroImage: COMMERCIAL_HERO,
-    heroImageAlt: 'Warehouse cleanout project',
+    heroImageAlt: 'Warehouse cleanout removing pallets and industrial contents in Middle Tennessee',
     servicesIncluded: [
       'Bulk inventory and pallet removal',
       'Racking and shelving clearing',
@@ -348,29 +363,34 @@ export const COMMERCIAL_SERVICE_PAGES: CommercialServicePageConfig[] = [
     ],
     faqs: faqs(
       {
+        question: 'Do you handle warehouse cleanouts?',
+        answer:
+          'Yes. Warehouse and industrial cleanouts are a core commercial service, including pallets, racking, packaging, and abandoned materials when access and disposal requirements are confirmed.',
+      },
+      {
         question: 'Can you handle large warehouse volumes?',
         answer:
-          'Yes. We review access, staging, volume, and disposal requirements before quoting warehouse cleanout work.',
+          'Yes. We review access, staging, volume, and disposal requirements before quoting warehouse cleanout work. Larger volumes are normally quoted after an on-site walkthrough.',
       },
     ),
   },
   {
     canonicalPath: '/property-management-cleanouts',
-    pageTitle: 'Property Management Cleanouts | Reinhart Hauling & Cleanouts',
+    pageTitle: 'Property Management Cleanouts in Middle Tennessee | Reinhart Hauling',
     metaDescription:
-      'Property management cleanout support in Middle Tennessee for commercial turnovers, abandoned units, and recurring portfolio needs.',
+      'Property management cleanouts in Middle Tennessee for commercial turnovers, abandoned units, and portfolio support. Dependable vendor response. Call 615-200-0064.',
     heroEyebrow: 'COMMERCIAL SERVICES',
-    heroHeadline: 'Property Management Cleanouts',
+    heroHeadline: 'Property Management Cleanouts in Middle Tennessee',
     heroIntro:
-      'Property managers need dependable partners when units are abandoned or transitions fall behind schedule. Reinhart helps management teams clear commercial spaces and keep portfolios moving.',
+      'Reinhart Hauling & Cleanouts supports property managers across Middle Tennessee with commercial cleanouts, abandoned-unit clearing, and turnover work. From Goodlettsville, we help management teams clear offices, retail suites, and problem spaces with clear communication and insured service. Pricing is confirmed before work begins.',
     heroImage: projectImages.commercialCleanouts.downtownNashville.executiveFurniture,
-    heroImageAlt: 'Property management commercial cleanout',
+    heroImageAlt: 'Property management commercial cleanout for abandoned unit turnover',
     servicesIncluded: [
       'Commercial unit turnover clearing',
       'Abandoned contents and debris removal',
+      'Office furniture and fixture haul-away',
       'Recurring cleanup for problem units',
       'Portfolio coordination and scheduling',
-      'Communication aligned with management workflows',
     ],
     typicalProjects: [
       { title: 'Abandoned Unit Recovery', description: 'Clearing units left in poor condition after tenant departure.' },
@@ -378,6 +398,11 @@ export const COMMERCIAL_SERVICE_PAGES: CommercialServicePageConfig[] = [
       { title: 'Turnover Acceleration', description: 'Fast clearing to reduce vacancy downtime.' },
     ],
     faqs: faqs(
+      {
+        question: 'Do you work with landlords and property managers?',
+        answer:
+          'Yes. Property managers and commercial landlords use us for turnovers, abandoned contents, and recurring portfolio cleanout needs across Middle Tennessee.',
+      },
       {
         question: 'Do you work as an ongoing vendor for property managers?',
         answer:
@@ -387,20 +412,20 @@ export const COMMERCIAL_SERVICE_PAGES: CommercialServicePageConfig[] = [
   },
   {
     canonicalPath: '/commercial-cleanouts',
-    pageTitle: 'Commercial Cleanouts | Reinhart Hauling & Cleanouts',
+    pageTitle: 'Commercial Cleanouts in Middle Tennessee | Reinhart Hauling & Cleanouts',
     metaDescription:
-      'Commercial cleanouts in Middle Tennessee for offices, retail, warehouses, and managed properties. Professional load-out and debris removal support.',
+      'Commercial cleanouts in Middle Tennessee for offices, retail, warehouses, and managed properties. Insured load-out and debris removal. Call 615-200-0064.',
     heroEyebrow: 'COMMERCIAL SERVICES',
-    heroHeadline: 'Commercial Cleanouts',
+    heroHeadline: 'Commercial Cleanouts in Middle Tennessee',
     heroIntro:
-      'Commercial cleanouts support business transitions, tenant turnovers, and property preparation. Reinhart provides organized load-out and debris removal for offices, retail, warehouses, and managed commercial space.',
+      'Reinhart Hauling & Cleanouts provides commercial cleanouts across Middle Tennessee from Goodlettsville. We clear offices, retail spaces, warehouses, and managed commercial properties—removing furniture, fixtures, pallets, and debris so businesses and property owners can move to the next phase. We are insured, and you receive a clear quote before work begins.',
     heroImage: projectImages.commercialCleanouts.downtownNashville.cubicles,
-    heroImageAlt: 'Commercial cleanout project in Nashville',
+    heroImageAlt: 'Commercial cleanout project removing office contents in Nashville',
     servicesIncluded: [
       'Office, retail, and warehouse contents removal',
-      'Fixture, furniture, and equipment haul-away',
-      'Commercial debris loading and disposal',
-      'Scope planning for access and scheduling',
+      'Office furniture, cubicles, and file cabinet haul-away',
+      'Retail fixtures, displays, and shelving removal',
+      'Pallets, packaging, and commercial debris loading',
       'Support for property and business transitions',
     ],
     typicalProjects: [
@@ -412,31 +437,36 @@ export const COMMERCIAL_SERVICE_PAGES: CommercialServicePageConfig[] = [
       {
         question: 'What types of commercial spaces do you clean out?',
         answer:
-          'Offices, retail spaces, warehouses, storage areas, churches, schools, and other commercial properties throughout Middle Tennessee.',
+          'Offices, retail spaces, warehouses, storage areas, and other commercial properties throughout Middle Tennessee. Scope is confirmed before work begins.',
       },
       {
-        question: 'Are you licensed and insured for commercial work?',
-        answer: 'Yes. We provide licensed and insured commercial property services.',
+        question: 'Can you remove retail fixtures and office furniture?',
+        answer:
+          'Yes. Office furniture, cubicles, file cabinets, retail fixtures, displays, and shelving are common commercial cleanout items.',
+      },
+      {
+        question: 'Are you insured for commercial work?',
+        answer: 'Yes. We provide insured commercial cleanout and selective demolition support services.',
       },
     ),
   },
   {
     canonicalPath: '/construction-cleanup',
-    pageTitle: 'Construction Cleanup | Reinhart Hauling & Cleanouts',
+    pageTitle: 'Construction Cleanup & Debris Removal in Middle Tennessee | Reinhart',
     metaDescription:
-      'Construction cleanup and jobsite debris removal in Middle Tennessee for contractors, property owners, and commercial renovation projects.',
+      'Construction cleanup and construction debris removal in Middle Tennessee for contractors and renovations. Jobsite debris hauled after a clear quote. Call 615-200-0064.',
     heroEyebrow: 'COMMERCIAL SERVICES',
-    heroHeadline: 'Construction Cleanup',
+    heroHeadline: 'Construction Cleanup & Debris Removal',
     heroIntro:
-      'Active commercial renovation generates debris and leftover materials that slow the next trade. Reinhart provides practical cleanup and haul-away support so jobsites stay organized and projects keep moving.',
+      'Reinhart Hauling & Cleanouts provides construction cleanup and construction debris removal across Middle Tennessee. From Goodlettsville, we haul renovation debris, packaging, leftover materials, and jobsite clutter so contractors and property owners can keep projects moving. We are insured, and pricing is confirmed before work begins.',
     heroImage: COMMERCIAL_HERO,
-    heroImageAlt: 'Construction cleanup on commercial project',
+    heroImageAlt: 'Construction cleanup and debris removal on a commercial renovation jobsite',
     servicesIncluded: [
       'Jobsite debris and packaging haul-away',
       'Renovation cleanup between project phases',
-      'Bulk material removal from commercial interiors',
+      'Cabinets, flooring, drywall, and finish debris removal when scheduled',
+      'Bulk material removal from commercial and residential interiors',
       'Coordination with contractor schedules',
-      'Property manager and owner support during active work',
     ],
     typicalProjects: [
       { title: 'TI Renovation Cleanup', description: 'Debris removal during tenant improvement projects.' },
@@ -444,6 +474,11 @@ export const COMMERCIAL_SERVICE_PAGES: CommercialServicePageConfig[] = [
       { title: 'Final Phase Debris Removal', description: 'Supporting punch-list and closeout timelines.' },
     ],
     faqs: faqs(
+      {
+        question: 'Can you haul construction debris?',
+        answer:
+          'Yes. Construction debris, renovation materials, packaging, and leftover jobsite materials are common cleanup scopes when disposal requirements are confirmed upfront.',
+      },
       {
         question: 'Do you work directly with contractors?',
         answer:

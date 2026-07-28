@@ -207,7 +207,17 @@ const FAQS = [
   {
     question: 'How is pricing determined?',
     answer:
-      'Pricing is based on volume, labor, access, item weight, disposal needs, and project complexity. Requesting an estimate with project details is the best way to receive upfront pricing.',
+      'Pricing is based on the amount and type of material, labor required, access, weight, disassembly, equipment needs, and disposal costs. Smaller pickups may be estimated from photos. Larger cleanouts and demolition projects are normally quoted after an on-site walkthrough. Customers receive the price before work begins.',
+  },
+  {
+    question: 'Are there materials that require prior review?',
+    answer:
+      'Hazardous chemicals, fuel, biohazards, asbestos-containing material, explosives, medical waste, unknown liquids, and legally restricted waste require prior review and may not be accepted.',
+  },
+  {
+    question: 'Can you clean up abandoned or investor properties?',
+    answer:
+      'Yes. Abandoned, vacant, foreclosure-adjacent, and investor properties are common property cleanup scopes when access and disposal requirements are confirmed.',
   },
   {
     question: 'Do I need to be present?',
@@ -219,14 +229,14 @@ const FAQS = [
 const SERVICE_AREAS = SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING;
 
 const RELATED_SERVICES = [
+  { label: 'Property Cleanouts', to: '/property-cleanouts' },
   { label: 'Estate Cleanouts', to: '/estate-cleanouts' },
-  { label: 'Garage Cleanouts', to: '/garage-cleanouts' },
+  { label: 'Foreclosure Cleanouts', to: '/foreclosure-cleanouts' },
   { label: 'Commercial Cleanouts', to: '/commercial-cleanouts' },
-  { label: 'Junk Removal', to: '/junk-removal' },
   { label: 'Interior Demolition', to: '/interior-demolition' },
   { label: 'Construction Cleanup', to: '/construction-cleanup' },
-  { label: 'Foreclosure Cleanouts', to: '/foreclosure-cleanouts' },
-  { label: 'Storage Unit Cleanouts', to: '/storage-unit-cleanouts' },
+  { label: 'Items We Remove', to: '/what-we-take' },
+  { label: 'Projects', to: '/projects' },
 ];
 
 export default function PropertyCleanup() {
@@ -235,21 +245,21 @@ export default function PropertyCleanup() {
   return (
     <>
       <PageMeta
-        title="Property Cleanup | Investor & Renovation Property Reset | Middle Tennessee"
-        description="Property cleanup for investors, landlords, abandoned properties, renovation preparation, property sales, and substantial debris cleanup across Middle Tennessee. Call 615-200-0064."
+        title="Property Cleanup in Middle Tennessee | Investor & Renovation Resets"
+        description="Insured property cleanup in Middle Tennessee for investors, landlords, abandoned properties, renovation prep, and substantial debris cleanup. Call 615-200-0064."
         path="/property-cleanup"
         jsonLd={compactJsonLd([
           buildWebPageSchema({
             path: '/property-cleanup',
-            name: 'Property Cleanup | Investor & Renovation Property Reset | Middle Tennessee',
+            name: 'Property Cleanup in Middle Tennessee | Investor & Renovation Resets',
             description:
-              'Property cleanup for investors, landlords, abandoned properties, renovation preparation, property sales, and substantial debris cleanup across Middle Tennessee. Call 615-200-0064.',
+              'Insured property cleanup in Middle Tennessee for investors, landlords, abandoned properties, renovation prep, and substantial debris cleanup. Call 615-200-0064.',
             mainEntityId: 'https://www.reinharthauling.com/property-cleanup#service',
           }),
           buildServiceSchema({
             name: 'Property Cleanup',
             description:
-              'Property cleanup for investors, landlords, abandoned properties, renovation preparation, property sales, and substantial debris cleanup across Middle Tennessee. Call 615-200-0064.',
+              'Insured property cleanup in Middle Tennessee for investors, landlords, abandoned properties, renovation prep, and substantial debris cleanup. Call 615-200-0064.',
             path: '/property-cleanup',
             serviceType: 'Property Cleanup',
           }),
@@ -282,19 +292,20 @@ export default function PropertyCleanup() {
                   substantial debris cleanup.
                 </p>
                 <p className="text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl">
-                  Property cleanup helps investors, landlords, and property teams reset properties for renovation, sale,
-                  or the next occupancy phase—including exterior debris, renovation materials, and difficult vacant
-                  properties. Need whole-house contents removal from a home, estate, or rental? See our{' '}
+                  Reinhart Hauling &amp; Cleanouts provides insured property cleanup across Middle Tennessee from
+                  Goodlettsville. We help investors, landlords, and property teams reset vacant, abandoned, and
+                  renovation-ready properties—including exterior debris and substantial cleanup beyond contents removal
+                  alone. Need whole-house contents removal? See{' '}
                   <Link to="/property-cleanouts" className="text-brand-orange hover:text-brand-navy transition-colors">
                     property cleanouts
-                  </Link>{' '}
-                  service.
+                  </Link>
+                  .
                 </p>
 
                 <PageCTAs layout="hero" className="mb-7" />
 
                 <div className="flex flex-wrap gap-3 text-sm font-bold text-brand-navy">
-                  {['Licensed & Insured', 'Upfront Pricing', 'Fast Scheduling', 'Real Project Photos'].map((item) => (
+                  {['Fully Insured', 'Clear Quote Before Work', 'Fast Scheduling', 'Real Project Photos'].map((item) => (
                     <span
                       key={item}
                       className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 shadow-sm"

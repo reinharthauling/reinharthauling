@@ -165,7 +165,7 @@ const SUPPORT_PROCESS = [
 
 const WHY_CONTRACTORS = [
   { title: 'Responsive communication', description: 'Direct updates when schedules shift and scopes evolve on active jobs.' },
-  { title: 'Licensed & insured', description: 'Commercial project support backed by proper insurance and accountable execution.' },
+  { title: 'Fully insured', description: 'Commercial project support backed by proper insurance and accountable execution.' },
   { title: 'Professional jobsite conduct', description: 'Crews that respect active construction environments and client expectations.' },
   { title: 'Reliable scheduling', description: 'Dependable mobilization aligned with contractor timelines and turnover deadlines.' },
   { title: 'Property protection', description: 'Defined scope boundaries so unaffected areas and finishes remain protected.' },

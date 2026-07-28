@@ -49,6 +49,16 @@ const DEFAULT_REMOVAL_CUSTOMERS = [
 
 const BASE_FAQS: ResidentialFaq[] = [
   {
+    question: 'How is pricing determined?',
+    answer:
+      'Pricing is based on the amount and type of material, labor required, access, weight, disassembly, equipment needs, and disposal costs. Smaller pickups may be estimated from photos. Larger cleanouts and demolition projects are normally quoted after an on-site walkthrough. Customers receive the price before work begins.',
+  },
+  {
+    question: 'Are there materials that require prior review?',
+    answer:
+      'Hazardous chemicals, fuel, biohazards, asbestos-containing material, explosives, medical waste, unknown liquids, and legally restricted waste require prior review and may not be accepted.',
+  },
+  {
     question: 'What areas do you serve?',
     answer:
       'We serve Goodlettsville, Hendersonville, Gallatin, White House, Greenbrier, Ridgetop, Springfield, Nashville (including East Nashville, Downtown Nashville, Old Hickory, Joelton, Madison, and Hermitage), Belle Meade, Brentwood, Franklin, Mt. Juliet, Lebanon, Portland, and surrounding Middle Tennessee communities.',
@@ -58,10 +68,6 @@ const BASE_FAQS: ResidentialFaq[] = [
     answer:
       'Submit project details through our estimate request form, call us at 615-200-0064, text, or email. We review scope, access, and timing, then provide clear pricing and next steps.',
   },
-  {
-    question: 'Do you haul away removed items and debris?',
-    answer: 'Yes. Loading, hauling, and disposal can be included as part of the project scope.',
-  },
 ];
 
 function faqs(...items: ResidentialFaq[]): ResidentialFaq[] {
@@ -69,12 +75,14 @@ function faqs(...items: ResidentialFaq[]): ResidentialFaq[] {
 }
 
 const PROPERTY_RELATED = [
+  { label: 'Property Cleanouts', to: '/property-cleanouts' },
   { label: 'Property Cleanup', to: '/property-cleanup' },
   { label: 'Estate Cleanouts', to: '/estate-cleanouts' },
+  { label: 'Hoarder Cleanouts', to: '/hoarder-cleanouts' },
   { label: 'Eviction Cleanouts', to: '/eviction-cleanouts' },
   { label: 'Foreclosure Cleanouts', to: '/foreclosure-cleanouts' },
   { label: 'Rental Property Cleanouts', to: '/landlord-rental-cleanouts' },
-  { label: 'Move-Out Cleanouts', to: '/move-out-cleanouts' },
+  { label: 'Items We Remove', to: '/what-we-take' },
 ];
 
 const REMOVAL_RELATED = [
@@ -98,28 +106,33 @@ export const RESIDENTIAL_SERVICE_PAGES: ResidentialServicePageConfig[] = [
   {
     canonicalPath: '/hoarder-cleanouts',
     category: 'property-services',
-    pageTitle: 'Hoarder Cleanouts | Reinhart Hauling & Cleanouts',
+    pageTitle: 'Hoarder Cleanouts in Middle Tennessee | Reinhart Hauling & Cleanouts',
     metaDescription:
-      'Hoarder cleanouts in Middle Tennessee with structure, discretion, and steady progress. Whole-property clearing for families, landlords, and property professionals.',
+      'Insured hoarder cleanouts in Middle Tennessee from Goodlettsville. Structured, discreet whole-property clearing for families, landlords, and property professionals. Call 615-200-0064.',
     heroEyebrow: 'PROPERTY SERVICES',
-    heroHeadline: 'Hoarder Cleanouts',
+    heroHeadline: 'Hoarder Cleanouts in Middle Tennessee',
     heroIntro:
-      'Hoarder cleanouts require structure, discretion, and steady daily progress—not a rushed truck showing up unprepared. Reinhart helps families and property professionals clear heavily involved homes with organized planning and respectful execution.',
+      'Reinhart Hauling & Cleanouts handles heavily cluttered and hoarded properties across Middle Tennessee from our Goodlettsville base. We clear rooms with structure and discretion—furniture, household clutter, garage contents, and heavy debris—so families and property professionals can move toward cleaning, repairs, or sale. We are insured, and you receive clear pricing before work begins.',
     heroImage: HERO_HOARDER,
-    heroImageAlt: 'Hoarder property cleanout project in Middle Tennessee',
+    heroImageAlt: 'Heavily cluttered hoarder property cleanout before clearing in Middle Tennessee',
     servicesIncluded: [
       'Whole-home and room-by-room clearing',
-      'Heavy debris and accumulated contents removal',
-      'Sorting and responsible disposal coordination',
+      'Furniture, appliances, mattresses, and household clutter removal',
       'Garage, basement, and overflow area clearing',
+      'Sorting for disposal, recycling, scrap, or donation when practical',
       'Property left ready for cleaning, repairs, or sale',
     ],
-    idealCustomers: ['Families', 'Homeowners', 'Property Managers', 'Real Estate Investors', 'Landlords', 'Estate Representatives'],
+    idealCustomers: ['Families', 'Homeowners', 'Estate Representatives', 'Property Managers', 'Real Estate Investors', 'Landlords'],
     faqs: faqs(
+      {
+        question: 'Do you handle heavily cluttered or hoarded properties?',
+        answer:
+          'Yes. Hoarder and heavily cluttered cleanouts are a core service. We plan for volume, access, labor, and disposal so the project progresses steadily without rushing families or property teams.',
+      },
       {
         question: 'Do hoarder cleanouts require a walkthrough first?',
         answer:
-          'Often yes. Heavily involved properties usually benefit from a walkthrough so volume, access, labor, and disposal planning stay accurate.',
+          'Often yes. Heavily involved properties usually benefit from photos plus an on-site walkthrough so volume, access, labor, and disposal planning stay accurate before quoting.',
       },
       {
         question: 'Can work be completed on a deadline?',
@@ -131,28 +144,33 @@ export const RESIDENTIAL_SERVICE_PAGES: ResidentialServicePageConfig[] = [
   {
     canonicalPath: '/foreclosure-cleanouts',
     category: 'property-services',
-    pageTitle: 'Foreclosure Cleanouts | Reinhart Hauling & Cleanouts',
+    pageTitle: 'Foreclosure Cleanouts in Middle Tennessee | Reinhart Hauling & Cleanouts',
     metaDescription:
-      'Foreclosure cleanouts and abandoned property clearing in Middle Tennessee for investors, lenders, property managers, and ownership teams.',
+      'Foreclosure and bank-owned property cleanouts in Middle Tennessee for investors, lenders, and property managers. Clear abandoned contents before renovation or listing. Call 615-200-0064.',
     heroEyebrow: 'PROPERTY SERVICES',
-    heroHeadline: 'Foreclosure Cleanouts',
+    heroHeadline: 'Foreclosure Cleanouts in Middle Tennessee',
     heroIntro:
-      'Foreclosure and bank-owned properties often need fast, organized clearing so ownership teams can regain control and move toward renovation, listing, or occupancy. Reinhart provides dependable foreclosure cleanout support throughout Middle Tennessee.',
+      'Reinhart Hauling & Cleanouts clears foreclosure and bank-owned properties across Middle Tennessee. From our Goodlettsville base, we remove abandoned furniture, appliances, household debris, and exterior clutter so investors, lenders, and property managers can move toward renovation, listing, or occupancy. We are insured, and pricing is confirmed before work begins.',
     heroImage: HERO_PROPERTY,
-    heroImageAlt: 'Foreclosure property cleanout in Middle Tennessee',
+    heroImageAlt: 'Foreclosure property cleanout and abandoned contents removal in Middle Tennessee',
     servicesIncluded: [
       'Abandoned contents and debris removal',
+      'Furniture, appliances, and bulky item haul-away',
       'Interior and exterior property clearing',
-      'Bulky item and appliance haul-away',
       'Scope planning for vacant and distressed properties',
-      'Property prepared for the next ownership phase',
+      'Property prepared for renovation, listing, or occupancy',
     ],
-    idealCustomers: DEFAULT_PROPERTY_CUSTOMERS,
+    idealCustomers: ['Real Estate Investors', 'Property Managers', 'Landlords', 'Lenders', 'Realtors', 'Ownership Teams'],
     faqs: faqs(
+      {
+        question: 'Can you clean up abandoned or investor properties?',
+        answer:
+          'Yes. Foreclosure, REO, and abandoned investor properties are common scopes. We clear leftover contents and debris so ownership teams can proceed with repairs, renovation, or marketing.',
+      },
       {
         question: 'Do you work with investors and property managers on foreclosure properties?',
         answer:
-          'Yes. We regularly support investors, property managers, and ownership teams clearing foreclosure and abandoned properties.',
+          'Yes. We regularly support investors, property managers, and ownership teams clearing foreclosure and abandoned properties throughout Middle Tennessee.',
       },
     ),
   },

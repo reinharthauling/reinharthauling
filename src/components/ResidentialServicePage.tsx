@@ -32,29 +32,30 @@ const PROCESS_STEPS = [
   {
     number: '01',
     icon: MessageSquare,
-    title: 'Request an Estimate or Schedule a Walkthrough',
+    title: 'Call, Text, or Request an Estimate',
     description:
-      'Share project details for an estimate, or schedule a walkthrough when volume, access, or project complexity requires it.',
+      'Share project details, photos, access notes, and timing so we understand the scope and can respond clearly.',
   },
   {
     number: '02',
     icon: ClipboardCheck,
-    title: 'Review Scope & Quote',
+    title: 'Photos or On-Site Walkthrough',
     description:
-      'We confirm what stays, what goes, labor needs, disposal requirements, and timing before work begins.',
+      'We review photos or schedule a walkthrough, then provide a clear quote before work begins.',
   },
   {
     number: '03',
     icon: Truck,
-    title: 'Removal & Haul-Away',
-    description: 'Our crew completes the removal, loading, and haul-away with organized execution on site.',
+    title: 'Schedule & Complete the Work',
+    description:
+      'Once approved, we schedule the job, load and remove the material, and handle disposal, recycling, scrap, or donation when practical and appropriate.',
   },
   {
     number: '04',
     icon: CheckCircle2,
-    title: 'Ready For the Next Step',
+    title: 'Agreed Scope Completed',
     description:
-      'The property or project area is left cleared and ready for cleaning, repairs, listing, occupancy, or renovation.',
+      'The property is left cleared to the agreed scope—ready for cleaning, repairs, listing, occupancy, or renovation.',
   },
 ];
 

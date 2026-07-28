@@ -8,6 +8,7 @@ import PageCTAs from '../components/PageCTAs.tsx';
 import CleanoutProcess from '../components/CleanoutProcess.tsx';
 import { projectImages } from '../data/projectImages';
 import PageMeta from '../components/PageMeta.tsx';
+import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
 
 const WHO_WE_HELP = [
   {
@@ -106,26 +107,32 @@ const PROPERTY_PROCESS_STEPS = [
   {
     number: '01',
     icon: MessageSquare,
-    title: 'Request an Estimate or Schedule a Walkthrough',
+    title: 'Call, Text, or Request an Estimate',
     description:
-      'Submit project details for smaller scopes. Larger or more involved properties usually benefit from a walkthrough for accurate quoting and planning.',
+      'Share project details, property access notes, and timing so we understand the cleanout scope and can respond clearly.',
     cta: { label: 'Request an Estimate →', estimate: true },
   },
   {
     number: '02',
     icon: ClipboardCheck,
-    title: 'Scope Review & Scheduling Plan',
+    title: 'Photos or On-Site Walkthrough',
     description:
-      'We review property access, debris volume, labor needs, disposal requirements, and scheduling so expectations are clear before the crew arrives.',
-    cta: { href: 'tel:+16152000064', label: 'Call Now →' },
+      'We review photos or schedule a walkthrough, then provide a clear quote covering labor, haul-away, and disposal before work begins.',
+    cta: { href: 'tel:+16152000064', label: 'Call or Text →' },
   },
   {
     number: '03',
     icon: Truck,
-    title: 'Property Clear-Out & Next-Phase Readiness',
+    title: 'Schedule & Remove Contents',
     description:
-      'Our crew clears the property efficiently, hauls debris, handles disposal, and leaves the space opened up and ready for cleaning, repairs, listing, or turnover.',
-    cta: { href: 'tel:+16152000064', label: 'Call Now \u2192' },
+      'We schedule the work, load and remove the material, and sort items for disposal, recycling, scrap recovery, or donation when practical and appropriate.',
+  },
+  {
+    number: '04',
+    icon: CheckCircle2,
+    title: 'Agreed Cleanout Scope Completed',
+    description:
+      'The property is left cleared to the agreed scope—ready for cleaning, repairs, listing, or occupancy.',
   },
 ];
 
@@ -152,9 +159,9 @@ const PROPERTY_PROJECTS = [
 
 const PROPERTY_FAQS = [
   {
-    question: 'What is a property cleanout?',
+    question: 'What is included in a property cleanout?',
     answer:
-      'A property cleanout is the removal of unwanted contents from a home, estate, rental, garage, hoarded property, or similar structure—furniture, household goods, appliances, and accumulated belongings—so the building can be cleaned, repaired, listed, or reoccupied.',
+      'A property cleanout removes unwanted contents from a home, estate, rental, garage, hoarded property, or similar structure—furniture, appliances, mattresses, household clutter, garage contents, and estate leftovers—so the building can be cleaned, repaired, listed, or reoccupied.',
   },
   {
     question: 'How is a property cleanout different from property cleanup?',
@@ -162,34 +169,24 @@ const PROPERTY_FAQS = [
       'Property cleanouts focus on removing unwanted contents from inside structures. Property cleanup is broader reset work that may include exterior debris, renovation prep, abandoned-property clearing, and investor property preparation. See our Property Cleanup page for broader reset projects.',
   },
   {
-    question: 'What types of properties do you clean out?',
+    question: 'Can you clean out a property before closing?',
     answer:
-      'Single-family homes, inherited properties, rentals, apartments, and properties with garages, basements, sheds, and storage areas. If you are unsure whether your situation fits, request an estimate and we can tell you quickly.',
+      'Yes. Many sellers, buyers, and realtors request cleanouts before closing. Share the timeline early so we can confirm scope, access, and scheduling.',
   },
   {
-    question: 'How do I request an estimate?',
+    question: 'Do you handle heavily cluttered or hoarded properties?',
     answer:
-      'Submit project details through our estimate request form, call us at 615-200-0064, text, or email. We review scope, access, and timing, then provide clear pricing and next steps.',
+      'Yes. Heavily cluttered and hoarder cleanouts are within our property cleanout work. Larger volumes are normally quoted after photos or an on-site walkthrough.',
   },
   {
-    question: 'Do larger projects require a walkthrough?',
+    question: 'How is pricing determined?',
     answer:
-      'Usually, yes. Full-home and heavily involved properties benefit from an on-site look so we can assess volume, access, labor, disposal, and timing before scheduling.',
+      'Pricing is based on the amount and type of material, labor required, access, weight, disassembly, equipment needs, and disposal costs. Smaller pickups may be estimated from photos. Larger cleanouts and demolition projects are normally quoted after an on-site walkthrough. Customers receive the price before work begins.',
   },
   {
-    question: 'Can you clean out garages, basements, and sheds?',
+    question: 'Are there materials that require prior review?',
     answer:
-      'Yes. Those spaces are commonly included in property cleanout scope—either as part of a full-home job or as focused clearing work.',
-  },
-  {
-    question: 'Do you remove furniture and appliances?',
-    answer:
-      'Yes. Furniture, appliances, boxed items, and general household debris are all part of typical property cleanout work.',
-  },
-  {
-    question: 'How quickly can projects be scheduled?',
-    answer:
-      'Timing depends on scope and calendar availability. After we understand the property, we give you a realistic schedule—not a vague promise.',
+      'Hazardous chemicals, fuel, biohazards, asbestos-containing material, explosives, medical waste, unknown liquids, and legally restricted waste require prior review and may not be accepted.',
   },
   {
     question: 'What areas do you service?',
@@ -205,10 +202,14 @@ const PROPERTY_FAQS = [
 const SERVICE_AREAS = SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING;
 
 const RELATED_SERVICES = [
+  { label: 'Property Cleanup', to: '/property-cleanup' },
   { label: 'Estate Cleanouts', to: '/estate-cleanouts' },
+  { label: 'Hoarder Cleanouts', to: '/hoarder-cleanouts' },
   { label: 'Eviction Cleanouts', to: '/eviction-cleanouts' },
   { label: 'Landlord & Rental Cleanouts', to: '/landlord-rental-cleanouts' },
-  { label: 'Garage Cleanouts', to: '/garage-cleanouts' },
+  { label: 'Foreclosure Cleanouts', to: '/foreclosure-cleanouts' },
+  { label: 'Items We Remove', to: '/what-we-take' },
+  { label: 'Projects', to: '/projects' },
 ];
 
 export default function PropertyCleanouts() {
@@ -217,21 +218,21 @@ export default function PropertyCleanouts() {
   return (
     <>
       <PageMeta
-        title="Property Cleanouts | Contents Removal in Middle Tennessee"
-        description="Property cleanouts for homes, estates, rentals, garages, and hoarded properties across Middle Tennessee. We remove unwanted contents and leave the structure ready for the next step. Call 615-200-0064."
+        title="Property Cleanouts in Middle Tennessee | Contents Removal | Reinhart"
+        description="Insured property cleanouts in Middle Tennessee from Goodlettsville. Remove unwanted contents from homes, estates, rentals, and hoarded properties. Call 615-200-0064."
         path="/property-cleanouts"
         jsonLd={compactJsonLd([
           buildWebPageSchema({
             path: '/property-cleanouts',
-            name: 'Property Cleanouts | Contents Removal in Middle Tennessee',
+            name: 'Property Cleanouts in Middle Tennessee | Contents Removal | Reinhart',
             description:
-              'Property cleanouts for homes, estates, rentals, garages, and hoarded properties across Middle Tennessee. We remove unwanted contents and leave the structure ready for the next step. Call 615-200-0064.',
+              'Insured property cleanouts in Middle Tennessee from Goodlettsville. Remove unwanted contents from homes, estates, rentals, and hoarded properties. Call 615-200-0064.',
             mainEntityId: 'https://www.reinharthauling.com/property-cleanouts#service',
           }),
           buildServiceSchema({
             name: 'Property Cleanouts',
             description:
-              'Property cleanouts for homes, estates, rentals, garages, and hoarded properties across Middle Tennessee. We remove unwanted contents and leave the structure ready for the next step. Call 615-200-0064.',
+              'Insured property cleanouts in Middle Tennessee from Goodlettsville. Remove unwanted contents from homes, estates, rentals, and hoarded properties. Call 615-200-0064.',
             path: '/property-cleanouts',
             serviceType: 'Property Cleanouts',
           }),
@@ -256,43 +257,48 @@ export default function PropertyCleanouts() {
                 PROPERTY CLEANOUTS
               </span>
               <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-8">
-                Property Cleanouts for <br />
-                <span className="text-brand-orange">Unwanted Contents Removal</span>
+                Property Cleanouts in <br />
+                <span className="text-brand-orange">Middle Tennessee</span>
               </h1>
               <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 max-w-2xl">
-                Property cleanouts focus on removing unwanted contents from homes, estates, rentals, garages, hoarded
-                properties, and other occupied or vacant structures—furniture, household goods, appliances, boxed
-                items, and accumulated belongings.
+                Reinhart Hauling &amp; Cleanouts provides insured property cleanouts from Goodlettsville across Middle
+                Tennessee. We remove unwanted contents from homes, estates, rentals, garages, and hoarded
+                properties—furniture, appliances, mattresses, household clutter, and estate leftovers—so the structure is
+                ready for cleaning, repairs, listing, or occupancy.
               </p>
 
               <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-6 max-w-2xl">
-                If you need a broader interior and exterior property reset for investors, abandoned properties,
-                renovation prep, or substantial debris cleanup, see our{' '}
-                <Link to="/property-cleanup" className="text-brand-orange hover:text-brand-orange transition-colors">
+                Need a broader interior and exterior property reset for investors, abandoned properties, renovation prep,
+                or substantial debris cleanup? See{' '}
+                <Link to="/property-cleanup" className="text-brand-orange hover:text-brand-navy transition-colors">
                   property cleanup
-                </Link>{' '}
-                services.
+                </Link>
+                .
               </p>
 
               <p className="text-base text-slate-600 leading-relaxed mb-8 max-w-2xl">
-                Related services:{' '}
-                <Link to="/estate-cleanouts" className="text-brand-orange hover:text-brand-orange transition-colors">
+                Related:{' '}
+                <Link to="/estate-cleanouts" className="text-brand-orange hover:text-brand-navy transition-colors">
                   estate cleanouts
                 </Link>
                 ,{' '}
-                <Link to="/eviction-cleanouts" className="text-brand-orange hover:text-brand-orange transition-colors">
+                <Link to="/hoarder-cleanouts" className="text-brand-orange hover:text-brand-navy transition-colors">
+                  hoarder cleanouts
+                </Link>
+                ,{' '}
+                <Link to="/eviction-cleanouts" className="text-brand-orange hover:text-brand-navy transition-colors">
                   eviction cleanouts
                 </Link>
                 ,{' '}
                 <Link
                   to="/landlord-rental-cleanouts"
-                  className="text-brand-orange hover:text-brand-orange transition-colors"
+                  className="text-brand-orange hover:text-brand-navy transition-colors"
                 >
-                  landlord &amp; rental cleanouts
+                  rental cleanouts
                 </Link>
                 , and{' '}
-                <Link to="/garage-cleanouts" className="text-brand-orange hover:text-brand-orange transition-colors">
-                  garage cleanouts
+                <Link to="/what-we-take" className="text-brand-orange hover:text-brand-navy transition-colors">
+                  items we remove
                 </Link>
                 .
               </p>
@@ -544,6 +550,8 @@ export default function PropertyCleanouts() {
           </div>
         </div>
       </section>
+
+      <ServiceBottomCTA variant="light" showContactExtras />
     </>
   );
 }

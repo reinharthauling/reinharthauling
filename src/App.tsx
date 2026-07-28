@@ -1902,7 +1902,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-16 pt-6 border-t border-white/10 flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-300">
-          {['Licensed & Insured', 'Locally Owned', 'Fast Response', 'Free Estimates'].map((item) => (
+          {['Fully Insured', 'Locally Owned', 'Fast Response', 'Free Estimates'].map((item) => (
             <span key={item} className="inline-flex items-center gap-2">
               <CheckCircle2 size={16} className="text-brand-orange" />
               {item}

@@ -1,13 +1,24 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { ChevronDown } from 'lucide-react';
+import { SERVICE_AREAS_FAQ_ANSWER } from '../data/business.ts';
 import { buildFAQPageSchema } from '../utils/schema.ts';
 
 export const ESTATE_FAQ_ITEMS = [
   {
-    question: 'How does an estate cleanout work?',
+    question: 'How is an estate cleanout handled?',
     answer:
-      'You reach out with project details or a brief description of the property. We review scope, discuss whether a walkthrough makes sense, confirm pricing, schedule the job, and handle the cleanout from load-out through final sweep-through.',
+      'You share project details about the property. We review scope, discuss whether photos or a walkthrough make sense, provide clear pricing before work begins, schedule the job, and handle the cleanout from load-out through final sweep-through.',
+  },
+  {
+    question: 'How is pricing determined?',
+    answer:
+      'Pricing is based on the amount and type of material, labor required, access, weight, disassembly, equipment needs, and disposal costs. Smaller pickups may be estimated from photos. Larger cleanouts and demolition projects are normally quoted after an on-site walkthrough. Customers receive the price before work begins.',
+  },
+  {
+    question: 'Are there materials that require prior review?',
+    answer:
+      'Hazardous chemicals, fuel, biohazards, asbestos-containing material, explosives, medical waste, unknown liquids, and legally restricted waste require prior review and may not be accepted.',
   },
   {
     question: 'How do I request an estimate?',
@@ -41,8 +52,7 @@ export const ESTATE_FAQ_ITEMS = [
   },
   {
     question: 'What areas do you service?',
-    answer:
-      'We serve Goodlettsville, Hendersonville, Gallatin, White House, Greenbrier, Ridgetop, Springfield, Nashville (including East Nashville, Downtown Nashville, Old Hickory, Joelton, Madison, and Hermitage), Belle Meade, Brentwood, Franklin, Mt. Juliet, Lebanon, Portland, and surrounding Middle Tennessee communities.',
+    answer: SERVICE_AREAS_FAQ_ANSWER,
   },
 ];
 

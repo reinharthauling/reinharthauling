@@ -282,7 +282,7 @@ const commercialHubConfig: HubConfig = {
     },
     {
       title: 'Fully Insured',
-      description: 'Licensed and insured service for commercial properties and business clients.',
+      description: 'Fully insured service for commercial properties and business clients.',
     },
     {
       title: 'Organized Load-Outs',

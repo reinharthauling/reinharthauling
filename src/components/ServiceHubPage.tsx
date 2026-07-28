@@ -170,7 +170,7 @@ export default function ServiceHubPage({ config }: { config: HubConfig }) {
                   <PageCTAs layout="hero" />
                 </div>
                 <div className="flex flex-wrap gap-3 text-sm font-bold text-brand-navy">
-                  {['Licensed & Insured', 'Upfront Pricing', 'Fast Scheduling', 'Real Project Photos'].map((item) => (
+                  {['Fully Insured', 'Upfront Pricing', 'Fast Scheduling', 'Real Project Photos'].map((item) => (
                     <span
                       key={item}
                       className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 shadow-sm"

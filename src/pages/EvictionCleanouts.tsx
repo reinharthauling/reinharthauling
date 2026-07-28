@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING, SERVICE_AREAS_FAQ_ANSWER } from '../data/business.ts';
 import { buildFAQPageSchema, buildBreadcrumbListSchema, buildServiceSchema, buildWebPageSchema, compactJsonLd } from '../utils/schema.ts';
 import { motion } from 'motion/react';
-import { CalendarClock, CheckCircle2, ChevronDown, ClipboardCheck, MapPin, MessageSquare, Phone, Truck } from 'lucide-react';
+import { CheckCircle2, ChevronDown, ClipboardCheck, MessageSquare, Truck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PageCTAs from '../components/PageCTAs.tsx';
 import CleanoutProcess from '../components/CleanoutProcess.tsx';
 import PageMeta from '../components/PageMeta.tsx';
+import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
 
 const WHO_WE_HELP = [
   {
@@ -74,30 +75,35 @@ const EVICTION_PROCESS_STEPS = [
   {
     number: '01',
     icon: MessageSquare,
-    title: 'Request an Estimate or Schedule a Walkthrough',
+    title: 'Request an Estimate',
     description:
-      'Submit project details for smaller turnovers. For larger or more complex jobs, we can schedule a walkthrough first.',
+      'Share unit details, access notes, and timing so we understand the eviction cleanout scope and can respond clearly.',
     cta: { label: 'Request an Estimate →', estimate: true },
   },
   {
     number: '02',
     icon: ClipboardCheck,
-    title: 'Scope Review & Scheduling Plan',
+    title: 'Photos or Walkthrough & Clear Quote',
     description:
-      'We review access, labor, debris volume, disposal needs, and scheduling so expectations are clear before work begins.',
+      'Smaller turnovers can often be quoted from photos. Larger or more complex jobs usually get a walkthrough—then you receive clear pricing before work begins.',
     cta: { href: 'tel:+16152000064', label: 'Call Now →' },
   },
   {
     number: '03',
     icon: Truck,
-    title: 'Property Clear-Out & Final Readiness',
+    title: 'Clear-Out & Final Readiness',
     description:
-      'Our crew arrives on schedule, clears the unit, hauls debris, and leaves the space ready for cleaning, repairs, or listing prep.',
+      'Our crew arrives on schedule, clears abandoned belongings and debris, hauls material, and leaves the space ready for cleaning, repairs, or listing prep.',
     cta: { href: 'tel:+16152000064', label: 'Call Now ->' },
   },
 ];
 
 const EVICTION_FAQS = [
+  {
+    question: 'Do you provide eviction cleanouts for landlords?',
+    answer:
+      'Yes. We provide eviction cleanouts for landlords and property managers across Middle Tennessee—clearing abandoned belongings, furniture, trash, and debris so vacant units can move into repairs, cleaning, or re-listing.',
+  },
   {
     question: 'How quickly can you schedule an eviction cleanout?',
     answer:
@@ -112,6 +118,16 @@ const EVICTION_FAQS = [
     question: 'Can you remove abandoned furniture and trash?',
     answer:
       'Yes. We remove abandoned furniture, bagged trash, loose debris, and mixed leftover contents from apartments, homes, and rental units.',
+  },
+  {
+    question: 'How is pricing determined?',
+    answer:
+      'Pricing is based on the amount and type of material, labor required, access, weight, disassembly, equipment needs, and disposal costs. Smaller pickups may be estimated from photos. Larger cleanouts and demolition projects are normally quoted after an on-site walkthrough. Customers receive the price before work begins.',
+  },
+  {
+    question: 'Are there materials that require prior review?',
+    answer:
+      'Hazardous chemicals, fuel, biohazards, asbestos-containing material, explosives, medical waste, unknown liquids, and legally restricted waste require prior review and may not be accepted.',
   },
   {
     question: 'Do you offer walkthroughs before larger jobs?',
@@ -136,27 +152,41 @@ const EVICTION_FAQS = [
 
 const EVICTION_SERVICE_AREAS = SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING;
 
+const RELATED_SERVICES = [
+  { label: 'Landlord & Rental Cleanouts', to: '/landlord-rental-cleanouts' },
+  { label: 'Property Cleanouts', to: '/property-cleanouts' },
+  { label: 'Property Cleanup', to: '/property-cleanup' },
+  { label: 'Estate Cleanouts', to: '/estate-cleanouts' },
+  { label: 'Foreclosure Cleanouts', to: '/foreclosure-cleanouts' },
+  { label: 'Hoarder Cleanouts', to: '/hoarder-cleanouts' },
+  { label: 'Commercial Cleanouts', to: '/commercial-cleanouts' },
+  { label: 'Items We Remove', to: '/what-we-take' },
+  { label: 'Projects', to: '/projects' },
+];
+
+const PAGE_TITLE = 'Eviction Cleanouts for Landlords in Middle Tennessee | Reinhart';
+const META_DESCRIPTION =
+  'Insured eviction cleanouts for landlords and property managers in Middle Tennessee from Goodlettsville. Clear abandoned belongings and debris with pricing before work begins. Call 615-200-0064.';
+
 export default function EvictionCleanouts() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
   return (
     <>
       <PageMeta
-        title={`Eviction Cleanout Services in Nashville & Middle Tennessee`}
-        description={`Eviction cleanout services for landlords and property managers across Nashville and Middle Tennessee. Fast turnover support, clear scheduling, and reliable property clearing.`}
+        title={PAGE_TITLE}
+        description={META_DESCRIPTION}
         path={`/eviction-cleanouts`}
         jsonLd={compactJsonLd([
           buildWebPageSchema({
             path: '/eviction-cleanouts',
-            name: 'Eviction Cleanout Services in Nashville & Middle Tennessee',
-            description:
-              'Eviction cleanout services for landlords and property managers across Nashville and Middle Tennessee. Fast turnover support, clear scheduling, and reliable property clearing.',
+            name: PAGE_TITLE,
+            description: META_DESCRIPTION,
             mainEntityId: 'https://www.reinharthauling.com/eviction-cleanouts#service',
           }),
           buildServiceSchema({
             name: 'Eviction Cleanouts',
-            description:
-              'Eviction cleanout services for landlords and property managers across Nashville and Middle Tennessee. Fast turnover support, clear scheduling, and reliable property clearing.',
+            description: META_DESCRIPTION,
             path: '/eviction-cleanouts',
             serviceType: 'Eviction Cleanouts',
           }),
@@ -181,18 +211,15 @@ export default function EvictionCleanouts() {
                   FAST TURNOVER CLEANOUTS
                 </span>
                 <h1 className="font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-8">
-                  Eviction Cleanout Services in <br />
-                  <span className="text-brand-orange">Nashville &amp; Middle Tennessee</span>
+                  Eviction Cleanouts for Landlords in <br />
+                  <span className="text-brand-orange">Middle Tennessee</span>
                 </h1>
-                <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 max-w-2xl">
-                  Operational eviction cleanout support for landlords and property managers who need units turned
-                  over quickly. We handle abandoned belongings removal, debris clearing, and rental reset prep with
-                  responsive communication from first message to final sweep-through.
-                </p>
-
-                <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 max-w-2xl">
-                  Smaller jobs can often be quoted from submitted project details. Larger turnovers and more complex properties
-                  can be reviewed through an on-site walkthrough so scope, access, and scheduling are clear upfront.
+                <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-6 max-w-2xl">
+                  Reinhart Hauling &amp; Cleanouts provides insured eviction cleanouts for landlords and property
+                  managers from Goodlettsville across Middle Tennessee. We clear abandoned belongings, furniture,
+                  trash, and debris from vacant units so turnovers can move into repairs, cleaning, or re-listing.
+                  Smaller jobs may be estimated from photos; larger turnovers are normally quoted after a walkthrough,
+                  with pricing confirmed before work begins.
                 </p>
 
                 <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-6 max-w-2xl">
@@ -289,15 +316,15 @@ export default function EvictionCleanouts() {
             <div className="mb-12">
               <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">How We Work</h2>
               <p className="text-slate-600 max-w-3xl leading-relaxed">
-                A straightforward workflow for eviction and turnover projects, including walkthroughs when larger
-                scope requires extra planning.
+                A straightforward workflow for eviction cleanouts—estimate, photos or walkthrough, clear quote, then
+                clear-out—so landlords and property managers know the plan before work begins.
               </p>
             </div>
           </div>
 
           <CleanoutProcess
             title="How Our Eviction Cleanout Process Works"
-            subtitle="Smaller jobs often start from photos, while larger turnovers can be scoped through walkthroughs to keep execution smooth."
+            subtitle="Smaller jobs often start from photos, while larger turnovers can be scoped through walkthroughs so pricing and execution stay clear."
             className="pt-0 pb-0 bg-white"
             steps={EVICTION_PROCESS_STEPS}
           />
@@ -382,34 +409,20 @@ export default function EvictionCleanouts() {
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <Link
-                to="/estate-cleanouts"
-                className="px-6 py-4 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
-              >
-                Estate Cleanouts
-              </Link>
-              <Link
-                to="/landlord-rental-cleanouts"
-                className="px-6 py-4 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
-              >
-                Landlord &amp; Rental Cleanouts
-              </Link>
-              <Link
-                to="/property-cleanouts"
-                className="px-6 py-4 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
-              >
-                Property Cleanouts
-              </Link>
-              <Link
-                to="/garage-cleanouts"
-                className="px-6 py-4 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
-              >
-                Garage Cleanouts
-              </Link>
+              {RELATED_SERVICES.map((service) => (
+                <Link
+                  key={service.to}
+                  to={service.to}
+                  className="px-6 py-4 rounded-2xl border border-slate-200 bg-white text-brand-navy font-bold text-sm hover:border-brand-orange transition-colors text-center"
+                >
+                  {service.label}
+                </Link>
+              ))}
             </div>
           </div>
         </section>
+
+        <ServiceBottomCTA variant="light" showContactExtras />
       </>
     );
 }
-

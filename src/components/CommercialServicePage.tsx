@@ -52,7 +52,7 @@ const WHY_REINHART = [
     description: 'Clear communication from quote through completion—especially when timelines are tight.',
   },
   {
-    title: 'Licensed & Insured',
+    title: 'Fully Insured',
     description: 'Professional commercial service backed by proper insurance and accountable execution.',
   },
   {
@@ -73,26 +73,27 @@ const PROCESS_STEPS = [
   {
     number: '01',
     icon: MessageSquare,
-    title: 'Request Quote',
-    description: 'Share photos, project details, or schedule a call so we can understand scope and timing.',
+    title: 'Call, Text, or Request an Estimate',
+    description: 'Share project details, photos, access notes, and timing so we understand commercial scope and deadlines.',
   },
   {
     number: '02',
     icon: Calendar,
-    title: 'Schedule Walkthrough',
-    description: 'For larger scopes, we confirm access, volume, and project requirements on site when needed.',
+    title: 'Photos or On-Site Walkthrough',
+    description: 'We review photos or walk the space, then provide a clear quote before work begins.',
   },
   {
     number: '03',
     icon: Truck,
-    title: 'Complete Project',
-    description: 'Our crew executes the cleanout, strip-out, or load-out with organized loading and haul-away.',
+    title: 'Schedule & Complete the Work',
+    description:
+      'We schedule the load-out, remove contents and debris, and handle material properly according to the agreed scope.',
   },
   {
     number: '04',
     icon: CheckCircle2,
-    title: 'Property Ready For Next Phase',
-    description: 'The space is left cleared and ready for renovation, occupancy, marketing, or lease turnover.',
+    title: 'Space Ready For Next Phase',
+    description: 'The commercial space is left cleared and ready for renovation, occupancy, marketing, or lease turnover.',
   },
 ];
 

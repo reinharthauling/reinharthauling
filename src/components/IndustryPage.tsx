@@ -45,7 +45,7 @@ const WHY_REINHART = [
     description: 'Clear updates from quote through completion—especially when project schedules shift.',
   },
   {
-    title: 'Licensed & Insured',
+    title: 'Fully Insured',
     description: 'Professional property services backed by proper insurance and accountable execution.',
   },
 ];
