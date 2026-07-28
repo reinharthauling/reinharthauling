@@ -16,8 +16,9 @@ import { Link } from 'react-router-dom';
 import PageCTAs from '../components/PageCTAs.tsx';
 import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
 import { getCommercialRelatedServices } from '../data/commercialNavigation.ts';
+import { SITE_URL } from '../data/business.ts';
+import { buildFAQPageSchema, buildServiceSchema } from '../utils/schema.ts';
 
-const SITE_URL = 'https://www.reinharthauling.com';
 const CANONICAL_PATH = '/contractor-project-support';
 const OG_IMAGE = `${SITE_URL}/og/reinhart-cleanouts-og-v2.jpg?v=3`;
 
@@ -203,38 +204,14 @@ export default function ContractorProjectSupport() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const canonicalUrl = `${SITE_URL}${CANONICAL_PATH}`;
 
-  const serviceSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
+  const serviceSchema = buildServiceSchema({
     name: 'Contractor Project Support Services',
-    serviceType: 'Commercial Construction Project Support',
     description: META_DESCRIPTION,
-    provider: {
-      '@type': 'LocalBusiness',
-      name: 'Reinhart Hauling & Cleanouts',
-      url: SITE_URL,
-      telephone: '+1-615-200-0064',
-      areaServed: 'Middle Tennessee',
-    },
-    areaServed: {
-      '@type': 'AdministrativeArea',
-      name: 'Middle Tennessee',
-    },
     url: canonicalUrl,
-  };
+    serviceType: 'Commercial Construction Project Support',
+  });
 
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: FAQS.map((faq) => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer,
-      },
-    })),
-  };
+  const faqSchema = buildFAQPageSchema(FAQS);
 
   return (
     <>

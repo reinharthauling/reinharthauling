@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { buildFAQPageSchema } from '../utils/schema.ts';
 import { motion } from 'motion/react';
 import { CalendarClock, CheckCircle2, ChevronDown, ClipboardCheck, MapPin, MessageSquare, Phone, Truck } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -156,6 +157,8 @@ export default function EvictionCleanouts() {
           name="description"
           content="Eviction cleanout services for landlords and property managers across Nashville and Middle Tennessee. Fast turnover support, clear scheduling, and reliable property clearing."
         />
+        <link rel="canonical" href="https://www.reinharthauling.com/eviction-cleanouts" />
+        <script type="application/ld+json">{JSON.stringify(buildFAQPageSchema(EVICTION_FAQS))}</script>
       </Helmet>
     
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">

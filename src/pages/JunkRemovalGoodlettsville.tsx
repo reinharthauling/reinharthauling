@@ -2,9 +2,28 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
-import { CheckCircle2, MapPin } from 'lucide-react';
+import { CheckCircle2, MapPin, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PageCTAs from '../components/PageCTAs.tsx';
+import { buildFAQPageSchema, buildServiceSchema } from '../utils/schema.ts';
+
+const LOCAL_FAQS = [
+  {
+    question: 'Does Reinhart Hauling provide junk removal in Goodlettsville?',
+    answer:
+      'Yes. Reinhart Hauling & Cleanouts provides junk removal and property cleanup support in Goodlettsville, Tennessee, including furniture, appliances, garage cleanouts, yard debris, and household debris as part of broader cleanout and property preparation work.',
+  },
+  {
+    question: 'How do I get a quote for junk removal in Goodlettsville?',
+    answer:
+      'Request an estimate through the website form or call 615-200-0064. Share the property address, items or rooms involved, and access details so we can provide clear pricing and scheduling.',
+  },
+  {
+    question: 'Is Reinhart based near Goodlettsville?',
+    answer:
+      'Yes. Reinhart Hauling & Cleanouts is based in Goodlettsville and serves as a mobile, insured service-area business throughout Middle Tennessee.',
+  },
+];
 
 export default function JunkRemovalGoodlettsville() {
   
@@ -15,14 +34,26 @@ export default function JunkRemovalGoodlettsville() {
     'Reliable hauling',
   ];
 
+  const serviceSchema = buildServiceSchema({
+    name: 'Junk Removal in Goodlettsville, TN',
+    description:
+      'Local junk removal and property cleanup support in Goodlettsville, Tennessee for furniture, appliances, garage cleanouts, yard debris, and household clutter.',
+    url: 'https://www.reinharthauling.com/junk-removal-goodlettsville',
+    serviceType: 'Junk Removal',
+  });
+  const faqSchema = buildFAQPageSchema(LOCAL_FAQS);
+
   return (
     <>
     <Helmet>
         <title>Junk Removal in Goodlettsville TN | Reinhart Hauling &amp; Cleanouts</title>
   <meta
     name="description"
-    content="Local junk removal in Goodlettsville. Furniture, appliances, garage cleanouts, and more. Request an estimate with project details."
+    content="Local junk removal and property cleanup support in Goodlettsville, TN. Furniture, appliances, garage cleanouts, and more. Request an estimate. Call 615-200-0064."
   />
+  <link rel="canonical" href="https://www.reinharthauling.com/junk-removal-goodlettsville" />
+  <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
+  <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
 </Helmet>
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
           <div className="max-w-7xl mx-auto px-6">
@@ -208,7 +239,7 @@ export default function JunkRemovalGoodlettsville() {
             <div className="text-center mb-16">
               <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">Areas We Serve</h2>
               <p className="text-slate-500 max-w-3xl mx-auto">
-                Serving Goodlettsville, Hendersonville, Madison, Nashville, and nearby areas.
+                Serving Goodlettsville, Hendersonville, Gallatin, White House, Springfield, Joelton, Nashville, and nearby Middle Tennessee communities.
               </p>
             </div>
 
@@ -236,6 +267,25 @@ export default function JunkRemovalGoodlettsville() {
                   </a>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-24 bg-white">
+          <div className="mx-auto max-w-3xl px-6">
+            <div className="mb-12 text-center">
+              <h2 className="mb-4 font-display text-4xl font-bold text-brand-navy">Frequently Asked Questions</h2>
+              <p className="leading-relaxed text-slate-600">
+                Direct answers about junk removal and property cleanup support in Goodlettsville.
+              </p>
+            </div>
+            <div className="space-y-6">
+              {LOCAL_FAQS.map((faq) => (
+                <div key={faq.question}>
+                  <h3 className="mb-2 font-display text-xl font-bold text-brand-navy">{faq.question}</h3>
+                  <p className="leading-relaxed text-slate-600">{faq.answer}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>

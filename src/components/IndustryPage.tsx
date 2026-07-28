@@ -17,8 +17,9 @@ import PageCTAs from './PageCTAs.tsx';
 import ServiceBottomCTA from './ServiceBottomCTA.tsx';
 import { INDUSTRIES_HUB_PATH } from '../data/industriesNavigation.ts';
 import type { IndustryPageConfig } from '../data/industryPages.ts';
+import { SITE_URL } from '../data/business.ts';
+import { buildFAQPageSchema, buildServiceSchema } from '../utils/schema.ts';
 
-const SITE_URL = 'https://www.reinharthauling.com';
 const OG_IMAGE = `${SITE_URL}/og/reinhart-cleanouts-og-v2.jpg?v=3`;
 
 const WHY_REINHART = [
@@ -64,41 +65,19 @@ export default function IndustryPage({ config }: IndustryPageProps) {
   ];
 
   const serviceSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    name: `${config.heroHeadline} Property Services`,
-    serviceType: config.heroHeadline,
-    description: config.metaDescription,
-    provider: {
-      '@type': 'LocalBusiness',
-      name: 'Reinhart Hauling & Cleanouts',
-      url: SITE_URL,
-      telephone: '+1-615-200-0064',
-      areaServed: 'Middle Tennessee',
-    },
-    areaServed: {
-      '@type': 'AdministrativeArea',
-      name: 'Middle Tennessee',
-    },
-    url: canonicalUrl,
+    ...buildServiceSchema({
+      name: `${config.heroHeadline} Property Services`,
+      description: config.metaDescription,
+      url: canonicalUrl,
+      serviceType: config.heroHeadline,
+    }),
     audience: {
       '@type': 'Audience',
       audienceType: config.heroHeadline,
     },
   };
 
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: config.faqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer,
-      },
-    })),
-  };
+  const faqSchema = buildFAQPageSchema(config.faqs);
 
   return (
     <>

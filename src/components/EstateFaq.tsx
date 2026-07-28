@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { ChevronDown } from 'lucide-react';
+import { buildFAQPageSchema } from '../utils/schema.ts';
 
-const FAQ_ITEMS = [
+export const ESTATE_FAQ_ITEMS = [
   {
     question: 'How does an estate cleanout work?',
     answer:
@@ -40,15 +42,19 @@ const FAQ_ITEMS = [
   {
     question: 'What areas do you service?',
     answer:
-      'We serve Nashville, Goodlettsville, Hendersonville, Madison, Gallatin, Springfield, White House, Joelton, and surrounding Middle Tennessee communities.',
+      'We serve Goodlettsville, Hendersonville, Gallatin, White House, Greenbrier, Ridgetop, Springfield, Joelton, Nashville (including East Nashville and Downtown Nashville), Old Hickory, Belle Meade, Brentwood, Franklin, Mt. Juliet, Lebanon, Portland, and surrounding Middle Tennessee communities.',
   },
 ];
 
 export default function EstateFaq() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const faqSchema = buildFAQPageSchema(ESTATE_FAQ_ITEMS);
 
   return (
     <section className="py-24 bg-slate-50">
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      </Helmet>
       <div className="max-w-3xl mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="font-display text-4xl font-bold text-brand-navy mb-4">Estate Cleanout FAQs</h2>
@@ -58,7 +64,7 @@ export default function EstateFaq() {
         </div>
 
         <div className="space-y-3">
-          {FAQ_ITEMS.map((item, index) => {
+          {ESTATE_FAQ_ITEMS.map((item, index) => {
             const isOpen = openIndex === index;
             return (
               <div

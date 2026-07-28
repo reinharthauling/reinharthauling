@@ -10,6 +10,8 @@ import {
   Home,
   ShieldCheck,
 } from 'lucide-react';
+import { BUSINESS } from '../data/business.ts';
+import { buildAboutPageSchema, buildLocalBusinessSchema, buildPersonSchema } from '../utils/schema.ts';
 
 const WHY_CLIENTS_CHOOSE = [
   {
@@ -77,8 +79,12 @@ export default function About() {
         <title>About Reinhart Hauling &amp; Cleanouts | Moving Properties Forward</title>
         <meta
           name="description"
-          content="Reinhart helps homeowners, investors, property managers, contractors, and businesses move property projects forward through professional cleanup, commercial services, and selective demolition across Middle Tennessee."
+          content="Reinhart Hauling & Cleanouts is owned by Jeremiah Reinhart and helps property managers, investors, contractors, and homeowners move projects forward through property cleanup, commercial cleanouts, and selective demolition across Middle Tennessee."
         />
+        <link rel="canonical" href="https://www.reinharthauling.com/about" />
+        <script type="application/ld+json">{JSON.stringify(buildAboutPageSchema())}</script>
+        <script type="application/ld+json">{JSON.stringify(buildLocalBusinessSchema({ includeOffers: false }))}</script>
+        <script type="application/ld+json">{JSON.stringify({ '@context': 'https://schema.org', ...buildPersonSchema() })}</script>
       </Helmet>
 
       <section className="relative overflow-hidden pt-32 pb-20 lg:pt-48 lg:pb-32">
@@ -136,6 +142,12 @@ export default function About() {
                 Reinhart exists to remove those obstacles and create a clear next step. We help properties move toward
                 sale, renovation, occupancy, or whatever comes next—with organized planning, upfront pricing, and
                 dependable execution.
+              </p>
+              <p>
+                {BUSINESS.name} is owned and operated by {BUSINESS.owner.name}, based in Goodlettsville, Tennessee.
+                As a mobile, insured service-area business, Reinhart serves property managers, investors, landlords,
+                estate representatives, contractors, and homeowners across Middle Tennessee—without claiming staffed
+                offices in every city we serve.
               </p>
             </div>
           </div>

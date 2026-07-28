@@ -86,6 +86,8 @@ import CommercialServicePage from './components/CommercialServicePage.tsx';
 import { COMMERCIAL_SERVICE_PAGES } from './data/commercialServicePages.ts';
 import { scrollToSection } from './utils/scrollToSection.ts';
 import { projectImages } from './data/projectImages';
+import { buildHomeFaqSchema, buildLocalBusinessSchema } from './utils/schema.ts';
+import { BUSINESS_HOURS_DISPLAY } from './data/business.ts';
 
 // --- Components ---
 
@@ -1754,10 +1756,18 @@ const Footer = () => {
                 </a>
               </p>
               <p>
-                <span className="block text-white font-semibold">Business Hours</span>
-                Mon–Sat
+                <span className="block text-white font-semibold">{BUSINESS_HOURS_DISPLAY.title}</span>
+                {BUSINESS_HOURS_DISPLAY.weekdayLabel}
                 <br />
-                8:00 AM – 6:00 PM
+                {BUSINESS_HOURS_DISPLAY.weekdayHours}
+                <br />
+                {BUSINESS_HOURS_DISPLAY.saturdayLabel}
+                <br />
+                {BUSINESS_HOURS_DISPLAY.saturdayHours}
+                <br />
+                {BUSINESS_HOURS_DISPLAY.sundayLabel}
+                <br />
+                {BUSINESS_HOURS_DISPLAY.sundayHours}
               </p>
             </div>
           </div>
@@ -1901,37 +1911,35 @@ const SiteLayout = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-const OG_IMAGE_HOME = 'https://www.reinharthauling.com/og/reinhart-cleanouts-og-v2.jpg?v=3';
+const OG_IMAGE_HOME = 'https://www.reinharthauling.com/og/reinhart-hauling-cleanouts-social-preview.jpg?v=2';
+const HOME_TITLE =
+  'Reinhart Hauling & Cleanouts | Property Cleanup & Commercial Cleanouts in Middle Tennessee';
+const HOME_DESCRIPTION =
+  'Insured property cleanouts, commercial cleanouts, estate and rental turnovers, and selective demolition support across Middle Tennessee. Based in Goodlettsville. Call 615-200-0064.';
 
 const HomePage = () => {
   return (
     <>
       <Helmet>
-        <title>Reinhart Hauling &amp; Cleanouts | Estate &amp; Turnover Support</title>
-        <meta
-          name="description"
-          content="Estate transitions, eviction support, rental turnovers, inherited homes, and difficult interiors—cleared with responsive communication across Middle Tennessee."
-        />
+        <title>{HOME_TITLE}</title>
+        <meta name="description" content={HOME_DESCRIPTION} />
+        <link rel="canonical" href="https://www.reinharthauling.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.reinharthauling.com/" />
-        <meta property="og:title" content="Reinhart Hauling &amp; Cleanouts | Estate &amp; Turnover Support" />
-        <meta
-          property="og:description"
-          content="Estate transitions, eviction support, rental turnovers, inherited homes, and difficult interiors—cleared with responsive communication across Middle Tennessee."
-        />
+        <meta property="og:title" content={HOME_TITLE} />
+        <meta property="og:description" content={HOME_DESCRIPTION} />
         <meta property="og:image" content={OG_IMAGE_HOME} />
         <meta property="og:image:secure_url" content={OG_IMAGE_HOME} />
         <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:site_name" content="Reinhart Hauling &amp; Cleanouts" />
+        <meta property="og:site_name" content="Reinhart Hauling & Cleanouts" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Reinhart Hauling &amp; Cleanouts | Estate &amp; Turnover Support" />
-        <meta
-          name="twitter:description"
-          content="Estate transitions, eviction support, rental turnovers, inherited homes, and difficult interiors—cleared with responsive communication across Middle Tennessee."
-        />
+        <meta name="twitter:title" content={HOME_TITLE} />
+        <meta name="twitter:description" content={HOME_DESCRIPTION} />
         <meta name="twitter:image" content={OG_IMAGE_HOME} />
+        <script type="application/ld+json">{JSON.stringify(buildLocalBusinessSchema())}</script>
+        <script type="application/ld+json">{JSON.stringify(buildHomeFaqSchema())}</script>
       </Helmet>
     <SiteLayout>
       <Hero />

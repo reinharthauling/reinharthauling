@@ -141,6 +141,7 @@ export default function EstateCleanouts() {
           name="description"
           content="Full estate cleanout services for homes and inherited properties. Serving Nashville and surrounding areas."
         />
+        <link rel="canonical" href="https://www.reinharthauling.com/estate-cleanouts" />
       </Helmet>
 
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">

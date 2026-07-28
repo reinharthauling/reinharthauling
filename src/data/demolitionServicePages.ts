@@ -78,7 +78,7 @@ const BASE_FAQS: DemolitionFaq[] = [
   {
     question: 'What areas do you serve?',
     answer:
-      'We serve Nashville, Goodlettsville, Hendersonville, Gallatin, Madison, Springfield, White House, and surrounding Middle Tennessee communities.',
+      'We serve Goodlettsville, Hendersonville, Gallatin, White House, Greenbrier, Ridgetop, Springfield, Joelton, Nashville (including East Nashville and Downtown Nashville), Old Hickory, Belle Meade, Brentwood, Franklin, Mt. Juliet, Lebanon, Portland, and surrounding Middle Tennessee communities.',
   },
   {
     question: 'How do I request an estimate?',

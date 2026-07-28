@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { buildFAQPageSchema } from '../utils/schema.ts';
 import { motion } from 'motion/react';
 import { CheckCircle2, ChevronDown, ClipboardCheck, Hammer, MessageSquare, Truck } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -99,6 +100,8 @@ export default function InteriorDemolition() {
           name="description"
           content="Interior demolition in Middle Tennessee for drywall removal, selective tear-outs, debris loading, hauling, and cleanup before repair or renovation work."
         />
+        <link rel="canonical" href="https://www.reinharthauling.com/interior-demolition" />
+        <script type="application/ld+json">{JSON.stringify(buildFAQPageSchema(DEMO_FAQS))}</script>
       </Helmet>
 
       <section className="relative scroll-mt-32 pt-32 pb-16 lg:pt-48 lg:pb-24 overflow-hidden">

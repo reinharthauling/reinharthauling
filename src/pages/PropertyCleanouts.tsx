@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { buildFAQPageSchema } from '../utils/schema.ts';
 import { motion } from 'motion/react';
 import { Calendar, CheckCircle2, ChevronDown, ClipboardCheck, MessageSquare, Truck } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -222,6 +223,8 @@ export default function PropertyCleanouts() {
           name="description"
           content="Professional property cleanout services for full-home, inherited, rental, and distressed properties across Nashville and Middle Tennessee. Walkthroughs available for larger projects."
         />
+        <link rel="canonical" href="https://www.reinharthauling.com/property-cleanouts" />
+        <script type="application/ld+json">{JSON.stringify(buildFAQPageSchema(PROPERTY_FAQS))}</script>
       </Helmet>
 
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">

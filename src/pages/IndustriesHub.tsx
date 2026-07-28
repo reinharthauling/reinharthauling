@@ -1,13 +1,15 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
-import { ArrowRight, Phone } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
+import PageCTAs from '../components/PageCTAs.tsx';
 import Breadcrumbs, { buildBreadcrumbSchema } from '../components/Breadcrumbs.tsx';
 import { INDUSTRIES_NAV_LINKS, INDUSTRIES_HUB_PATH } from '../data/industriesNavigation.ts';
+import { SITE_URL } from '../data/business.ts';
+import { buildProviderRef } from '../utils/schema.ts';
 
-const SITE_URL = 'https://www.reinharthauling.com';
 const OG_IMAGE = `${SITE_URL}/og/reinhart-cleanouts-og-v2.jpg?v=3`;
 
 const PAGE_TITLE = 'Industries We Serve | Reinhart Hauling & Cleanouts';
@@ -28,12 +30,7 @@ export default function IndustriesHub() {
     name: 'Industries We Serve',
     description: META_DESCRIPTION,
     url: canonicalUrl,
-    provider: {
-      '@type': 'LocalBusiness',
-      name: 'Reinhart Hauling & Cleanouts',
-      url: SITE_URL,
-      telephone: '+1-615-200-0064',
-    },
+    provider: buildProviderRef(),
   };
 
   return (
@@ -76,26 +73,7 @@ export default function IndustriesHub() {
                   support—with professional execution, clear communication, and dependable scheduling.
                 </p>
 
-                <div className="flex flex-col gap-4 sm:flex-row">
-                  <motion.a
-                    href={SMS_HREF}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="group flex items-center justify-center gap-3 rounded-2xl bg-brand-navy px-8 py-4 text-lg font-bold text-white shadow-2xl shadow-brand-navy/30 transition-all hover:bg-brand-orange"
-                  >
-                    <MessageSquare className="text-brand-orange" />
-                    Request Project Support
-                  </motion.a>
-                  <motion.a
-                    href="tel:6152000064"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="flex items-center justify-center gap-3 rounded-2xl border-2 border-slate-200 bg-white px-8 py-4 text-lg font-bold text-brand-navy transition-colors hover:border-brand-orange"
-                  >
-                    <Phone />
-                    Call Now
-                  </motion.a>
-                </div>
+                <PageCTAs layout="hero" />
               </motion.div>
             </div>
 

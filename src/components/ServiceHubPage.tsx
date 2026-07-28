@@ -13,6 +13,8 @@ import { Link } from 'react-router-dom';
 import CleanoutProcess from './CleanoutProcess.tsx';
 import PageCTAs from './PageCTAs.tsx';
 import ServiceBottomCTA from './ServiceBottomCTA.tsx';
+import { SITE_URL } from '../data/business.ts';
+import { buildFAQPageSchema } from '../utils/schema.ts';
 
 export type HubService = {
   icon: LucideIcon;
@@ -112,6 +114,8 @@ const HubServiceCard = ({ service, index }: { service: HubService; index: number
 
 export default function ServiceHubPage({ config }: { config: HubConfig }) {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+  const faqSchema = buildFAQPageSchema(config.faqs);
+  const canonicalUrl = `${SITE_URL}${config.canonicalPath}`;
 
   return (
     <>
@@ -120,7 +124,8 @@ export default function ServiceHubPage({ config }: { config: HubConfig }) {
         <meta name="description" content={config.metaDescription} />
         <meta property="og:title" content={config.metaTitle} />
         <meta property="og:description" content={config.metaDescription} />
-        <link rel="canonical" href={`https://www.reinharthauling.com${config.canonicalPath}`} />
+        <link rel="canonical" href={canonicalUrl} />
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
       {/* Hero */}

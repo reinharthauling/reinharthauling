@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { buildFAQPageSchema } from '../utils/schema.ts';
 import { motion } from 'motion/react';
 import { CheckCircle2, ChevronDown, ClipboardCheck, MessageSquare, Phone, Truck } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -187,6 +188,8 @@ export default function CommercialCleanouts() {
           name="description"
           content="Commercial cleanout services in Nashville and Middle Tennessee. We remove office furniture, cubicles, shelving, retail fixtures, warehouse items, storage room contents, and unwanted commercial debris."
         />
+        <link rel="canonical" href="https://www.reinharthauling.com/commercial-cleanouts" />
+        <script type="application/ld+json">{JSON.stringify(buildFAQPageSchema(COMMERCIAL_FAQS))}</script>
       </Helmet>
 
       <section className="relative scroll-mt-32 pt-32 pb-16 lg:pt-48 lg:pb-24 overflow-hidden">

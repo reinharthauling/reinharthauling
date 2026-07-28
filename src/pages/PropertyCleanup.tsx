@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { buildFAQPageSchema } from '../utils/schema.ts';
 import { motion } from 'motion/react';
 import {
   ArrowRight,
@@ -246,6 +247,7 @@ export default function PropertyCleanup() {
           content="Professional property cleanup services for homeowners, landlords, investors, property managers, and businesses throughout Middle Tennessee. Cleanouts, debris removal, demolition prep, and project support."
         />
         <link rel="canonical" href="https://www.reinharthauling.com/property-cleanup" />
+        <script type="application/ld+json">{JSON.stringify(buildFAQPageSchema(FAQS))}</script>
       </Helmet>
 
       <section className="relative scroll-mt-32 pt-32 pb-16 lg:pt-48 lg:pb-24 overflow-hidden">

@@ -18,8 +18,9 @@ import {
   getRelatedResidentialServices,
   type ResidentialServicePageConfig,
 } from '../data/residentialServicePages.ts';
+import { SITE_URL } from '../data/business.ts';
+import { buildFAQPageSchema, buildServiceSchema } from '../utils/schema.ts';
 
-const SITE_URL = 'https://www.reinharthauling.com';
 const OG_IMAGE = `${SITE_URL}/og/reinhart-cleanouts-og-v2.jpg?v=3`;
 
 const PROCESS_STEPS = [
@@ -62,38 +63,14 @@ export default function ResidentialServicePage({ config }: ResidentialServicePag
   const ogTitle = config.ogTitle ?? config.pageTitle;
   const relatedServices = getRelatedResidentialServices(config.canonicalPath, config.category);
 
-  const serviceSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
+  const serviceSchema = buildServiceSchema({
     name: config.heroHeadline,
-    serviceType: config.heroHeadline,
     description: config.metaDescription,
-    provider: {
-      '@type': 'LocalBusiness',
-      name: 'Reinhart Hauling & Cleanouts',
-      url: SITE_URL,
-      telephone: '+1-615-200-0064',
-      areaServed: 'Middle Tennessee',
-    },
-    areaServed: {
-      '@type': 'AdministrativeArea',
-      name: 'Middle Tennessee',
-    },
     url: canonicalUrl,
-  };
+    serviceType: config.heroHeadline,
+  });
 
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: config.faqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer,
-      },
-    })),
-  };
+  const faqSchema = buildFAQPageSchema(config.faqs);
 
   return (
     <>
