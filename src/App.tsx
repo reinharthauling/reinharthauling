@@ -70,6 +70,7 @@ import InvestorPropertyCleanupGallatin from './pages/InvestorPropertyCleanupGall
 import InteriorDemoPortland from './pages/InteriorDemoPortland.tsx';
 import CommercialCleanoutDowntownNashville from './pages/CommercialCleanoutDowntownNashville.tsx';
 import WhatWeTake from './pages/WhatWeTake.tsx';
+import Pricing from './pages/Pricing.tsx';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import ScrollToTop from './ScrollToTop.tsx';
@@ -2280,6 +2281,14 @@ export default function App() {
           element={
             <SiteLayout>
               <WhatWeTake />
+            </SiteLayout>
+          }
+        />
+        <Route
+          path="/pricing"
+          element={
+            <SiteLayout>
+              <Pricing />
             </SiteLayout>
           }
         />

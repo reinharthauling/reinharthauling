@@ -22,5 +22,6 @@ Important URLs:
 - https://www.reinharthauling.com/residential-property-services
 - https://www.reinharthauling.com/demolition-services
 - https://www.reinharthauling.com/what-we-take
+- https://www.reinharthauling.com/pricing
 - https://www.reinharthauling.com/sitemap.xml
 - https://www.reinharthauling.com/robots.txt
