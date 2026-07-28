@@ -1,3 +1,5 @@
+import { SERVICE_AREAS_FAQ_ANSWER } from './business.ts';
+
 export type IndustryProject = {
   title: string;
   description: string;
@@ -38,7 +40,7 @@ const BASE_FAQS: IndustryFaq[] = [
   {
     question: 'What areas do you serve?',
     answer:
-      'We serve Goodlettsville, Hendersonville, Gallatin, White House, Greenbrier, Ridgetop, Springfield, Nashville (including East Nashville, Downtown Nashville, Old Hickory, Joelton, Madison, and Hermitage), Belle Meade, Brentwood, Franklin, Mt. Juliet, Lebanon, Portland, and surrounding Middle Tennessee communities.',
+      SERVICE_AREAS_FAQ_ANSWER,
   },
   {
     question: 'Can we start with photos instead of a walkthrough?',

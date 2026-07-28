@@ -5,10 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts",
-    "build": "vite build && node scripts/install-prerender-browser.mjs && node scripts/prerender.mjs && node scripts/validate-prerender.mjs",
+    "build": "tsx scripts/sync-localbusiness-jsonld.ts && vite build && node scripts/install-prerender-browser.mjs && node scripts/prerender.mjs && node scripts/validate-prerender.mjs && node scripts/validate-entity-schema.mjs",
     "build:vite": "vite build",
+    "sync:business-schema": "tsx scripts/sync-localbusiness-jsonld.ts",
     "prerender": "node scripts/prerender.mjs",
     "validate:prerender": "node scripts/validate-prerender.mjs",
+    "validate:entity": "node scripts/validate-entity-schema.mjs",
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit"

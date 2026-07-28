@@ -97,7 +97,12 @@ import {
   compactJsonLd,
 } from './utils/schema.ts';
 import {
+  BUSINESS,
+  BUSINESS_FACEBOOK_URL,
+  BUSINESS_GOOGLE_MAPS_URL,
   BUSINESS_HOURS_DISPLAY,
+  ADDITIONAL_SERVICE_AREA_DISPLAY_NAMES,
+  PRIMARY_SERVICE_AREA_DISPLAY_NAMES,
   SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING,
 } from './data/business.ts';
 
@@ -1497,7 +1502,8 @@ const ServiceAreas = () => {
   );
 };
 
-const PRIMARY_SERVICE_AREAS = SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING;
+const PRIMARY_SERVICE_AREAS = PRIMARY_SERVICE_AREA_DISPLAY_NAMES;
+const NEARBY_SERVICE_AREAS = ADDITIONAL_SERVICE_AREA_DISPLAY_NAMES;
 
 const REGIONAL_PROJECT_COVERAGE = [
   'Clarksville',
@@ -1534,9 +1540,9 @@ const AreasWeServe = () => {
           Areas We Serve Across Middle Tennessee
         </h2>
         <p className="text-slate-600 max-w-3xl text-base md:text-lg leading-relaxed mb-5 md:mb-6">
-          Based in Goodlettsville, Reinhart Hauling &amp; Cleanouts serves Middle Tennessee with a focus on
-          Hendersonville, Gallatin, White House, Nashville, East Nashville, Downtown Nashville, Belle Meade, Brentwood,
-          Franklin, Springfield, Mt. Juliet, and Lebanon—plus nearby communities when the project fits.
+          Based in Goodlettsville, Reinhart Hauling &amp; Cleanouts is a mobile, insured service-area business focused on
+          Goodlettsville, Hendersonville, Gallatin, Nashville, and Mt. Juliet—plus nearby Middle Tennessee communities
+          when the project fits.
         </p>
         <p className="text-slate-600 max-w-3xl text-base md:text-lg leading-relaxed mb-5 md:mb-6">
           We complete property cleanouts, commercial cleanouts, rental turnovers, and selective demolition support
@@ -1561,6 +1567,19 @@ const AreasWeServe = () => {
             <h3 className="mb-3 text-xs font-bold uppercase tracking-widest text-brand-orange">Primary Service Area</h3>
             <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-2.5" role="list">
               {PRIMARY_SERVICE_AREAS.map((area) => (
+                <li key={area} className={areaCardClassName}>
+                  {area}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="mb-3 text-xs font-bold uppercase tracking-widest text-slate-500">
+              Nearby Communities
+            </h3>
+            <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-2.5" role="list">
+              {NEARBY_SERVICE_AREAS.map((area) => (
                 <li key={area} className={areaCardClassName}>
                   {area}
                 </li>
@@ -1790,10 +1809,10 @@ const Footer = () => {
   const socialLinks = [
     {
       label: 'Google Reviews',
-      href: 'https://maps.app.goo.gl/fW4f5CPsAJpLfPmG7',
+      href: BUSINESS_GOOGLE_MAPS_URL,
       icon: 'G',
     },
-    { label: 'Facebook', href: 'https://www.facebook.com/reinharthaulingcleanouts/', icon: 'f' },
+    { label: 'Facebook', href: BUSINESS_FACEBOOK_URL, icon: 'f' },
   ];
 
   return (
@@ -1806,7 +1825,7 @@ const Footer = () => {
               alt="Reinhart Hauling & Cleanouts Nashville"
               className="h-[68px] w-auto object-contain bg-white rounded-xl px-2 py-1 mb-5"
             />
-            <h2 className="font-display text-xl font-bold mb-3">Reinhart Hauling &amp; Cleanouts</h2>
+            <h2 className="font-display text-xl font-bold mb-3">{BUSINESS.name}</h2>
             <p className="text-slate-300 text-sm leading-relaxed">
               Helping homeowners, investors, property managers, contractors, and businesses move property projects
               forward throughout Middle Tennessee.
@@ -1880,17 +1899,17 @@ const Footer = () => {
             <div className="space-y-4 text-sm text-slate-300">
               <p>
                 Call or text{' '}
-                <a href="tel:+16152000064" className="font-semibold text-white hover:text-brand-orange transition-colors">
-                  615-200-0064
+                <a href={BUSINESS.phoneTel} className="font-semibold text-white hover:text-brand-orange transition-colors">
+                  {BUSINESS.phoneDisplay}
                 </a>
               </p>
               <p>
                 Email{' '}
                 <a
-                  href="mailto:office@reinharthauling.com"
+                  href={`mailto:${BUSINESS.email}`}
                   className="font-semibold text-white hover:text-brand-orange transition-colors"
                 >
-                  office@reinharthauling.com
+                  {BUSINESS.email}
                 </a>
               </p>
               <p>

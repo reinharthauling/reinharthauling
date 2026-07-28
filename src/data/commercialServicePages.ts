@@ -1,5 +1,5 @@
 import { projectImages } from './projectImages.ts';
-
+import { SERVICE_AREAS_FAQ_ANSWER } from './business.ts';
 import { getCommercialRelatedServices } from './commercialNavigation.ts';
 
 export type CommercialProjectType = {
@@ -51,8 +51,7 @@ const BASE_FAQS: CommercialFaq[] = [
   },
   {
     question: 'What areas do you serve?',
-    answer:
-      'We serve Goodlettsville, Hendersonville, Gallatin, White House, Greenbrier, Ridgetop, Springfield, Nashville (including East Nashville, Downtown Nashville, Old Hickory, Joelton, Madison, and Hermitage), Belle Meade, Brentwood, Franklin, Mt. Juliet, Lebanon, Portland, and surrounding Middle Tennessee communities.',
+    answer: SERVICE_AREAS_FAQ_ANSWER,
   },
   {
     question: 'How do I request an estimate?',

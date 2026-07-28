@@ -1,9 +1,12 @@
 import {
   BUSINESS,
+  BUSINESS_HAS_MAP,
+  BUSINESS_PRICE_RANGE,
+  BUSINESS_SAME_AS,
   HOME_FAQS,
   OPENING_HOURS,
+  PRIMARY_SERVICE_CITIES,
   PRIMARY_SERVICES,
-  SERVICE_CITIES,
   SITE_URL,
   type ServiceCity,
 } from '../data/business.ts';
@@ -39,7 +42,11 @@ function omitUndefined<T extends Record<string, unknown>>(obj: T): T {
   return Object.fromEntries(Object.entries(obj).filter(([, v]) => v !== undefined && v !== null)) as T;
 }
 
-export function buildAreaServedSchema(cities: ServiceCity[] = SERVICE_CITIES) {
+/**
+ * areaServed for entity / Service schema.
+ * Defaults to priority markets only — not the full FAQ community list.
+ */
+export function buildAreaServedSchema(cities: ServiceCity[] = PRIMARY_SERVICE_CITIES) {
   const items: Record<string, unknown>[] = cities.map((city) => {
     if (city.isPlace) {
       return {
@@ -89,7 +96,7 @@ export function buildPersonSchema() {
 
 /**
  * Lightweight provider reference — avoids nesting full areaServed / NAP on every Service.
- * The authoritative LocalBusiness lives at BUSINESS_ID (index.html + schema builders).
+ * The authoritative LocalBusiness lives at BUSINESS_ID (synced into index.html).
  */
 export function buildProviderRef() {
   return {
@@ -99,14 +106,14 @@ export function buildProviderRef() {
 }
 
 /**
- * Authoritative LocalBusiness entity.
- * Prefer emitting once (static index.html for CSR shell). React pages should reference @id
- * rather than re-emitting a full duplicate with the same @id.
+ * Authoritative business entity.
+ * Emit once in index.html (via sync script). React pages should reference @id only.
+ * HomeAndConstructionBusiness is a valid LocalBusiness subtype for cleanup / selective demo work.
  */
 export function buildLocalBusinessSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': ['LocalBusiness', 'HomeAndConstructionBusiness'],
     '@id': BUSINESS_ID,
     name: BUSINESS.name,
     url: SITE_HOME_URL,
@@ -127,8 +134,11 @@ export function buildLocalBusinessSchema() {
       opens: hours.opens,
       closes: hours.closes,
     })),
-    areaServed: buildAreaServedSchema(),
+    areaServed: buildAreaServedSchema(PRIMARY_SERVICE_CITIES),
     founder: buildPersonSchema(),
+    sameAs: [...BUSINESS_SAME_AS],
+    priceRange: BUSINESS_PRICE_RANGE,
+    hasMap: BUSINESS_HAS_MAP,
     additionalProperty: {
       '@type': 'PropertyValue',
       name: 'Insurance',
@@ -218,7 +228,7 @@ export function buildServiceSchema(options: {
     description: options.description,
     url,
     provider: buildProviderRef(),
-    areaServed: buildAreaServedSchema(),
+    areaServed: buildAreaServedSchema(PRIMARY_SERVICE_CITIES),
     mainEntityOfPage: { '@id': pageId },
   };
 }

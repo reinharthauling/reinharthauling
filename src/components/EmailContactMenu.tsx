@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { BUSINESS } from '../data/business.ts';
 
-const BUSINESS_EMAIL = 'office@reinharthauling.com';
+const BUSINESS_EMAIL = BUSINESS.email;
 const MAILTO_URL = `mailto:${BUSINESS_EMAIL}?subject=Reinhart%20Hauling%20Inquiry`;
-const GMAIL_COMPOSE_URL =
-  'https://mail.google.com/mail/?view=cm&fs=1&to=office@reinharthauling.com&su=Reinhart%20Hauling%20Inquiry';
+const GMAIL_COMPOSE_URL = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(BUSINESS_EMAIL)}&su=Reinhart%20Hauling%20Inquiry`;
 
 const triggerClassName =
   'text-brand-orange transition-colors hover:text-brand-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-offset-2 rounded-md';

@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { DEFAULT_OG_IMAGE, SITE_URL } from '../data/business.ts';
+import { BUSINESS, DEFAULT_OG_IMAGE, SITE_URL } from '../data/business.ts';
 
 export type PageMetaProps = {
   title: string;
@@ -51,7 +51,7 @@ export default function PageMeta({
       <link rel="canonical" href={canonicalUrl} />
       {noindex ? <meta name="robots" content="noindex, follow" /> : <meta name="robots" content="index, follow" />}
       <meta property="og:type" content="website" />
-      <meta property="og:site_name" content="Reinhart Hauling & Cleanouts" />
+      <meta property="og:site_name" content={BUSINESS.name} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:title" content={socialTitle} />
       <meta property="og:description" content={socialDescription} />
