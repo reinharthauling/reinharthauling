@@ -9,6 +9,9 @@ const serviceLinkClassName =
 const hubHeadingClassName =
   'group mb-4 block rounded-xl px-2 py-1.5 -mx-2 text-base font-bold leading-snug text-brand-navy transition-colors hover:bg-brand-orange/5 hover:text-brand-orange focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-offset-1';
 
+const columnHeadingClassName =
+  'mb-4 block rounded-xl px-2 py-1.5 -mx-2 text-base font-bold leading-snug text-brand-navy';
+
 const viewAllLinkClassName =
   'group mt-4 inline-flex rounded-lg px-2 py-1.5 -mx-2 text-xs font-semibold text-brand-orange transition-colors hover:bg-brand-orange/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-offset-1';
 
@@ -30,9 +33,13 @@ type MegaMenuColumnProps = {
 
 const MegaMenuColumn = ({ column, onNavigate, columnIndex }: MegaMenuColumnProps) => (
   <div className={columnDividerClass(columnIndex)}>
-    <Link to={column.hubLink} className={hubHeadingClassName} onClick={onNavigate}>
-      {column.title}
-    </Link>
+    {column.hubLink ? (
+      <Link to={column.hubLink} className={hubHeadingClassName} onClick={onNavigate}>
+        {column.title}
+      </Link>
+    ) : (
+      <p className={columnHeadingClassName}>{column.title}</p>
+    )}
 
     {column.categories ? (
       <div className="space-y-3.5">
@@ -71,9 +78,11 @@ const MegaMenuColumn = ({ column, onNavigate, columnIndex }: MegaMenuColumnProps
       </ul>
     )}
 
-    <Link to={column.hubLink} className={viewAllLinkClassName} onClick={onNavigate}>
-      ({column.viewAllLabel})
-    </Link>
+    {column.hubLink && column.viewAllLabel ? (
+      <Link to={column.hubLink} className={viewAllLinkClassName} onClick={onNavigate}>
+        ({column.viewAllLabel})
+      </Link>
+    ) : null}
   </div>
 );
 
@@ -208,13 +217,15 @@ export const ServicesMobileAccordions = ({ onNavigate }: ServicesMobileAccordion
                   </ul>
                 )}
 
-                <Link
-                  to={column.hubLink}
-                  className="mt-3 inline-flex rounded-lg px-2 py-2 text-xs font-semibold text-brand-orange transition-colors hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30"
-                  onClick={onNavigate}
-                >
-                  ({column.viewAllLabel})
-                </Link>
+                {column.hubLink && column.viewAllLabel ? (
+                  <Link
+                    to={column.hubLink}
+                    className="mt-3 inline-flex rounded-lg px-2 py-2 text-xs font-semibold text-brand-orange transition-colors hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30"
+                    onClick={onNavigate}
+                  >
+                    ({column.viewAllLabel})
+                  </Link>
+                ) : null}
               </div>
             )}
           </div>

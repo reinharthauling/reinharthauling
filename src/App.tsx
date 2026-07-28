@@ -79,6 +79,12 @@ import CleanoutProcess from './components/CleanoutProcess.tsx';
 import PageMeta from './components/PageMeta.tsx';
 import SeoRedirect from './components/SeoRedirect.tsx';
 import { ServicesMegaMenuPanel, ServicesMobileAccordions } from './components/ServicesMegaMenu.tsx';
+import {
+  isPrimaryNavItemActive,
+  isServicesNavActive,
+  PRIMARY_NAV_ITEMS,
+} from './data/primaryNavigation.ts';
+
 import ServiceAreaInquiryModal from './components/ServiceAreaInquiryModal.tsx';
 import EmailContactMenu from './components/EmailContactMenu.tsx';
 import { EstimateRequestProvider } from './context/EstimateRequestContext.tsx';
@@ -150,11 +156,13 @@ const Navbar = () => {
   const servicesRef = useRef<HTMLDivElement>(null);
   const servicesButtonRef = useRef<HTMLButtonElement>(null);
 
+  const servicesActive = isServicesNavActive(location.pathname, location.hash);
+
   useEffect(() => {
     setMobileMenuOpen(false);
     setServicesOpen(false);
     setMobileServicesOpen(false);
-  }, [location.pathname]);
+  }, [location.pathname, location.hash]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -201,9 +209,59 @@ const Navbar = () => {
     window.history.pushState(null, '', `#${sectionId}`);
   };
 
+  const navLinkClassName = (active: boolean) =>
+    [
+      'text-sm font-medium transition-colors rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-offset-2',
+      active
+        ? 'text-brand-orange font-semibold underline decoration-brand-orange/70 underline-offset-[6px]'
+        : 'text-brand-navy hover:text-brand-orange',
+    ].join(' ');
+
+  const mobileNavLinkClassName = (active: boolean) =>
+    [
+      'px-3 py-3 text-sm rounded-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-inset',
+      active
+        ? 'font-semibold text-brand-orange bg-brand-orange/5'
+        : 'font-medium text-brand-navy hover:text-brand-orange hover:bg-slate-50',
+    ].join(' ');
+
+  const renderPrimaryLink = (item: (typeof PRIMARY_NAV_ITEMS)[number], mobile: boolean) => {
+    const active = isPrimaryNavItemActive(item, location.pathname, location.hash);
+    const className = mobile ? mobileNavLinkClassName(active) : navLinkClassName(active);
+
+    if (item.homeSectionId) {
+      return (
+        <Link
+          key={item.id}
+          to={item.to}
+          className={className}
+          aria-current={active ? 'page' : undefined}
+          onClick={(event) => navigateToHomeSection(event, item.homeSectionId!)}
+        >
+          {item.label}
+        </Link>
+      );
+    }
+
+    return (
+      <Link
+        key={item.id}
+        to={item.to}
+        className={className}
+        aria-current={active ? 'page' : undefined}
+        onClick={mobile ? closeMobileMenu : undefined}
+      >
+        {item.label}
+      </Link>
+    );
+  };
+
+  // Desktop order: Home, Services, then remaining primary items (Items We Remove → About)
+  const [homeItem, ...primaryAfterServices] = PRIMARY_NAV_ITEMS;
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm py-3">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 min-h-[104px] flex items-center justify-between gap-8">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 min-h-[104px] flex items-center justify-between gap-4 lg:gap-6">
         <Link to="/" className="flex items-center shrink-0 overflow-visible">
           <img
             src="/branding/Reinhart-hauling-cleanouts-nashville.png"
@@ -212,14 +270,8 @@ const Navbar = () => {
           />
         </Link>
 
-        <div className="hidden md:flex items-center gap-5">
-          <Link
-            to="/#how-it-works"
-            className="text-sm font-medium hover:text-brand-orange transition-colors"
-            onClick={(event) => navigateToHomeSection(event, 'how-it-works')}
-          >
-            How It Works
-          </Link>
+        <div className="hidden lg:flex items-center gap-3 xl:gap-5">
+          {renderPrimaryLink(homeItem, false)}
 
           <div
             ref={servicesRef}
@@ -235,7 +287,11 @@ const Navbar = () => {
               aria-expanded={servicesOpen}
               aria-haspopup="true"
               aria-controls="services-mega-menu"
-              className="flex items-center gap-1 text-sm font-medium hover:text-brand-orange transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-offset-2 rounded-md"
+              className={`flex items-center gap-1 text-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-offset-2 rounded-md ${
+                servicesActive
+                  ? 'font-semibold text-brand-orange underline decoration-brand-orange/70 underline-offset-[6px]'
+                  : 'font-medium text-brand-navy hover:text-brand-orange'
+              }`}
             >
               Services
               <ChevronDown
@@ -253,50 +309,20 @@ const Navbar = () => {
             )}
           </div>
 
-          <Link
-            to="/industries"
-            className="text-sm font-medium hover:text-brand-orange transition-colors"
-          >
-            Industries
-          </Link>
+          {primaryAfterServices.map((item) => renderPrimaryLink(item, false))}
 
-          <Link
-            to="/#reviews"
-            className="text-sm font-medium hover:text-brand-orange transition-colors"
-            onClick={(event) => navigateToHomeSection(event, 'reviews')}
-          >
-            Reviews
-          </Link>
-          <Link
-            to="/what-we-take"
-            className="text-sm font-medium hover:text-brand-orange transition-colors"
-          >
-            Items We Remove
-          </Link>
-          <Link
-            to="/projects"
-            className="text-sm font-medium hover:text-brand-orange transition-colors"
-          >
-            Projects
-          </Link>
-          <Link
-            to="/about"
-            className="text-sm font-medium hover:text-brand-orange transition-colors"
-          >
-            About
-          </Link>
           <a
-            href="tel:+16152000064"
-            className="bg-brand-navy text-white px-4 py-2 rounded-full text-sm font-medium shadow-xl shadow-brand-navy/20 hover:bg-brand-orange transition-all hover:scale-105 active:scale-95 flex items-center gap-2"
+            href={BUSINESS.phoneTel}
+            className="bg-brand-navy text-white px-4 py-2 rounded-full text-sm font-medium shadow-xl shadow-brand-navy/20 hover:bg-brand-orange transition-all hover:scale-105 active:scale-95 flex items-center gap-2 shrink-0"
           >
             <Phone size={16} />
-            615-200-0064
+            {BUSINESS.phoneDisplay}
           </a>
         </div>
 
         <button
           type="button"
-          className="md:hidden inline-flex items-center justify-center w-11 h-11 rounded-xl border border-slate-200 text-brand-navy hover:border-brand-orange hover:text-brand-orange transition-colors"
+          className="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-xl border border-slate-200 text-brand-navy hover:border-brand-orange hover:text-brand-orange transition-colors"
           aria-expanded={mobileMenuOpen}
           aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
           onClick={() => setMobileMenuOpen((open) => !open)}
@@ -312,83 +338,47 @@ const Navbar = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden overflow-hidden border-t border-slate-100 bg-white"
+            className="lg:hidden overflow-hidden border-t border-slate-100 bg-white"
           >
             <div className="max-h-[calc(100vh-88px)] overflow-y-auto overscroll-contain scrollbar-subtle">
               <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
-              <Link
-                to="/#how-it-works"
-                className="px-3 py-3 text-sm font-medium text-brand-navy hover:text-brand-orange transition-colors rounded-xl hover:bg-slate-50"
-                onClick={(event) => navigateToHomeSection(event, 'how-it-works')}
-              >
-                How It Works
-              </Link>
+                {renderPrimaryLink(homeItem, true)}
 
-              <button
-                type="button"
-                className="flex items-center justify-between px-3 py-3 text-sm font-medium text-brand-navy hover:text-brand-orange transition-colors rounded-xl hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-inset"
-                aria-expanded={mobileServicesOpen}
-                aria-controls="mobile-services-menu"
-                onClick={() => setMobileServicesOpen((open) => !open)}
-              >
-                Services
-                <ChevronDown
-                  size={16}
-                  className={`transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180' : ''}`}
-                  aria-hidden="true"
-                />
-              </button>
+                <button
+                  type="button"
+                  className={`flex items-center justify-between px-3 py-3 text-sm rounded-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 focus-visible:ring-inset ${
+                    servicesActive
+                      ? 'font-semibold text-brand-orange bg-brand-orange/5'
+                      : 'font-medium text-brand-navy hover:text-brand-orange hover:bg-slate-50'
+                  }`}
+                  aria-expanded={mobileServicesOpen}
+                  aria-controls="mobile-services-menu"
+                  onClick={() => setMobileServicesOpen((open) => !open)}
+                >
+                  Services
+                  <ChevronDown
+                    size={16}
+                    className={`transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180' : ''}`}
+                    aria-hidden="true"
+                  />
+                </button>
 
-              {mobileServicesOpen && (
-                <div id="mobile-services-menu" className="mb-1 px-1">
-                  <ServicesMobileAccordions onNavigate={closeMobileMenu} />
-                </div>
-              )}
+                {mobileServicesOpen && (
+                  <div id="mobile-services-menu" className="mb-1 px-1">
+                    <ServicesMobileAccordions onNavigate={closeMobileMenu} />
+                  </div>
+                )}
 
-              <Link
-                to="/industries"
-                className="px-3 py-3 text-sm font-medium text-brand-navy hover:text-brand-orange transition-colors rounded-xl hover:bg-slate-50"
-                onClick={closeMobileMenu}
-              >
-                Industries
-              </Link>
+                {primaryAfterServices.map((item) => renderPrimaryLink(item, true))}
 
-              <Link
-                to="/#reviews"
-                className="px-3 py-3 text-sm font-medium text-brand-navy hover:text-brand-orange transition-colors rounded-xl hover:bg-slate-50"
-                onClick={(event) => navigateToHomeSection(event, 'reviews')}
-              >
-                Reviews
-              </Link>
-              <Link
-                to="/what-we-take"
-                className="px-3 py-3 text-sm font-medium text-brand-navy hover:text-brand-orange transition-colors rounded-xl hover:bg-slate-50"
-                onClick={closeMobileMenu}
-              >
-                Items We Remove
-              </Link>
-              <Link
-                to="/projects"
-                className="px-3 py-3 text-sm font-medium text-brand-navy hover:text-brand-orange transition-colors rounded-xl hover:bg-slate-50"
-                onClick={closeMobileMenu}
-              >
-                Projects
-              </Link>
-              <Link
-                to="/about"
-                className="px-3 py-3 text-sm font-medium text-brand-navy hover:text-brand-orange transition-colors rounded-xl hover:bg-slate-50"
-                onClick={closeMobileMenu}
-              >
-                About
-              </Link>
-              <a
-                href="tel:+16152000064"
-                className="mt-2 bg-brand-navy text-white px-4 py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 hover:bg-brand-orange transition-colors"
-                onClick={closeMobileMenu}
-              >
-                <Phone size={16} />
-                615-200-0064
-              </a>
+                <a
+                  href={BUSINESS.phoneTel}
+                  className="mt-2 bg-brand-navy text-white px-4 py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 hover:bg-brand-orange transition-colors"
+                  onClick={closeMobileMenu}
+                >
+                  <Phone size={16} />
+                  Call {BUSINESS.phoneDisplay}
+                </a>
               </div>
             </div>
           </motion.div>
@@ -1861,11 +1851,27 @@ const Footer = () => {
                   {service.label}
                 </Link>
               ))}
-              <Link
-                to="/industries"
-                className="block pt-2 text-sm font-semibold text-brand-orange hover:text-brand-orange-light transition-colors"
-              >
-                Industries We Serve
+            </nav>
+
+            <h3 className="font-display text-lg font-bold mb-4 mt-8">Resources</h3>
+            <nav className="space-y-2" aria-label="Footer resources">
+              <Link to="/pricing" className="block text-sm text-slate-300 hover:text-brand-orange transition-colors">
+                Pricing
+              </Link>
+              <Link to="/what-we-take" className="block text-sm text-slate-300 hover:text-brand-orange transition-colors">
+                Items We Remove
+              </Link>
+              <Link to="/#how-it-works" className="block text-sm text-slate-300 hover:text-brand-orange transition-colors">
+                How It Works
+              </Link>
+              <Link to="/industries" className="block text-sm text-slate-300 hover:text-brand-orange transition-colors">
+                Who We Work With
+              </Link>
+              <Link to="/projects" className="block text-sm text-slate-300 hover:text-brand-orange transition-colors">
+                Projects
+              </Link>
+              <Link to="/about" className="block text-sm text-slate-300 hover:text-brand-orange transition-colors">
+                About
               </Link>
             </nav>
           </div>
