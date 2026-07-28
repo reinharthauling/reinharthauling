@@ -79,19 +79,21 @@ const PROPERTY_RELATED = [
   { label: 'Property Cleanup', to: '/property-cleanup' },
   { label: 'Estate Cleanouts', to: '/estate-cleanouts' },
   { label: 'Hoarder Cleanouts', to: '/hoarder-cleanouts' },
-  { label: 'Eviction Cleanouts', to: '/eviction-cleanouts' },
-  { label: 'Foreclosure Cleanouts', to: '/foreclosure-cleanouts' },
-  { label: 'Rental Property Cleanouts', to: '/landlord-rental-cleanouts' },
+  { label: 'Garage Cleanouts', to: '/garage-cleanouts' },
+  { label: 'Storage Unit Cleanouts', to: '/storage-unit-cleanouts' },
+  { label: 'Move-Out Cleanouts', to: '/move-out-cleanouts' },
   { label: 'Items We Remove', to: '/what-we-take' },
 ];
 
 const REMOVAL_RELATED = [
-  { label: 'Junk Removal', to: '/junk-removal' },
+  { label: 'Property Cleanouts', to: '/property-cleanouts' },
   { label: 'Furniture Removal', to: '/furniture-removal' },
   { label: 'Appliance Removal', to: '/appliance-removal' },
   { label: 'Hot Tub Removal', to: '/hot-tub-removal' },
-  { label: 'Construction Debris Removal', to: '/construction-cleanup' },
-  { label: 'Fence Removal', to: '/fence-removal' },
+  { label: 'Piano Removal', to: '/piano-removal' },
+  { label: 'Construction Cleanup', to: '/construction-cleanup' },
+  { label: 'Items We Remove', to: '/what-we-take' },
+  { label: 'Projects', to: '/projects' },
 ];
 
 export function getRelatedResidentialServices(
@@ -177,51 +179,74 @@ export const RESIDENTIAL_SERVICE_PAGES: ResidentialServicePageConfig[] = [
   {
     canonicalPath: '/storage-unit-cleanouts',
     category: 'property-services',
-    pageTitle: 'Storage Unit Cleanouts | Reinhart Hauling & Cleanouts',
+    pageTitle: 'Storage Unit Cleanouts in Middle Tennessee | Reinhart Hauling & Cleanouts',
     metaDescription:
-      'Storage unit cleanouts in Middle Tennessee. Abandoned, overflow, and bulky contents removed from storage units with organized loading and disposal.',
+      'Insured storage unit cleanouts in Middle Tennessee for abandoned and overflow units. Organized loading and disposal from Goodlettsville. Call 615-200-0064.',
     heroEyebrow: 'PROPERTY SERVICES',
-    heroHeadline: 'Storage Unit Cleanouts',
+    heroHeadline: 'Storage Unit Cleanouts in Middle Tennessee',
     heroIntro:
-      'Storage unit cleanouts clear abandoned, overflow, or bulky contents so units can be reset, auctioned, or returned to usable condition. Reinhart handles loading, haul-away, and disposal with upfront scope review.',
+      'Reinhart Hauling & Cleanouts clears abandoned, overflow, and bulky storage units across Middle Tennessee from our Goodlettsville base. We remove furniture, boxed goods, appliances, and mixed debris so units can be reset, auctioned, or returned to usable condition. This is structured cleanout support—not a casual junk pickup. We are insured, and pricing is confirmed before work begins.',
     heroImage: HERO_PROPERTY,
-    heroImageAlt: 'Storage unit cleanout project in Middle Tennessee',
+    heroImageAlt: 'Abandoned storage unit contents cleared during a Middle Tennessee cleanout',
     servicesIncluded: [
-      'Full storage unit contents removal',
-      'Bulky item and boxed goods haul-away',
-      'Facility access coordination when required',
-      'Responsible disposal and recycling where applicable',
-      'Unit left cleared for the next step',
+      'Full or partial storage unit contents removal',
+      'Furniture, appliances, and bulky item haul-away',
+      'Boxed goods, clutter, and mixed debris clearing',
+      'Facility access and gate coordination when required',
+      'Disposal, recycling, or scrap sorting where practical',
+      'Unit left cleared for reset, auction, or turnover',
     ],
     idealCustomers: ['Homeowners', 'Property Managers', 'Real Estate Investors', 'Facility Managers', 'Landlords', 'Families'],
     faqs: faqs(
       {
+        question: 'Do you clear abandoned or overflow storage units?',
+        answer:
+          'Yes. Abandoned, auction-related, and overflow storage units are common scopes. We clear leftover furniture, boxes, and bulky contents so the unit can be reset or returned.',
+      },
+      {
         question: 'Can you clean out multiple storage units?',
-        answer: 'Yes. Multi-unit clearing can be scheduled when scope, access, and timing are confirmed upfront.',
+        answer:
+          'Yes. Multi-unit clearing can be scheduled when scope, facility access, and timing are confirmed upfront.',
+      },
+      {
+        question: 'What affects storage unit cleanout scope?',
+        answer:
+          'Volume, item types, unit size, aisle and gate access, loading distance, and disposal needs all affect scope and pricing. Photos help when a walkthrough is not practical.',
       },
     ),
   },
   {
     canonicalPath: '/move-out-cleanouts',
     category: 'property-services',
-    pageTitle: 'Move-Out Cleanouts | Reinhart Hauling & Cleanouts',
+    pageTitle: 'Move-Out Cleanouts in Middle Tennessee | Reinhart Hauling & Cleanouts',
     metaDescription:
-      'Move-out cleanouts in Middle Tennessee for rentals, homes, and apartments. Left-behind furniture, trash, and contents cleared for turnover and re-listing.',
+      'Insured move-out cleanouts in Middle Tennessee for landlords and rentals. Left-behind furniture and contents cleared for turnover. Call 615-200-0064.',
     heroEyebrow: 'PROPERTY SERVICES',
-    heroHeadline: 'Move-Out Cleanouts',
+    heroHeadline: 'Move-Out Cleanouts in Middle Tennessee',
     heroIntro:
-      'Move-out cleanouts help rentals and homes transition quickly when tenants or owners leave contents behind. Reinhart clears furniture, trash, and mixed debris so cleaning, repairs, and re-listing can move forward.',
+      'Reinhart Hauling & Cleanouts supports landlords, property managers, and homeowners across Middle Tennessee when tenants or owners leave contents behind. From Goodlettsville, we clear furniture, trash, appliances, and mixed debris so cleaning, repairs, and re-listing can move forward. This is rental and property turnover support—not eviction cleanouts. We are insured, with clear pricing before work begins.',
     heroImage: HERO_PROPERTY,
-    heroImageAlt: 'Move-out cleanout for a rental property',
+    heroImageAlt: 'Left-behind furniture and contents cleared after a Middle Tennessee rental move-out',
     servicesIncluded: [
-      'Left-behind furniture and contents removal',
-      'Bagged trash and boxed item haul-away',
+      'Left-behind furniture and household contents removal',
+      'Bagged trash, boxes, and mixed debris haul-away',
       'Appliance removal where applicable',
-      'Garage and storage area clearing',
-      'Unit or home prepared for turnover work',
+      'Garage, closet, and storage area clearing',
+      'Apartment, home, and rental unit turnover support',
+      'Property prepared for cleaning, repairs, or re-listing',
     ],
     idealCustomers: ['Landlords', 'Property Managers', 'Homeowners', 'Real Estate Investors', 'Realtors', 'Turnover Teams'],
     faqs: faqs(
+      {
+        question: 'Is a move-out cleanout the same as an eviction cleanout?',
+        answer:
+          'No. Move-out cleanouts support landlords and rentals when tenants or owners leave contents behind during a normal turnover. Eviction and court-ordered clearouts are a separate service with different timing and coordination needs.',
+      },
+      {
+        question: 'Who typically requests move-out cleanouts?',
+        answer:
+          'Landlords, property managers, investors, and homeowners commonly request move-out cleanouts to clear left-behind furniture, trash, and debris before cleaning or re-listing.',
+      },
       {
         question: 'How fast can a move-out cleanout be scheduled?',
         answer:
@@ -260,55 +285,72 @@ export const RESIDENTIAL_SERVICE_PAGES: ResidentialServicePageConfig[] = [
   {
     canonicalPath: '/yard-debris-cleanup',
     category: 'property-services',
-    pageTitle: 'Yard Debris Cleanup | Reinhart Hauling & Cleanouts',
+    pageTitle: 'Yard Debris Cleanup in Middle Tennessee | Reinhart Hauling & Cleanouts',
     metaDescription:
-      'Yard debris cleanup in Middle Tennessee. Brush, storm debris, exterior clutter, and outdoor materials cleared from residential properties.',
+      'Insured yard debris cleanup in Middle Tennessee. Brush, limbs, exterior clutter, and outdoor materials cleared from properties. Call 615-200-0064.',
     heroEyebrow: 'PROPERTY SERVICES',
-    heroHeadline: 'Yard Debris Cleanup',
+    heroHeadline: 'Yard Debris Cleanup in Middle Tennessee',
     heroIntro:
-      'Yard debris cleanup clears brush, storm debris, exterior clutter, and outdoor materials so properties can be reset for landscaping, sale, or occupancy. Reinhart handles loading and haul-away with organized execution.',
+      'Reinhart Hauling & Cleanouts provides exterior property cleanup support across Middle Tennessee from our Goodlettsville base. We clear brush, limbs, yard waste, outdoor clutter, and bulk exterior materials so properties can move toward landscaping, sale, or occupancy. This is organized yard and property cleanup—not a casual debris run. We are insured, and pricing is confirmed before work begins.',
     heroImage: HERO_YARD,
-    heroImageAlt: 'Yard debris cleanup project in Middle Tennessee',
+    heroImageAlt: 'Brush, limbs, and exterior yard debris cleared from a Middle Tennessee property',
     servicesIncluded: [
       'Brush, limbs, and yard waste removal',
-      'Exterior clutter and bulk item haul-away',
-      'Storm and wind debris clearing',
-      'Fence line and property edge cleanup',
-      'Yard left ready for landscaping or listing',
+      'Exterior clutter and outdoor bulk item haul-away',
+      'Fence line, edge, and driveway area clearing',
+      'Leaf piles, bagged yard waste, and mixed outdoor debris',
+      'Support for listing, landscaping, or property reset',
+      'Responsible loading and disposal',
     ],
     idealCustomers: ['Homeowners', 'Landlords', 'Real Estate Investors', 'Property Managers', 'Contractors', 'Realtors'],
     faqs: faqs(
       {
-        question: 'Do you remove storm debris from yards?',
-        answer: 'Yes. Storm and wind debris clearing is a common yard cleanup scope throughout Middle Tennessee.',
+        question: 'What yard materials can you remove?',
+        answer:
+          'Common scopes include brush, limbs, bagged yard waste, outdoor clutter, fence-line debris, and other non-hazardous exterior materials. Large tree work and stump grinding are outside our service.',
+      },
+      {
+        question: 'Is yard debris cleanup part of a larger property cleanout?',
+        answer:
+          'Often yes. Yard debris cleanup frequently supports property cleanouts, turnovers, and listing prep when exterior clutter needs to be cleared along with interior contents.',
       },
     ),
   },
   {
     canonicalPath: '/storm-cleanup',
     category: 'property-services',
-    pageTitle: 'Storm Cleanup | Reinhart Hauling & Cleanouts',
+    pageTitle: 'Storm Cleanup in Middle Tennessee | Reinhart Hauling & Cleanouts',
     metaDescription:
-      'Storm cleanup and debris removal in Middle Tennessee for residential properties. Wind, tree, and exterior debris cleared after storms.',
+      'Insured storm cleanup in Middle Tennessee. Wind, tree, and exterior debris cleared so property recovery and repairs can begin. Call 615-200-0064.',
     heroEyebrow: 'PROPERTY SERVICES',
-    heroHeadline: 'Storm Cleanup',
+    heroHeadline: 'Storm Cleanup in Middle Tennessee',
     heroIntro:
-      'Storm cleanup helps homeowners and property owners clear wind, tree, and exterior debris after severe weather. Reinhart provides organized debris removal so properties can return to normal use and repair work can begin.',
+      'Reinhart Hauling & Cleanouts helps homeowners and property professionals across Middle Tennessee clear wind, tree, and exterior debris after severe weather. From Goodlettsville, we provide organized storm debris removal so driveways, yards, and access areas can reopen for repairs and recovery. We are insured, and scope is confirmed before work begins.',
     heroImage: HERO_YARD,
-    heroImageAlt: 'Storm debris cleanup at a residential property',
+    heroImageAlt: 'Wind and tree storm debris cleared from a Middle Tennessee residential property',
     servicesIncluded: [
-      'Wind and tree debris removal',
-      'Exterior clutter and damaged material haul-away',
-      'Yard and driveway clearing',
+      'Wind and fallen limb debris removal',
+      'Exterior storm clutter and damaged material haul-away',
+      'Yard, driveway, and access path clearing',
       'Bulky storm debris loading and disposal',
-      'Property opened up for repairs and recovery',
+      'Property opened up for repairs and recovery work',
     ],
     idealCustomers: ['Homeowners', 'Landlords', 'Property Managers', 'Real Estate Investors', 'Insurance Restoration Teams', 'Contractors'],
     faqs: faqs(
       {
+        question: 'What does storm cleanup include?',
+        answer:
+          'Storm cleanup focuses on exterior debris—fallen limbs, wind scatter, damaged outdoor materials, and driveway or yard clearing—so property access and repair work can move forward. Structural repairs and tree climbing or felling are not included.',
+      },
+      {
         question: 'Can storm cleanup be scheduled quickly after weather events?',
         answer:
           'We prioritize storm cleanup requests when scheduling allows and confirm scope and access before mobilizing.',
+      },
+      {
+        question: 'Is storm cleanup the same as yard debris cleanup?',
+        answer:
+          'They overlap, but storm cleanup is typically post-weather recovery focused on wind and storm debris. Yard debris cleanup covers broader exterior brush, clutter, and outdoor material clearing year-round.',
       },
     ),
   },
@@ -343,111 +385,156 @@ export const RESIDENTIAL_SERVICE_PAGES: ResidentialServicePageConfig[] = [
   {
     canonicalPath: '/furniture-removal',
     category: 'removal-services',
-    pageTitle: 'Furniture Removal | Reinhart Hauling & Cleanouts',
+    pageTitle: 'Furniture Removal in Middle Tennessee | Reinhart Hauling & Cleanouts',
     metaDescription:
-      'Furniture removal in Middle Tennessee. Couches, beds, dressers, office furniture, and bulky items removed from homes, rentals, and estates.',
+      'Insured furniture removal in Middle Tennessee for property cleanouts and turnovers. Couches, beds, and bulky items cleared. Call 615-200-0064.',
     heroEyebrow: 'REMOVAL SERVICES',
-    heroHeadline: 'Furniture Removal',
+    heroHeadline: 'Furniture Removal in Middle Tennessee',
     heroIntro:
-      'Furniture removal clears couches, beds, dressers, tables, and other bulky items from homes, rentals, estates, and offices. Reinhart handles tight access, stairs, and responsible haul-away.',
+      'Reinhart Hauling & Cleanouts removes couches, beds, dressers, tables, and other bulky furniture as part of property cleanouts and turnovers across Middle Tennessee. From Goodlettsville, we support landlords, investors, estates, and homeowners clearing rooms—not discount single-item junk pickup. Stairs and tight access are reviewed upfront. We are insured, with clear pricing before work begins.',
     heroImage: HERO_PROPERTY,
-    heroImageAlt: 'Furniture removal from a residential property',
+    heroImageAlt: 'Bulky furniture removed during a Middle Tennessee property cleanout and turnover',
     servicesIncluded: [
-      'Couches, beds, and bedroom furniture removal',
-      'Dining, office, and living room furniture haul-away',
-      'Estate and rental furniture clearing',
+      'Couches, sectionals, and living room furniture removal',
+      'Beds, mattresses, and bedroom furniture haul-away',
+      'Dining, office, and desk furniture clearing',
+      'Estate, rental, and investor property furniture cleanouts',
       'Stairs and tight-access removal when applicable',
       'Responsible loading and disposal',
     ],
     idealCustomers: DEFAULT_REMOVAL_CUSTOMERS,
     faqs: faqs(
       {
+        question: 'Is furniture removal only for single-item pickups?',
+        answer:
+          'No. Furniture removal is typically part of property cleanouts, rental turnovers, estates, and room clearing—not positioned as a discount single-item junk run. Scope is based on volume, access, and labor.',
+      },
+      {
         question: 'Do you remove furniture from upstairs rooms?',
-        answer: 'Yes. Stairs and tight access are common on furniture removal projects and are reviewed during quoting.',
+        answer:
+          'Yes. Stairs and tight access are common on furniture removal projects and are reviewed during quoting.',
+      },
+      {
+        question: 'Can furniture removal be combined with a full cleanout?',
+        answer:
+          'Yes. Furniture is often cleared together with appliances, clutter, and other contents during property cleanouts and turnovers.',
       },
     ),
   },
   {
     canonicalPath: '/appliance-removal',
     category: 'removal-services',
-    pageTitle: 'Appliance Removal | Reinhart Hauling & Cleanouts',
+    pageTitle: 'Appliance Removal in Middle Tennessee | Reinhart Hauling & Cleanouts',
     metaDescription:
-      'Appliance removal in Middle Tennessee. Refrigerators, washers, dryers, stoves, and unwanted appliances removed from homes and rentals.',
+      'Insured appliance removal in Middle Tennessee for cleanouts and turnovers. Refrigerators, washers, dryers, and stoves cleared. Call 615-200-0064.',
     heroEyebrow: 'REMOVAL SERVICES',
-    heroHeadline: 'Appliance Removal',
+    heroHeadline: 'Appliance Removal in Middle Tennessee',
     heroIntro:
-      'Appliance removal clears refrigerators, washers, dryers, stoves, and other unwanted appliances from kitchens, laundry rooms, garages, and rentals. Reinhart handles heavy items with organized haul-away.',
+      'Reinhart Hauling & Cleanouts removes refrigerators, washers, dryers, stoves, and other unwanted appliances as part of property cleanouts and rental turnovers across Middle Tennessee. From our Goodlettsville base, we handle heavy items with organized haul-away for landlords, investors, and homeowners—not discount appliance pickup alone. We are insured, and pricing is confirmed before work begins.',
     heroImage: HERO_PROPERTY,
-    heroImageAlt: 'Appliance removal from a residential property',
+    heroImageAlt: 'Kitchen and laundry appliances removed during a Middle Tennessee property turnover',
     servicesIncluded: [
-      'Kitchen appliance removal',
-      'Laundry appliance haul-away',
+      'Refrigerator, freezer, and kitchen appliance removal',
+      'Washer, dryer, and laundry appliance haul-away',
+      'Stoves, ovens, dishwashers, and similar units',
       'Garage and basement appliance clearing',
-      'Rental turnover appliance removal',
+      'Rental turnover and cleanout appliance removal',
       'Responsible loading and disposal',
     ],
     idealCustomers: DEFAULT_REMOVAL_CUSTOMERS,
     faqs: faqs(
       {
+        question: 'Is appliance removal part of a larger cleanout?',
+        answer:
+          'Often yes. Appliance removal commonly supports property cleanouts, rental turnovers, and estate clearing rather than standing alone as a discount pickup.',
+      },
+      {
         question: 'Do appliances need to be disconnected before removal?',
         answer:
-          'Appliances should be disconnected from utilities when possible. We can review access and prep requirements during quoting.',
+          'Appliances should be disconnected from utilities when possible. We can review access and prep requirements during quoting. We do not perform electrical or plumbing work.',
+      },
+      {
+        question: 'What appliance types do you commonly remove?',
+        answer:
+          'Refrigerators, freezers, washers, dryers, stoves, ovens, dishwashers, and similar household appliances are common. Condition, weight, and access affect scope.',
       },
     ),
   },
   {
     canonicalPath: '/hot-tub-removal',
     category: 'removal-services',
-    pageTitle: 'Hot Tub Removal | Reinhart Hauling & Cleanouts',
+    pageTitle: 'Hot Tub Removal in Middle Tennessee | Reinhart Hauling & Cleanouts',
     metaDescription:
-      'Hot tub removal in Middle Tennessee. Hot tubs disconnected, drained when needed, and removed from decks, patios, and tight access areas.',
+      'Insured hot tub removal in Middle Tennessee. Access, disassembly, and haul-away planned for decks, patios, and yards. Call 615-200-0064.',
     heroEyebrow: 'REMOVAL SERVICES',
-    heroHeadline: 'Hot Tub Removal',
+    heroHeadline: 'Hot Tub Removal in Middle Tennessee',
     heroIntro:
-      'Hot tub removal clears unwanted spas from decks, patios, and backyards—including tight access situations. Reinhart evaluates access, disassembly needs, and haul-away requirements upfront.',
+      'Reinhart Hauling & Cleanouts removes unwanted hot tubs and spas from decks, patios, and backyards across Middle Tennessee. From Goodlettsville, we evaluate access, weight, deck construction, and disassembly needs before haul-away—supporting property resets and cleanouts, not casual junk runs. We are insured, and scope is confirmed before work begins. Electrical and plumbing disconnection must be coordinated separately.',
     heroImage: HERO_YARD,
-    heroImageAlt: 'Hot tub removal project in Middle Tennessee',
+    heroImageAlt: 'Hot tub being removed from a deck during a Middle Tennessee property cleanup',
     servicesIncluded: [
-      'Hot tub disconnection coordination where applicable',
-      'Drain and removal planning',
+      'Hot tub and spa removal planning by access and weight',
+      'Drain and disassembly coordination when required',
       'Deck, patio, and backyard access removal',
-      'Sectioning and haul-away when required',
-      'Area left ready for repair or reuse',
+      'Sectioning and haul-away for tight or elevated setups',
+      'Electrical disconnection coordination (customer or licensed electrician)',
+      'Area left ready for repair, landscaping, or reuse',
     ],
     idealCustomers: ['Homeowners', 'Landlords', 'Real Estate Investors', 'Property Managers', 'Realtors', 'Contractors'],
     faqs: faqs(
       {
+        question: 'What factors affect hot tub removal scope?',
+        answer:
+          'Access path, weight, whether the tub sits on a deck or patio, deck construction and railing constraints, and whether disassembly or sectioning is required all affect labor and pricing. Photos and an on-site review help plan accurately.',
+      },
+      {
+        question: 'Do you disconnect electrical or plumbing for hot tub removal?',
+        answer:
+          'No. We coordinate timing around electrical and plumbing disconnection, but we do not perform electrical, plumbing, or structural work and make no guarantees related to those trades. A licensed electrician or plumber should complete utility disconnection before removal when required.',
+      },
+      {
         question: 'Can you remove hot tubs from decks and tight backyards?',
         answer:
-          'Yes. Access, disassembly, and sectioning needs are reviewed during quoting so removal can be planned accurately.',
+          'Yes. Deck construction, gate width, slope, and yard access are reviewed during quoting. Some tubs must be drained, sectioned, or partially disassembled to clear the space safely.',
       },
     ),
   },
   {
     canonicalPath: '/piano-removal',
     category: 'removal-services',
-    pageTitle: 'Piano Removal | Reinhart Hauling & Cleanouts',
+    pageTitle: 'Piano Removal in Middle Tennessee | Reinhart Hauling & Cleanouts',
     metaDescription:
-      'Piano removal in Middle Tennessee. Upright and console pianos evaluated for stairs, access, and safe removal from homes and estates.',
+      'Insured piano removal in Middle Tennessee. Stairs, weight, and access reviewed for upright and console pianos. Call 615-200-0064.',
     heroEyebrow: 'REMOVAL SERVICES',
-    heroHeadline: 'Piano Removal',
+    heroHeadline: 'Piano Removal in Middle Tennessee',
     heroIntro:
-      'Piano removal requires careful planning for weight, stairs, and access. Reinhart evaluates upright and console pianos upfront and provides organized removal and haul-away when scope allows.',
+      'Reinhart Hauling & Cleanouts evaluates piano removal across Middle Tennessee with careful attention to weight, stairs, and access. From Goodlettsville, we commonly handle upright and console pianos during estate and property cleanouts. Grand pianos may require specialized movers depending on the situation. We are insured, and scope is confirmed before work begins.',
     heroImage: HERO_PROPERTY,
-    heroImageAlt: 'Piano removal from a residential property',
+    heroImageAlt: 'Upright piano removed from a Middle Tennessee home during an estate cleanout',
     servicesIncluded: [
       'Upright and console piano removal by evaluation',
-      'Stairs and tight-access planning',
-      'Estate and home piano haul-away',
+      'Stairs, doorway, and tight-access planning',
+      'Estate, home, and cleanout piano haul-away',
+      'Weight and path assessment before confirming scope',
+      'Clear communication when specialized movers are needed',
       'Responsible loading and disposal coordination',
-      'Clear communication on scope before work begins',
     ],
     idealCustomers: ['Homeowners', 'Families', 'Estate Representatives', 'Realtors', 'Property Managers', 'Landlords'],
     faqs: faqs(
       {
+        question: 'Do stairs and access affect piano removal?',
+        answer:
+          'Yes. Stairs, doorway width, turns, flooring, and overall access path significantly affect labor, equipment needs, and whether a piano can be removed within our scope. Weight and piano type are reviewed together with access.',
+      },
+      {
         question: 'Do you remove all piano types?',
         answer:
-          'We evaluate piano type, weight, stairs, and access before confirming scope. Grand pianos may require specialized movers depending on the situation.',
+          'We evaluate piano type, weight, stairs, and access before confirming scope. Upright and console pianos are commonly within range. Grand pianos may require specialized movers depending on size, location, and access.',
+      },
+      {
+        question: 'Is piano removal part of an estate or property cleanout?',
+        answer:
+          'Often yes. Pianos are frequently cleared during estate cleanouts and whole-property projects when families or ownership teams are emptying a home.',
       },
     ),
   },

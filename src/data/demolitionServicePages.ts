@@ -26,14 +26,16 @@ export type DemolitionServicePageConfig = {
 };
 
 export const PRIORITY_RELATED_DEMO = [
-  { label: 'Interior Demolition', to: '/interior-demolition' },
   { label: 'Selective Demolition', to: '/selective-demolition' },
-  { label: 'Tenant Improvement Demo', to: '/tenant-improvement-demolition' },
-  { label: 'Construction Cleanup', to: '/construction-cleanup' },
-  { label: 'Commercial Interior Strip-Outs', to: '/commercial-interior-strip-outs' },
-  { label: 'Commercial Property Turnovers', to: '/commercial-property-turnovers' },
-  { label: 'Items We Remove', to: '/what-we-take' },
-  { label: 'Projects', to: '/projects' },
+  { label: 'Kitchen Demolition', to: '/kitchen-demolition' },
+  { label: 'Bathroom Demolition', to: '/bathroom-demolition' },
+  { label: 'Flooring Removal', to: '/flooring-removal' },
+  { label: 'Cabinet Removal', to: '/cabinet-removal' },
+  { label: 'Ceiling Grid Removal', to: '/ceiling-grid-removal' },
+  { label: 'Drywall Removal', to: '/drywall-removal' },
+  { label: 'Fence Removal', to: '/fence-removal' },
+  { label: 'Deck Removal', to: '/deck-removal' },
+  { label: 'Shed Demolition', to: '/shed-demolition' },
 ] as const;
 
 export function getRelatedDemolitionServices(currentPath: string) {
@@ -245,15 +247,16 @@ export const DEMOLITION_SERVICE_PAGES: DemolitionServicePageConfig[] = [
   },
   {
     canonicalPath: '/kitchen-demolition',
-    pageTitle: 'Kitchen Demolition | Reinhart Hauling & Cleanouts',
+    pageTitle: 'Kitchen Demolition in Middle Tennessee | Reinhart Hauling & Cleanouts',
     metaDescription:
-      'Kitchen demolition and tear-out in Middle Tennessee. Cabinets, counters, flooring, and fixtures removed to prepare kitchens for renovation.',
+      'Selective kitchen demolition in Middle Tennessee. Cabinets, counters, flooring, and fixtures removed for renovation prep—not structural demo. Call 615-200-0064.',
     heroEyebrow: 'SELECTIVE DEMOLITION',
-    heroHeadline: 'Kitchen Demolition',
+    heroHeadline: 'Kitchen Demolition in Middle Tennessee',
     heroIntro:
-      'Kitchen demolition removes cabinets, counters, flooring, fixtures, and related finishes so renovation can begin cleanly. Reinhart provides selective kitchen tear-out and debris haul-away for residential and commercial remodels.',
+      'Reinhart Hauling & Cleanouts provides selective kitchen demolition across Middle Tennessee from Goodlettsville. We remove cabinets, counters, flooring, and fixtures to prepare kitchens for renovation—not structural building demolition. Access, appliance disassembly, material weight, and disposal needs affect scope. Utility disconnection can be coordinated where applicable; we do not perform plumbing or electrical work. We are insured, and you receive clear pricing before work begins.',
     heroImage: HERO_KITCHEN,
-    heroImageAlt: 'Kitchen demolition before renovation in Middle Tennessee',
+    heroImageAlt:
+      'Selective kitchen demolition removing cabinets and finishes for renovation prep in Middle Tennessee',
     servicesIncluded: [
       'Cabinet and counter removal',
       'Appliance disconnect coordination where applicable',
@@ -275,21 +278,32 @@ export const DEMOLITION_SERVICE_PAGES: DemolitionServicePageConfig[] = [
       {
         question: 'Is kitchen demolition structural demolition?',
         answer:
-          'No. We remove finishes, fixtures, and non-structural kitchen elements to prepare for renovation—not load-bearing structure.',
+          'No. We remove finishes, fixtures, and non-structural kitchen elements to prepare for renovation—not load-bearing structure or building wrecking.',
+      },
+      {
+        question: 'Do you handle plumbing or electrical work in the kitchen?',
+        answer:
+          'No. We do not perform plumbing or electrical work. Utility disconnection can be coordinated with the appropriate trade where applicable before tear-out.',
+      },
+      {
+        question: 'What affects kitchen demolition scope?',
+        answer:
+          'Access to the kitchen, appliance and cabinet disassembly, material weight, equipment needs, and disposal volume all influence labor and project scope.',
       },
     ),
   },
   {
     canonicalPath: '/bathroom-demolition',
-    pageTitle: 'Bathroom Demolition | Reinhart Hauling & Cleanouts',
+    pageTitle: 'Bathroom Demolition in Middle Tennessee | Reinhart Hauling & Cleanouts',
     metaDescription:
-      'Bathroom demolition and tear-out in Middle Tennessee. Vanities, tile, fixtures, and finishes removed to prepare bathrooms for renovation.',
+      'Selective bathroom demolition in Middle Tennessee. Vanities, tile, fixtures, and finishes removed for renovation prep—not structural demo. Call 615-200-0064.',
     heroEyebrow: 'SELECTIVE DEMOLITION',
-    heroHeadline: 'Bathroom Demolition',
+    heroHeadline: 'Bathroom Demolition in Middle Tennessee',
     heroIntro:
-      'Bathroom demolition clears vanities, tile, fixtures, flooring, and related finishes so plumbing, tile, and finish trades can begin. Reinhart provides selective bathroom tear-out with organized debris removal.',
+      'Reinhart Hauling & Cleanouts provides selective bathroom demolition across Middle Tennessee from Goodlettsville. We clear vanities, tile, fixtures, and finishes so bathrooms are ready for renovation—not structural building demolition. Tight access, fixture disassembly, material weight, and disposal needs affect scope. Utility disconnection can be coordinated where applicable; we do not perform plumbing or electrical work. We are insured, and pricing is confirmed before work begins.',
     heroImage: HERO_KITCHEN,
-    heroImageAlt: 'Bathroom demolition and renovation prep in Middle Tennessee',
+    heroImageAlt:
+      'Selective bathroom demolition clearing vanities and finishes for renovation prep in Middle Tennessee',
     servicesIncluded: [
       'Vanity, mirror, and fixture removal',
       'Tile, tub, and shower surround tear-out',
@@ -309,23 +323,34 @@ export const DEMOLITION_SERVICE_PAGES: DemolitionServicePageConfig[] = [
         answer: 'Yes. Tile, tub, shower, vanity, and related bathroom materials can be included in tear-out scope.',
       },
       {
-        question: 'Will the space be ready for plumbers and tile installers?',
+        question: 'Do you perform plumbing or electrical work in bathrooms?',
         answer:
-          'Yes. Our goal is selective demo and debris removal that leaves the bathroom ready for the next renovation phase.',
+          'No. We do not perform plumbing or electrical work. Utility disconnection can be coordinated with the appropriate trade where applicable before selective tear-out.',
+      },
+      {
+        question: 'What affects bathroom demolition scope?',
+        answer:
+          'Tight room access, fixture and surround disassembly, tile and material weight, equipment needs, and disposal volume all influence bathroom demo scope.',
+      },
+      {
+        question: 'Will the bathroom be ready for the next renovation trade?',
+        answer:
+          'Our goal is selective demo and debris removal that clears scheduled materials so plumbers, tile installers, and finish trades can begin their phase of work.',
       },
     ),
   },
   {
     canonicalPath: '/flooring-removal',
-    pageTitle: 'Flooring Removal | Reinhart Hauling & Cleanouts',
+    pageTitle: 'Flooring Removal in Middle Tennessee | Reinhart Hauling & Cleanouts',
     metaDescription:
-      'Flooring removal in Middle Tennessee. Carpet, laminate, vinyl, tile, and other flooring stripped and hauled before new installation.',
+      'Selective flooring removal in Middle Tennessee. Carpet, laminate, vinyl, and tile stripped for renovation prep—not structural demolition. Call 615-200-0064.',
     heroEyebrow: 'SELECTIVE DEMOLITION',
-    heroHeadline: 'Flooring Removal',
+    heroHeadline: 'Flooring Removal in Middle Tennessee',
     heroIntro:
-      'Flooring removal strips carpet, laminate, vinyl, tile, and other floor coverings so subfloor prep and new installation can begin. Reinhart handles selective flooring tear-out and debris haul-away for renovation projects.',
+      'Reinhart Hauling & Cleanouts provides selective flooring removal across Middle Tennessee from Goodlettsville. We strip carpet, laminate, vinyl, tile, and related coverings so spaces are ready for new install—not structural building demolition. Access, adhesive and underlayment disassembly, material weight, and disposal volume affect scope. We are insured, and you receive clear pricing before work begins.',
     heroImage: HERO_INSULATION,
-    heroImageAlt: 'Flooring removal during a renovation project',
+    heroImageAlt:
+      'Selective flooring removal stripping carpet and finishes for renovation prep in Middle Tennessee',
     servicesIncluded: [
       'Carpet, pad, and tack strip removal',
       'Laminate, vinyl, and LVP tear-out',
@@ -342,21 +367,33 @@ export const DEMOLITION_SERVICE_PAGES: DemolitionServicePageConfig[] = [
     faqs: faqs(
       {
         question: 'What types of flooring do you remove?',
-        answer: 'Carpet, laminate, vinyl, LVP, tile, and many glued or floating floor systems within selective demo scope.',
+        answer:
+          'Carpet, laminate, vinyl, LVP, tile, and many glued or floating floor systems within selective demolition scope.',
+      },
+      {
+        question: 'What affects flooring removal scope?',
+        answer:
+          'Room and building access, adhesive or underlayment difficulty, square footage, material weight, equipment needs, and disposal volume all affect flooring removal scope.',
+      },
+      {
+        question: 'Is flooring removal structural demolition?',
+        answer:
+          'No. We remove scheduled floor coverings and related materials for renovation prep—not load-bearing structure or building wrecking.',
       },
     ),
   },
   {
     canonicalPath: '/cabinet-removal',
-    pageTitle: 'Cabinet Removal | Reinhart Hauling & Cleanouts',
+    pageTitle: 'Cabinet Removal in Middle Tennessee | Reinhart Hauling & Cleanouts',
     metaDescription:
-      'Cabinet removal in Middle Tennessee. Kitchen, bathroom, office, and built-in cabinets removed cleanly for renovation and tenant improvement projects.',
+      'Selective cabinet removal in Middle Tennessee. Kitchen, bath, office, and built-in casework removed for renovation prep—not structural demo. Call 615-200-0064.',
     heroEyebrow: 'SELECTIVE DEMOLITION',
-    heroHeadline: 'Cabinet Removal',
+    heroHeadline: 'Cabinet Removal in Middle Tennessee',
     heroIntro:
-      'Cabinet removal clears kitchen, bathroom, office, and built-in casework so layouts can be updated during renovation. Reinhart provides selective cabinet tear-out with debris haul-away—not structural demolition.',
+      'Reinhart Hauling & Cleanouts provides selective cabinet removal across Middle Tennessee from Goodlettsville. We clear kitchen, bathroom, office, and built-in casework so layouts can be updated during renovation—not structural building demolition. Access, casework disassembly, countertop weight, and disposal needs affect scope. We are insured, and pricing is confirmed before work begins.',
     heroImage: HERO_KITCHEN,
-    heroImageAlt: 'Cabinet removal during a kitchen renovation',
+    heroImageAlt:
+      'Selective cabinet removal clearing kitchen casework for renovation prep in Middle Tennessee',
     servicesIncluded: [
       'Kitchen and bathroom cabinet removal',
       'Office and built-in casework removal',
@@ -375,23 +412,34 @@ export const DEMOLITION_SERVICE_PAGES: DemolitionServicePageConfig[] = [
         question: 'Do you remove upper and lower cabinets?',
         answer: 'Yes. Upper, lower, and built-in cabinet removal can be included based on project scope.',
       },
+      {
+        question: 'What affects cabinet removal scope?',
+        answer:
+          'Access to the work area, how cabinets and counters are fastened, material weight, equipment needs, and disposal volume all influence cabinet removal scope.',
+      },
+      {
+        question: 'Is cabinet removal structural demolition?',
+        answer:
+          'No. We remove scheduled casework and related finishes for renovation prep—not load-bearing structure or building wrecking.',
+      },
     ),
   },
   {
     canonicalPath: '/ceiling-grid-removal',
-    pageTitle: 'Ceiling Grid & Ceiling Tile Removal | Reinhart Hauling & Cleanouts',
+    pageTitle: 'Ceiling Grid Removal in Middle Tennessee | Reinhart Hauling & Cleanouts',
     metaDescription:
-      'Ceiling grid and ceiling tile removal in Middle Tennessee. Selective tear-out of drop ceilings and tiles for renovation, TI, and commercial remodel projects.',
+      'Selective ceiling grid and tile removal in Middle Tennessee. Drop ceilings torn out for renovation and TI prep—not structural demo. Call 615-200-0064.',
     heroEyebrow: 'SELECTIVE DEMOLITION',
     heroHeadline: 'Ceiling Grid & Ceiling Tile Removal',
     heroIntro:
-      'Ceiling grid and tile removal opens plenum space and prepares commercial and office interiors for updated ceilings, MEP work, and renovation. Reinhart provides selective ceiling system tear-out with debris haul-away.',
+      'Reinhart Hauling & Cleanouts provides selective ceiling grid and tile removal across Middle Tennessee from Goodlettsville. We tear out drop ceilings so commercial and office interiors are ready for renovation—not structural building demolition. Building access, grid disassembly, material weight, and disposal needs affect scope. Fixture or electrical work must be handled by the appropriate trade when required. We are insured, and you receive clear pricing before work begins.',
     heroImage: HERO_INSULATION,
-    heroImageAlt: 'Ceiling grid and tile removal during commercial renovation prep',
+    heroImageAlt:
+      'Selective ceiling grid and tile removal preparing a commercial interior for renovation in Middle Tennessee',
     servicesIncluded: [
       'Drop ceiling grid and tile removal',
       'Acoustic tile and grid component tear-out',
-      'Light fixture coordination where applicable',
+      'Coordination around fixtures handled by others when required',
       'Debris staging and haul-away',
       'Ceiling area prepared for the next trade',
     ],
@@ -407,6 +455,11 @@ export const DEMOLITION_SERVICE_PAGES: DemolitionServicePageConfig[] = [
         answer: 'Yes. Grid, tile, and related ceiling components can be removed as part of selective demolition scope.',
       },
       {
+        question: 'What affects ceiling grid removal scope?',
+        answer:
+          'Suite and building access, grid and tile quantity, fixture coordination, material weight, equipment needs, and disposal volume all affect ceiling removal scope.',
+      },
+      {
         question: 'Can ceiling removal be part of a TI project?',
         answer:
           'Yes. Ceiling tear-out is commonly coordinated with tenant improvement and commercial renovation schedules.',
@@ -415,15 +468,16 @@ export const DEMOLITION_SERVICE_PAGES: DemolitionServicePageConfig[] = [
   },
   {
     canonicalPath: '/drywall-removal',
-    pageTitle: 'Drywall Removal | Reinhart Hauling & Cleanouts',
+    pageTitle: 'Drywall Removal in Middle Tennessee | Reinhart Hauling & Cleanouts',
     metaDescription:
-      'Drywall removal in Middle Tennessee. Selective drywall tear-out and debris haul-away for renovation, repair, and tenant improvement projects.',
+      'Selective drywall removal in Middle Tennessee. Wall and ceiling drywall torn out for renovation prep—not structural demolition. Call 615-200-0064.',
     heroEyebrow: 'SELECTIVE DEMOLITION',
-    heroHeadline: 'Drywall Removal',
+    heroHeadline: 'Drywall Removal in Middle Tennessee',
     heroIntro:
-      'Drywall removal opens walls and ceilings for inspection, MEP work, and renovation. Reinhart provides selective drywall tear-out with organized debris removal—not structural demolition.',
+      'Reinhart Hauling & Cleanouts provides selective drywall removal across Middle Tennessee from Goodlettsville. We open scheduled walls and ceilings for renovation and repair—not structural building demolition. Access, panel quantity, containment needs, material weight, and disposal volume affect scope. We are insured, and pricing is confirmed before work begins.',
     heroImage: HERO_INSULATION,
-    heroImageAlt: 'Drywall removal during interior renovation prep',
+    heroImageAlt:
+      'Selective drywall removal opening walls for renovation prep in Middle Tennessee',
     servicesIncluded: [
       'Selective wall and ceiling drywall removal',
       'Insulation exposure where scheduled',
@@ -443,19 +497,30 @@ export const DEMOLITION_SERVICE_PAGES: DemolitionServicePageConfig[] = [
         answer:
           'Yes. Selective drywall removal follows defined scope boundaries so unaffected areas remain protected.',
       },
+      {
+        question: 'What affects drywall removal scope?',
+        answer:
+          'Access to the work area, wall and ceiling square footage, containment needs, material weight, equipment needs, and disposal volume all influence drywall removal scope.',
+      },
+      {
+        question: 'Is drywall removal structural demolition?',
+        answer:
+          'No. We remove scheduled drywall for renovation prep—not load-bearing structure or building wrecking.',
+      },
     ),
   },
   {
     canonicalPath: '/fence-removal',
-    pageTitle: 'Fence Removal | Reinhart Hauling & Cleanouts',
+    pageTitle: 'Fence Removal in Middle Tennessee | Reinhart Hauling & Cleanouts',
     metaDescription:
-      'Fence removal in Middle Tennessee. Old fencing, posts, panels, and related debris removed to prepare properties for renovation and exterior updates.',
+      'Selective fence removal in Middle Tennessee. Panels, posts, and debris cleared for exterior renovation prep—not structural building demo. Call 615-200-0064.',
     heroEyebrow: 'SELECTIVE DEMOLITION',
-    heroHeadline: 'Fence Removal',
+    heroHeadline: 'Fence Removal in Middle Tennessee',
     heroIntro:
-      'Fence removal clears old panels, posts, and related debris so exterior renovation, landscaping, or property preparation can move forward. Reinhart handles selective fence tear-down and haul-away—not structural building demolition.',
+      'Reinhart Hauling & Cleanouts provides selective fence removal across Middle Tennessee from Goodlettsville. We tear down panels, posts, and related debris so exterior updates can move forward—not structural building demolition. Yard access, post depth, fence length, material weight, and disposal needs affect scope. We are insured, and you receive clear pricing before work begins.',
     heroImage: HERO_FENCE,
-    heroImageAlt: 'Fence removal project in Middle Tennessee',
+    heroImageAlt:
+      'Selective fence removal clearing panels and posts for exterior renovation prep in Middle Tennessee',
     servicesIncluded: [
       'Wood, vinyl, and chain-link fence removal',
       'Post and panel tear-down',
@@ -475,19 +540,30 @@ export const DEMOLITION_SERVICE_PAGES: DemolitionServicePageConfig[] = [
         question: 'Do you haul away fence debris?',
         answer: 'Yes. Fence panels, posts, and related debris can be loaded and hauled as part of project scope.',
       },
+      {
+        question: 'What affects fence removal scope?',
+        answer:
+          'Yard and truck access, fence length and material type, post depth, disassembly difficulty, material weight, and disposal volume all affect fence removal scope.',
+      },
+      {
+        question: 'Is fence removal structural building demolition?',
+        answer:
+          'No. We remove fencing and related exterior materials for property prep—not buildings or load-bearing structures.',
+      },
     ),
   },
   {
     canonicalPath: '/deck-removal',
-    pageTitle: 'Deck Removal | Reinhart Hauling & Cleanouts',
+    pageTitle: 'Deck Removal in Middle Tennessee | Reinhart Hauling & Cleanouts',
     metaDescription:
-      'Deck removal in Middle Tennessee. Deck boards, framing, railings, and demolition debris removed to prepare properties for exterior renovation.',
+      'Selective deck removal in Middle Tennessee. Boards, railings, and framing removed for exterior renovation prep—not structural building demo. Call 615-200-0064.',
     heroEyebrow: 'SELECTIVE DEMOLITION',
-    heroHeadline: 'Deck Removal',
+    heroHeadline: 'Deck Removal in Middle Tennessee',
     heroIntro:
-      'Deck removal takes down boards, framing, railings, and related components so exterior renovation or property preparation can continue. Reinhart provides selective deck tear-down and debris haul-away.',
+      'Reinhart Hauling & Cleanouts provides selective deck removal across Middle Tennessee from Goodlettsville. We take down boards, railings, framing, and related components for exterior renovation prep—not structural building demolition. Deck construction, site access, material weight, equipment needs, and disposal volume affect scope. We are insured, and pricing is confirmed before work begins.',
     heroImage: HERO_FENCE,
-    heroImageAlt: 'Deck removal and exterior tear-down project',
+    heroImageAlt:
+      'Selective deck removal clearing boards and framing for exterior renovation prep in Middle Tennessee',
     servicesIncluded: [
       'Deck board and railing removal',
       'Framing and post tear-down where scheduled',
@@ -507,19 +583,30 @@ export const DEMOLITION_SERVICE_PAGES: DemolitionServicePageConfig[] = [
         answer:
           'We remove deck components within agreed scope—typically boards, railings, framing, and posts—not building structural demolition.',
       },
+      {
+        question: 'What affects deck removal scope?',
+        answer:
+          'Deck size and construction, site and truck access, fastening methods, material weight, equipment needs, and disposal volume all influence deck removal scope.',
+      },
+      {
+        question: 'Is deck removal structural building demolition?',
+        answer:
+          'No. We remove scheduled deck components for exterior renovation prep—not buildings or load-bearing house structure.',
+      },
     ),
   },
   {
     canonicalPath: '/shed-demolition',
-    pageTitle: 'Shed Demolition | Reinhart Hauling & Cleanouts',
+    pageTitle: 'Shed Demolition in Middle Tennessee | Reinhart Hauling & Cleanouts',
     metaDescription:
-      'Shed demolition in Middle Tennessee. Small sheds and outdoor structures taken down and hauled for property preparation and exterior resets.',
+      'Selective shed demolition in Middle Tennessee. Small sheds and outbuildings removed for property prep—not large structural building demo. Call 615-200-0064.',
     heroEyebrow: 'SELECTIVE DEMOLITION',
-    heroHeadline: 'Shed Demolition',
+    heroHeadline: 'Shed Demolition in Middle Tennessee',
     heroIntro:
-      'Shed demolition removes small outdoor structures and related debris so yards and properties can be reset for renovation, sale, or the next project phase. Reinhart handles selective outbuilding tear-down—not full building demolition.',
+      'Reinhart Hauling & Cleanouts provides selective shed demolition across Middle Tennessee from Goodlettsville. We take down small sheds and outdoor structures so properties can be reset for renovation or sale—not full building wrecking. Access, shed size, disassembly, material weight, and disposal needs affect scope. Large structural demolition requires licensed structural demolition contractors. We are insured, and you receive clear pricing before work begins.',
     heroImage: HERO_FENCE,
-    heroImageAlt: 'Shed demolition and outdoor structure removal',
+    heroImageAlt:
+      'Selective shed demolition removing a small outdoor structure for property prep in Middle Tennessee',
     servicesIncluded: [
       'Small shed and outbuilding tear-down',
       'Contents clearing where applicable',
@@ -537,6 +624,16 @@ export const DEMOLITION_SERVICE_PAGES: DemolitionServicePageConfig[] = [
         question: 'Do you demolish large buildings or barns?',
         answer:
           'We focus on small sheds and outbuildings. Large structural demolition requires licensed structural demolition contractors.',
+      },
+      {
+        question: 'What affects shed demolition scope?',
+        answer:
+          'Yard and truck access, shed size and construction, contents clearing, disassembly difficulty, material weight, equipment needs, and disposal volume all affect shed demolition scope.',
+      },
+      {
+        question: 'Is shed demolition the same as structural building demolition?',
+        answer:
+          'No. Selective shed tear-down targets small outdoor structures for property prep. Large structural demolition requires licensed structural demolition contractors.',
       },
     ),
   },

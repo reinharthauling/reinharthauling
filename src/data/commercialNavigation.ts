@@ -22,15 +22,14 @@ export const COMMERCIAL_NAV_LINKS: CommercialNavLink[] = [
 
 /** Backbone internal links shown on every commercial service page. */
 export const COMMERCIAL_RELATED_BACKBONE: CommercialNavLink[] = [
-  { label: 'Contractor Project Support', to: '/contractor-project-support' },
-  { label: 'Commercial Property Turnovers', to: '/commercial-property-turnovers' },
-  { label: 'Commercial Interior Strip-Outs', to: '/commercial-interior-strip-outs' },
-  { label: 'Tenant Improvement (TI) Demo', to: '/tenant-improvement-demolition' },
-  { label: 'Retail Decommissioning', to: '/retail-decommissioning' },
-  { label: 'White Box Preparation', to: '/white-box-preparation' },
-  { label: 'Lease Surrender Preparation', to: '/lease-surrender-preparation' },
-  { label: 'Construction Cleanup', to: '/construction-cleanup' },
   { label: 'Commercial Cleanouts', to: '/commercial-cleanouts' },
+  { label: 'Commercial Property Turnovers', to: '/commercial-property-turnovers' },
+  { label: 'Office Load-Outs', to: '/office-load-outs' },
+  { label: 'Retail Decommissioning', to: '/retail-decommissioning' },
+  { label: 'Warehouse Cleanouts', to: '/warehouse-cleanouts' },
+  { label: 'Construction Cleanup', to: '/construction-cleanup' },
+  { label: 'Tenant Improvement (TI) Demo', to: '/tenant-improvement-demolition' },
+  { label: 'Contractor Project Support', to: '/contractor-project-support' },
 ];
 
 export function getCommercialRelatedServices(currentPath: string) {
