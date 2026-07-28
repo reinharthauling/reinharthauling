@@ -5,6 +5,11 @@ import PageCTAs from '../components/PageCTAs.tsx';
 import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
 import PageMeta from '../components/PageMeta.tsx';
 import {
+  buildBreadcrumbListSchema,
+  buildProjectPageSchema,
+  compactJsonLd,
+} from '../utils/schema.ts';
+import {
   ArrowRight,
   CalendarDays,
   CheckCircle2,
@@ -181,6 +186,21 @@ export default function HoarderPropertyCleanupJoelton() {
         description={`Real Joelton, TN hoarder property cleanup project by Reinhart Hauling & Cleanouts involving heavy debris removal, sorting, scrap recycling, and responsible disposal.`}
         path={`/projects/hoarder-property-cleanup-joelton`}
         ogImage={heroImage}
+        jsonLd={compactJsonLd([
+          buildProjectPageSchema({
+            path: '/projects/hoarder-property-cleanup-joelton',
+            name: `Hoarder Property Cleanup in Joelton, TN | Reinhart Hauling & Cleanouts`,
+            description: `Real Joelton, TN hoarder property cleanup project by Reinhart Hauling & Cleanouts involving heavy debris removal, sorting, scrap recycling, and responsible disposal.`,
+            image: heroImage,
+            relatedServicePath: '/property-cleanup',
+            locationName: 'Joelton, TN',
+          }),
+          buildBreadcrumbListSchema([
+            { label: 'Home', to: '/' },
+            { label: 'Projects', to: '/projects' },
+            { label: 'Hoarder Property Cleanup | Joelton, TN' },
+          ]),
+        ])}
       />
 
       <section className="relative overflow-hidden bg-brand-navy text-white">

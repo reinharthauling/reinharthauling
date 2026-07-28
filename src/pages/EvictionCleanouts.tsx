@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING, SERVICE_AREAS_FAQ_ANSWER } from '../data/business.ts';
-import { buildFAQPageSchema } from '../utils/schema.ts';
+import { buildFAQPageSchema, buildBreadcrumbListSchema, buildServiceSchema, buildWebPageSchema, compactJsonLd } from '../utils/schema.ts';
 import { motion } from 'motion/react';
 import { CalendarClock, CheckCircle2, ChevronDown, ClipboardCheck, MapPin, MessageSquare, Phone, Truck } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -145,7 +145,28 @@ export default function EvictionCleanouts() {
         title={`Eviction Cleanout Services in Nashville & Middle Tennessee`}
         description={`Eviction cleanout services for landlords and property managers across Nashville and Middle Tennessee. Fast turnover support, clear scheduling, and reliable property clearing.`}
         path={`/eviction-cleanouts`}
-        jsonLd={buildFAQPageSchema(EVICTION_FAQS)}
+        jsonLd={compactJsonLd([
+          buildWebPageSchema({
+            path: '/eviction-cleanouts',
+            name: 'Eviction Cleanout Services in Nashville & Middle Tennessee',
+            description:
+              'Eviction cleanout services for landlords and property managers across Nashville and Middle Tennessee. Fast turnover support, clear scheduling, and reliable property clearing.',
+            mainEntityId: 'https://www.reinharthauling.com/eviction-cleanouts#service',
+          }),
+          buildServiceSchema({
+            name: 'Eviction Cleanouts',
+            description:
+              'Eviction cleanout services for landlords and property managers across Nashville and Middle Tennessee. Fast turnover support, clear scheduling, and reliable property clearing.',
+            path: '/eviction-cleanouts',
+            serviceType: 'Eviction Cleanouts',
+          }),
+          buildFAQPageSchema(EVICTION_FAQS),
+          buildBreadcrumbListSchema([
+            { label: 'Home', to: '/' },
+            { label: 'Residential Services', to: '/residential-property-services' },
+            { label: 'Eviction Cleanouts' },
+          ]),
+        ])}
       />
     
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">

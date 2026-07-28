@@ -5,6 +5,11 @@ import { ShieldCheck } from 'lucide-react';
 import ProjectCard from '../components/ProjectCard';
 import { PROJECT_FILTERS, projects, type ProjectFilter } from '../data/projects';
 import PageMeta from '../components/PageMeta.tsx';
+import {
+  buildBreadcrumbListSchema,
+  buildWebPageSchema,
+  compactJsonLd,
+} from '../utils/schema.ts';
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState<ProjectFilter>('All');
@@ -20,6 +25,16 @@ export default function Projects() {
         title={`Projects | Reinhart Hauling & Cleanouts`}
         description={`See real cleanout, property cleanup, demolition, and investor property projects completed by Reinhart Hauling & Cleanouts throughout Middle Tennessee.`}
         path={`/projects`}
+        jsonLd={compactJsonLd([
+          buildWebPageSchema({
+            path: '/projects',
+            name: 'Projects | Reinhart Hauling & Cleanouts',
+            description:
+              'See real cleanout, property cleanup, demolition, and investor property projects completed by Reinhart Hauling & Cleanouts throughout Middle Tennessee.',
+            type: 'CollectionPage',
+          }),
+          buildBreadcrumbListSchema([{ label: 'Home', to: '/' }, { label: 'Projects' }]),
+        ])}
       />
 
       <section className="relative overflow-hidden pt-32 pb-20 lg:pt-48 lg:pb-28">

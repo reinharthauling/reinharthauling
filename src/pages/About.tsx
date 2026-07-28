@@ -10,7 +10,12 @@ import {
   ShieldCheck,
 } from 'lucide-react';
 import { BUSINESS } from '../data/business.ts';
-import { buildAboutPageSchema, buildLocalBusinessSchema, buildPersonSchema } from '../utils/schema.ts';
+import {
+  buildAboutPageSchema,
+  buildPersonSchema,
+  buildWebSiteSchema,
+  compactJsonLd,
+} from '../utils/schema.ts';
 import PageMeta from '../components/PageMeta.tsx';
 
 const WHY_CLIENTS_CHOOSE = [
@@ -79,11 +84,11 @@ export default function About() {
         title="About Reinhart Hauling & Cleanouts | Moving Properties Forward"
         description="Reinhart Hauling & Cleanouts is owned by Jeremiah Reinhart and helps property managers, investors, contractors, and homeowners move projects forward through property cleanup, commercial cleanouts, and selective demolition across Middle Tennessee."
         path="/about"
-        jsonLd={[
+        jsonLd={compactJsonLd([
+          buildWebSiteSchema(),
           buildAboutPageSchema(),
-          buildLocalBusinessSchema({ includeOffers: false }),
           { '@context': 'https://schema.org', ...buildPersonSchema() },
-        ]}
+        ])}
       />
 
       <section className="relative overflow-hidden pt-32 pb-20 lg:pt-48 lg:pb-32">

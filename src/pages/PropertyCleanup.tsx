@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING } from '../data/business.ts';
-import { buildFAQPageSchema } from '../utils/schema.ts';
+import { buildFAQPageSchema, buildBreadcrumbListSchema, buildServiceSchema, buildWebPageSchema, compactJsonLd } from '../utils/schema.ts';
 import { motion } from 'motion/react';
 import {
   ArrowRight,
@@ -238,7 +238,28 @@ export default function PropertyCleanup() {
         title="Property Cleanup | Investor & Renovation Property Reset | Middle Tennessee"
         description="Property cleanup for investors, landlords, abandoned properties, renovation preparation, property sales, and substantial debris cleanup across Middle Tennessee. Call 615-200-0064."
         path="/property-cleanup"
-        jsonLd={buildFAQPageSchema(FAQS)}
+        jsonLd={compactJsonLd([
+          buildWebPageSchema({
+            path: '/property-cleanup',
+            name: 'Property Cleanup | Investor & Renovation Property Reset | Middle Tennessee',
+            description:
+              'Property cleanup for investors, landlords, abandoned properties, renovation preparation, property sales, and substantial debris cleanup across Middle Tennessee. Call 615-200-0064.',
+            mainEntityId: 'https://www.reinharthauling.com/property-cleanup#service',
+          }),
+          buildServiceSchema({
+            name: 'Property Cleanup',
+            description:
+              'Property cleanup for investors, landlords, abandoned properties, renovation preparation, property sales, and substantial debris cleanup across Middle Tennessee. Call 615-200-0064.',
+            path: '/property-cleanup',
+            serviceType: 'Property Cleanup',
+          }),
+          buildFAQPageSchema(FAQS),
+          buildBreadcrumbListSchema([
+            { label: 'Home', to: '/' },
+            { label: 'Residential Services', to: '/residential-property-services' },
+            { label: 'Property Cleanup' },
+          ]),
+        ])}
       />
 
       <section className="relative scroll-mt-32 pt-32 pb-16 lg:pt-48 lg:pb-24 overflow-hidden">

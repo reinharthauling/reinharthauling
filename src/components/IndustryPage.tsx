@@ -17,8 +17,11 @@ import ServiceBottomCTA from './ServiceBottomCTA.tsx';
 import PageMeta from './PageMeta.tsx';
 import { INDUSTRIES_HUB_PATH } from '../data/industriesNavigation.ts';
 import type { IndustryPageConfig } from '../data/industryPages.ts';
-import { SITE_URL } from '../data/business.ts';
-import { buildFAQPageSchema, buildServiceSchema } from '../utils/schema.ts';
+import {
+  buildFAQPageSchema,
+  buildWebPageSchema,
+  compactJsonLd,
+} from '../utils/schema.ts';
 
 const WHY_REINHART = [
   {
@@ -53,7 +56,6 @@ type IndustryPageProps = {
 
 export default function IndustryPage({ config }: IndustryPageProps) {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
-  const canonicalUrl = `${SITE_URL}${config.canonicalPath}`;
   const ogTitle = config.ogTitle ?? config.pageTitle;
 
   const breadcrumbItems = [
@@ -62,20 +64,13 @@ export default function IndustryPage({ config }: IndustryPageProps) {
     { label: config.heroHeadline },
   ];
 
-  const serviceSchema = {
-    ...buildServiceSchema({
-      name: `${config.heroHeadline} Property Services`,
-      description: config.metaDescription,
-      url: canonicalUrl,
-      serviceType: config.heroHeadline,
-    }),
-    audience: {
-      '@type': 'Audience',
-      audienceType: config.heroHeadline,
-    },
-  };
-
+  // Industry pages describe audience/who we serve — not a single discrete Service offering.
   const faqSchema = buildFAQPageSchema(config.faqs);
+  const webPageSchema = buildWebPageSchema({
+    path: config.canonicalPath,
+    name: config.pageTitle,
+    description: config.metaDescription,
+  });
 
   return (
     <>
@@ -84,7 +79,11 @@ export default function IndustryPage({ config }: IndustryPageProps) {
         description={config.metaDescription}
         path={config.canonicalPath}
         ogTitle={ogTitle}
-        jsonLd={[serviceSchema, faqSchema, buildBreadcrumbSchema(breadcrumbItems)]}
+        jsonLd={compactJsonLd([
+          webPageSchema,
+          faqSchema,
+          buildBreadcrumbSchema(breadcrumbItems),
+        ])}
       />
 
       <section className="relative scroll-mt-32 overflow-hidden pt-32 pb-16 lg:pt-48 lg:pb-24">

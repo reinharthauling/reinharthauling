@@ -13,6 +13,32 @@ export type FaqItem = {
   answer: string;
 };
 
+export type BreadcrumbSchemaItem = {
+  label: string;
+  /** Absolute path starting with `/`. Omit on the current (last) crumb. */
+  to?: string;
+};
+
+export const BUSINESS_ID = `${SITE_URL}/#business`;
+export const PERSON_ID = `${SITE_URL}/#jeremiah-reinhart`;
+export const WEBSITE_ID = `${SITE_URL}/#website`;
+
+/** Canonical site URL with trailing slash for entity URLs. */
+export const SITE_HOME_URL = `${SITE_URL}/`;
+
+function absoluteUrl(pathOrUrl: string): string {
+  if (pathOrUrl.startsWith('http://') || pathOrUrl.startsWith('https://')) {
+    return pathOrUrl;
+  }
+  const path = pathOrUrl.startsWith('/') ? pathOrUrl : `/${pathOrUrl}`;
+  if (path === '/') return SITE_HOME_URL;
+  return `${SITE_URL}${path}`;
+}
+
+function omitUndefined<T extends Record<string, unknown>>(obj: T): T {
+  return Object.fromEntries(Object.entries(obj).filter(([, v]) => v !== undefined && v !== null)) as T;
+}
+
 export function buildAreaServedSchema(cities: ServiceCity[] = SERVICE_CITIES) {
   const items: Record<string, unknown>[] = cities.map((city) => {
     if (city.isPlace) {
@@ -51,36 +77,39 @@ export function buildAreaServedSchema(cities: ServiceCity[] = SERVICE_CITIES) {
 export function buildPersonSchema() {
   return {
     '@type': 'Person',
-    '@id': `${SITE_URL}/#jeremiah-reinhart`,
+    '@id': PERSON_ID,
     name: BUSINESS.owner.name,
     givenName: BUSINESS.owner.givenName,
     familyName: BUSINESS.owner.familyName,
     jobTitle: BUSINESS.owner.jobTitle,
-    worksFor: { '@id': `${SITE_URL}/#business` },
+    worksFor: { '@id': BUSINESS_ID },
     url: `${SITE_URL}/about`,
   };
 }
 
+/**
+ * Lightweight provider reference — avoids nesting full areaServed / NAP on every Service.
+ * The authoritative LocalBusiness lives at BUSINESS_ID (index.html + schema builders).
+ */
 export function buildProviderRef() {
   return {
     '@type': 'LocalBusiness',
-    '@id': `${SITE_URL}/#business`,
-    name: BUSINESS.name,
-    url: SITE_URL,
-    telephone: BUSINESS.phoneSchema,
-    email: BUSINESS.email,
-    areaServed: 'Middle Tennessee',
+    '@id': BUSINESS_ID,
   };
 }
 
-/** LocalBusiness for homepage / sitewide entity clarity. No street address, no geo coords. */
-export function buildLocalBusinessSchema(options?: { includeOffers?: boolean; includeFaqs?: boolean }) {
-  const schema: Record<string, unknown> = {
+/**
+ * Authoritative LocalBusiness entity.
+ * Prefer emitting once (static index.html for CSR shell). React pages should reference @id
+ * rather than re-emitting a full duplicate with the same @id.
+ */
+export function buildLocalBusinessSchema() {
+  return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': `${SITE_URL}/#business`,
+    '@id': BUSINESS_ID,
     name: BUSINESS.name,
-    url: BUSINESS.url,
+    url: SITE_HOME_URL,
     image: BUSINESS.image,
     logo: BUSINESS.logo,
     telephone: BUSINESS.phoneSchema,
@@ -100,37 +129,55 @@ export function buildLocalBusinessSchema(options?: { includeOffers?: boolean; in
     })),
     areaServed: buildAreaServedSchema(),
     founder: buildPersonSchema(),
-    employee: buildPersonSchema(),
+    additionalProperty: {
+      '@type': 'PropertyValue',
+      name: 'Insurance',
+      value: 'Insured',
+    },
     knowsAbout: [...PRIMARY_SERVICES],
   };
+}
 
-  if (BUSINESS.isInsured) {
-    schema.hasCredential = {
-      '@type': 'EducationalOccupationalCredential',
-      credentialCategory: 'Insurance',
-      name: 'Fully Insured',
-    };
-  }
+export function buildWebSiteSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': WEBSITE_ID,
+    url: SITE_HOME_URL,
+    name: BUSINESS.name,
+    description: BUSINESS.description,
+    publisher: { '@id': BUSINESS_ID },
+    inLanguage: 'en-US',
+  };
+}
 
-  if (options?.includeOffers !== false) {
-    schema.hasOfferCatalog = {
-      '@type': 'OfferCatalog',
-      name: 'Property cleanup, commercial cleanout, and selective demolition services',
-      itemListElement: PRIMARY_SERVICES.map((serviceName) => ({
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: serviceName,
-          provider: { '@id': `${SITE_URL}/#business` },
-        },
-      })),
-    };
-  }
-
-  return schema;
+export function buildWebPageSchema(options: {
+  path: string;
+  name: string;
+  description: string;
+  type?: 'WebPage' | 'AboutPage' | 'CollectionPage';
+  mainEntityId?: string;
+}) {
+  const url = absoluteUrl(options.path);
+  return omitUndefined({
+    '@context': 'https://schema.org',
+    '@type': options.type ?? 'WebPage',
+    '@id': `${url.replace(/\/$/, '') || SITE_URL}#webpage`,
+    url,
+    name: options.name,
+    description: options.description,
+    isPartOf: { '@id': WEBSITE_ID },
+    about: { '@id': BUSINESS_ID },
+    primaryImageOfPage: BUSINESS.image,
+    ...(options.mainEntityId ? { mainEntity: { '@id': options.mainEntityId } } : {}),
+  });
 }
 
 export function buildFAQPageSchema(faqs: FaqItem[]) {
+  if (!faqs.length) {
+    return null;
+  }
+
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -145,6 +192,7 @@ export function buildFAQPageSchema(faqs: FaqItem[]) {
   };
 }
 
+/** @deprecated Homepage FAQs are not visibly rendered — do not emit FAQPage from this. */
 export function buildHomeFaqSchema() {
   return buildFAQPageSchema(HOME_FAQS);
 }
@@ -152,32 +200,108 @@ export function buildHomeFaqSchema() {
 export function buildServiceSchema(options: {
   name: string;
   description: string;
-  url: string;
+  /** Canonical path (`/estate-cleanouts`) or absolute URL. */
+  path?: string;
+  url?: string;
   serviceType?: string;
 }) {
+  const url = absoluteUrl(options.url ?? options.path ?? '/');
+  const pageId = `${url.replace(/\/$/, '')}#webpage`;
+  const serviceId = `${url.replace(/\/$/, '')}#service`;
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
+    '@id': serviceId,
     name: options.name,
     serviceType: options.serviceType ?? options.name,
     description: options.description,
+    url,
     provider: buildProviderRef(),
     areaServed: buildAreaServedSchema(),
-    url: options.url,
+    mainEntityOfPage: { '@id': pageId },
+  };
+}
+
+export function buildBreadcrumbListSchema(items: BreadcrumbSchemaItem[]) {
+  if (items.length < 2) return null;
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) =>
+      omitUndefined({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.label,
+        ...(item.to ? { item: absoluteUrl(item.to) } : {}),
+      }),
+    ),
   };
 }
 
 export function buildAboutPageSchema() {
+  const url = `${SITE_URL}/about`;
   return {
     '@context': 'https://schema.org',
     '@type': 'AboutPage',
-    '@id': `${SITE_URL}/about#webpage`,
-    url: `${SITE_URL}/about`,
+    '@id': `${url}#webpage`,
+    url,
     name: `About ${BUSINESS.name}`,
     description: BUSINESS.description,
-    mainEntity: {
-      '@id': `${SITE_URL}/#business`,
-    },
-    about: buildPersonSchema(),
+    isPartOf: { '@id': WEBSITE_ID },
+    mainEntity: { '@id': BUSINESS_ID },
+    about: { '@id': PERSON_ID },
   };
+}
+
+/**
+ * Project / case-study page markup. Uses only provided facts — no invented dates or outcomes.
+ */
+export function buildProjectPageSchema(options: {
+  path: string;
+  name: string;
+  description: string;
+  image?: string;
+  relatedServicePath?: string;
+  locationName?: string;
+}) {
+  const url = absoluteUrl(options.path);
+  const imageUrl = options.image ? absoluteUrl(options.image) : undefined;
+
+  return omitUndefined({
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${url.replace(/\/$/, '')}#webpage`,
+    url,
+    name: options.name,
+    description: options.description,
+    isPartOf: { '@id': WEBSITE_ID },
+    about: { '@id': BUSINESS_ID },
+    ...(imageUrl ? { primaryImageOfPage: imageUrl, image: imageUrl } : {}),
+    ...(options.relatedServicePath
+      ? {
+          mentions: {
+            '@type': 'Service',
+            '@id': `${absoluteUrl(options.relatedServicePath).replace(/\/$/, '')}#service`,
+          },
+        }
+      : {}),
+    ...(options.locationName
+      ? {
+          contentLocation: {
+            '@type': 'Place',
+            name: options.locationName,
+          },
+        }
+      : {}),
+    provider: buildProviderRef(),
+  });
+}
+
+/** Drop null entries when assembling page jsonLd arrays. */
+export function compactJsonLd(
+  schemas: Array<Record<string, unknown> | null | undefined>,
+): Record<string, unknown>[] {
+  return schemas.filter((s): s is Record<string, unknown> => Boolean(s));
 }

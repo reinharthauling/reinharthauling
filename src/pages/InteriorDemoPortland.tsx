@@ -4,6 +4,11 @@ import { ArrowLeft, CheckCircle2, ClipboardCheck, Hammer, MapPin } from 'lucide-
 import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
 import { motion } from 'motion/react';
 import PageMeta from '../components/PageMeta.tsx';
+import {
+  buildBreadcrumbListSchema,
+  buildProjectPageSchema,
+  compactJsonLd,
+} from '../utils/schema.ts';
 
 const PROJECT_BASE = '/images/projects/2026%20Projects/2026-06_Interior-Demo-Portland';
 
@@ -74,6 +79,21 @@ export default function InteriorDemoPortland() {
         description={`Documented interior demolition project in Portland, TN for a real estate investor evaluating renovation versus a larger demo decision.`}
         path={`/projects/interior-demo-portland`}
         ogImage={heroImage}
+        jsonLd={compactJsonLd([
+          buildProjectPageSchema({
+            path: '/projects/interior-demo-portland',
+            name: `Interior Demo in Portland, TN | Reinhart Hauling & Cleanouts`,
+            description: `Documented interior demolition project in Portland, TN for a real estate investor evaluating renovation versus a larger demo decision.`,
+            image: heroImage,
+            relatedServicePath: '/interior-demolition',
+            locationName: 'Portland, TN',
+          }),
+          buildBreadcrumbListSchema([
+            { label: 'Home', to: '/' },
+            { label: 'Projects', to: '/projects' },
+            { label: 'Interior Demo | Portland, TN' },
+          ]),
+        ])}
       />
 
       <section className="relative overflow-hidden pt-32 pb-20 lg:pt-48 lg:pb-28">

@@ -5,10 +5,14 @@ import { Link } from 'react-router-dom';
 import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
 import PageCTAs from '../components/PageCTAs.tsx';
 import PageMeta from '../components/PageMeta.tsx';
-import Breadcrumbs, { buildBreadcrumbSchema } from '../components/Breadcrumbs.tsx';
+import Breadcrumbs from '../components/Breadcrumbs.tsx';
 import { INDUSTRIES_NAV_LINKS, INDUSTRIES_HUB_PATH } from '../data/industriesNavigation.ts';
-import { SITE_URL } from '../data/business.ts';
-import { buildProviderRef } from '../utils/schema.ts';
+import {
+  buildBreadcrumbListSchema,
+  buildProviderRef,
+  buildWebPageSchema,
+  compactJsonLd,
+} from '../utils/schema.ts';
 
 const PAGE_TITLE = 'Industries We Serve | Reinhart Hauling & Cleanouts';
 const META_DESCRIPTION =
@@ -21,14 +25,12 @@ const HERO_IMAGE =
 export default function IndustriesHub() {
   const breadcrumbItems = [{ label: 'Home', to: '/' }, { label: 'Industries We Serve' }];
 
-  const collectionSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'CollectionPage',
-    name: 'Industries We Serve',
+  const collectionSchema = buildWebPageSchema({
+    path: INDUSTRIES_HUB_PATH,
+    name: PAGE_TITLE,
     description: META_DESCRIPTION,
-    url: `${SITE_URL}${INDUSTRIES_HUB_PATH}`,
-    provider: buildProviderRef(),
-  };
+    type: 'CollectionPage',
+  });
 
   return (
     <>
@@ -36,7 +38,13 @@ export default function IndustriesHub() {
         title={PAGE_TITLE}
         description={META_DESCRIPTION}
         path={INDUSTRIES_HUB_PATH}
-        jsonLd={[collectionSchema, buildBreadcrumbSchema(breadcrumbItems)]}
+        jsonLd={compactJsonLd([
+          {
+            ...collectionSchema,
+            provider: buildProviderRef(),
+          },
+          buildBreadcrumbListSchema(breadcrumbItems),
+        ])}
       />
 
       <section className="relative scroll-mt-32 overflow-hidden pt-32 pb-16 lg:pt-48 lg:pb-24">

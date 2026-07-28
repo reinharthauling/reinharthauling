@@ -1,27 +1,17 @@
 import { Link } from 'react-router-dom';
+import {
+  buildBreadcrumbListSchema,
+  type BreadcrumbSchemaItem,
+} from '../utils/schema.ts';
 
-const SITE_URL = 'https://www.reinharthauling.com';
-
-export type BreadcrumbItem = {
-  label: string;
-  to?: string;
-};
+export type BreadcrumbItem = BreadcrumbSchemaItem;
 
 type BreadcrumbsProps = {
   items: BreadcrumbItem[];
 };
 
 export function buildBreadcrumbSchema(items: BreadcrumbItem[]) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: items.map((item, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      name: item.label,
-      ...(item.to ? { item: `${SITE_URL}${item.to}` } : {}),
-    })),
-  };
+  return buildBreadcrumbListSchema(items);
 }
 
 export default function Breadcrumbs({ items }: BreadcrumbsProps) {

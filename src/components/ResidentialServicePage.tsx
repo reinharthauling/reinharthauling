@@ -19,7 +19,14 @@ import {
   type ResidentialServicePageConfig,
 } from '../data/residentialServicePages.ts';
 import { SITE_URL } from '../data/business.ts';
-import { buildFAQPageSchema, buildServiceSchema } from '../utils/schema.ts';
+import {
+  buildBreadcrumbListSchema,
+  buildFAQPageSchema,
+  buildServiceSchema,
+  buildWebPageSchema,
+  compactJsonLd,
+} from '../utils/schema.ts';
+
 
 const PROCESS_STEPS = [
   {
@@ -57,18 +64,33 @@ type ResidentialServicePageProps = {
 
 export default function ResidentialServicePage({ config }: ResidentialServicePageProps) {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
-  const canonicalUrl = `${SITE_URL}${config.canonicalPath}`;
   const ogTitle = config.ogTitle ?? config.pageTitle;
   const relatedServices = getRelatedResidentialServices(config.canonicalPath, config.category);
 
   const serviceSchema = buildServiceSchema({
     name: config.heroHeadline,
     description: config.metaDescription,
-    url: canonicalUrl,
+    path: config.canonicalPath,
     serviceType: config.heroHeadline,
   });
 
   const faqSchema = buildFAQPageSchema(config.faqs);
+  const hubPath =
+    config.category === 'removal-services'
+      ? '/residential-property-services'
+      : '/residential-property-services';
+  const hubLabel = 'Residential Services';
+  const breadcrumbSchema = buildBreadcrumbListSchema([
+    { label: 'Home', to: '/' },
+    { label: hubLabel, to: hubPath },
+    { label: config.heroHeadline },
+  ]);
+  const webPageSchema = buildWebPageSchema({
+    path: config.canonicalPath,
+    name: config.pageTitle,
+    description: config.metaDescription,
+    mainEntityId: `${SITE_URL}${config.canonicalPath}#service`,
+  });
 
   return (
     <>
@@ -77,7 +99,7 @@ export default function ResidentialServicePage({ config }: ResidentialServicePag
         description={config.metaDescription}
         path={config.canonicalPath}
         ogTitle={ogTitle}
-        jsonLd={[serviceSchema, faqSchema]}
+        jsonLd={compactJsonLd([webPageSchema, serviceSchema, faqSchema, breadcrumbSchema])}
       />
 
       <section className="relative scroll-mt-32 overflow-hidden pt-32 pb-16 lg:pt-48 lg:pb-24">

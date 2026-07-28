@@ -7,6 +7,12 @@ import PageCTAs from '../components/PageCTAs.tsx';
 import CleanoutProcess from '../components/CleanoutProcess.tsx';
 import { projectImages } from '../data/projectImages';
 import PageMeta from '../components/PageMeta.tsx';
+import {
+  buildBreadcrumbListSchema,
+  buildServiceSchema,
+  buildWebPageSchema,
+  compactJsonLd,
+} from '../utils/schema.ts';
 
 const GARAGE_SHOWCASE = {
   beforeSrc: projectImages.garageCleanouts.gallatin.before,
@@ -22,6 +28,27 @@ export default function GarageCleanouts() {
         title={`Garage Cleanouts in Nashville | Reinhart Hauling & Cleanouts`}
         description={`Garage cleanout services in Nashville. Remove clutter, furniture, tools, and junk. Request an estimate with project details.`}
         path={`/garage-cleanouts`}
+        jsonLd={compactJsonLd([
+          buildWebPageSchema({
+            path: '/garage-cleanouts',
+            name: 'Garage Cleanouts in Nashville | Reinhart Hauling & Cleanouts',
+            description:
+              'Garage cleanout services in Nashville. Remove clutter, furniture, tools, and junk. Request an estimate with project details.',
+            mainEntityId: 'https://www.reinharthauling.com/garage-cleanouts#service',
+          }),
+          buildServiceSchema({
+            name: 'Garage Cleanouts',
+            description:
+              'Garage cleanout services in Nashville. Remove clutter, furniture, tools, and junk. Request an estimate with project details.',
+            path: '/garage-cleanouts',
+            serviceType: 'Garage Cleanouts',
+          }),
+          buildBreadcrumbListSchema([
+            { label: 'Home', to: '/' },
+            { label: 'Residential Services', to: '/residential-property-services' },
+            { label: 'Garage Cleanouts' },
+          ]),
+        ])}
       />
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32">
         <div className="max-w-7xl mx-auto px-6">

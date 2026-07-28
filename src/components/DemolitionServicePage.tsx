@@ -20,7 +20,14 @@ import {
   type DemolitionServicePageConfig,
 } from '../data/demolitionServicePages.ts';
 import { SITE_URL } from '../data/business.ts';
-import { buildFAQPageSchema, buildServiceSchema } from '../utils/schema.ts';
+import {
+  buildBreadcrumbListSchema,
+  buildFAQPageSchema,
+  buildServiceSchema,
+  buildWebPageSchema,
+  compactJsonLd,
+} from '../utils/schema.ts';
+
 
 const DEFAULT_WHO_WE_WORK_WITH = [
   'General Contractors',
@@ -97,7 +104,6 @@ type DemolitionServicePageProps = {
 
 export default function DemolitionServicePage({ config }: DemolitionServicePageProps) {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
-  const canonicalUrl = `${SITE_URL}${config.canonicalPath}`;
   const ogTitle = config.ogTitle ?? config.pageTitle;
   const relatedServices = getRelatedDemolitionServices(config.canonicalPath);
   const whoWeWorkWith = config.whoWeWorkWith ?? DEFAULT_WHO_WE_WORK_WITH;
@@ -105,11 +111,22 @@ export default function DemolitionServicePage({ config }: DemolitionServicePageP
   const serviceSchema = buildServiceSchema({
     name: config.heroHeadline,
     description: config.metaDescription,
-    url: canonicalUrl,
+    path: config.canonicalPath,
     serviceType: config.heroHeadline,
   });
 
   const faqSchema = buildFAQPageSchema(config.faqs);
+  const breadcrumbSchema = buildBreadcrumbListSchema([
+    { label: 'Home', to: '/' },
+    { label: 'Demolition Services', to: '/demolition-services' },
+    { label: config.heroHeadline },
+  ]);
+  const webPageSchema = buildWebPageSchema({
+    path: config.canonicalPath,
+    name: config.pageTitle,
+    description: config.metaDescription,
+    mainEntityId: `${SITE_URL}${config.canonicalPath}#service`,
+  });
 
   return (
     <>
@@ -118,7 +135,7 @@ export default function DemolitionServicePage({ config }: DemolitionServicePageP
         description={config.metaDescription}
         path={config.canonicalPath}
         ogTitle={ogTitle}
-        jsonLd={[serviceSchema, faqSchema]}
+        jsonLd={compactJsonLd([webPageSchema, serviceSchema, faqSchema, breadcrumbSchema])}
       />
 
       <section className="relative scroll-mt-32 overflow-hidden pt-32 pb-16 lg:pt-48 lg:pb-24">

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING, SERVICE_AREAS_FAQ_ANSWER } from '../data/business.ts';
-import { buildFAQPageSchema } from '../utils/schema.ts';
+import { buildFAQPageSchema, buildBreadcrumbListSchema, buildServiceSchema, buildWebPageSchema, compactJsonLd } from '../utils/schema.ts';
 import { motion } from 'motion/react';
 import { Calendar, CheckCircle2, ChevronDown, ClipboardCheck, MessageSquare, Truck } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -220,7 +220,28 @@ export default function PropertyCleanouts() {
         title="Property Cleanouts | Contents Removal in Middle Tennessee"
         description="Property cleanouts for homes, estates, rentals, garages, and hoarded properties across Middle Tennessee. We remove unwanted contents and leave the structure ready for the next step. Call 615-200-0064."
         path="/property-cleanouts"
-        jsonLd={buildFAQPageSchema(PROPERTY_FAQS)}
+        jsonLd={compactJsonLd([
+          buildWebPageSchema({
+            path: '/property-cleanouts',
+            name: 'Property Cleanouts | Contents Removal in Middle Tennessee',
+            description:
+              'Property cleanouts for homes, estates, rentals, garages, and hoarded properties across Middle Tennessee. We remove unwanted contents and leave the structure ready for the next step. Call 615-200-0064.',
+            mainEntityId: 'https://www.reinharthauling.com/property-cleanouts#service',
+          }),
+          buildServiceSchema({
+            name: 'Property Cleanouts',
+            description:
+              'Property cleanouts for homes, estates, rentals, garages, and hoarded properties across Middle Tennessee. We remove unwanted contents and leave the structure ready for the next step. Call 615-200-0064.',
+            path: '/property-cleanouts',
+            serviceType: 'Property Cleanouts',
+          }),
+          buildFAQPageSchema(PROPERTY_FAQS),
+          buildBreadcrumbListSchema([
+            { label: 'Home', to: '/' },
+            { label: 'Residential Services', to: '/residential-property-services' },
+            { label: 'Property Cleanouts' },
+          ]),
+        ])}
       />
 
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">

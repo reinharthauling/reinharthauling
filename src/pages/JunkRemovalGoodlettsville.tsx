@@ -4,7 +4,13 @@ import { motion } from 'motion/react';
 import { CheckCircle2, MapPin, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PageCTAs from '../components/PageCTAs.tsx';
-import { buildFAQPageSchema, buildServiceSchema } from '../utils/schema.ts';
+import {
+  buildBreadcrumbListSchema,
+  buildFAQPageSchema,
+  buildServiceSchema,
+  buildWebPageSchema,
+  compactJsonLd,
+} from '../utils/schema.ts';
 import PageMeta from '../components/PageMeta.tsx';
 
 const LOCAL_FAQS = [
@@ -38,7 +44,7 @@ export default function JunkRemovalGoodlettsville() {
     name: 'Junk Removal in Goodlettsville, TN',
     description:
       'Local junk removal and property cleanup support in Goodlettsville, Tennessee for furniture, appliances, garage cleanouts, yard debris, and household clutter.',
-    url: 'https://www.reinharthauling.com/junk-removal-goodlettsville',
+    path: '/junk-removal-goodlettsville',
     serviceType: 'Junk Removal',
   });
   const faqSchema = buildFAQPageSchema(LOCAL_FAQS);
@@ -49,7 +55,22 @@ export default function JunkRemovalGoodlettsville() {
         title={`Junk Removal in Goodlettsville TN | Reinhart Hauling & Cleanouts`}
         description={`Local junk removal and property cleanup support in Goodlettsville, TN. Furniture, appliances, garage cleanouts, and more. Request an estimate. Call 615-200-0064.`}
         path={`/junk-removal-goodlettsville`}
-        jsonLd={[serviceSchema, faqSchema]}
+        jsonLd={compactJsonLd([
+          buildWebPageSchema({
+            path: '/junk-removal-goodlettsville',
+            name: 'Junk Removal in Goodlettsville TN | Reinhart Hauling & Cleanouts',
+            description:
+              'Local junk removal and property cleanup support in Goodlettsville, TN. Furniture, appliances, garage cleanouts, and more. Request an estimate. Call 615-200-0064.',
+            mainEntityId: 'https://www.reinharthauling.com/junk-removal-goodlettsville#service',
+          }),
+          serviceSchema,
+          faqSchema,
+          buildBreadcrumbListSchema([
+            { label: 'Home', to: '/' },
+            { label: 'Junk Removal', to: '/junk-removal' },
+            { label: 'Goodlettsville' },
+          ]),
+        ])}
       />
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
           <div className="max-w-7xl mx-auto px-6">

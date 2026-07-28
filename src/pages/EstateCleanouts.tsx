@@ -17,6 +17,12 @@ import CleanoutProcess from '../components/CleanoutProcess.tsx';
 import OptionalServiceImage from '../components/OptionalServiceImage.tsx';
 import EstateFaq from '../components/EstateFaq.tsx';
 import PageMeta from '../components/PageMeta.tsx';
+import {
+  buildBreadcrumbListSchema,
+  buildServiceSchema,
+  buildWebPageSchema,
+  compactJsonLd,
+} from '../utils/schema.ts';
 
 const ESTATE_PROCESS_STEPS = [
   {
@@ -131,6 +137,27 @@ export default function EstateCleanouts() {
         title={`Estate Cleanouts in Nashville | Full Property Cleanouts`}
         description={`Full estate cleanout services for homes and inherited properties. Serving Nashville and surrounding areas.`}
         path={`/estate-cleanouts`}
+        jsonLd={compactJsonLd([
+          buildWebPageSchema({
+            path: '/estate-cleanouts',
+            name: 'Estate Cleanouts in Nashville | Full Property Cleanouts',
+            description:
+              'Full estate cleanout services for homes and inherited properties. Serving Nashville and surrounding areas.',
+            mainEntityId: 'https://www.reinharthauling.com/estate-cleanouts#service',
+          }),
+          buildServiceSchema({
+            name: 'Estate Cleanouts',
+            description:
+              'Full estate cleanout services for homes and inherited properties. Serving Nashville and surrounding areas.',
+            path: '/estate-cleanouts',
+            serviceType: 'Estate Cleanouts',
+          }),
+          buildBreadcrumbListSchema([
+            { label: 'Home', to: '/' },
+            { label: 'Residential Services', to: '/residential-property-services' },
+            { label: 'Estate Cleanouts' },
+          ]),
+        ])}
       />
 
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">

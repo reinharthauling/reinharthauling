@@ -4,6 +4,11 @@ import { ArrowLeft, CheckCircle2, ClipboardCheck, MapPin, Truck } from 'lucide-r
 import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
 import { motion } from 'motion/react';
 import PageMeta from '../components/PageMeta.tsx';
+import {
+  buildBreadcrumbListSchema,
+  buildProjectPageSchema,
+  compactJsonLd,
+} from '../utils/schema.ts';
 
 const PROJECT_BASE = '/images/projects/2026%20Projects/2026-06_Investor-Property-Cleanup_Gallatin';
 
@@ -71,6 +76,21 @@ export default function InvestorPropertyCleanupGallatin() {
         description={`Documented investor property cleanup in Gallatin, TN including debris removal, fence demolition, bulky item cleanup, and transfer station disposal.`}
         path={`/projects/investor-property-cleanup-gallatin`}
         ogImage={heroImage}
+        jsonLd={compactJsonLd([
+          buildProjectPageSchema({
+            path: '/projects/investor-property-cleanup-gallatin',
+            name: `Investor Property Cleanup in Gallatin, TN | Reinhart Hauling & Cleanouts`,
+            description: `Documented investor property cleanup in Gallatin, TN including debris removal, fence demolition, bulky item cleanup, and transfer station disposal.`,
+            image: heroImage,
+            relatedServicePath: '/property-cleanup',
+            locationName: 'Gallatin, TN',
+          }),
+          buildBreadcrumbListSchema([
+            { label: 'Home', to: '/' },
+            { label: 'Projects', to: '/projects' },
+            { label: 'Investor Property Cleanup | Gallatin, TN' },
+          ]),
+        ])}
       />
 
       <section className="relative overflow-hidden pt-32 pb-20 lg:pt-48 lg:pb-28">

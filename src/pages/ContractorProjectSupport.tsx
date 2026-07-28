@@ -17,7 +17,13 @@ import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
 import PageMeta from '../components/PageMeta.tsx';
 import { getCommercialRelatedServices } from '../data/commercialNavigation.ts';
 import { SITE_URL } from '../data/business.ts';
-import { buildFAQPageSchema, buildServiceSchema } from '../utils/schema.ts';
+import {
+  buildBreadcrumbListSchema,
+  buildFAQPageSchema,
+  buildServiceSchema,
+  buildWebPageSchema,
+  compactJsonLd,
+} from '../utils/schema.ts';
 
 const CANONICAL_PATH = '/contractor-project-support';
 
@@ -201,12 +207,10 @@ const FAQS = [
 
 export default function ContractorProjectSupport() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
-  const canonicalUrl = `${SITE_URL}${CANONICAL_PATH}`;
-
   const serviceSchema = buildServiceSchema({
     name: 'Contractor Project Support Services',
     description: META_DESCRIPTION,
-    url: canonicalUrl,
+    path: CANONICAL_PATH,
     serviceType: 'Commercial Construction Project Support',
   });
 
@@ -218,7 +222,21 @@ export default function ContractorProjectSupport() {
         title={PAGE_TITLE}
         description={META_DESCRIPTION}
         path={CANONICAL_PATH}
-        jsonLd={[serviceSchema, faqSchema]}
+        jsonLd={compactJsonLd([
+          buildWebPageSchema({
+            path: CANONICAL_PATH,
+            name: PAGE_TITLE,
+            description: META_DESCRIPTION,
+            mainEntityId: `${SITE_URL}${CANONICAL_PATH}#service`,
+          }),
+          serviceSchema,
+          faqSchema,
+          buildBreadcrumbListSchema([
+            { label: 'Home', to: '/' },
+            { label: 'Commercial Services', to: '/commercial-services' },
+            { label: 'Contractor Project Support' },
+          ]),
+        ])}
       />
 
       <section className="relative scroll-mt-32 overflow-hidden pt-32 pb-16 lg:pt-48 lg:pb-24">

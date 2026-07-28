@@ -5,6 +5,11 @@ import { motion } from 'motion/react';
 import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
 import PageMeta from '../components/PageMeta.tsx';
 import { getProjectBySlug } from '../data/projects';
+import {
+  buildBreadcrumbListSchema,
+  buildProjectPageSchema,
+  compactJsonLd,
+} from '../utils/schema.ts';
 
 /** Project detail routes with empty image folders — keep routes, do not index. */
 const THIN_PROJECT_SLUGS = new Set([
@@ -135,6 +140,20 @@ export default function ProjectDetail() {
         path={`/projects/${project.slug}`}
         ogImage={THIN_PROJECT_SLUGS.has(project.slug) ? undefined : project.featuredImage}
         noindex={THIN_PROJECT_SLUGS.has(project.slug)}
+        jsonLd={compactJsonLd([
+          buildProjectPageSchema({
+            path: `/projects/${project.slug}`,
+            name: project.seoTitle,
+            description: project.seoDescription,
+            image: project.featuredImage,
+            locationName: project.serviceArea,
+          }),
+          buildBreadcrumbListSchema([
+            { label: 'Home', to: '/' },
+            { label: 'Projects', to: '/projects' },
+            { label: project.title },
+          ]),
+        ])}
       />
 
       <section className="relative overflow-hidden pt-32 pb-20 lg:pt-48 lg:pb-28">

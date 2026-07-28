@@ -87,7 +87,11 @@ import CommercialServicePage from './components/CommercialServicePage.tsx';
 import { COMMERCIAL_SERVICE_PAGES } from './data/commercialServicePages.ts';
 import { scrollToSection } from './utils/scrollToSection.ts';
 import { projectImages } from './data/projectImages';
-import { buildLocalBusinessSchema } from './utils/schema.ts';
+import {
+  buildWebPageSchema,
+  buildWebSiteSchema,
+  compactJsonLd,
+} from './utils/schema.ts';
 import {
   BUSINESS_HOURS_DISPLAY,
   SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING,
@@ -1898,7 +1902,14 @@ const HomePage = () => {
         title={HOME_TITLE}
         description={HOME_DESCRIPTION}
         path="/"
-        jsonLd={buildLocalBusinessSchema()}
+        jsonLd={compactJsonLd([
+          buildWebSiteSchema(),
+          buildWebPageSchema({
+            path: '/',
+            name: HOME_TITLE,
+            description: HOME_DESCRIPTION,
+          }),
+        ])}
       />
     <SiteLayout>
       <Hero />

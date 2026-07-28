@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SERVICE_AREA_DISPLAY_NAMES_WITH_PENDING, SERVICE_AREAS_FAQ_ANSWER } from '../data/business.ts';
-import { buildFAQPageSchema } from '../utils/schema.ts';
+import { buildFAQPageSchema, buildBreadcrumbListSchema, buildServiceSchema, buildWebPageSchema, compactJsonLd } from '../utils/schema.ts';
 import { motion } from 'motion/react';
 import { CheckCircle2, ChevronDown, ClipboardCheck, MessageSquare, Phone, Truck } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -152,7 +152,28 @@ export default function LandlordRentalCleanouts() {
         title={`Landlord & Rental Cleanout Services in Nashville & Middle Tennessee`}
         description={`Landlord and rental cleanout services for move-outs, turnovers, and property resets across Nashville and Middle Tennessee. Responsive scheduling and dependable turnover support.`}
         path={`/landlord-rental-cleanouts`}
-        jsonLd={buildFAQPageSchema(RENTAL_FAQS)}
+        jsonLd={compactJsonLd([
+          buildWebPageSchema({
+            path: '/landlord-rental-cleanouts',
+            name: 'Landlord & Rental Cleanout Services in Nashville & Middle Tennessee',
+            description:
+              'Landlord and rental cleanout services for move-outs, turnovers, and property resets across Nashville and Middle Tennessee. Responsive scheduling and dependable turnover support.',
+            mainEntityId: 'https://www.reinharthauling.com/landlord-rental-cleanouts#service',
+          }),
+          buildServiceSchema({
+            name: 'Landlord & Rental Cleanouts',
+            description:
+              'Landlord and rental cleanout services for move-outs, turnovers, and property resets across Nashville and Middle Tennessee. Responsive scheduling and dependable turnover support.',
+            path: '/landlord-rental-cleanouts',
+            serviceType: 'Landlord & Rental Cleanouts',
+          }),
+          buildFAQPageSchema(RENTAL_FAQS),
+          buildBreadcrumbListSchema([
+            { label: 'Home', to: '/' },
+            { label: 'Residential Services', to: '/residential-property-services' },
+            { label: 'Landlord & Rental Cleanouts' },
+          ]),
+        ])}
       />
 
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">

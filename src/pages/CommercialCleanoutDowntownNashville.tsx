@@ -4,6 +4,11 @@ import { ArrowLeft, ArrowRight, CheckCircle2, MapPin } from 'lucide-react';
 import ServiceBottomCTA from '../components/ServiceBottomCTA.tsx';
 import { motion } from 'motion/react';
 import PageMeta from '../components/PageMeta.tsx';
+import {
+  buildBreadcrumbListSchema,
+  buildProjectPageSchema,
+  compactJsonLd,
+} from '../utils/schema.ts';
 
 const PROJECT_BASE = '/images/projects/2026%20Projects/2026-06_Commercial-Office-Cleanout_Nashville';
 
@@ -68,6 +73,21 @@ export default function CommercialCleanoutDowntownNashville() {
         description={`Documented commercial office load-out in Downtown Nashville with cubicle disassembly, office furniture removal, elevator logistics, and commercial hauling.`}
         path={`/projects/commercial-cleanout-downtown-nashville`}
         ogImage={heroImage}
+        jsonLd={compactJsonLd([
+          buildProjectPageSchema({
+            path: '/projects/commercial-cleanout-downtown-nashville',
+            name: `Commercial Office Load-Out in Downtown Nashville | Reinhart Hauling & Cleanouts`,
+            description: `Documented commercial office load-out in Downtown Nashville with cubicle disassembly, office furniture removal, elevator logistics, and commercial hauling.`,
+            image: heroImage,
+            relatedServicePath: '/commercial-cleanouts',
+            locationName: 'Downtown Nashville, TN',
+          }),
+          buildBreadcrumbListSchema([
+            { label: 'Home', to: '/' },
+            { label: 'Projects', to: '/projects' },
+            { label: 'Commercial Office Load-Out | Downtown Nashville' },
+          ]),
+        ])}
       />
 
       <section className="relative overflow-hidden pt-32 pb-20 lg:pt-48 lg:pb-28">

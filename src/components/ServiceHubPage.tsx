@@ -13,7 +13,12 @@ import CleanoutProcess from './CleanoutProcess.tsx';
 import PageCTAs from './PageCTAs.tsx';
 import ServiceBottomCTA from './ServiceBottomCTA.tsx';
 import PageMeta from './PageMeta.tsx';
-import { buildFAQPageSchema } from '../utils/schema.ts';
+import {
+  buildBreadcrumbListSchema,
+  buildFAQPageSchema,
+  buildWebPageSchema,
+  compactJsonLd,
+} from '../utils/schema.ts';
 
 export type HubService = {
   icon: LucideIcon;
@@ -114,6 +119,22 @@ const HubServiceCard = ({ service, index }: { service: HubService; index: number
 export default function ServiceHubPage({ config }: { config: HubConfig }) {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const faqSchema = buildFAQPageSchema(config.faqs);
+  const hubLabel =
+    config.canonicalPath === '/commercial-services'
+      ? 'Commercial Services'
+      : config.canonicalPath === '/demolition-services'
+        ? 'Demolition Services'
+        : 'Residential Services';
+  const webPageSchema = buildWebPageSchema({
+    path: config.canonicalPath,
+    name: config.pageTitle,
+    description: config.metaDescription,
+    type: 'CollectionPage',
+  });
+  const breadcrumbSchema = buildBreadcrumbListSchema([
+    { label: 'Home', to: '/' },
+    { label: hubLabel },
+  ]);
 
   return (
     <>
@@ -122,7 +143,7 @@ export default function ServiceHubPage({ config }: { config: HubConfig }) {
         description={config.metaDescription}
         path={config.canonicalPath}
         ogTitle={config.metaTitle}
-        jsonLd={faqSchema}
+        jsonLd={compactJsonLd([webPageSchema, faqSchema, breadcrumbSchema])}
       />
 
       {/* Hero */}
