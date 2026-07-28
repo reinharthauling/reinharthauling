@@ -81,12 +81,12 @@ const GARAGE_FAQS = [
 ];
 
 const RELATED_SERVICES = [
+  { label: 'Property Cleanup', to: '/property-cleanup' },
+  { label: 'Property Cleanup in Gallatin', to: '/property-cleanup-gallatin' },
   { label: 'Property Cleanouts', to: '/property-cleanouts' },
   { label: 'Storage Unit Cleanouts', to: '/storage-unit-cleanouts' },
-  { label: 'Move-Out Cleanouts', to: '/move-out-cleanouts' },
   { label: 'Estate Cleanouts', to: '/estate-cleanouts' },
   { label: 'Items We Remove', to: '/what-we-take' },
-  { label: 'Projects', to: '/projects' },
 ];
 
 export default function GarageCleanouts() {
@@ -323,14 +323,24 @@ export default function GarageCleanouts() {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
-            {SERVICE_AREAS.map((area) => (
-              <div
-                key={area}
-                className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3.5 text-center text-sm font-semibold text-brand-navy"
-              >
-                {area}
-              </div>
-            ))}
+            {SERVICE_AREAS.map((area) =>
+              area === 'Gallatin' ? (
+                <Link
+                  key={area}
+                  to="/property-cleanup-gallatin"
+                  className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3.5 text-center text-sm font-semibold text-brand-navy transition-colors hover:border-brand-orange hover:text-brand-orange"
+                >
+                  {area}
+                </Link>
+              ) : (
+                <div
+                  key={area}
+                  className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3.5 text-center text-sm font-semibold text-brand-navy"
+                >
+                  {area}
+                </div>
+              ),
+            )}
           </div>
 
           <p className="mt-6 md:mt-8 text-slate-500 text-sm md:text-base leading-relaxed max-w-3xl">

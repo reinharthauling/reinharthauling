@@ -71,6 +71,7 @@ import InteriorDemoPortland from './pages/InteriorDemoPortland.tsx';
 import CommercialCleanoutDowntownNashville from './pages/CommercialCleanoutDowntownNashville.tsx';
 import WhatWeTake from './pages/WhatWeTake.tsx';
 import Pricing from './pages/Pricing.tsx';
+import PropertyCleanupGallatin from './pages/PropertyCleanupGallatin.tsx';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import ScrollToTop from './ScrollToTop.tsx';
@@ -1855,11 +1856,21 @@ const Footer = () => {
           <div className="order-4 lg:order-3">
             <h3 className="font-display text-lg font-bold mb-4">Areas Served</h3>
             <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-4">
-              {footerAreas.map((area) => (
-                <span key={area} className="text-sm text-slate-300">
-                  {area}
-                </span>
-              ))}
+              {footerAreas.map((area) =>
+                area === 'Gallatin' ? (
+                  <Link
+                    key={area}
+                    to="/property-cleanup-gallatin"
+                    className="text-sm text-slate-300 hover:text-brand-orange transition-colors"
+                  >
+                    {area}
+                  </Link>
+                ) : (
+                  <span key={area} className="text-sm text-slate-300">
+                    {area}
+                  </span>
+                ),
+              )}
             </div>
             <Link to="/#service-areas" className="inline-flex text-sm font-bold text-brand-orange hover:text-brand-orange-light transition-colors">
               View Full Service Area
@@ -2165,6 +2176,14 @@ export default function App() {
           element={
             <SiteLayout>
               <PropertyCleanup />
+            </SiteLayout>
+          }
+        />
+        <Route
+          path="/property-cleanup-gallatin"
+          element={
+            <SiteLayout>
+              <PropertyCleanupGallatin />
             </SiteLayout>
           }
         />

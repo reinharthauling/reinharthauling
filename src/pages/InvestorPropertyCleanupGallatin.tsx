@@ -127,6 +127,13 @@ export default function InvestorPropertyCleanupGallatin() {
                 Assisted a local real estate investor with exterior debris removal, fence demo, bulky item cleanup, and
                 property preparation after complaints were raised about trash around the home.
               </p>
+              <p className="mt-5 text-base leading-relaxed text-slate-600">
+                For broader local cleanup information, see{' '}
+                <Link to="/property-cleanup-gallatin" className="font-bold text-brand-orange hover:text-brand-navy">
+                  property cleanup in Gallatin
+                </Link>
+                .
+              </p>
             </motion.div>
 
             <motion.div

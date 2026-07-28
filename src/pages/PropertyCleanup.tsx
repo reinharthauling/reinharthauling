@@ -495,6 +495,13 @@ export default function PropertyCleanup() {
                 View Full Project
                 <ArrowRight size={18} className="text-brand-orange" />
               </Link>
+              <p className="text-sm text-slate-600 pt-2">
+                Looking for property cleanup in Gallatin? See{' '}
+                <Link to="/property-cleanup-gallatin" className="font-bold text-brand-orange hover:text-brand-navy">
+                  Property Cleanup in Gallatin
+                </Link>
+                .
+              </p>
             </div>
 
             <div className="lg:col-span-7 space-y-6">
@@ -634,14 +641,24 @@ export default function PropertyCleanup() {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
-            {SERVICE_AREAS.map((area) => (
-              <div
-                key={area}
-                className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3.5 text-center text-sm font-semibold text-brand-navy"
-              >
-                {area}
-              </div>
-            ))}
+            {SERVICE_AREAS.map((area) =>
+              area === 'Gallatin' ? (
+                <Link
+                  key={area}
+                  to="/property-cleanup-gallatin"
+                  className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3.5 text-center text-sm font-semibold text-brand-navy transition-colors hover:border-brand-orange hover:text-brand-orange"
+                >
+                  {area}
+                </Link>
+              ) : (
+                <div
+                  key={area}
+                  className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3.5 text-center text-sm font-semibold text-brand-navy"
+                >
+                  {area}
+                </div>
+              ),
+            )}
           </div>
         </div>
       </section>
