@@ -43,6 +43,8 @@ import {
   Users,
   TrendingUp,
   Zap,
+  ClipboardList,
+  Camera,
 } from 'lucide-react';
 import EstateCleanouts from './pages/EstateCleanouts.tsx';
 import EvictionCleanouts from './pages/EvictionCleanouts.tsx';
@@ -412,18 +414,20 @@ const Hero = () => {
             <div className="pointer-events-none absolute inset-0 z-0 rounded-3xl bg-gradient-to-b from-brand-navy/[0.06] via-transparent to-transparent" aria-hidden />
             <div className="relative z-10">
             <span className="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-bold tracking-wide mb-4">
-              RESIDENTIAL • COMMERCIAL • DEMOLITION
+              PROPERTY CLEANOUTS • COMMERCIAL • DEMOLITION
             </span>
             <h1 className="font-display text-5xl lg:text-6xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-3">
-              <span className="text-brand-orange">Professional Property</span>
+              <span className="text-brand-orange">Property Cleanouts,</span>
               <br />
-              <span className="text-brand-orange">Solutions</span>
+              <span className="text-brand-orange">Commercial Cleanouts</span>
               <br />
-              Across Middle Tennessee
+              &amp; Junk Removal in Middle Tennessee
             </h1>
             <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-6 max-w-2xl">
-              From estate transitions and rental turnovers to commercial cleanouts and selective demolition,
-              Reinhart helps prepare properties for sale, renovation, occupancy, and whatever comes next.
+              Reinhart Hauling &amp; Cleanouts is a Goodlettsville-based, insured property and commercial cleanout
+              company serving Middle Tennessee. We handle whole-property cleanouts, commercial cleanouts, estate and
+              hoarder cleanouts, junk removal, and selective demolition and cleanup support for homes, rentals,
+              offices, retail spaces, and warehouses.
             </p>
 
             <PageCTAs layout="hero" />
@@ -476,33 +480,74 @@ const HeroTrustStrip = () => (
         Trusted by
       </p>
       <p className="text-sm font-medium leading-relaxed text-slate-600 text-center lg:text-left">
-        Homeowners · Real Estate Investors · Property Managers · Contractors · Commercial Businesses
+        Homeowners · Estate Representatives · Landlords · Property Managers · Investors · Contractors · Commercial
+        Property Owners
       </p>
       <p className="mt-3 text-xs text-slate-500 text-center lg:text-left">
-        Fully Insured • Transparent Pricing • Real Project Experience
+        Fully Insured • Clear Quote Before Work Begins • Real Project Experience
       </p>
     </div>
   </section>
 );
 
-const HeroSteps = () => <CleanoutProcess id="how-it-works" />;
+const HOME_PROCESS_STEPS = [
+  {
+    number: '01',
+    icon: ClipboardList,
+    title: 'Call, Text, or Request an Estimate',
+    description:
+      'Share the property address, project type, access notes, and timing so we understand the scope and can respond clearly.',
+    cta: { label: 'Request an Estimate →', estimate: true },
+  },
+  {
+    number: '02',
+    icon: Camera,
+    title: 'Photos or On-Site Walkthrough',
+    description:
+      'We review photos or schedule an on-site walkthrough to assess volume, access, disposal needs, and any selective demolition involved.',
+  },
+  {
+    number: '03',
+    icon: CheckCircle2,
+    title: 'Clear Quote Before Work Begins',
+    description:
+      'You receive a clear quote covering labor, haul-away, and disposal before work starts—no guessing on price after the crew arrives.',
+    cta: { href: 'tel:+16152000064', label: 'Call Now →' },
+  },
+  {
+    number: '04',
+    icon: Truck,
+    title: 'Load, Remove & Handle Materials',
+    description:
+      'We load and remove the material. Items are sorted for disposal, recycling, scrap recovery, or donation when practical and appropriate.',
+  },
+];
+
+const HeroSteps = () => (
+  <CleanoutProcess
+    id="how-it-works"
+    title="How a Cleanout Works"
+    subtitle="Call or request an estimate, review photos or walk the site, get a clear quote, then we load, remove, and properly handle the material."
+    steps={HOME_PROCESS_STEPS}
+  />
+);
 
 const ValueProps = () => {
   const props = [
     {
       icon: <ShieldCheck className="w-8 h-8" />,
       title: "Responsive Communication",
-      desc: "Clear, proactive communication from first contact through project completion."
+      desc: "Clear communication from first contact through load-out—whether you call, text, or request an estimate."
     },
     {
       icon: <Star className="w-8 h-8" />,
-      title: "Clear Upfront Pricing",
-      desc: "Honest recommendations and transparent pricing before work begins."
+      title: "Clear Quote Before Work",
+      desc: "We review photos or walk the site, then provide a clear quote before work begins."
     },
     {
       icon: <CheckCircle2 className="w-8 h-8" />,
-      title: "We Solve Difficult Problems",
-      desc: "From inherited homes to commercial properties, we help move projects forward."
+      title: "Substantial Cleanout Projects",
+      desc: "Property and commercial cleanouts, estate and hoarder jobs, turnovers, and selective demolition support."
     },
     {
       icon: <MessageSquare className="w-8 h-8" />,
@@ -512,12 +557,12 @@ const ValueProps = () => {
     {
       icon: <MapPin className="w-8 h-8" />,
       title: "Fully Insured",
-      desc: "Professional service backed by proper insurance for residential and commercial work."
+      desc: "Yes—we are insured for residential and commercial cleanout and selective demolition support work."
     },
     {
       icon: <Building2 className="w-8 h-8" />,
-      title: "Trusted Across Middle Tennessee",
-      desc: "Serving homeowners, investors, businesses, and property managers."
+      title: "Middle Tennessee Coverage",
+      desc: "Based in Goodlettsville and serving Nashville-area communities and surrounding Middle Tennessee markets."
     }
   ];
 
@@ -572,20 +617,21 @@ const serviceCategories: ServiceCategory[] = [
   {
     id: 'residential-property',
     pill: 'Property Services',
-    title: 'Property Services',
+    title: 'Property Cleanouts',
     description:
-      'Cleanouts and property preparation for homeowners, families, landlords, investors, and real estate transitions.',
+      'Whole-home and whole-property cleanouts for homeowners with substantial cleanup needs, estate representatives, landlords, investors, and multifamily turnovers—including estate, hoarder, rental, eviction, and foreclosure cleanouts.',
     hubLink: '/residential-property-services',
     hubCtaLabel: 'View All Residential Services',
     services: [
+      { icon: <Home />, title: 'Property Cleanouts', desc: 'Substantial residential and investment property cleanouts—not single-item discount pickups.', to: '/property-cleanouts' },
       { icon: <Home />, title: 'Property Cleanup', desc: 'Whole-property cleanup for renovation, sale, occupancy, or next steps.', to: '/property-cleanup' },
       { icon: <Users />, title: 'Estate Cleanouts', desc: 'Respectful cleanouts after inheritance, downsizing, and family transitions.', to: '/estate-cleanouts' },
       { icon: <Warehouse />, title: 'Hoarder Cleanouts', desc: 'Large-scale cleanouts with structure, discretion, and steady progress.', to: '/hoarder-cleanouts' },
-      { icon: <Warehouse />, title: 'Garage Cleanouts', desc: 'Clear accumulated items and restore usable garage space.', to: '/garage-cleanouts' },
-      { icon: <Package />, title: 'Storage Unit Cleanouts', desc: 'Abandoned and overflow contents removed from storage units.', to: '/storage-unit-cleanouts' },
+      { icon: <Home />, title: 'Rental Property Cleanouts', desc: 'Turnover cleanouts for rental homes, apartments, and problem properties.', to: '/landlord-rental-cleanouts' },
       { icon: <Trash2 />, title: 'Eviction Cleanouts', desc: 'Fast rental cleanouts to help owners regain control and prepare the unit.', to: '/eviction-cleanouts' },
       { icon: <KeyRound />, title: 'Foreclosure Cleanouts', desc: 'Cleanup after foreclosure, abandonment, or bank-owned transitions.', to: '/foreclosure-cleanouts' },
-      { icon: <Home />, title: 'Rental Property Cleanouts', desc: 'Turnover cleanouts for rental homes, apartments, and problem properties.', to: '/landlord-rental-cleanouts' },
+      { icon: <Warehouse />, title: 'Garage Cleanouts', desc: 'Clear accumulated items and restore usable garage space.', to: '/garage-cleanouts' },
+      { icon: <Package />, title: 'Storage Unit Cleanouts', desc: 'Abandoned and overflow contents removed from storage units.', to: '/storage-unit-cleanouts' },
       { icon: <Truck />, title: 'Move-Out Cleanouts', desc: 'Left-behind contents cleared for turnover and re-listing.', to: '/move-out-cleanouts' },
       { icon: <TrendingUp />, title: 'Property Preparation', desc: 'Organized clearing that opens properties for sale, renovation, or occupancy.', to: '/property-preparation' },
       { icon: <Trees />, title: 'Yard Debris Cleanup', desc: 'Brush, exterior clutter, and outdoor materials cleared from the property.', to: '/yard-debris-cleanup' },
@@ -595,13 +641,13 @@ const serviceCategories: ServiceCategory[] = [
   {
     id: 'residential-removal',
     pill: 'Removal Services',
-    title: 'Removal Services',
+    title: 'Junk Removal & Targeted Haul-Away',
     description:
-      'Targeted removal of furniture, appliances, debris, and outdoor structures throughout Middle Tennessee.',
+      'Junk removal and targeted haul-away for furniture, appliances, and debris—supporting larger property cleanouts when items need to come out cleanly.',
     hubLink: '/residential-property-services',
     hubCtaLabel: 'View All Residential Services',
     services: [
-      { icon: <Trash2 />, title: 'Junk Removal', desc: 'Furniture, clutter, appliances, and unwanted household items removed.', to: '/junk-removal' },
+      { icon: <Trash2 />, title: 'Junk Removal', desc: 'Furniture, clutter, appliances, and unwanted household items removed as part of a full cleanout or targeted haul-away.', to: '/junk-removal' },
       { icon: <Home />, title: 'Furniture Removal', desc: 'Couches, beds, dressers, and bulky furniture haul-away.', to: '/furniture-removal' },
       { icon: <Package />, title: 'Appliance Removal', desc: 'Refrigerators, washers, dryers, and stoves removed and hauled away.', to: '/appliance-removal' },
       { icon: <Zap />, title: 'Hot Tub Removal', desc: 'Hot tubs removed from decks, patios, and tight access areas.', to: '/hot-tub-removal' },
@@ -619,17 +665,17 @@ const serviceCategories: ServiceCategory[] = [
   {
     id: 'commercial',
     pill: 'Commercial',
-    title: 'Commercial Services',
+    title: 'Commercial Cleanouts',
     description:
-      'Cleanout and removal support for offices, warehouses, businesses, property managers, and contractors.',
+      'Commercial cleanouts for retail, offices, warehouses, and commercial property owners—plus turnovers, retail decommissioning, office load-outs, and construction cleanup for property managers, GCs, and restoration teams.',
     hubLink: '/commercial-services',
     hubCtaLabel: 'View Commercial Services',
     services: [
       {
-        icon: <HardHat />,
-        title: 'Contractor Project Support',
-        desc: 'Dependable labor and project support for commercial renovations, TI work, and property transitions.',
-        to: '/contractor-project-support',
+        icon: <Building2 />,
+        title: 'Commercial Cleanouts',
+        desc: 'Cleanouts for offices, businesses, facilities, and commercial property transitions.',
+        to: '/commercial-cleanouts',
       },
       {
         icon: <Building2 />,
@@ -638,40 +684,10 @@ const serviceCategories: ServiceCategory[] = [
         to: '/commercial-property-turnovers',
       },
       {
-        icon: <Hammer />,
-        title: 'Commercial Interior Strip-Outs',
-        desc: 'Selective tear-out and fixture removal to prepare spaces for renovation or tenant improvement.',
-        to: '/commercial-interior-strip-outs',
-      },
-      {
-        icon: <Building2 />,
-        title: 'Tenant Improvement (TI) Demo',
-        desc: 'Prior build-out removal before office, retail, and commercial tenant improvement work.',
-        to: '/tenant-improvement-demolition',
-      },
-      {
         icon: <Store />,
         title: 'Retail Decommissioning',
         desc: 'Fixture, inventory, and store contents removed during retail closures and transitions.',
         to: '/retail-decommissioning',
-      },
-      {
-        icon: <Archive />,
-        title: 'White Box Preparation',
-        desc: 'Clear tenant-specific contents so spaces present cleanly for marketing or build-out.',
-        to: '/white-box-preparation',
-      },
-      {
-        icon: <KeyRound />,
-        title: 'Lease Surrender Preparation',
-        desc: 'Load-out support aligned with lease-end deadlines and surrender requirements.',
-        to: '/lease-surrender-preparation',
-      },
-      {
-        icon: <Briefcase />,
-        title: 'Office Load-Outs',
-        desc: 'Cubicles, furniture, files, and office contents removed during decommissioning.',
-        to: '/office-load-outs',
       },
       {
         icon: <Store />,
@@ -680,10 +696,10 @@ const serviceCategories: ServiceCategory[] = [
         to: '/retail-store-cleanouts',
       },
       {
-        icon: <Building2 />,
-        title: 'Property Management Cleanouts',
-        desc: 'Recurring cleanout support for managers handling units, turnovers, and problem spaces.',
-        to: '/property-management-cleanouts',
+        icon: <Briefcase />,
+        title: 'Office Load-Outs',
+        desc: 'Cubicles, furniture, files, and office contents removed during decommissioning.',
+        to: '/office-load-outs',
       },
       {
         icon: <Warehouse />,
@@ -698,22 +714,58 @@ const serviceCategories: ServiceCategory[] = [
         to: '/construction-cleanup',
       },
       {
+        icon: <HardHat />,
+        title: 'Contractor Project Support',
+        desc: 'Dependable labor and project support for commercial renovations, TI work, and property transitions.',
+        to: '/contractor-project-support',
+      },
+      {
+        icon: <Hammer />,
+        title: 'Commercial Interior Strip-Outs',
+        desc: 'Selective tear-out and fixture removal to prepare spaces for renovation or tenant improvement.',
+        to: '/commercial-interior-strip-outs',
+      },
+      {
         icon: <Building2 />,
-        title: 'Commercial Cleanouts',
-        desc: 'Cleanouts for offices, businesses, facilities, and commercial property transitions.',
-        to: '/commercial-cleanouts',
+        title: 'Tenant Improvement (TI) Demo',
+        desc: 'Prior build-out removal before office, retail, and commercial tenant improvement work.',
+        to: '/tenant-improvement-demolition',
+      },
+      {
+        icon: <Archive />,
+        title: 'White Box Preparation',
+        desc: 'Clear tenant-specific contents so spaces present cleanly for marketing or build-out.',
+        to: '/white-box-preparation',
+      },
+      {
+        icon: <KeyRound />,
+        title: 'Lease Surrender Preparation',
+        desc: 'Load-out support aligned with lease-end deadlines and surrender requirements.',
+        to: '/lease-surrender-preparation',
+      },
+      {
+        icon: <Building2 />,
+        title: 'Property Management Cleanouts',
+        desc: 'Recurring cleanout support for managers handling units, turnovers, and problem spaces.',
+        to: '/property-management-cleanouts',
       },
     ],
   },
   {
     id: 'demolition',
     pill: 'Demolition Services',
-    title: 'Demolition Services',
+    title: 'Selective Demolition & Construction Cleanup',
     description:
-      'Selective demolition and removal work that prepares homes, rentals, offices, and commercial spaces for renovation.',
+      'Selective demolition and construction cleanup that prepares homes, rentals, offices, and commercial spaces for renovation—interior tear-out and debris removal, not structural building demolition.',
     hubLink: '/demolition-services',
     hubCtaLabel: 'View Demolition Services',
     services: [
+      {
+        icon: <Layers />,
+        title: 'Selective Demolition',
+        desc: 'Targeted tear-out of scheduled materials while protecting the rest of the property.',
+        to: '/selective-demolition',
+      },
       {
         icon: <Hammer />,
         title: 'Interior Demolition',
@@ -721,16 +773,16 @@ const serviceCategories: ServiceCategory[] = [
         to: '/interior-demolition',
       },
       {
+        icon: <HardHat />,
+        title: 'Construction Cleanup',
+        desc: 'Jobsite and renovation debris removed so the next phase of work can start clean.',
+        to: '/construction-cleanup',
+      },
+      {
         icon: <Building2 />,
         title: 'Tenant Improvement (TI) Demo',
         desc: 'Selective demo before office, retail, and commercial tenant improvement work.',
         to: '/tenant-improvement-demolition',
-      },
-      {
-        icon: <Layers />,
-        title: 'Selective Demolition',
-        desc: 'Targeted tear-out of scheduled materials while protecting the rest of the property.',
-        to: '/selective-demolition',
       },
       {
         icon: <UtensilsCrossed />,
@@ -825,11 +877,30 @@ const Services = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
           <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-navy mb-6">
-            Services Built Around Property Projects
+            Property Cleanouts, Commercial Cleanouts &amp; Selective Demolition
           </h2>
           <p className="text-slate-600 max-w-3xl mx-auto text-lg leading-relaxed">
-            From estate cleanouts and rental turnovers to commercial load-outs and demolition prep, Reinhart helps
-            clear the way for what comes next.
+            Reinhart focuses on{' '}
+            <Link to="/property-cleanouts" className="font-semibold text-brand-orange hover:text-brand-navy transition-colors">
+              property cleanouts
+            </Link>
+            ,{' '}
+            <Link to="/commercial-cleanouts" className="font-semibold text-brand-orange hover:text-brand-navy transition-colors">
+              commercial cleanouts
+            </Link>
+            , estate and hoarder projects, rental turnovers, and{' '}
+            <Link to="/selective-demolition" className="font-semibold text-brand-orange hover:text-brand-navy transition-colors">
+              selective demolition
+            </Link>{' '}
+            support—with junk removal available when it fits the job. See{' '}
+            <Link to="/what-we-take" className="font-semibold text-brand-orange hover:text-brand-navy transition-colors">
+              items we remove
+            </Link>{' '}
+            or{' '}
+            <Link to="/projects" className="font-semibold text-brand-orange hover:text-brand-navy transition-colors">
+              recent projects
+            </Link>
+            .
           </p>
         </div>
 
@@ -873,42 +944,42 @@ const WhoWeWorkWith = () => {
     {
       icon: <Home className="w-5 h-5" />,
       title: 'Homeowners',
-      desc: 'Garage cleanouts, junk removal, yard debris, hot tubs, and property cleanup.',
+      desc: 'Substantial property cleanouts, cluttered homes, garages, and cleanup before renovation or sale.',
     },
     {
       icon: <Users className="w-5 h-5" />,
-      title: 'Families & Estates',
-      desc: 'Estate cleanouts, downsizing, inherited homes, and post-sale cleanout support.',
+      title: 'Estate Representatives',
+      desc: 'Estate and inherited-home cleanouts handled with clear communication and steady progress.',
     },
     {
       icon: <KeyRound className="w-5 h-5" />,
-      title: 'Realtors',
-      desc: 'Listing prep, seller prep, estate properties, and last-minute property cleanups.',
+      title: 'Landlords & Multifamily',
+      desc: 'Rental, eviction, and apartment turnovers so units return to rent-ready condition faster.',
     },
     {
       icon: <Building2 className="w-5 h-5" />,
       title: 'Property Managers',
-      desc: 'Rental turnovers, eviction cleanouts, abandoned items, and recurring cleanup support.',
+      desc: 'Recurring cleanout support for problem units, abandoned contents, and portfolio turnovers.',
     },
     {
       icon: <TrendingUp className="w-5 h-5" />,
       title: 'Real Estate Investors',
-      desc: 'Flip properties, foreclosure cleanouts, renovation prep, and demo support.',
+      desc: 'Foreclosure cleanouts, flip prep, investor property cleanup, and renovation support.',
     },
     {
       icon: <ShieldCheck className="w-5 h-5" />,
       title: 'Restoration Companies',
-      desc: 'Tear-out debris, contents removal, jobsite cleanup, and recovery project support.',
+      desc: 'Contents removal, tear-out debris, and jobsite cleanup alongside recovery work.',
     },
     {
       icon: <HardHat className="w-5 h-5" />,
-      title: 'Contractors',
-      desc: 'Construction debris, demolition debris, material removal, and site cleanup.',
+      title: 'General Contractors',
+      desc: 'Construction cleanup, selective demo support, and material removal for active jobsites.',
     },
     {
       icon: <Briefcase className="w-5 h-5" />,
-      title: 'Commercial Businesses',
-      desc: 'Office cleanouts, furniture removal, warehouse cleanup, and facility transitions.',
+      title: 'Retail, Offices & Warehouses',
+      desc: 'Commercial cleanouts, office furniture, retail fixtures, and warehouse clear-outs for property owners.',
     },
   ];
 
@@ -918,8 +989,9 @@ const WhoWeWorkWith = () => {
         <div className="text-center mb-10 max-w-3xl mx-auto">
           <h2 className="font-display text-3xl lg:text-4xl font-bold text-brand-navy mb-4">Who We Work With</h2>
           <p className="text-slate-600 text-base lg:text-lg leading-relaxed">
-            Reinhart supports homeowners, families, businesses, and property professionals who need spaces cleared,
-            cleaned out, or prepared for what comes next.
+            Yes—we work with landlords and property managers, as well as homeowners, estate representatives, investors,
+            apartment operators, general contractors, restoration companies, and commercial property owners who need
+            spaces cleared or prepared for what comes next.
           </p>
         </div>
 
@@ -1002,8 +1074,16 @@ const RecentCleanoutProjects = () => {
             Featured Projects
           </h2>
           <p className="text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed">
-            A selection of real Reinhart projects completed for homeowners, investors, businesses, landlords, and estate
-            representatives across Middle Tennessee.
+            Real{' '}
+            <Link to="/projects" className="font-semibold text-brand-orange hover:text-brand-navy transition-colors">
+              projects
+            </Link>{' '}
+            for homeowners, investors, landlords, estate representatives, and commercial clients across Middle
+            Tennessee. Read{' '}
+            <Link to="/#reviews" className="font-semibold text-brand-orange hover:text-brand-navy transition-colors">
+              reviews
+            </Link>{' '}
+            from completed work.
           </p>
         </div>
 
@@ -1440,6 +1520,7 @@ const linkClassName =
 
 const AreasWeServe = () => {
   const [inquiryOpen, setInquiryOpen] = useState(false);
+  const { openEstimateRequest } = useEstimateRequest();
 
   return (
     <>
@@ -1453,14 +1534,26 @@ const AreasWeServe = () => {
           Areas We Serve Across Middle Tennessee
         </h2>
         <p className="text-slate-600 max-w-3xl text-base md:text-lg leading-relaxed mb-5 md:mb-6">
-          Reinhart Hauling &amp; Cleanouts serves homeowners, investors, property managers, contractors, and businesses
-          throughout the Greater Nashville area and across Middle Tennessee.
+          Based in Goodlettsville, Reinhart Hauling &amp; Cleanouts serves Middle Tennessee with a focus on
+          Hendersonville, Gallatin, White House, Nashville, East Nashville, Downtown Nashville, Belle Meade, Brentwood,
+          Franklin, Springfield, Mt. Juliet, and Lebanon—plus nearby communities when the project fits.
+        </p>
+        <p className="text-slate-600 max-w-3xl text-base md:text-lg leading-relaxed mb-5 md:mb-6">
+          We complete property cleanouts, commercial cleanouts, rental turnovers, and selective demolition support
+          throughout these markets. For larger commercial, retail decommissioning, warehouse, or contractor projects, we
+          can mobilize farther when the scope makes sense.
         </p>
         <p className="text-slate-600 max-w-3xl text-base md:text-lg leading-relaxed mb-8 md:mb-9">
-          We routinely complete cleanouts, property turnovers, demolition support, and commercial projects throughout
-          Nashville and surrounding communities. For larger commercial cleanouts, retail decommissioning, tenant
-          improvement demo, property turnovers, and disaster-related projects, we can mobilize farther when the scope
-          makes sense.
+          Same-day or short-notice service may be available depending on scheduling, location, project size, and disposal
+          requirements. Call{' '}
+          <a href="tel:+16152000064" className={linkClassName}>
+            615-200-0064
+          </a>{' '}
+          or{' '}
+          <button type="button" onClick={openEstimateRequest} className={linkClassName}>
+            request an estimate
+          </button>{' '}
+          with the property address and scope.
         </p>
 
         <div className="space-y-7 md:space-y-8">
@@ -1559,13 +1652,69 @@ const MeetTheOwner = () => {
             
             <div className="space-y-6 text-lg text-slate-600">
               <p>
-                Reinhart Hauling &amp; Cleanouts exists to solve difficult property problems through clear
-                communication, organized planning, and dependable execution.
+                Reinhart Hauling &amp; Cleanouts is a Goodlettsville-based cleanout company. We handle{' '}
+                <Link to="/property-cleanouts" className="font-semibold text-brand-orange hover:text-brand-navy transition-colors">
+                  property cleanouts
+                </Link>
+                ,{' '}
+                <Link to="/property-cleanup" className="font-semibold text-brand-orange hover:text-brand-navy transition-colors">
+                  property cleanup
+                </Link>
+                ,{' '}
+                <Link to="/commercial-cleanouts" className="font-semibold text-brand-orange hover:text-brand-navy transition-colors">
+                  commercial cleanouts
+                </Link>
+                ,{' '}
+                <Link to="/estate-cleanouts" className="font-semibold text-brand-orange hover:text-brand-navy transition-colors">
+                  estate cleanouts
+                </Link>
+                ,{' '}
+                <Link to="/hoarder-cleanouts" className="font-semibold text-brand-orange hover:text-brand-navy transition-colors">
+                  hoarder cleanouts
+                </Link>
+                ,{' '}
+                <Link to="/landlord-rental-cleanouts" className="font-semibold text-brand-orange hover:text-brand-navy transition-colors">
+                  rental
+                </Link>
+                {' '}and{' '}
+                <Link to="/eviction-cleanouts" className="font-semibold text-brand-orange hover:text-brand-navy transition-colors">
+                  eviction cleanouts
+                </Link>
+                , and selective demolition support—not discount single-item pickups.
               </p>
               <p>
-                Whether we&apos;re preparing a home for sale, clearing an inherited property, supporting a renovation,
-                or helping a business move a project forward, our focus stays the same: remove obstacles, create
-                order, and keep the project moving.
+                We clean out homes, rentals, apartments, offices, retail spaces, and warehouses. That includes{' '}
+                <Link to="/commercial-property-turnovers" className="font-semibold text-brand-orange hover:text-brand-navy transition-colors">
+                  commercial property turnovers
+                </Link>
+                ,{' '}
+                <Link to="/retail-decommissioning" className="font-semibold text-brand-orange hover:text-brand-navy transition-colors">
+                  retail decommissioning
+                </Link>
+                ,{' '}
+                <Link to="/warehouse-cleanouts" className="font-semibold text-brand-orange hover:text-brand-navy transition-colors">
+                  warehouse cleanouts
+                </Link>
+                , office furniture and retail fixture removal,{' '}
+                <Link to="/interior-demolition" className="font-semibold text-brand-orange hover:text-brand-navy transition-colors">
+                  interior demolition
+                </Link>
+                , and{' '}
+                <Link to="/construction-cleanup" className="font-semibold text-brand-orange hover:text-brand-navy transition-colors">
+                  construction cleanup
+                </Link>
+                . See{' '}
+                <Link to="/what-we-take" className="font-semibold text-brand-orange hover:text-brand-navy transition-colors">
+                  items we remove
+                </Link>
+                .
+              </p>
+              <p>
+                The estimate process is straightforward: call, text, or request an estimate; we review photos or schedule
+                a walkthrough; you receive a clear quote before work begins; then we load, remove, and handle the
+                material. Items are sorted for disposal, recycling, scrap recovery, or donation when practical and
+                appropriate. We are insured. Same-day or short-notice service may be available depending on scheduling,
+                location, project size, and disposal requirements.
               </p>
               <p className="text-base text-slate-500">
                 Difficult jobs deserve thoughtful planning, honest communication, and work completed the right
@@ -1891,9 +2040,9 @@ const SiteLayout = ({ children }: { children: React.ReactNode }) => {
 };
 
 const HOME_TITLE =
-  'Reinhart Hauling & Cleanouts | Property Cleanup & Commercial Cleanouts in Middle Tennessee';
+  'Reinhart Hauling & Cleanouts | Property Cleanouts, Commercial Cleanouts & Junk Removal in Middle Tennessee';
 const HOME_DESCRIPTION =
-  'Insured property cleanouts, commercial cleanouts, estate and rental turnovers, and selective demolition support across Middle Tennessee. Based in Goodlettsville. Call 615-200-0064.';
+  'Goodlettsville-based property and commercial cleanouts across Middle Tennessee. Estate, rental, and selective demolition support. Insured. Call 615-200-0064.';
 
 const HomePage = () => {
   return (
