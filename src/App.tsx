@@ -2110,6 +2110,26 @@ const HomePage = () => {
       <AreasWeServe />
       <MeetTheOwner />
       <ServiceBottomCTA variant="home" />
+      <section
+        className="border-t border-slate-100 bg-white py-16 md:py-20"
+        aria-label="Reinhart Hauling & Cleanouts location"
+      >
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="overflow-hidden rounded-3xl border border-slate-200/80 shadow-xl shadow-slate-200/50 ring-1 ring-slate-900/5">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4444.920685235377!2d-86.74672202330628!3d36.39995159015793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x24431289d5ad9585%3A0x6952fecee43c2730!2sReinhart%20Hauling%20%26%20Cleanouts!5e1!3m2!1sen!2sus!4v1790363827861!5m2!1sen!2sus"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+              title="Reinhart Hauling & Cleanouts - Goodlettsville, TN"
+              className="block h-[280px] w-full sm:h-[360px] md:h-[450px]"
+            />
+          </div>
+        </div>
+      </section>
     </SiteLayout>
     </>
   );
