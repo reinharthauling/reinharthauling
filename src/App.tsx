@@ -154,6 +154,25 @@ const Navbar = () => {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const servicesRef = useRef<HTMLDivElement>(null);
   const servicesButtonRef = useRef<HTMLButtonElement>(null);
+  const servicesCloseTimerRef = useRef<number | null>(null);
+
+  const openServicesMenu = () => {
+    if (servicesCloseTimerRef.current != null) {
+      window.clearTimeout(servicesCloseTimerRef.current);
+      servicesCloseTimerRef.current = null;
+    }
+    setServicesOpen(true);
+  };
+
+  const scheduleCloseServicesMenu = () => {
+    if (servicesCloseTimerRef.current != null) {
+      window.clearTimeout(servicesCloseTimerRef.current);
+    }
+    servicesCloseTimerRef.current = window.setTimeout(() => {
+      setServicesOpen(false);
+      servicesCloseTimerRef.current = null;
+    }, 200);
+  };
 
   const servicesActive = isServicesNavActive(location.pathname, location.hash);
 
@@ -162,6 +181,14 @@ const Navbar = () => {
     setServicesOpen(false);
     setMobileServicesOpen(false);
   }, [location.pathname, location.hash]);
+
+  useEffect(() => {
+    return () => {
+      if (servicesCloseTimerRef.current != null) {
+        window.clearTimeout(servicesCloseTimerRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -275,14 +302,20 @@ const Navbar = () => {
           <div
             ref={servicesRef}
             className="relative"
-            onMouseEnter={() => setServicesOpen(true)}
-            onMouseLeave={() => setServicesOpen(false)}
+            onMouseEnter={openServicesMenu}
+            onMouseLeave={scheduleCloseServicesMenu}
           >
             <button
               ref={servicesButtonRef}
               type="button"
               id="services-menu-button"
-              onClick={() => setServicesOpen((open) => !open)}
+              onClick={() => {
+                if (servicesCloseTimerRef.current != null) {
+                  window.clearTimeout(servicesCloseTimerRef.current);
+                  servicesCloseTimerRef.current = null;
+                }
+                setServicesOpen((open) => !open);
+              }}
               aria-expanded={servicesOpen}
               aria-haspopup="true"
               aria-controls="services-mega-menu"
@@ -394,39 +427,36 @@ const HERO_FEATURE_IMAGE_ALT =
 
 const Hero = () => {
   return (
-    <section id="hero" className="relative pt-28 pb-8 lg:pt-36 lg:pb-10 overflow-hidden">
+    <section id="hero" className="relative overflow-hidden pt-36 pb-5 lg:pt-32 lg:pb-6 [@media(min-height:800px)]:lg:pt-36 2xl:pt-40 2xl:pb-8">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="grid items-center gap-5 sm:gap-6 lg:grid-cols-2 lg:gap-8 2xl:gap-10">
         <div className="max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="relative rounded-3xl border border-slate-200/80 bg-brand-navy/[0.04] p-6 lg:p-8 shadow-sm"
+            className="relative rounded-3xl border border-slate-200/80 bg-brand-navy/[0.04] p-5 sm:p-6 2xl:p-8 shadow-sm"
           >
             {/* Subtle readability layer — keeps contractor aesthetic without heavy blocks */}
             <div className="pointer-events-none absolute inset-0 z-0 rounded-3xl bg-gradient-to-b from-brand-navy/[0.06] via-transparent to-transparent" aria-hidden />
             <div className="relative z-10">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-bold tracking-wide mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-bold tracking-wide mb-3 lg:mb-4">
               PROPERTY CLEANOUTS • COMMERCIAL • DEMOLITION
             </span>
-            <h1 className="font-display text-5xl lg:text-6xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-3">
+            <h1 className="font-display text-4xl font-bold leading-[0.95] tracking-tighter text-brand-navy mb-2.5 sm:text-5xl sm:mb-3 2xl:text-6xl">
               <span className="text-brand-orange">Property Cleanouts,</span>
               <br />
               <span className="text-brand-orange">Commercial Cleanouts</span>
               <br />
               &amp; Junk Removal in Middle Tennessee
             </h1>
-            <p className="text-lg lg:text-xl text-slate-600 leading-relaxed mb-6 max-w-2xl">
-              Reinhart Hauling &amp; Cleanouts is a Goodlettsville-based, insured property and commercial cleanout
-              company serving Middle Tennessee. We handle whole-property cleanouts, commercial cleanouts, estate and
-              hoarder cleanouts, junk removal, and selective demolition and cleanup support for homes, rentals,
-              offices, retail spaces, and warehouses.
+            <p className="mb-3 max-w-2xl text-lg leading-relaxed text-slate-600 sm:mb-4 lg:mb-5 lg:text-xl">
+              Professional property cleanouts, junk removal, commercial cleanouts, and selective demolition throughout Middle Tennessee.
             </p>
 
             <PageCTAs layout="hero" />
 
-            <div className="mt-5 flex flex-col gap-0.5">
+            <div className="mt-3 flex flex-col gap-0.5 lg:mt-4">
               <span className="text-sm font-semibold text-brand-navy">Need an on-site estimate?</span>
               <span className="inline-flex items-center gap-2 text-sm font-semibold">
                 <a
@@ -444,9 +474,9 @@ const Hero = () => {
             </div>
           </motion.div>
         </div>
-        <div className="mt-8 lg:mt-0">
+        <div className="mt-4 lg:mt-0">
           {/* HERO_MEDIA: replace HERO_FEATURE_IMAGE_SRC with project photo or before/after still — same aspect classes */}
-          <div className="relative h-[280px] sm:h-[360px] lg:h-[460px] rounded-3xl overflow-hidden shadow-2xl shadow-slate-900/10 ring-1 ring-slate-900/5 border border-slate-200/80 bg-slate-900">
+          <div className="relative h-[210px] overflow-hidden rounded-3xl border border-slate-200/80 bg-slate-900 shadow-2xl shadow-slate-900/10 ring-1 ring-slate-900/5 sm:h-[260px] lg:h-[340px] 2xl:h-[400px] [@media(max-height:800px)]:lg:h-[300px]">
             <img
               src={HERO_FEATURE_IMAGE_SRC}
               alt={HERO_FEATURE_IMAGE_ALT}
@@ -469,16 +499,15 @@ const Hero = () => {
 
 const HeroTrustStrip = () => (
   <section className="border-y border-slate-100 bg-white/90 py-5">
-    <div className="max-w-7xl mx-auto px-6">
-      <p className="text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-2.5 text-center lg:text-left">
+    <div className="mx-auto max-w-7xl px-6 text-center">
+      <p className="mb-2 text-[11px] font-bold uppercase tracking-widest text-slate-400">
         Trusted by
       </p>
-      <p className="text-sm font-medium leading-relaxed text-slate-600 text-center lg:text-left">
-        Homeowners · Estate Representatives · Landlords · Property Managers · Investors · Contractors · Commercial
-        Property Owners
+      <p className="text-sm font-medium leading-relaxed text-slate-600">
+        Homeowners • Property Managers • Investors • Contractors • Local Businesses
       </p>
-      <p className="mt-3 text-xs text-slate-500 text-center lg:text-left">
-        Fully Insured • Clear Quote Before Work Begins • Real Project Experience
+      <p className="mt-2 text-xs font-medium tracking-wide text-slate-500">
+        Insured • 5-Star Google Reviews • Upfront Pricing
       </p>
     </div>
   </section>

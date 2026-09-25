@@ -12,9 +12,12 @@ export default function PageCTAs({ layout = 'hero', className = '' }: PageCTAsPr
 
   return (
     <div
-      className={`flex flex-col gap-4 sm:flex-row ${isBottom ? 'justify-center gap-6' : ''} ${className}`.trim()}
+      className={`flex ${isBottom ? 'flex-col justify-center gap-4 sm:flex-row sm:gap-6' : 'flex-row flex-wrap gap-2.5 sm:gap-4'} ${className}`.trim()}
     >
-      <EstimateRequestButton size={isBottom ? 'large' : 'default'} />
+      <EstimateRequestButton
+        size={isBottom ? 'large' : 'default'}
+        className={isBottom ? '' : 'min-w-0 flex-1 !px-3 !py-3 !text-sm leading-tight sm:flex-none sm:!px-8 sm:!py-4 sm:!text-lg sm:leading-normal'}
+      />
       <motion.a
         href="tel:+16152000064"
         whileHover={{ scale: 1.02 }}
@@ -22,7 +25,7 @@ export default function PageCTAs({ layout = 'hero', className = '' }: PageCTAsPr
         className={
           isBottom
             ? 'flex items-center justify-center gap-3 rounded-2xl border-2 border-slate-200 bg-white px-10 py-5 text-xl font-bold text-brand-navy transition-all hover:scale-105 hover:border-brand-orange'
-            : 'flex items-center justify-center gap-3 rounded-2xl border-2 border-slate-200 bg-white px-8 py-4 text-lg font-bold text-brand-navy transition-colors hover:border-brand-orange'
+            : 'flex min-w-0 flex-1 items-center justify-center gap-2 rounded-2xl border-2 border-slate-200 bg-white px-3 py-3 text-sm font-bold leading-tight text-brand-navy transition-colors hover:border-brand-orange sm:flex-none sm:gap-3 sm:px-8 sm:py-4 sm:text-lg sm:leading-normal'
         }
       >
         <Phone />
